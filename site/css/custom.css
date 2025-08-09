@@ -1,0 +1,23 @@
+/* 将背景颜色设置为黑色 */
+body {
+    background-color: black !important;
+    color: white; /* 修改字体颜色为白色，以确保文字可见 */
+}
+
+/* 让导航栏和其他元素适应黑色背景 */
+.md-header, .md-footer, .md-navigation {
+    background-color: black !important;
+    color: white; /* 改变文本颜色为白色 */
+}
+
+/* 如果你有自定义的页面，确保它们也能适应 */
+.md-content {
+    background-color: black !important;
+    color: white;
+}
+
+/* 改变代码块的背景颜色，使其与黑色背景协调 */
+.highlight pre, pre, code {
+    background-color: #333333 !important;
+    color: white;
+}

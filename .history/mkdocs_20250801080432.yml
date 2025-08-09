@@ -1,0 +1,176 @@
+site_name: 强化学习课程笔记
+site_url: 
+repo_url: https://github.com/wgyhhhh/FCAAS_LLM/
+repo_name: wgyhhhh/FCAAS_LLM
+site_author: Guangyu
+site_description: 确保大型语言模型的对齐和安全性的基础挑战
+theme:
+  name: material
+  palette: # 界面整体样式
+    - media: "(prefers-color-scheme: light)" # 亮色主题
+      scheme: default
+      primary: white
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: 明亮主题
+    - media: "(prefers-color-scheme: dark)" # 暗色主题
+      scheme: slate
+      primary: black
+      accent: yellow
+      toggle:
+        icon: material/weather-night
+        name: 暗黑主题
+  logo: img/logo.jpg # 页面左上角徽标'
+
+  features:
+    - announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
+    # - navigation.instant
+    #- header.autohide  #自动隐藏
+    - navigation.tracking #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
+    - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
+    # - navigation.tabs.sticky  #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
+    - navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
+    - navigation.top # 返回顶部的按钮 在上滑时出现
+    - navigation.footer #页脚将呈现在边栏中，但在移动设备上保持原样
+    - search.suggest # 搜索输入一些字母时推荐补全整个单词
+    - search.highlight # 搜索出的文章关键词加入高亮
+    - search.share #搜索分享按钮
+    - navigation.expand # 打开Tab时左侧目录全部展开
+    - navigation.indexes #启用节索引页后，可以将文档直接附加到节
+    - content.tabs.link
+    - content.tooltips
+    - content.code.copy #代码复制
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+  language: zh # 一些提示性的文字会变成中文
+
+  icon:
+    repo: fontawesome/brands/github #右上角图标
+    logo: logo
+
+extra:
+  social: # 社交联系方式（页面右下角内容）
+    - icon: fontawesome/brands/github
+      link: https://github.com/wgyhhhh/
+      name: GitHub
+    - icon: fontawesome/brands/bilibili
+      link: https://space.bilibili.com/281217178
+      name: 哔哩哔哩
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:wgyhhh001@gmail.com
+      name: 联系作者
+  version:
+    provider: mike
+    alias: true
+  consent:
+    actions:
+      - accept
+      - reject
+      - manage
+    title: Cookie 设置
+    description: >-
+      我们使用 cookies 来识别您的重复访问和偏好，以及衡量我们文档的有效性和用户是否找
+      到他们正在搜索的内容。<br/>
+      在您的同意下，您将帮助我们改进我们的文档。<br/>
+      （您稍后仍可以在网页左下角重新修改 cookies 设置）
+    analytics: # 谷歌统计
+    provider: google
+    property: G-C5GHN09YHC
+    feedback:
+      title: 该页面对你有帮助吗？
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: 有帮助
+          data: 1
+          note: 感谢您的反馈！
+        - icon: material/emoticon-neutral-outline
+          name: 一般般
+          data: 0
+          note: 感谢您的反馈！
+        - icon: material/emoticon-sad-outline
+          name: 有待改进
+          data: -1
+          note: 感谢您的反馈！
+
+
+nav:
+  - 主页: 
+    - 欢迎: 'index.md'
+  - 第一章:
+    - 介绍: '01-introduction/intro.md'
+    - 1.1-网格世界: 'Chapter-1/1-1.md'
+    - 1.2-状态和行动: 'Chapter-1/1-2.md'
+    - 1.3-状态转移: 'Chapter-1/1-3.md'
+    - 1.4-策略: 'Chapter-1/1-4.md'
+    - 1.5-奖励: 'Chapter-1/1-5.md'
+    - 1.6-轨迹、回报、回合: 'Chapter-1/1-6.md'
+    - 1.7-马尔科夫决策过程: 'Chapter-1/1-7.md'
+    - 1.8-总结: 'Chapter-1/1-8.md'  
+  - 第二章:
+    - 介绍: 'Chapter-2/intro.md'
+    - 2.1-为什么回报很重要?: 'Chapter-2/2-1.md'
+    - 2.2-如何计算回报?: 'Chapter-2/2-2.md'
+    - 2.3-状态值: 'Chapter-2/2-3.md'
+    - 2.4-贝尔曼方程: 'Chapter-2/2-4.md'
+    - 2.5-贝尔曼方程的例子: 'Chapter-2/2-5.md'
+    - 2.6-贝尔曼方程的矩阵形式: 'Chapter-2/2-6.md'
+    - 2.7-根据贝尔曼方程求解状态值: 'Chapter-2/2-7.md'
+markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+  - abbr
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta # 支持Markdown文件上方自定义标题标签等
+  - pymdownx.caret
+  - pymdownx.betterem
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format:
+            !!python/name:pymdownx.superfences.fence_code_format # 代码块高亮插件
+  - pymdownx.arithmatex: # latex支持
+      generic: true
+  - toc:
+      permalink: true # 固定标题位置为当前位置
+  - pymdownx.highlight: # 代码块高亮
+      anchor_linenums: true
+      linenums: true # 显示行号
+      # auto_title: true # 显示编程语言名称
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_javascript:
+  # - javascripts/extra.js #自定义javascript
+  - https://Xiaokang2022.github.io/maliang/js/click-colorful.js # 鼠标点击效果
+  - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js  # extra的cdn
+  #- https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js #Latex支持
+  - https://polyfill.io/v3/polyfill.min.js?features=es6 #Latex支持
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js #Latex支持
+  # - ckplayer/js/ckplayer.js #播放器配置
+  # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js  #gitalk支持
+  - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js #忘了
+  - javascripts/extra.js
+  - javascripts/mathjax.js #MathJax配置
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+
+extra_css:
+  - css/misc.css #自定义css
+  - css/extra.css
+extra_templates:
+  - sitemap.xml
