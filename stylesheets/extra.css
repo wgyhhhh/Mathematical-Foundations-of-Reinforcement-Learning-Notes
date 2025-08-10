@@ -7,14 +7,14 @@
 
 /*亮色样式*/
 [data-md-color-scheme="default"] {
-    --md-primary-fg-color: rgba(245, 242, 242, 0.149);
-    --md-header-bg-color: rgba(109, 196, 17, 0.921);
+    --md-primary-fg-color: hsl(0, 0%, 5%);
+    --md-header-bg-color: lch(0.17% 0.83 19.4);
     --md-typeset-a-color: steelblue;
-    --md-footer-bg-color: #74cc0f;
-    --md-footer-bg-color--dark: #c1ab0b;
-    --md-footer-fg-color: #fefefe;
-    --md-footer-fg-color--light: #505050;
-    --md-footer-fg-color--lighter: #777777;
+    --md-footer-bg-color: lab(31.03% 0 0);
+    --md-footer-bg-color--dark: hwb(0 4% 96%);
+    --md-footer-fg-color: hsl(0, 0%, 100%);
+    --md-footer-fg-color--light: hsl(0, 8%, 92%);
+    --md-footer-fg-color--lighter: hsl(0, 0%, 95%);
     --md-code-hl-comment-color: #ad4444;
 }
 
@@ -22,10 +22,10 @@
 [data-md-color-scheme="slate"] {
     --md-primary-fg-color: rgba(17, 16, 17, 0.7);
     --md-header-bg-color: rgba(17, 16, 17, 0.7);
-    --md-typeset-a-color: royalblue;
+    --md-typeset-a-color: #7692e8;
     --md-footer-bg-color: #101010;
     --md-footer-bg-color--dark: #101010;
-    --md-code-hl-comment-color: #777777;
+    --md-code-hl-comment-color: hsl(0, 12%, 97%);
 }
 
 /*顶栏磨砂玻璃效果*/
