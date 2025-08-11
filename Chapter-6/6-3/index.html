@@ -16,6 +16,8 @@
         <link rel="prev" href="../6-2/">
       
       
+        <link rel="next" href="../6-4/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.18">
     
@@ -1429,6 +1431,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#632" class="md-nav__link">
+    6.3.2 应用于期望值估计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-" class="md-nav__link">
+    6.3.3 应用于证明罗宾斯-门罗定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-dvoretzky" class="md-nav__link">
+    6.3.4 Dvoretzky定理的扩展
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1449,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../6-4.md" class="md-nav__link">
+      <a href="../6-4/" class="md-nav__link">
         6.4-随机梯度下降
       </a>
     </li>
@@ -1463,7 +1486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../6-5.md" class="md-nav__link">
+      <a href="../6-5/" class="md-nav__link">
         6.5-总结
       </a>
     </li>
@@ -1516,6 +1539,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#632" class="md-nav__link">
+    6.3.2 应用于期望值估计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-" class="md-nav__link">
+    6.3.3 应用于证明罗宾斯-门罗定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-dvoretzky" class="md-nav__link">
+    6.3.4 Dvoretzky定理的扩展
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1557,8 +1601,8 @@
 <h2 id="63-dvoretzky">6.3 Dvoretzky定理<a class="headerlink" href="#63-dvoretzky" title="Permanent link">&para;</a></h2>
 <p>到目前为止，RM算法的收敛性尚未得到理论证明。为此，我们接下来介绍Dvoretzky 定理[31, 32]，它是随机逼近领域的一个经典结果。该定理可用于分析 RM 算法和许多强化学习算法的收敛性。</p>
 <p>本节的数学内容稍显密集。建议对随机算法收敛性分析感兴趣的读者学习这一部分。否则，可以跳过本节。</p>
-<div class="admonition note 定理">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p><strong>定理6.2</strong>. (Dvoretzky 定理). 考虑一个随机过程 </p>
 <div class="arithmatex">\[\Delta_{k+1}=(1-\alpha_k)\Delta_k+\beta_k\eta_k,\]</div>
 <p>其中<span class="arithmatex">\(\{\alpha_k\}_{k=1}^\infty\)</span>, <span class="arithmatex">\(\{\beta_k\}_{k=1}^\infty\)</span>, <span class="arithmatex">\(\{\eta_k\}_{k=1}^\infty\)</span>是随机序列。对于所有<span class="arithmatex">\(k\)</span>有<span class="arithmatex">\(\alpha_k\geq 0,\beta_k\geq 0\)</span>。那么，如果满足以下条件，<span class="arithmatex">\(\Delta_k\)</span>几乎必然收敛为零</p>
@@ -1580,6 +1624,48 @@
 </div>
 <h3 id="631-dvoretzky">6.3.1 Dvoretzky的证明<a class="headerlink" href="#631-dvoretzky" title="Permanent link">&para;</a></h3>
 <p>见Box<span class="arithmatex">\(6.3.1\)</span>。</p>
+<h3 id="632">6.3.2 应用于期望值估计<a class="headerlink" href="#632" title="Permanent link">&para;</a></h3>
+<p>虽然均值估计算法<span class="arithmatex">\(w_{k+1}=w_k+\alpha_k(x_k-w_k)\)</span>已经通过RM定理进行了分析，但我们接下来将展示，其收敛性也可以通过Dvoretzky定理直接证明。</p>
+<p><strong>证明</strong>. 令<span class="arithmatex">\(w^*=\mathbb{E}[X]\)</span>。均值估计算法<span class="arithmatex">\(w_{k+1}=w_k+\alpha_k(x_k-w_k)\)</span>可以重写为</p>
+<div class="arithmatex">\[w_{k+1}-w^*=w_k-w^*+\alpha_k(x_k-w^*+w^*-w_k).\]</div>
+<p>令<span class="arithmatex">\(\Delta=w-w^*\)</span>，这时我们得到</p>
+<div class="arithmatex">\[\begin{aligned}\Delta_{k+1}&amp;=\Delta_{k}+\alpha_{k}(x_{k}-w^{*}-\Delta_{k})\\&amp;=(1-\alpha_{k})\Delta_{k}+\alpha_{k}\underbrace{(x_{k}-w^{*})}_{\eta_{k}}.\end{aligned}\]</div>
+<p>由于<span class="arithmatex">\({x_k}\)</span>是独立同分布的，我们有<span class="arithmatex">\(\mathbb{E}[\eta_k|\mathcal{H}_k] =\mathbb{E}[x_k-w^*|\mathcal{H}_k] = 0\)</span>，且<span class="arithmatex">\(\mathbb{E}[\eta_{k}^{2}|\mathcal{H}_{k}]=\mathbb{E}[x_{k}^{2}|\mathcal{H}_{k}]-(w^{*})^{2}=\mathbb{E}[x_{k}^{2}]-(w^{*})^{2}\)</span>是有界的(如果<span class="arithmatex">\(x_k\)</span>的方差是有限的)。根据Dvoretzky定理，我们得出结论：<span class="arithmatex">\(\Delta_k\)</span>收敛到零，因此<span class="arithmatex">\(w_k\)</span>几乎必然收敛到<span class="arithmatex">\(w^∗ = \mathbb{E}[X]\)</span>。</p>
+<h3 id="633-">6.3.3 应用于证明罗宾斯-门罗定理<a class="headerlink" href="#633-" title="Permanent link">&para;</a></h3>
+<p>现在，我们可以用Dvoretzky定理来证明罗宾斯-门罗定理了。</p>
+<p><strong>对罗宾斯-门罗定理的证明</strong>. RM算法的目的是找到<span class="arithmatex">\(g(w) = 0\)</span>的根。 假设根是 <span class="arithmatex">\(w∗\)</span>使得<span class="arithmatex">\(g(w^∗) = 0\)</span>，则RM算法的迭代公式为</p>
+<div class="arithmatex">\[\begin{aligned}w_{k+1}&amp;=w_{k}-a_{k}\tilde{g}(w_{k},\eta_{k})\\&amp;=w_k-a_k[g(w_k)+\eta_k].\end{aligned}\]</div>
+<p>这时我们有</p>
+<div class="arithmatex">\[w_{k+1}-w^*=w_k-w^*-a_k[g(w_k)-g(w^*)+\eta_k].\]</div>
+<p>根据中值定理[7,8]，可得<span class="arithmatex">\(g(w_{k})-g(w^{*})=\nabla_{w}g(w_{k}^{\prime})(w_{k}-w^{*}),\)</span>在这里<span class="arithmatex">\(w_k^\prime\in[w_k,w^*]\)</span>。令<span class="arithmatex">\(\Delta_k= w_k-w^*\)</span>，上面公式可变为</p>
+<div class="arithmatex">\[\begin{gathered}\Delta_{k+1}=\Delta_k-a_k[\nabla_wg(w_k^{\prime})(w_k-w^*)+\eta_k]\\=\Delta_k-a_k\nabla_wg(w_k^{\prime})\Delta_k+a_k(-\eta_k)\\=[1-\underbrace{a_k\nabla_wg(w_k^{\prime})}_{\alpha_k}]\Delta_k+a_k(-\eta_k).\end{gathered}\]</div>
+<p>注意到在假设条件下<span class="arithmatex">\(\nabla_w g(w)\)</span>有界，即 <span class="arithmatex">\(0 &lt; c_1 \leq \nabla_w g(w) \leq c_2\)</span>。根据假设 <span class="arithmatex">\(\sum_{k=1}^\infty a_k = \infty\)</span>且 <span class="arithmatex">\(\sum_{k=1}^\infty a_k^2 &lt; \infty\)</span>，可知 <span class="arithmatex">\(\sum_{k=1}^\infty \alpha_k = \infty\)</span>且 <span class="arithmatex">\(\sum_{k=1}^\infty \alpha_k^2 &lt; \infty\)</span>。因此，Dvoretzky定理的所有条件均被满足，故 <span class="arithmatex">\(\Delta_k\)</span>几乎必然收敛于零。</p>
+<p>RM定理的证明展现了Dvoretzky定理的强大能力。特别地，证明中的<span class="arithmatex">\(\alpha_k\)</span>是一个依赖于<span class="arithmatex">\(w_k\)</span>的随机序列，而非确定性序列。在此情形下，Dvoretzky定理依然适用。</p>
+<h3 id="634-dvoretzky">6.3.4 Dvoretzky定理的扩展<a class="headerlink" href="#634-dvoretzky" title="Permanent link">&para;</a></h3>
+<p>接下来，我们将Dvoretzky定理推广至一个能处理多变量的更一般形式。该广义定理由[32]提出，可用于分析<span class="arithmatex">\(Q\)</span>学习等随机迭代算法的收敛性。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>定理6.3</strong> 设 <span class="arithmatex">\(\mathcal{S}\)</span>为有限实数集。对于随机过程</p>
+<div class="arithmatex">\[\Delta_{k+1}(s)=(1-\alpha_k(s))\Delta_k(s)+\beta_k(s)\eta_k(s),\]</div>
+<p>对于所有 <span class="arithmatex">\(s \in \mathcal{S}\)</span>，若以下条件满足，则 <span class="arithmatex">\(\Delta_k(s)\)</span>几乎必然收敛于零：</p>
+<p>(a) <span class="arithmatex">\(\sum_k \alpha_k(s) = \infty\)</span>, <span class="arithmatex">\(\sum_k \alpha^2_k(s) &lt; \infty\)</span>,<span class="arithmatex">\(\sum_k \beta^2_k(s) &lt; \infty\)</span>, 且<span class="arithmatex">\(\mathbb{E}[\beta_k(s)|\mathcal{H}_k] \leq \mathbb{E}[\alpha_k(s)|\mathcal{H}_k]\)</span> 几乎必然一致成立</p>
+<p>(b) <span class="arithmatex">\(\|\mathbb{E}[\eta_k(s)|\mathcal{H}_k]\|_\infty\leq\gamma\|\Delta_k\|_\infty\)</span>，在这里<span class="arithmatex">\(\gamma\in(0,1)\)</span></p>
+<p>&copy; <span class="arithmatex">\(\mathrm{var}[\eta_{k}(s)|\mathcal{H}_{k}]\leq C(1+\|\Delta_{k}(s)\|_{\infty})^{2},\)</span>在这里<span class="arithmatex">\(C\)</span>是一个常数</p>
+<p>此处，<span class="arithmatex">\(H_k = \{\Delta_k, \Delta_{k-1}, \dots, \eta_{k-1}, \dots, \alpha_{k-1}, \dots, \beta_{k-1}, \dots \}\)</span>表示历史信息。术语 <span class="arithmatex">\(\|\cdot\|_\infty\)</span>指代最大范数。</p>
+<p><strong>证明</strong>. 作为该定理的推广，其证明可基于 Dvoretzky定理完成。具体细节参见文献[32]，此处从略。</p>
+<p>以下给出关于该定理的一些说明。</p>
+<ul>
+<li>
+<p>我们首先阐明定理中的若干符号定义。变量<span class="arithmatex">\(s\)</span>可视为索引指标，在强化学习语境中表征状态或状态-行动对。最大范数<span class="arithmatex">\(\|\cdot\|_\infty\)</span>定义于集合之上，其与向量的 <span class="arithmatex">\(L^\infty\)</span>范数概念相似但存在差异。具体而言：<span class="arithmatex">\(\mathbb{E}[\eta_k(s)|\mathcal{H}_k] \|_\infty \doteq \max_{s \in \mathcal{S}} | \mathbb{E}[\eta_k(s)|\mathcal{H}_k] |\)</span>以及<span class="arithmatex">\(\| \Delta_k(s) \|_\infty = \max_{s \in \mathcal{S}} | \Delta_k(s) |\)</span></p>
+</li>
+<li>
+<p>该定理比Dvoretzky定理更具普适性。首先，由于采用了最大范数运算，它能处理多变量情形，这对存在多重状态的强化学习问题至关重要；其次，Dvoretzky定理要求 <span class="arithmatex">\(\mathbb{E}[\eta_k(s)|\mathcal{H}_k] =0\)</span>且 <span class="arithmatex">\(\text{var}[\eta_k(s)|\mathcal{H}_k] \leq C\)</span>，而本定理仅需期望与方差被误差 <span class="arithmatex">\(\Delta_k\)</span>界定。</p>
+</li>
+<li>
+<p>需注意，<span class="arithmatex">\(\Delta(s)\)</span>对所有 <span class="arithmatex">\(s \in \mathcal{S}\)</span>的收敛性要求条件在每一 <span class="arithmatex">\(s \in \mathcal{S}\)</span>上均成立。因此，在应用该定理证明强化学习算法收敛性时，需证明这些条件对每个状态(或状态-动作对)均成立。</p>
+</li>
+</ul>
+</div>
 
 
 
@@ -1622,6 +1708,21 @@
             </div>
           </a>
         
+        
+          
+          <a href="../6-4/" class="md-footer__link md-footer__link--next" aria-label="下一页: 6.4-随机梯度下降" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                6.4-随机梯度下降
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

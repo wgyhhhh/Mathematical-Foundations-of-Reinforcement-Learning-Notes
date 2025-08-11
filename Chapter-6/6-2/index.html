@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#62-" class="md-skip">
+        <a href="#62-robbins-monro" class="md-skip">
           跳转至
         </a>
       
@@ -1403,11 +1403,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#62-" class="md-nav__link">
-    6.2 罗宾斯-门罗算法
+  <a href="#62-robbins-monro" class="md-nav__link">
+    6.2 罗宾斯-门罗算法(Robbins-Monro)
   </a>
   
-    <nav class="md-nav" aria-label="6.2 罗宾斯-门罗算法">
+    <nav class="md-nav" aria-label="6.2 罗宾斯-门罗算法(Robbins-Monro)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1458,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../6-4.md" class="md-nav__link">
+      <a href="../6-4/" class="md-nav__link">
         6.4-随机梯度下降
       </a>
     </li>
@@ -1472,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../6-5.md" class="md-nav__link">
+      <a href="../6-5/" class="md-nav__link">
         6.5-总结
       </a>
     </li>
@@ -1511,11 +1511,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#62-" class="md-nav__link">
-    6.2 罗宾斯-门罗算法
+  <a href="#62-robbins-monro" class="md-nav__link">
+    6.2 罗宾斯-门罗算法(Robbins-Monro)
   </a>
   
-    <nav class="md-nav" aria-label="6.2 罗宾斯-门罗算法">
+    <nav class="md-nav" aria-label="6.2 罗宾斯-门罗算法(Robbins-Monro)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1570,15 +1570,19 @@
 
   <h1>6.2-罗宾斯-门罗算法</h1>
 
-<h2 id="62-">6.2 罗宾斯-门罗算法<a class="headerlink" href="#62-" title="Permanent link">&para;</a></h2>
-<p>随机逼近是指解决寻根或优化问题的一大类随机迭代算法[24]。与许多其他寻根(root-finding)算法如随机逼近法与梯度逼近法等相比，其强大之处在于无需表达目标函数或其导数。</p>
-<p>罗宾斯-门罗(Robbins-Monro，RM)算法是随机逼近领域的一项开创性工作 [24-27]。如第<span class="arithmatex">\(6.4\)</span>节所示，著名的随机梯度下降算法就是RM算法的一种特殊形式。接下来我们将介绍RM算法的细节。</p>
+<h2 id="62-robbins-monro">6.2 罗宾斯-门罗算法(Robbins-Monro)<a class="headerlink" href="#62-robbins-monro" title="Permanent link">&para;</a></h2>
+<p>随机近似是指解决寻根(方程求解)或优化问题的一大类随机迭代算法[24]。与许多其他寻根算法如基于梯度的算法(梯度上升或梯度下降)等优化方法中，随机近似具有显著优势：它无需目标函数或其导数的解析表达式。</p>
+<p>罗宾斯-门罗(Robbins-Monro，RM)算法是随机近似领域的一项开创性工作 [24-27]。如第<span class="arithmatex">\(6.4\)</span>节所示，著名的随机梯度下降算法就是RM算法的一种特殊形式。接下来我们将介绍RM算法的细节。</p>
 <p>假设我们想找出方程的根</p>
 <div class="arithmatex">\[g(w)=0,\]</div>
 <p>其中<span class="arithmatex">\(w\in\mathbb{R}\)</span>是未知变量，<span class="arithmatex">\(g:\mathbb{R} \rightarrow \mathbb{R}\)</span>是一个函数。许多问题都可以表述为寻根问题。例如，如果<span class="arithmatex">\(J(w)\)</span>是一个需要优化的目标函数，那么这个优化问题可以转换为求解<span class="arithmatex">\(g(w)=\nabla_wJ(w)=0.\)</span>。此外，<span class="arithmatex">\(g(w) = c\)</span>(其中<span class="arithmatex">\(c\)</span>是一个常数)这样的方程也可以通过将<span class="arithmatex">\(g(w)-c\)</span>改写为一个新函数而转换为上述方程。</p>
-<p>如果已知<span class="arithmatex">\(g\)</span>的表达式或其导数，就可以使用许多算法。然而，我们面临的问题是函数<span class="arithmatex">\(g\)</span>的表达式是未知的。例如，函数可以用人工神经网络来表示，而人工神经网络的结构和参数都是未知的。此外，我们只能获得<span class="arithmatex">\(g(w)\)</span>的噪声观测值：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>梯度等于<span class="arithmatex">\(0\)</span>是<span class="arithmatex">\(J(w)\)</span>达到最大或最小的一个必要条件。</p>
+</div>
+<p>如果已知<span class="arithmatex">\(g\)</span>的表达式或其导数，就可以使用许多算法。然而，我们面临的问题是函数<span class="arithmatex">\(g\)</span>的表达式可能是未知的。例如，函数可以用人工神经网络来表示，而人工神经网络的结构和参数都是未知的。此外，我们只能获得<span class="arithmatex">\(g(w)\)</span>的噪声观测值：</p>
 <div class="arithmatex">\[\tilde{g}(w,\eta)=g(w)+\eta,\]</div>
-<p>其中<span class="arithmatex">\(\eta\in\mathbb{R}\)</span>是观测误差，可能是高斯误差，也可能不是。总之，这是一个黑盒系统，只有输入<span class="arithmatex">\(w\)</span>和噪声输出<span class="arithmatex">\(\tilde{g}(w,\eta)\)</span>是已知的(见图<span class="arithmatex">\(6.2\)</span>)。我们的目标是利用<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(\tilde{g}\)</span>求解<span class="arithmatex">\(g(w) = 0\)</span>。</p>
+<p>其中<span class="arithmatex">\(\eta\in\mathbb{R}\)</span>是观测误差，可能是高斯误差，也可能不是。总之，这是一个黑盒系统，只有输入<span class="arithmatex">\(w\)</span>和噪声观测值<span class="arithmatex">\(\tilde{g}(w,\eta)\)</span>是已知的(见图<span class="arithmatex">\(6.2\)</span>)。我们的目标是利用<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(\tilde{g}\)</span>求解<span class="arithmatex">\(g(w) = 0\)</span>。</p>
 <p><img alt="" src="../../img/06/1.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(6.2\)</span>：由<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(\tilde{g}\)</span>求解 <span class="arithmatex">\(g(w) = 0\)</span>问题的示意图。</p>
@@ -1596,18 +1600,18 @@
 <p>请看图<span class="arithmatex">\(6.4\)</span>所示的例子。在这个例子中，<span class="arithmatex">\(g(w) = tanh(w-1)\)</span>。<span class="arithmatex">\(g(w) = 0\)</span>的真根是<span class="arithmatex">\(w^∗ = 1\)</span>。我们应用 RM 算法，<span class="arithmatex">\(w_1 = 3，a_k = 1/k\)</span>。为了更好地说明收敛的原因，我们只需设置<span class="arithmatex">\(\eta_k ≡ 0\)</span>，因此，<span class="arithmatex">\(\tilde{g} (w_k, \eta_k) = g(w_k)\)</span>。这种情况下的RM算法为<span class="arithmatex">\(w_{k+1} = w_k -a_k g(w_k)\)</span>。由RM算法生成的<span class="arithmatex">\({w_k}\)</span>如图<span class="arithmatex">\(6.4\)</span>所示。可以看出，<span class="arithmatex">\(w_k\)</span>趋近于真正的根<span class="arithmatex">\(w^∗ = 1\)</span>。</p>
 <p><img alt="" src="../../img/06/3.png" /></p>
 <blockquote>
-<p>图<span class="arithmatex">\(6.4\)</span>：说明 RM 算法收敛性的示例。</p>
+<p>图<span class="arithmatex">\(6.4\)</span>：说明RM算法收敛性的示例。</p>
 </blockquote>
-<p>这个简单的例子可以说明 RM 算法收敛的原因。</p>
+<p>这个简单的例子可以说明RM算法收敛的原因。</p>
 <ul>
 <li>当<span class="arithmatex">\(w_k&gt;w^*\)</span>时，我们有<span class="arithmatex">\(g(w_k)&gt;0\)</span>，此时，<span class="arithmatex">\(w_{k+1}=w_k-a_kg(w_k)&lt;w_k\)</span>。如果<span class="arithmatex">\(|a_k g(w_k)|\)</span>足够小，我们有<span class="arithmatex">\(w^*&lt;w_{k+1}&lt;w_k\)</span>。因此，<span class="arithmatex">\(w_{k+1}\)</span>比<span class="arithmatex">\(w_k\)</span>更接近于<span class="arithmatex">\(w^*\)</span>。</li>
 <li>当<span class="arithmatex">\(w_k&lt;w^*\)</span>时，我们有<span class="arithmatex">\(g(w_k)&lt;0\)</span>，此时，<span class="arithmatex">\(w_{k+1}=w_k-a_kg(w_k)&gt;w_k\)</span>。如果<span class="arithmatex">\(|a_k g(w_k)|\)</span>足够小，我们有<span class="arithmatex">\(w^*&gt;w_{k+1}&gt;w_k\)</span>。因此，<span class="arithmatex">\(w_{k+1}\)</span>比<span class="arithmatex">\(w_k\)</span>更接近于<span class="arithmatex">\(w^*\)</span>。</li>
 </ul>
-<p>无论哪种情况，<span class="arithmatex">\(w_{k+1}\)</span>都比<span class="arithmatex">\(w_k\)</span>更接近<span class="arithmatex">\(w^∗\)</span>。因此，直观地说，<span class="arithmatex">\(wk\)</span>趋近于 <span class="arithmatex">\(w^∗\)</span>。</p>
-<p>上面的例子很简单，因为观测误差被假定为零。分析存在随机观测误差时的收敛性并非易事。下面给出了一个严格的收敛结果。</p>
+<p>无论哪种情况，<span class="arithmatex">\(w_{k+1}\)</span>都比<span class="arithmatex">\(w_k\)</span>更接近<span class="arithmatex">\(w^∗\)</span>。因此，直观地说，<span class="arithmatex">\(w_k\)</span>趋近于 <span class="arithmatex">\(w^∗\)</span>。</p>
+<p>上面的例子很简单，因为观测误差被假定为零。若存在随机观测误差，其收敛性分析将变得非平凡。下面给出了一个严格的收敛结果。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><strong>定理6.1</strong>. (罗宾斯-门罗定理)。在<span class="arithmatex">\((6.5)\)</span>中的罗宾斯-门罗算法中，如果</p>
+<p><strong>定理6.1</strong>. (罗宾斯-门罗定理)。在<span class="arithmatex">\((6.5)\)</span>中的罗宾斯-门罗算法中，如果满足</p>
 <ol>
 <li>
 <p><span class="arithmatex">\(0&lt;c_{1}\leq\nabla_{w}g(w)\leq c_{2}\;for\;all\;w\)</span>;</p>
@@ -1621,25 +1625,29 @@
 </ol>
 <p>在这里,<span class="arithmatex">\(\mathcal{H}_{k}=\{w_{k},w_{k-1},\ldots\}\)</span>,那么<span class="arithmatex">\(w_k\)</span>几乎肯定会收敛到满足<span class="arithmatex">\(g(w^∗) = 0\)</span>的根 <span class="arithmatex">\(w^∗\)</span>。</p>
 </div>
-<p>我们将该定理的证明推迟到第<span class="arithmatex">\(6.3.3\)</span>节。本定理依赖于附录<span class="arithmatex">\(B\)</span>中介绍的几乎确定收敛的概念。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>almost surely收敛。</p>
+</div>
+<p>我们将该定理的证明放到第<span class="arithmatex">\(6.3.3\)</span>节。本定理依赖于附录<span class="arithmatex">\(B\)</span>中介绍的几乎肯定收敛的概念。</p>
 <p>定理<span class="arithmatex">\(6.1\)</span>中的三个条件解释如下。</p>
 <ul>
 <li>
 <p>在第一个条件中，<span class="arithmatex">\(0&lt;c_{1}\leq\nabla_{w}g(w)\)</span>表示<span class="arithmatex">\(g(w)\)</span>是一个单调递增函数。这个条件确保了<span class="arithmatex">\(g(w) = 0\)</span>的根存在且唯一。如果<span class="arithmatex">\(g(w)\)</span>是单调递减函数，我们只需将<span class="arithmatex">\(-g(w)\)</span>视为单调递增的新函数即可。</p>
 <p>在应用中，我们可以将目标函数为<span class="arithmatex">\(J(w)\)</span>的优化问题表述为寻根问题：<span class="arithmatex">\(g(w)=\nabla_{w}J(w) = 0\)</span>。在这种情况下，<span class="arithmatex">\(g(w)\)</span>单调递增的条件表明 <span class="arithmatex">\(J(w)\)</span>是凸的，这是优化问题中通常采用的假设。</p>
-<p>不等式<span class="arithmatex">\(\nabla_{w}g(w)\leq c_2\)</span>表示<span class="arithmatex">\(g(w)\)</span>的梯度从上而下有界。例如，<span class="arithmatex">\(g(w) = tanh(w - 1)\)</span>满足这一条件，但<span class="arithmatex">\(g(w) = w^3 - 5\)</span>不满足这一条件。</p>
+<p>不等式<span class="arithmatex">\(\nabla_{w}g(w)\leq c_2\)</span>表示<span class="arithmatex">\(g(w)\)</span>的梯度有有界。例如，<span class="arithmatex">\(g(w) = tanh(w - 1)\)</span>满足这一条件，但<span class="arithmatex">\(g(w) = w^3 - 5\)</span>不满足这一条件。</p>
 </li>
 <li>
-<p>关于{a_k}的第二个条件很有趣。我们在强化学习算法中经常看到类似的条件。特别地，条件<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>意味着<span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k^2\)</span>是有上界的。这要求<span class="arithmatex">\(a_k\)</span>随着<span class="arithmatex">\(k \to \infty\)</span>收敛于零。条件<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>意味着<span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k\)</span>是无限大的。它要求<span class="arithmatex">\(a_k\)</span>不应该收敛于零得太快。这些条件有着有趣的性质，稍后会详细分析。</p>
+<p>关于<span class="arithmatex">\(\{a_k\}\)</span>的第二个条件很有趣。我们在强化学习算法中经常看到类似的条件。特别地，条件<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>意味着<span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k^2\)</span>是有上界的。这要求<span class="arithmatex">\(a_k\)</span>随着<span class="arithmatex">\(k \to \infty\)</span>收敛于零。条件<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>意味着<span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k\)</span>是无限大的。它要求<span class="arithmatex">\(a_k\)</span>不应该收敛于零得太快。这些条件有着有趣的性质，稍后会详细分析。</p>
 </li>
 <li>
-<p>第三个条件是温和的。它不要求观测误差<span class="arithmatex">\(\eta_k\)</span>是高斯分布的。一个重要的特例是<span class="arithmatex">\(\{\eta_k\}\)</span>是一个独立同分布的随机序列，满足<span class="arithmatex">\(\mathbb{E}[\eta_k] = 0\)</span>和<span class="arithmatex">\(\mathbb{E}[\eta_k^2] &lt; \infty\)</span>。在这种情况下，第三个条件是成立的，因为<span class="arithmatex">\(\eta_k\)</span>与<span class="arithmatex">\(\mathcal{H}_k\)</span>独立，因此我们有<span class="arithmatex">\(\mathbb{E}[\eta_k|\mathcal{H}_k] = \mathbb{E}[\eta_k] = 0\)</span>和<span class="arithmatex">\(\mathbb{E}[\eta_k^2|\mathcal{H}_k] = \mathbb{E}[\eta_k^2]\)</span>。</p>
+<p>第三个条件是温和的。它不要求观测误差<span class="arithmatex">\(\eta_k\)</span>是高斯分布的。常见的特例是<span class="arithmatex">\(\{\eta_k\}\)</span>是一个独立同分布的随机序列，满足<span class="arithmatex">\(\mathbb{E}[\eta_k] = 0\)</span>和<span class="arithmatex">\(\mathbb{E}[\eta_k^2] &lt; \infty\)</span>。在这种情况下，第三个条件是成立的，因为<span class="arithmatex">\(\eta_k\)</span>与<span class="arithmatex">\(\mathcal{H}_k\)</span>独立，因此我们有<span class="arithmatex">\(\mathbb{E}[\eta_k|\mathcal{H}_k] = \mathbb{E}[\eta_k] = 0\)</span>和<span class="arithmatex">\(\mathbb{E}[\eta_k^2|\mathcal{H}_k] = \mathbb{E}[\eta_k^2]\)</span>。</p>
 </li>
 </ul>
 <p>接下来，我们将更仔细地研究关于系数<span class="arithmatex">\({ak}\)</span>的第二个条件。</p>
 <ul>
 <li>
-<p>为什么第二个条件对 RM 算法的收敛很重要？</p>
+<p>为什么第二个条件对RM算法的收敛很重要？</p>
 <p>这个问题自然可以在我们稍后对上述定理进行严格证明时找到答案。在此，我们想提供一些具有洞察力的直觉。</p>
 <p>首先，<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>表示当<span class="arithmatex">\(k \to \infty\)</span>，有<span class="arithmatex">\(a_k \to 0\)</span>。为什么这个条件重要？假设观测值<span class="arithmatex">\(\tilde{g}(w_k, \eta_k)\)</span> 总是有界的。由于</p>
 <div class="arithmatex">\[w_{k+1} - w_k = -a_k g(w_k, \eta_k),\]</div>
@@ -1662,13 +1670,17 @@
 <div class="arithmatex">\[\sum_{k=1}^{\infty} \frac{1}{k^2} = \frac{\pi^2}{6} &lt; \infty.\]</div>
 <p>找到<span class="arithmatex">\(\sum_{k=1}^{\infty} \frac{1}{k^2}\)</span>的值被称为巴塞尔问题[30]。</p>
 <p>总之，序列 <span class="arithmatex">\(\{a_k = 1/k\}\)</span> 满足定理<span class="arithmatex">\(6.1\)</span>中的第二个条件。值得注意的是，稍微修改一下，例如<span class="arithmatex">\(a_k = 1/(k+1)\)</span>或<span class="arithmatex">\(a_k = c_k/k\)</span>，其中<span class="arithmatex">\(c_k\)</span>是有界的，也能保持这个条件。</p>
-<p>在RM算法中，<span class="arithmatex">\(a_k\)</span>通常被选作一个足够小的常数，在许多应用中。尽管第二个条件在此情况下不再满足，因为<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 = \infty\)</span>而不是<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>，算法仍然能以某种方式收敛[24,1.5节]。此外，<span class="arithmatex">\(g(x) = x^3 - 5\)</span>作为图<span class="arithmatex">\(6.3\)</span>中的例子，虽然不满足第二个条件，但RM算法仍然可以找到根（如果初始猜测足够好）。</p>
+<p>在RM算法中，<span class="arithmatex">\(a_k\)</span>通常被选作一个足够小的常数，在许多情况下，尽管第二个条件不再被满足，因为<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 = \infty\)</span>而不是<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>，算法仍然能以某种方式收敛[24,1.5节]。此外，<span class="arithmatex">\(g(x) = x^3 - 5\)</span>作为图<span class="arithmatex">\(6.3\)</span>中的例子，虽然不满足第二个条件，但RM算法仍然可以找到根（如果初始猜测足够好）。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果<span class="arithmatex">\(a_k=1/k\)</span>，当<span class="arithmatex">\(k\)</span>比较大时，后面的数据所起到的作用就非常小了，所以希望未来的数据仍然可以有用，就让<span class="arithmatex">\(a_k\)</span>趋近于一个非常小的数而非<span class="arithmatex">\(0\)</span>。</p>
+</div>
 </li>
 </ul>
 <h3 id="622">6.2.2 在期望值估计问题中的应用<a class="headerlink" href="#622" title="Permanent link">&para;</a></h3>
 <p>接下来，我们运用罗宾斯-门罗定理来分析均值估计问题，该问题已在第<span class="arithmatex">\(6.1\)</span>节中讨论过。回顾</p>
 <div class="arithmatex">\[w_{k+1}=w_k+\alpha_k(x_k-w_k)\]</div>
-<p>这是均值估计算法<span class="arithmatex">\((6.4)\)</span>。当<span class="arithmatex">\(a_k = 1/k\)</span>时，我们可以得到<span class="arithmatex">\(w_{k+1}\)</span>的解析表达式，即<span class="arithmatex">\(w_{k+1} = \frac{1}{k} \sum_{i=1}^{k} x_i\)</span>。然而，当给定一般的<span class="arithmatex">\(a_k\)</span>时，我们无法获得解析表达式。在这种情况下，收敛分析是非平凡的。我们可以证明，在这种情况下，该算法是一个特殊的RM算法，因此其收敛性自然跟随。</p>
+<p>这是均值估计算法<span class="arithmatex">\((6.4)\)</span>。当<span class="arithmatex">\(a_k = 1/k\)</span>时，我们可以得到<span class="arithmatex">\(w_{k+1}\)</span>的解析表达式，即<span class="arithmatex">\(w_{k+1} = \frac{1}{k} \sum_{i=1}^{k} x_i\)</span>。然而，当给定一般的<span class="arithmatex">\(a_k\)</span>时，我们无法获得解析表达式。在当时，这个算法的收敛性无法得到证明。但我们现在可以证明，在这种情况下，该算法是一个特殊的RM算法，因此其收敛性自然跟随。</p>
 <p>特别地，定义一个函数为</p>
 <div class="arithmatex">\[g(w) = w - \mathbb{E}[X].\]</div>
 <p>原始问题是求<span class="arithmatex">\(\mathbb{E}[X]\)</span>的值。这个问题被表述为求解<span class="arithmatex">\(g(w) = 0\)</span>的根。给定一个<span class="arithmatex">\(w\)</span>的值，噪声观测值为<span class="arithmatex">\(\tilde{g}(w, \eta) = w - x,\)</span>其中<span class="arithmatex">\(x\)</span>是<span class="arithmatex">\(X\)</span>的一个样本。注意<span class="arithmatex">\(\tilde{g}\)</span>可以写为</p>
