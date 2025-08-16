@@ -362,6 +362,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-8/intro/" class="md-tabs__link">
+        第八章
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -473,6 +489,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -495,6 +513,20 @@
     <li class="md-nav__item">
       <a href="../../Box/intro/" class="md-nav__link">
         介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/Box-7-1/" class="md-nav__link">
+        7.1:TD算法的推导
       </a>
     </li>
   
@@ -1633,6 +1665,141 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          第八章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          第八章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-1/" class="md-nav__link">
+        8.1-价值表示:从表格到函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-2/" class="md-nav__link">
+        8.2-基于值函数的时序差分算法:状态值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-3/" class="md-nav__link">
+        8.3-基于值函数的时序差分算法:行动值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-4/" class="md-nav__link">
+        8.4-深度Q-learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-5/" class="md-nav__link">
+        8.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1701,14 +1868,6 @@
 <p>截至目前，我们已经介绍了多种时序差分（TD）算法，例如Sarsa、n步Sarsa和Q-learning。本节将提出一个统一框架，用以兼容上述所有算法及蒙特卡洛(MC)学习方法。</p>
 <p>特别地，时序差分算法（用于行动值估计)可统一表示为：</p>
 <div class="arithmatex">\[q_{t+1}(s_t,a_t)=q_t(s_t,a_t)-\alpha_t(s_t,a_t)[q_t(s_t,a_t)-\bar{q}_t],\tag{7.20}\]</div>
-<p><img alt="" src="../../img/07/6.png" /></p>
-<blockquote>
-<p>图<span class="arithmatex">\(7.4\)</span>：通过Q-learning演示off-policy学习的示例。(a)和(b)分别显示了最优策略和最优状态值。&copy;和(d)分别展示了行为策略和生成的轨迹。(e)和(f)分别呈现了估计策略与误差演变过程。(g)和(h)则显示了不同初始值条件下的对比情况。</p>
-</blockquote>
-<p><img alt="" src="../../img/07/7.png" /></p>
-<blockquote>
-<p>图<span class="arithmatex">\(7.5\)</span>：当行为策略不具备探索性时，Q-learning算法的性能会下降。左列各图展示了行为策略的分布特征。中间列各图呈现了对应行为策略下生成的轨迹序列，每个示例中的轨迹均包含<span class="arithmatex">\(100,000\)</span>步。右列各图则显示了状态值估计值的均方根误差演变过程。</p>
-</blockquote>
 <p><img alt="" src="../../img/07/8.png" /></p>
 <blockquote>
 <p>表7.2：时序差分算法的统一视角。其中BE和BOE分别表示贝尔曼方程(Bellman equation)和贝尔曼最优方程(Bellman optimality equation)。</p>

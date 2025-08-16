@@ -362,6 +362,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-8/intro/" class="md-tabs__link">
+        第八章
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -473,6 +489,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -495,6 +513,20 @@
     <li class="md-nav__item">
       <a href="../../Box/intro/" class="md-nav__link">
         介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/Box-7-1/" class="md-nav__link">
+        7.1:TD算法的推导
       </a>
     </li>
   
@@ -1660,6 +1692,141 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          第八章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          第八章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-1/" class="md-nav__link">
+        8.1-价值表示:从表格到函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-2/" class="md-nav__link">
+        8.2-基于值函数的时序差分算法:状态值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-3/" class="md-nav__link">
+        8.3-基于值函数的时序差分算法:行动值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-4/" class="md-nav__link">
+        8.4-深度Q-learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-5/" class="md-nav__link">
+        8.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1752,31 +1919,49 @@
   <h1>7.1-状态值估计:时序差分算法</h1>
 
 <h2 id="71">7.1 状态值估计: 时序查分算法<a class="headerlink" href="#71" title="Permanent link">&para;</a></h2>
-<p>例如，本章介绍的所有算法都属于时序差分（TD）学习的范畴。然而，本节所述的时序差分学习特指一种用于估计状态值的经典算法。</p>
+<p>例如，本章介绍的所有算法都属于时序差分(TD)学习的范畴。然而，本节所述的时序差分学习特指一种用于估计状态值的经典算法。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>本节核心在于用TD算法求解一个给定的策略<span class="arithmatex">\(\pi\)</span>的状态值，之所以要求解状态值，是因为求解出来状态值后就相当于policy evaluation，之后和policy improvement结合，就可以寻找最优策略。</p>
+</div>
 <h3 id="711">7.1.1算法描述<a class="headerlink" href="#711" title="Permanent link">&para;</a></h3>
-<p>给定策略 <span class="arithmatex">\(\pi\)</span>，我们的目标是估计所有状态 <span class="arithmatex">\(s \in S\)</span>对应的 <span class="arithmatex">\(v_\pi(s)\)</span>。假设我们拥有遵循 <span class="arithmatex">\(\pi\)</span>生成的若干经验样本 <span class="arithmatex">\((s_0, r_1, s_1, \ldots, s_t, r_{t+1}, s_{t+1}, \ldots)\)</span>，其中 <span class="arithmatex">\(t\)</span>表示时间步。以下时序差分（TD）算法可利用这些样本来估计状态值：</p>
+<p>给定策略<span class="arithmatex">\(\pi\)</span>，我们的目标是估计所有状态<span class="arithmatex">\(s \in \mathcal{S}\)</span>对应的 <span class="arithmatex">\(v_\pi(s)\)</span>。假设我们拥有遵循<span class="arithmatex">\(\pi\)</span>生成的若干经验样本<span class="arithmatex">\((s_0, r_1, s_1, \ldots, s_t, r_{t+1}, s_{t+1}, \ldots)\)</span>(也可写为<span class="arithmatex">\(\{(s_t,r_{t+1},s_{t+1})\}_t\)</span>)，其中<span class="arithmatex">\(t\)</span>表示时间步。以下时序差分(TD)算法可利用这些样本来估计状态值：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TD算法基于数据而非模型，这些数据都是由一个给定的策略<span class="arithmatex">\(\pi\)</span>产生的，TD算法就是要利用这些数据估计<span class="arithmatex">\(\pi\)</span>所对应的状态值。</p>
+</div>
 <div class="arithmatex">\[v_{t+1}(s_t) = v_t(s_t) - \alpha_t(s_t) \left[ v_t(s_t) - \left( r_{t+1} + \gamma v_t(s_{t+1}) \right) \right],\tag{7.1}\]</div>
 <div class="arithmatex">\[v_{t+1}(s) = v_t(s)，s \neq s_t,\tag{7.2}\]</div>
-<p>其中 <span class="arithmatex">\(t =0,1,2, \ldots\)</span>。此处 <span class="arithmatex">\(v_t(s_t)\)</span>表示时刻 <span class="arithmatex">\(t\)</span>时 <span class="arithmatex">\(v_\pi(s_t)\)</span>的估计值；<span class="arithmatex">\(\alpha_t(s_t)\)</span>为状态 <span class="arithmatex">\(s_t\)</span>在时刻 <span class="arithmatex">\(t\)</span>的学习率。</p>
-<p>需要注意的是，在时刻 <span class="arithmatex">\(t\)</span>时，仅更新已访问状态 <span class="arithmatex">\(s_t\)</span>的值。未访问状态 <span class="arithmatex">\(s \neq s_t\)</span>的值保持不变，如式<span class="arithmatex">\((7.2)\)</span>所示。为简洁起见，式<span class="arithmatex">\((7.2)\)</span>常被省略，但应牢记这一公式，因为缺少该式会导致算法在数学上不完整。</p>
-<p>初次接触TD学习算法的读者可能会好奇其设计原理。实际上，该算法可视为求解贝尔曼方程的一种特殊随机逼近算法。为理解这一点，首先回顾状态值的定义：</p>
+<p>其中<span class="arithmatex">\(t =0,1,2, \ldots\)</span>。此处<span class="arithmatex">\(v_t(s_t)\)</span>表示时刻<span class="arithmatex">\(t\)</span>时<span class="arithmatex">\(v_\pi(s_t)\)</span>的估计值；<span class="arithmatex">\(\alpha_t(s_t)\)</span>为状态<span class="arithmatex">\(s_t\)</span>在时刻<span class="arithmatex">\(t\)</span>的学习率。</p>
+<p>需要注意的是，在时刻<span class="arithmatex">\(t\)</span>时，仅更新已访问状态<span class="arithmatex">\(s_t\)</span>的值。未访问状态<span class="arithmatex">\(s \neq s_t\)</span>的值保持不变，如式<span class="arithmatex">\((7.2)\)</span>所示。为简洁起见，式<span class="arithmatex">\((7.2)\)</span>常被省略，但应牢记这一公式，因为缺少该式会导致算法在数学上不完整。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>回想一下，TD算法在数学上的作用是什么?答案就是它求解给定策略<span class="arithmatex">\(\pi\)</span>的贝尔曼方程，但是之前的课程我们学了封闭解和迭代解，这里的TD算法与他的区别是什么呢？答案是显而易见的，之前的方法是基于模型的方法，而TD算法并不依赖于模型。</p>
+</div>
+<p>初次接触TD学习算法的读者可能会好奇其设计原理。实际上，该算法可视为求解贝尔曼方程的一种特殊随机近似算法。为理解这一点，首先回顾状态值的定义：</p>
 <div class="arithmatex">\[v_\pi(s) = \mathbb{E}\left[ R_{t+1} + \gamma G_{t+1} \mid S_t = s \right], \quad s \in \mathcal{S}.\tag{7.3}\]</div>
+<p>由于</p>
+<div class="arithmatex">\[\mathbb{E}[G_{t+1}|S_{t}=s]=\sum_{a}\pi(a|s)\sum_{s^{\prime}}p(s^{\prime}|s,a)v_{\pi}(s^{\prime})=\mathbb{E}[v_{\pi}(S_{t+1})|S_{t}=s].\]</div>
 <p>我们可以将式<span class="arithmatex">\((7.3)\)</span>改写为</p>
 <div class="arithmatex">\[v_\pi(s) = \mathbb{E}[R_{t+1} + \gamma v_\pi(S_{t+1})|S_t = s], s\in \mathcal{S}.\tag{7.4}\]</div>
-<p>这是因为 <span class="arithmatex">\(\mathbb{E}[G_{t+1}|S_t = s] = \sum_a \pi(a|s) \sum_{s'} p(s'|s, a)v_\pi(s') = \mathbb{E}[v_\pi(S_{t+1})|S_t = s]\)</span>。方程<span class="arithmatex">\((7.4)\)</span>是贝尔曼方程的另一种表达形式，有时也被称为<strong>贝尔曼期望方程</strong>。</p>
-<p>TD算法可通过将Robbins-Monro算法（第6章）应用于求解式<span class="arithmatex">\((7.4)\)</span>中的Bellman方程推导得出。感兴趣的读者可参阅Box 7.1了解具体细节。</p>
+<p>在这里<span class="arithmatex">\(S^{t+1}\)</span>是下一个状态，方程<span class="arithmatex">\((7.4)\)</span>是贝尔曼方程的另一种表达形式，有时也被称为<strong>贝尔曼期望方程</strong>。</p>
+<p>TD算法可通过将Robbins-Monro算法(第6章)应用于求解式<span class="arithmatex">\((7.4)\)</span>中的Bellman方程推导得出。感兴趣的读者可参阅Box 7.1了解具体细节。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>建议读者读一下Box7.1，否则对于这个算法很可能云里雾里。</p>
+</div>
 <h3 id="712">7.1.2 性质分析<a class="headerlink" href="#712" title="Permanent link">&para;</a></h3>
-<p>TD算法的一些重要特性讨论如下。首先，我们更详细地考察TD算法的表达式。具体而言，(7.1)式可表述为</p>
-<div class="arithmatex">\[v_{t+1}(s_t) = v_t(s_t) - \alpha_t(s_t) \left[ v_t(s_t) - \left( r_{t+1} + \gamma v_{t+1}(s_{t+1}) \right) \right]\]</div>
+<p>TD算法的一些重要特性讨论如下。首先，我们更详细地考察TD算法的表达式。具体而言，<span class="arithmatex">\((7.1)\)</span>式可表述为</p>
+<div class="arithmatex">\[\underbrace{v_{t+1}(s_t)}_{\text{new estimate}}=\underbrace{v_t(s_t)}_{\text{current estimate}}-\alpha_t(s_t)\left[\overbrace{v_t(s_t)-\left(\underbrace{r_{t+1}+\gamma v_t(s_{t+1})}_{\text{TD target }\tilde{v}_t}\right)}^{\text{TD error }\delta_t}\right],\tag{7.6}\]</div>
 <p>在这里</p>
 <div class="arithmatex">\[\bar{v}_t = r_{t+1} + \gamma v_t(s_{t+1})\]</div>
-<p>称为TD目标值(TD target)</p>
-<div class="arithmatex">\[\delta_t = v(s_t) - \tilde{v}_t = v(s_t) - \left( r_{t+1} + \gamma v(s_{t+1}) \right)\]</div>
-<p>称为TD误差(TD error)。可以看出，新估计值<span class="arithmatex">\(v_{t+1}(s_t)\)</span>是当前估计值<span class="arithmatex">\(v_t(s_t)\)</span>与时序差分误差<span class="arithmatex">\(\delta_t\)</span>的加权组合。</p>
+<p>称为<strong>TD目标值(TD target)</strong></p>
+<div class="arithmatex">\[\delta_t = v(s_t) - \bar{v}_t = v(s_t) - \left( r_{t+1} + \gamma v(s_{t+1}) \right)\]</div>
+<p>称为<strong>TD误差(TD error)</strong>。可以看出，新估计值<span class="arithmatex">\(v_{t+1}(s_t)\)</span>是当前估计值<span class="arithmatex">\(v_t(s_t)\)</span>与时序差分误差<span class="arithmatex">\(\delta_t\)</span>的加权组合。</p>
 <ul>
 <li>
 <p>为什么<span class="arithmatex">\(\bar{v}_t\)</span>被叫做TD目标值</p>
-<p>这是因为<span class="arithmatex">\(\bar{v}_t\)</span>是算法试图驱使<span class="arithmatex">\(v(s_t)\)</span>趋近的目标值。为验证这一点，将 (7.6)式两边同时减去<span class="arithmatex">\(\bar{v}_t\)</span>可得</p>
+<p>这是因为算法驱使<span class="arithmatex">\(v(s_t)\)</span>趋向于<span class="arithmatex">\(\bar{v}_t\)</span>。为验证这一点，将 (7.6)式两边同时减去<span class="arithmatex">\(\bar{v}_t\)</span>可得</p>
 <div class="arithmatex">\[\begin{gathered}v_{t+1}(s_{t})-\bar{v}_{t}=\left[v_{t}(s_{t})-\bar{v}_{t}\right]-\alpha_{t}(s_{t})\left[v_{t}(s_{t})-\bar{v}_{t}\right]\\=[1-\alpha_{t}(s_{t})]\left[v_{t}(s_{t})-\bar{v}_{t}\right].\end{gathered}\]</div>
 <p>对上述等式两边取绝对值可得</p>
 <div class="arithmatex">\[|v_{t+1}(s_t) − \bar{v}_t| = |1 − \alpha_t(s_t)||v_t(s_t) − \bar{v}_t|.\]</div>
@@ -1786,14 +1971,14 @@
 </li>
 <li>
 <p>TD误差的解释是什么？</p>
-<p>首先，这一误差之所以被称为时序差分（temporal-difference），是因为 <span class="arithmatex">\(\delta_t = v_t(s_t) - (r_{t+1} + \gamma v_t(s_{t+1}))\)</span>反映了时间步 <span class="arithmatex">\(t\)</span>与 <span class="arithmatex">\(t +1\)</span>之间的差异。其次，当状态价值估计准确时，时序差分误差在期望意义上为零。具体而言，当 <span class="arithmatex">\(v_t = v_\pi\)</span>时，时序差分误差的期望值为</p>
+<p>首先，这一误差之所以被称为TD误差，是因为 <span class="arithmatex">\(\delta_t = v_t(s_t) - (r_{t+1} + \gamma v_t(s_{t+1}))\)</span>反映了时间步 <span class="arithmatex">\(t\)</span>与 <span class="arithmatex">\(t +1\)</span>之间的差异。其次，当状态价值估计准确时，时序差分误差在期望意义上为零。具体而言，当 <span class="arithmatex">\(v_t = v_\pi\)</span>时，时序差分误差的期望值为</p>
 <div class="arithmatex">\[\begin{aligned}\mathbb{E}[\delta_{t}|S_{t}=s_{t}]&amp;=\mathbb{E}\left[v_{\pi}(S_{t})-(R_{t+1}+\gamma v_{\pi}(S_{t+1}))|S_{t}=s_{t}\right]\\&amp;=v_{\pi}(s_{t})-\mathbb{E}\left[R_{t+1}+\gamma v_{\pi}(S_{t+1})|S_{t}=s_{t}\right]\\&amp;=0.\quad\mathrm{(due~to~(7.3))}\end{aligned}\]</div>
 <p>因此，时序差分误差不仅反映两个时间步之间的差异，更重要的是反映了估计值<span class="arithmatex">\(v_t\)</span>与真实状态值<span class="arithmatex">\(v_\pi\)</span>之间的差异。</p>
-<p>在更抽象的层面上，时序差分（TD）误差可解释为<strong>新息</strong>(innovation)，它表示从经验样本 <span class="arithmatex">\((s_t, r_{t+1}, s_{t+1})\)</span>中获得的新信息。时序差分学习的核心思想是基于新获得的信息来修正当前对状态值的估计。新息是卡尔曼滤波[33,34]等众多估计问题中的基础概念。</p>
+<p>在更抽象的层面上，TD误差可解释为<strong>新息</strong>(innovation)，它表示从经验样本 <span class="arithmatex">\((s_t, r_{t+1}, s_{t+1})\)</span>中获得的新信息。TD学习的核心思想是基于新获得的信息来修正当前对状态值的估计。新息是卡尔曼滤波[33,34]等众多估计问题中的基础概念。</p>
 </li>
 </ul>
-<p>其次，<span class="arithmatex">\((7.1)\)</span>中的 TD算法只能估计给定策略的状态值。为了寻找最优策略，我们仍需进一步计算动作值并执行策略改进，这将在第<span class="arithmatex">\(7.2\)</span>节中介绍。尽管如此，本节介绍的 TD算法对于理解本章其他算法具有基础性和重要性。</p>
-<p>第三，虽然时序差分（TD）学习和蒙特卡洛（MC）学习均属于无模型方法，但二者各有哪些优劣？答案总结于表<span class="arithmatex">\(7.1\)</span>。</p>
+<p>其次，<span class="arithmatex">\((7.1)\)</span>中的 TD算法只能估计给定策略的状态值。为了寻找最优策略，我们仍需进一步计算行动值并执行策略改进，这将在第<span class="arithmatex">\(7.2\)</span>节中介绍。尽管如此，本节介绍的TD算法对于理解本章其他算法具有基础性和重要性。</p>
+<p>第三，虽然时序差分(TD)学习和蒙特卡洛(MC)学习均属于无模型方法，但二者各有哪些优劣？答案总结于表<span class="arithmatex">\(7.1\)</span>。</p>
 <table>
 <thead>
 <tr>
@@ -1804,19 +1989,19 @@
 <tbody>
 <tr>
 <td><strong>增量</strong>: TD学习是增量的。它可以在接收到经验样本后立即更新状态/动作值。</td>
-<td><strong>非增量</strong>: MC学习是非增量的。它必须等到一个回合（episode）完全收集完毕才能更新。这是因为它必须计算回合的折扣回报。</td>
+<td><strong>非增量</strong>: MC学习是非增量的。它必须等到一个回合(episode)完全收集完毕才能更新。这是因为它必须计算回合的折扣回报。</td>
 </tr>
 <tr>
 <td><strong>持续任务</strong>: 由于TD学习是增量的，它可以处理回合制和持续任务。持续任务可能没有终止状态。</td>
 <td><strong>回合任务</strong>: 由于MC学习是非增量的，它只能处理回合任务，即回合在有限的步骤后终止。</td>
 </tr>
 <tr>
-<td><strong>自助法</strong>: TD学习采用自助法，因为状态/动作值的更新依赖于该值的前一估计。因此，TD学习需要初始值猜测。</td>
-<td><strong>非自助法</strong>: MC学习不是自助法，因为它可以直接估计状态/动作值，而无需初始猜测。</td>
+<td><strong>自助法</strong>: TD学习采用自助法，因为状态/行动值的更新依赖于该值的前一估计。因此，TD学习需要初始值猜测。</td>
+<td><strong>非自助法</strong>: MC学习不是自助法，因为它可以直接估计状态/行动值，而无需初始猜测。</td>
 </tr>
 <tr>
-<td><strong>低估计方差</strong>: TD的估计方差低于MC，因为它涉及较少的随机变量。例如，估计一个动作值 <span class="arithmatex">\( q_n(s_t, a_t) \)</span>，Sarsa 仅需要三个随机变量的样本：<span class="arithmatex">\( R_{t+1} \)</span>, <span class="arithmatex">\( S_{t+1} \)</span>, <span class="arithmatex">\( A_{t+1} \)</span>。</td>
-<td><strong>高估计方差</strong>: MC的估计方差较高，因为涉及更多的随机变量。例如，为了估计一个动作值 <span class="arithmatex">\( q_n(s_t, a_t) \)</span>，我们需要样本 <span class="arithmatex">\( R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots \)</span>。假设每个回合的长度为 <span class="arithmatex">\( L \)</span>，并且每个状态的动作数量相同，记作 (</td>
+<td><strong>低估计方差</strong>: TD的估计方差低于MC，因为它涉及较少的随机变量。例如，估计一个动作值 <span class="arithmatex">\( q_\pi(s_t, a_t) \)</span>，Sarsa 仅需要三个随机变量的样本：<span class="arithmatex">\( R_{t+1} \)</span>, <span class="arithmatex">\( S_{t+1} \)</span>, <span class="arithmatex">\( A_{t+1} \)</span>。</td>
+<td><strong>高估计方差</strong>: MC的估计方差较高，因为涉及更多的随机变量。例如，为了估计一个行动值 <span class="arithmatex">\( q_\pi(s_t, a_t) \)</span>，我们需要样本 <span class="arithmatex">\( R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots \)</span>。假设每个回合的长度为 <span class="arithmatex">\( L \)</span>，并且每个状态的动作数量相同，记作 (</td>
 </tr>
 </tbody>
 </table>

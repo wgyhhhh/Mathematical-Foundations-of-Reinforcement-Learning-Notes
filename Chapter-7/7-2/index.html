@@ -362,6 +362,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-8/intro/" class="md-tabs__link">
+        第八章
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -473,6 +489,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -495,6 +513,20 @@
     <li class="md-nav__item">
       <a href="../../Box/intro/" class="md-nav__link">
         介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/Box-7-1/" class="md-nav__link">
+        7.1:TD算法的推导
       </a>
     </li>
   
@@ -1653,6 +1685,141 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          第八章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          第八章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-1/" class="md-nav__link">
+        8.1-价值表示:从表格到函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-2/" class="md-nav__link">
+        8.2-基于值函数的时序差分算法:状态值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-3/" class="md-nav__link">
+        8.3-基于值函数的时序差分算法:行动值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-4/" class="md-nav__link">
+        8.4-深度Q-learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-5/" class="md-nav__link">
+        8.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1738,7 +1905,7 @@
   <h1>7.2-行动值估计:Sarsa</h1>
 
 <h2 id="72-sarsa">7.2 行动值估计:Sarsa算法<a class="headerlink" href="#72-sarsa" title="Permanent link">&para;</a></h2>
-<p>7.1节介绍的TD算法仅能估计状态值。本节将介绍另一种名为Sarsa的TD算法，该算法可直接估计行动值。行动值估计具有重要意义，因其可与策略改进步骤相结合来学习最优策略。</p>
+<p>上一节中介绍的TD算法仅能估计给定策略的状态值。策略改进需要估计出行动值。本节将介绍另一种名为Sarsa的TD算法，该算法可直接估计行动值。</p>
 <h3 id="721">7.2.1算法描述<a class="headerlink" href="#721" title="Permanent link">&para;</a></h3>
 <p>给定策略<span class="arithmatex">\(\pi\)</span>，我们的目标是估计行动值。假设已有遵循<span class="arithmatex">\(\pi\)</span>生成的若干经验样本：<span class="arithmatex">\((s_0, a_0, r_1, s_1, a_1, \ldots, s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1}, \ldots)\)</span>。可采用以下Sarsa算法进行动作价值估计：</p>
 <div class="arithmatex">\[q_{t+1}(s_t,a_t)=q_t(s_t,a_t)-\alpha_t(s_t,a_t)\left[q_t(s_t,a_t)-(r_{t+1}+\gamma q_t(s_{t+1},a_{t+1}))\right],\tag{7.12}\]</div>
@@ -1747,10 +1914,11 @@
 <p>Sarsa算法的重要性质如下</p>
 <ul>
 <li>
-<p>该算法为何命名为"Sarsa"？这是因为其每次迭代都需要五元组 <span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1})\)</span>。Sarsa是"状态-动作-奖励-状态-动作"（state-action-reward-state-action）的缩写形式。该算法最早由文献[35]提出，其命名则由文献[3]确立。</p>
+<p>该算法为何命名为"Sarsa"？每次更新值函数时需要知道当前的状态(state)，当前的动作(action)，奖励(reward)，
+下一步的状态(state)、下一步的动作(action)，即 <span class="arithmatex">\((s_t,a_t,r_{t+1},s_{t+1},a_{t+1})\)</span>这几个值，因此得名 Sarsa。该算法最早由文献[35]提出，其命名则由文献[3]确立。</p>
 </li>
 <li>
-<p>为什么Sarsa要这样设计？读者可能已经注意到，Sarsa与(7.1)式中的TD算法非常相似。实际上，只需将TD算法中的状态值估计替换为行动值估计，就能直接推导出Sarsa算法。</p>
+<p>Sarsa与之前的TD学习算法有什么关系？只需将TD算法中的状态值估计替换为行动值估计，就能直接推导出Sarsa算法。</p>
 </li>
 <li>
 <p>Sarsa算法的数学本质是什么？与(7.1)中的TD算法类似，Sarsa是一种用于求解给定策略贝尔曼方程的随机近似算法：</p>
@@ -1768,12 +1936,12 @@
 <p>该证明过程与定理7.1类似，此处从略。需满足对所有状态-动作对<span class="arithmatex">\((s, a)\)</span>均有<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>且<span class="arithmatex">\(\sum_t \alpha_t^2(s, a) &lt; \infty\)</span>的条件。特别地，<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>要求每个状态-动作对必须被访问无限次（或足够多次）。在时刻<span class="arithmatex">\(t\)</span>，若<span class="arithmatex">\((s, a) = (s_t, a_t)\)</span>，则<span class="arithmatex">\(\alpha_t(s, a) &gt;0\)</span>；否则<span class="arithmatex">\(\alpha_t(s, a) =0\)</span>。</p>
 <p>该证明过程与定理<span class="arithmatex">\(7.1\)</span>类似，此处从略。需满足对所有状态-动作对<span class="arithmatex">\((s,a)\)</span>均有<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>且<span class="arithmatex">\(\sum_t \alpha_t^2(s, a) &lt; \infty\)</span>的条件。特别地，<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>要求每个状态-行动对必须被访问无限次(或足够多次)在时刻<span class="arithmatex">\(t\)</span>，若<span class="arithmatex">\((s, a) = (s_t, a_t)\)</span>，则<span class="arithmatex">\(\alpha_t(s, a) &gt;0\)</span>；否则<span class="arithmatex">\(\alpha_t(s, a) =0\)</span>。</p>
 <h3 id="722sarsa">7.2.2基于Sarsa算法的最优策略学习<a class="headerlink" href="#722sarsa" title="Permanent link">&para;</a></h3>
-<p>(7.12)式中的Sarsa算法仅能估计给定策略的行动值。为寻找最优策略，可将其与策略改进步骤相结合。该组合方法通常仍称为Sarsa算法，其具体实现流程如算法7.1所示。</p>
+<p>(7.12)式中的Sarsa算法仅能估计给定策略的行动值。强化学习的最终目标是寻找最优策略，将Sarsa与策略改进步骤相结合。该组合方法通常仍称为Sarsa算法，其具体实现流程如算法7.1所示。</p>
 <p><img alt="" src="../../img/07/1.png" /></p>
 <blockquote>
 <p>算法<span class="arithmatex">\(7.1\)</span></p>
 </blockquote>
-<p>如算法7.1所示，每次迭代包含两个步骤：第一步更新被访问状态-动作对的<span class="arithmatex">\(q\)</span>值；第二步将策略更新为<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略。<span class="arithmatex">\(q\)</span>值更新步骤仅针对时刻<span class="arithmatex">\(t\)</span>访问的单个状态-行动对进行更新，随后立即更新状态<span class="arithmatex">\(s_t\)</span>对应的策略。这意味着我们在策略更新前并未对给定策略进行充分评估，该设计基于广义策略迭代的思想。此外，策略更新后会立即用于生成下一个经验样本。此处采用的<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略具有探索性特征。</p>
+<p>如算法7.1所示，每次迭代包含两个步骤：第一步更新被访问状态-动作对的<span class="arithmatex">\(q\)</span>值；第二步将策略更新为<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略。<span class="arithmatex">\(q\)</span>值更新步骤仅针对时刻<span class="arithmatex">\(t\)</span>访问的单个状态-行动对进行更新，随后立即更新状态<span class="arithmatex">\(s_t\)</span>对应的策略。这意味着我们在策略更新前并未对给定策略进行充分评估，该设计基于<strong>广义策略迭代</strong>的思想。此外，策略更新后会立即用于生成下一个经验样本。此处采用的<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略具有探索性特征。</p>
 <p><img alt="" src="../../img/07/2.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(7.2\)</span>：Sarsa算法的演示示例。所有训练回合均从左上角状态开始，并在到达目标状态（蓝色单元格）时终止。目标是找到从起始状态到目标状态的最优路径。奖励设置为 <span class="arithmatex">\(r_{\text{target}} =0\)</span>，<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -10\)</span>，以及 <span class="arithmatex">\(r_{\text{other}} = -1\)</span>。学习率 <span class="arithmatex">\(\alpha =0.1\)</span>，<span class="arithmatex">\(\epsilon\)</span>值为0.1。左图显示算法获得的最终策略，右图展示各训练回合的总奖励与路径长度。</p>
