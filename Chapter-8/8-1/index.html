@@ -378,6 +378,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-9/intro/" class="md-tabs__link">
+        第九章
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1800,6 +1816,141 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          第九章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          第九章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-1/" class="md-nav__link">
+        9.1-策略表示:从表格到函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-2/" class="md-nav__link">
+        9.2-目标函数:定义最优策略
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-3/" class="md-nav__link">
+        9.3-目标函数的梯度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-4/" class="md-nav__link">
+        9.4-蒙特卡洛策略梯度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-5/" class="md-nav__link">
+        9.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1870,7 +2021,7 @@
 <table>
 <thead>
 <tr>
-<th>State</th>
+<th>状态</th>
 <th><span class="arithmatex">\(s_1\)</span></th>
 <th><span class="arithmatex">\(s_2\)</span></th>
 <th><span class="arithmatex">\(\cdots\)</span></th>
@@ -1879,7 +2030,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Estimated value</td>
+<td>估计值</td>
 <td><span class="arithmatex">\(\hat{v}(s_1)\)</span></td>
 <td><span class="arithmatex">\(\hat{v}(s_2)\)</span></td>
 <td><span class="arithmatex">\(\cdots\)</span></td>
@@ -1887,19 +2038,23 @@
 </tr>
 </tbody>
 </table>
-<p>接下来证明上表中的值可通过函数逼近。具体而言，将 {(s_i, \hat{v}(s_i))}_{i=1}^n表示为图<span class="arithmatex">\(8.2\)</span>中的<span class="arithmatex">\(n\)</span>个点，这些点可通过曲线进行拟合或逼近。最简单的曲线是直线，其表达式为：</p>
+<p>接下来证明上表中的值可通过函数逼近。具体而言，将 <span class="arithmatex">\(\{(s_i, \hat{v}(s_i))\}_{i=1}^n\)</span>表示为图<span class="arithmatex">\(8.2\)</span>中的<span class="arithmatex">\(n\)</span>个点，这些点可通过曲线进行拟合或逼近。最简单的曲线是直线，其表达式为：</p>
 <div class="arithmatex">\[\hat{v}(s,w)=as+b=\underbrace{[s,1]}_{\phi^T(s)}\underbrace{\begin{bmatrix}a\\b\end{bmatrix}}_{w}=\phi^T(s)w.\tag{8.1}\]</div>
+<p><img alt="" src="../../img/08/1.png" /></p>
+<blockquote>
+<p>图<span class="arithmatex">\(8.2\)</span>：函数逼近方法示意图。<span class="arithmatex">\(x\)</span>轴和<span class="arithmatex">\(y\)</span>轴分别对应<span class="arithmatex">\(s\)</span>与<span class="arithmatex">\(\hat{v}(s)\)</span>。</p>
+</blockquote>
 <p>此处，<span class="arithmatex">\(\hat{v}(s, w)\)</span>是用于逼近<span class="arithmatex">\(v_\pi(s)\)</span>的函数。该函数由状态<span class="arithmatex">\(s\)</span>和参数向量<span class="arithmatex">\(w \in \mathbb{R}^2\)</span>共同决定。<span class="arithmatex">\(\hat{v}(s, w)\)</span>有时也写作<span class="arithmatex">\(\hat{v}_w(s)\)</span>。其中<span class="arithmatex">\(\phi(s) \in \mathbb{R}^2\)</span>称为状态<span class="arithmatex">\(s\)</span>的特征向量。</p>
-<p>表格化方法与函数近似方法之间的首要显著差异在于其数值检索与更新机制。</p>
+<p>表格化方法与函数近似方法之间的差异在于其数值检索与更新机制。</p>
 <ul>
-<li><strong>如何检索数值</strong>：当数值以表格形式呈现时，若需检索特定值，可直接读取表中对应条目。然而，当数值由函数表示时，获取特定值的过程会稍显复杂。具体而言，我们需要将状态索引<span class="arithmatex">\(s\)</span>输入函数并计算函数值(图<span class="arithmatex">\(8.3\)</span>)。以式<span class="arithmatex">\((8.1)\)</span>为例，首先需要计算特征向量<span class="arithmatex">\(\phi(s)\)</span>，再计算<span class="arithmatex">\(\phi^T(s)w\)</span>。若函数为人工神经网络，则需从输入层到输出层执行前向传播计算。</li>
-</ul>
+<li>
+<p><strong>如何检索数值</strong>：当数值以表格形式呈现时，若需检索特定值，可直接读取表中对应条目。然而，当数值由函数表示时，获取特定值的过程会稍显复杂。具体而言，我们需要将状态索引<span class="arithmatex">\(s\)</span>输入函数并计算函数值(图<span class="arithmatex">\(8.3\)</span>)。以式<span class="arithmatex">\((8.1)\)</span>为例，首先需要计算特征向量<span class="arithmatex">\(\phi(s)\)</span>，再计算<span class="arithmatex">\(\phi^T(s)w\)</span>。若函数为人工神经网络，则需从输入层到输出层执行前向传播计算。</p>
 <p><img alt="" src="../../img/08/2.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(8.3\)</span>：函数近似法求解<span class="arithmatex">\(s\)</span>值过程的示意图。</p>
 </blockquote>
 <p>函数近似方法在存储效率方面更具优势，这源于其状态值的获取方式。具体而言，表格法需要存储<span class="arithmatex">\(n\)</span>个状态值，而我们仅需存储一个低维参数向量<span class="arithmatex">\(w\)</span>，因此存储效率可得到显著提升。然而这种优势并非没有代价：函数可能无法精确表征状态值。例如，图<span class="arithmatex">\(8.2\)</span>中的数据点就无法用直线精确拟合，这正是该方法被称为"近似"的原因。从本质上看，当我们用低维向量表示高维数据集时，必然会造成部分信息损失。因此，函数近似方法通过牺牲精度来提升存储效率。</p>
-<ul>
+</li>
 <li>
 <p><strong>如何更新值</strong>：当值以表格形式表示时，若需更新某个值，可直接重写表中对应条目。然而，当值以函数形式表示时，更新方式则完全不同。具体而言，我们必须通过间接更新权重<span class="arithmatex">\(w\)</span>来实现值的变更。关于如何优化更新<span class="arithmatex">\(w\)</span>以获取最佳状态值的方法，将在后文详细讨论。</p>
 <p>得益于状态值的更新方式，函数近似方法还具有另一优势：其泛化能力优于表格法。原因如下：使用表格法时，仅当某状态在回合中被访问时才能更新其对应值；而未访问状态的值则无法更新。然而，采用函数近似方法时，我们需要通过更新权重向量<span class="arithmatex">\(w\)</span>来调整状态，<span class="arithmatex">\(w\)</span>的更新会同时影响其他某些未被访问状态的值估计。因此，单个状态的经验样本能够泛化，从而辅助估计其他状态的值。</p>
@@ -1914,7 +2069,7 @@
 <p>我们可以采用比直线具有更强近似能力的复杂函数。例如，考虑一个二阶多项式：</p>
 <div class="arithmatex">\[\hat{v}(s,w)=as^2+bs+c=\underbrace{[s^2,s,1]}_{\phi^T(s)}\underbrace{\begin{bmatrix}a\\b\\c\end{bmatrix}}_{w}=\phi^T(s)w.\]</div>
 <p>我们可以采用更高阶的多项式曲线来拟合这些数据点。随着曲线阶数的增加，近似精度会相应提高，但参数向量的维度也会随之增大，从而需要更多的存储空间和计算资源。</p>
-<p>注意到，(8.1)或(8.2)式中的<span class="arithmatex">\(\hat{v}(s, w)\)</span>对于<span class="arithmatex">\(w\)</span>是线性的（尽管对于<span class="arithmatex">\(s\)</span>可能是非线性的）。这类方法称为<strong>线性函数近似</strong>，是最简单的函数近似方法。</p>
+<p>注意到，<span class="arithmatex">\((8.1)\)</span>或<span class="arithmatex">\((8.2)\)</span>式中的<span class="arithmatex">\(\hat{v}(s, w)\)</span>对于<span class="arithmatex">\(w\)</span>是线性的(尽管对于<span class="arithmatex">\(s\)</span>可能是非线性的)。这类方法称为<strong>线性函数近似</strong>，是最简单的函数近似方法。</p>
 <p>为实现线性函数近似，需要选取合适的特征向量<span class="arithmatex">\(\phi(s)\)</span>。例如，必须决定是采用一阶直线还是二阶曲线来拟合数据点。选择合适的特征向量并非易事，这需要任务相关的先验知识：对任务理解越深入，就能选择越好的特征向量。例如，若已知图<span class="arithmatex">\(8.2\)</span>中的数据点大致分布在一条直线上，我们可以用直线拟合这些数据点。然而，这类先验知识在实际中通常未知。若没有任何先验知识，常用的解决方案是采用人工神经网络作为非线性函数近似器。</p>
 <p>另一个关键问题是如何寻找最优参数向量。若已知<span class="arithmatex">\(\{v_\pi(s_i)\}_{i=1}^n\)</span>，该问题可转化为最小二乘问题。通过优化以下目标函数即可获得最优参数：</p>
 <div class="arithmatex">\[\begin{aligned}J_1=\sum_{i=1}^n\left(\hat{v}(s_i,w)-v_\pi(s_i)\right)^2&amp;=\sum_{i=1}^n\left(\phi^T(s_i)w-v_\pi(s_i)\right)^2\\&amp;\left.\left.=\left\|\left[\begin{array}{c}\phi^T(s_1)\\\vdots\\\phi^T(s_n)\end{array}\right.\right.\right]w-\begin{bmatrix}v_\pi(s_1)\\\vdots\\v_\pi(s_n)\end{bmatrix}\right\|^2\doteq\|\Phi w-v_\pi\|^2,\end{aligned}\]</div>

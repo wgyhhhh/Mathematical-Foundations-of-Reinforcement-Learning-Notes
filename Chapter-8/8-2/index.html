@@ -378,6 +378,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-9/intro/" class="md-tabs__link">
+        第九章
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1868,6 +1884,141 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          第九章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          第九章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-1/" class="md-nav__link">
+        9.1-策略表示:从表格到函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-2/" class="md-nav__link">
+        9.2-目标函数:定义最优策略
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-3/" class="md-nav__link">
+        9.3-目标函数的梯度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-4/" class="md-nav__link">
+        9.4-蒙特卡洛策略梯度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-5/" class="md-nav__link">
+        9.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2022,17 +2173,27 @@
 <div class="arithmatex">\[J(w)=\mathbb{E}[(v_\pi(S)-\hat{v}(S,w))^2],\tag{8.3}\]</div>
 <p>其中期望值是关于随机变量<span class="arithmatex">\(S \in \mathcal{S}\)</span>计算的。虽然<span class="arithmatex">\(S\)</span>是一个随机变量，但其概率分布是什么？这个问题对于理解该目标函数至关重要。定义<span class="arithmatex">\(S\)</span>的概率分布有以下几种方式。</p>
 <ul>
-<li><strong>第一种方法是采用均匀分布</strong>。即通过将每个状态的概率设为<span class="arithmatex">\(1/n\)</span>，将所有状态视为同等重要。此时，(8.3)中的目标函数变为</li>
-</ul>
+<li>
+<p><strong>第一种方法是采用均匀分布</strong>。即通过将每个状态的概率设为<span class="arithmatex">\(1/n\)</span>，将所有状态视为同等重要。此时，<span class="arithmatex">\((8.3)\)</span>中的目标函数变为</p>
 <div class="arithmatex">\[J(w)=\frac{1}{n}\sum_{s\in\mathcal{S}}(v_\pi(s)-\hat{v}(s,w))^2,\tag{8.4}\]</div>
-<p>这是所有状态近似误差的平均值。然而，这种方法没有考虑给定策略下马尔可夫过程的真实动态特性。由于某些状态可能很少被策略访问到，将所有状态视为同等重要可能并不合理。</p>
-<ul>
-<li><strong>第二种方法(本章重点)是利用稳态分布</strong>。稳态分布描述了马尔可夫决策过程的长期行为；具体而言，当智能体执行给定策略足够长时间后，其处于任意状态的概率均可由该稳态分布表征。感兴趣的读者可参阅Box<span class="arithmatex">\(8.1\)</span>获取细节。</li>
-</ul>
-<p>设<span class="arithmatex">\(\{d_\pi(s)\}_{s\in\mathcal{S}}\)</span>表示策略<span class="arithmatex">\(\pi\)</span>下马尔可夫过程的稳态分布。即智能体在长时间运行后访问状态<span class="arithmatex">\(s\)</span>的概率为<span class="arithmatex">\(d_\pi(s)\)</span>。根据定义，满足<span class="arithmatex">\(\sum_{s\in\mathcal{S}}d_\pi(s)=1\)</span>。因此，(8.3)中的目标函数可改写为</p>
+<p>这是所有状态近似误差的平均值。然而，这种方法没有考虑给定策略下马尔可夫过程的真实动态特性。由于某些状态可能很少被策略访问到，将所有状态视为同等重要并不合理。</p>
+</li>
+<li>
+<p><strong>第二种方法(本章重点)是利用稳态分布(stationary distribution)</strong>。稳态分布描述了马尔可夫决策过程的长期行为(long-run behavior)；具体而言，当智能体执行给定策略足够长时间后，其处于任意状态的概率均可由该稳态分布表征。感兴趣的读者可参阅Box<span class="arithmatex">\(8.1\)</span>获取细节。</p>
+<p>设<span class="arithmatex">\(\{d_\pi(s)\}_{s\in\mathcal{S}}\)</span>表示策略<span class="arithmatex">\(\pi\)</span>下马尔可夫过程的稳态分布。即智能体在长时间运行后访问状态<span class="arithmatex">\(s\)</span>的概率为<span class="arithmatex">\(d_\pi(s)\)</span>。根据定义，满足<span class="arithmatex">\(\sum_{s\in\mathcal{S}}d_\pi(s)=1\)</span>。因此，<span class="arithmatex">\((8.3)\)</span>中的目标函数可改写为</p>
 <div class="arithmatex">\[J(w)=\sum_{s\in\mathcal{S}}d_\pi(s)(v_\pi(s)-\hat{v}(s,w))^2,\]</div>
 <p>这是一个对近似误差进行加权平均的指标。那些被访问概率较高的状态会被赋予更大的权重。</p>
-<p>值得注意的是，<span class="arithmatex">\(d^\pi(s)\)</span>的值难以直接获取，因为这需要已知状态转移概率矩阵<span class="arithmatex">\(P^\pi\)</span>（参见方框<span class="arithmatex">\(8.1\)</span>）。幸运的是，如后续小节所示，我们无需计算<span class="arithmatex">\(d^\pi(s)\)</span>的具体值即可最小化该目标函数。此外，在引入式<span class="arithmatex">\((8.4)\)</span>和<span class="arithmatex">\((8.5)\)</span>时，我们假设状态数量是有限的。当状态空间连续时，可将求和运算替换为积分运算。</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>long-run behavior就是从某一个状态出发，然后我按照策略采取行动，然后不断地去和环境进行交互，然后一直采取这个策略，采取非常多次之后，我就达到了一种平稳的状态，在那个平稳的状态下就得到在每一个状态智能体出现它的概率是多少。</p>
+</div>
+<p><img alt="" src="../../img/08/14.png" /></p>
+<blockquote>
+<p>图<span class="arithmatex">\(8.5\)</span>：<span class="arithmatex">\(\varepsilon=0.5\)</span>的<span class="arithmatex">\(\varepsilon\)</span>-贪心策略长期行为。右图中星号表示向量<span class="arithmatex">\(d^\pi\)</span>各分量的理论值。</p>
+</blockquote>
+<p>值得注意的是，<span class="arithmatex">\(d_\pi(s)\)</span>的值难以直接获取，因为这需要已知状态转移概率矩阵<span class="arithmatex">\(P^\pi\)</span>（参见方框<span class="arithmatex">\(8.1\)</span>）。幸运的是，如后续小节所示，我们无需计算<span class="arithmatex">\(d_\pi(s)\)</span>的具体值即可最小化该目标函数。此外，在引入式<span class="arithmatex">\((8.4)\)</span>和<span class="arithmatex">\((8.5)\)</span>时，我们假设状态数量是有限的。当状态空间连续时，可将求和运算替换为积分运算。</p>
 <h3 id="822">8.2.2 优化算法<a class="headerlink" href="#822" title="Permanent link">&para;</a></h3>
 <p>为最小化式<span class="arithmatex">\((8.3)\)</span>中的目标函数<span class="arithmatex">\(J(w)\)</span>，可采用梯度下降算法：</p>
 <div class="arithmatex">\[w_{k+1}=w_k-\alpha_k\nabla_wJ(w_k),\]</div>
@@ -2045,18 +2206,20 @@
 <p>其中<span class="arithmatex">\(s_t\)</span>是<span class="arithmatex">\(S\)</span>在时刻<span class="arithmatex">\(t\)</span>的采样值。</p>
 <p>值得注意的是，<span class="arithmatex">\((8.12)\)</span>式不可直接实现，因为它需要真实的状态值<span class="arithmatex">\(v_\pi\)</span>——该值未知且必须通过估计获得。我们可以用近似值替代<span class="arithmatex">\(v_\pi(s_t)\)</span>使算法可执行，具体可通过以下两种方法实现。</p>
 <ul>
-<li><strong>蒙特卡洛方法</strong>：假设我们有一个回合<span class="arithmatex">\((s_0,r_1,s_1,r_2,\ldots)\)</span>。令<span class="arithmatex">\(g_t\)</span>表示从状态<span class="arithmatex">\(s_t\)</span>开始的折现回报，则<span class="arithmatex">\(g_t\)</span>可作为<span class="arithmatex">\(v_\pi(s_t)\)</span>的估计值。此时式<span class="arithmatex">\((8.12)\)</span>中的算法可改写为</li>
-</ul>
+<li>
+<p><strong>蒙特卡洛方法</strong>：假设我们有一个回合<span class="arithmatex">\((s_0,r_1,s_1,r_2,\ldots)\)</span>。令<span class="arithmatex">\(g_t\)</span>表示从状态<span class="arithmatex">\(s_t\)</span>开始的折现回报，则<span class="arithmatex">\(g_t\)</span>可作为<span class="arithmatex">\(v_\pi(s_t)\)</span>的估计值。此时式<span class="arithmatex">\((8.12)\)</span>中的算法可改写为</p>
 <div class="arithmatex">\[w_{t+1}=w_t+\alpha_t\left(g_t-\hat{v}(s_t,w_t)\right)\nabla_w\hat{v}(s_t,w_t).\]</div>
 <p>这是基于函数近似的蒙特卡洛学习算法。</p>
-<ul>
-<li><strong>时序差分法</strong>：根据TD学习的思想，<span class="arithmatex">\(r_{t+1}+\gamma\hat{v}(s_{t+1},w_t)\)</span>可作为<span class="arithmatex">\(v_\pi(s_t)\)</span>的估计值。此时<span class="arithmatex">\((8.12)\)</span>式中的算法变为</li>
-</ul>
+</li>
+<li>
+<p><strong>时序差分法</strong>：根据TD学习的思想，<span class="arithmatex">\(r_{t+1}+\gamma\hat{v}(s_{t+1},w_t)\)</span>可作为<span class="arithmatex">\(v_\pi(s_t)\)</span>的估计值。此时<span class="arithmatex">\((8.12)\)</span>式中的算法变为</p>
 <div class="arithmatex">\[w_{t+1}=w_t+\alpha_t\left[r_{t+1}+\gamma\hat{v}(s_{t+1},w_t)-\hat{v}(s_t,w_t)\right]\nabla_w\hat{v}(s_t,w_t).\tag{8.13}\]</div>
 <p>这是基于函数近似的TD学习算法。该算法总结在算法<span class="arithmatex">\(8.1\)</span>中。</p>
+</li>
+</ul>
 <p><img alt="" src="../../img/08/4.png" /></p>
 <blockquote>
-<p>算法<span class="arithmatex">\(8.1\)</span></p>
+<p>算法<span class="arithmatex">\(8.1\)</span>: 基于状态值函数近似的TD学习。</p>
 </blockquote>
 <p>理解式<span class="arithmatex">\((8.13)\)</span>中的TD算法对于研究本章其他算法至关重要。值得注意的是，<span class="arithmatex">\((8.13)\)</span>仅能学习给定策略的状态值。在<span class="arithmatex">\(8.3.1\)</span>和<span class="arithmatex">\(8.3.2\)</span>节中，我们将把它扩展为能够学习行动值的算法。</p>
 <h3 id="823">8.2.3 函数近似器的选择<a class="headerlink" href="#823" title="Permanent link">&para;</a></h3>
@@ -2068,19 +2231,23 @@
 <div class="arithmatex">\[w_{t+1}=w_t+\alpha_t\left[r_{t+1}+\gamma\phi^T(s_{t+1})w_t-\phi^T(s_t)w_t\right]\phi(s_t).\tag{8.14}\]</div>
 <p>这是采用线性函数近化的TD学习算法，简称为TD-Linear。</p>
 <p>线性情况在理论上比非线性情况更易理解，但其近似能力有限。对于复杂任务，选择合适的特征向量也非易事。相比之下，人工神经网络作为黑箱非线性近似器，能够更好地近似目标值，且更易于使用。</p>
-<p>然而，研究线性情形仍具重要意义。深入理解线性情形有助于读者更好地掌握函数近似方法的核心思想。此外，本书讨论的简单网格世界任务中，线性情形已足以解决问题。更重要的是，从表格化方法可视为特殊线性情形这一视角来看，线性方法仍具有强大表现力。更多细节可参阅Box8.2。</p>
+<p>然而，研究线性情形仍具重要意义。深入理解线性情形有助于读者更好地掌握函数近似方法的核心思想。此外，本书讨论的简单网格世界任务中，线性情形已足以解决问题。更重要的是，从表格化方法可视为特殊线性情形这一视角来看，线性方法仍具有强大的能力。关于表格化方式为什么是一种特殊的TD-Linear可参阅Box 8.2。</p>
 <h3 id="824">8.2.4 例子<a class="headerlink" href="#824" title="Permanent link">&para;</a></h3>
 <p>接下来我们通过示例展示如何利用<span class="arithmatex">\((8.14)\)</span>中的TD-Linear算法估计给定策略的状态值，同时说明特征向量的选取方法。</p>
 <p><img alt="" src="../../img/08/5.png" /></p>
 <blockquote>
-<p>图<span class="arithmatex">\(8.6\)</span>:(a)待评估策略。(b)真实状态值以表格形式呈现。&copy;真实状态值以三维曲面形式呈现。</p>
+<p>图<span class="arithmatex">\(8.6\)</span>:<span class="arithmatex">\((a)\)</span>待评估策略。<span class="arithmatex">\((b)\)</span>真实状态值以表格形式呈现。<span class="arithmatex">\((c)\)</span>真实状态值以三维曲面形式呈现。</p>
 </blockquote>
 <p>网格世界示例如图<span class="arithmatex">\(8.6\)</span>所示。给定策略在每个状态下以<span class="arithmatex">\(0.2\)</span>的概率采取任意动作。我们的目标是估计该策略下的状态值。该系统共包含<span class="arithmatex">\(25\)</span>个状态值。真实状态值如图<span class="arithmatex">\(8.6(b)\)</span>所示，其三维曲面可视化结果展示在图<span class="arithmatex">\(8.6(c)\)</span>中。</p>
-<p>接下来我们证明，可以用少于25个参数来近似这些状态值。仿真设置如下：通过给定策略生成500个回合，每个回合包含500个步长，并从均匀分布的随机初始状态-动作对开始。此外，在每次仿真试验中，参数向量<span class="arithmatex">\(w\)</span>被随机初始化，其每个元素均从均值为0、标准差为1的标准正态分布中抽取。我们设定<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -1\)</span>，<span class="arithmatex">\(r_{\text{target}} =1\)</span>，以及<span class="arithmatex">\(\gamma =0.9\)</span>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>总共有25个状态值，如果用表格的方式，那么需要存储25个状态值。</p>
+</div>
+<p>接下来我们证明，可以用少于<span class="arithmatex">\(25\)</span>个参数来近似这些状态值。仿真设置如下：通过给定策略生成<span class="arithmatex">\(500\)</span>个回合，每个回合包含<span class="arithmatex">\(500\)</span>个步长，每个回合出发的状态-行动对是随机选择的，并且遵循均匀分布。此外，在每次仿真试验中，参数向量<span class="arithmatex">\(w\)</span>被随机初始化，其每个元素均从均值为<span class="arithmatex">\(0\)</span>、标准差为<span class="arithmatex">\(1\)</span>的标准正态分布中抽取。我们设定<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -1\)</span>，<span class="arithmatex">\(r_{\text{target}} =1\)</span>，以及<span class="arithmatex">\(\gamma =0.9\)</span>。</p>
 <p>为实现TD-Linear算法，首先需要选择特征向量<span class="arithmatex">\(\phi(s)\)</span>。具体实现方式如下所示。</p>
 <ul>
-<li>第一种特征向量基于多项式构建。在网格世界示例中，状态<span class="arithmatex">\(s\)</span>对应二维坐标位置，其中<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(y\)</span>分别表示<span class="arithmatex">\(s\)</span>的列索引与行索引。为避免数值问题，我们将<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(y\)</span>归一化至区间<span class="arithmatex">\([-1, +1]\)</span>内。在不引起歧义的前提下，归一化后的值仍用<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(y\)</span>表示。此时，最简单的特征向量可表示为</li>
-</ul>
+<li>
+<p>第一种特征向量基于多项式构建。在网格世界示例中，状态<span class="arithmatex">\(s\)</span>对应二维坐标位置，其中<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(y\)</span>分别表示<span class="arithmatex">\(s\)</span>的列索引与行索引。为避免数值问题，我们将<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(y\)</span>归一化至区间<span class="arithmatex">\([-1, +1]\)</span>内。在不引起歧义的前提下，归一化后的值仍用<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(y\)</span>表示。此时，最简单的特征向量可表示为</p>
 <p><span class="arithmatex">\(\phi(s)=\begin{bmatrix}x\\y\end{bmatrix}\in\mathbb{R}^2.\)</span></p>
 <p>在此情况下，我们有</p>
 <div class="arithmatex">\[\hat{v}(s,w)=\phi^T(s)w=[x,y]\begin{bmatrix}w_1\\w_2\end{bmatrix}=w_1x+w_2y.\]</div>
@@ -2095,22 +2262,26 @@
 <p>在这种情况下，<span class="arithmatex">\(\hat{v}(s, w) = \varphi^T(s)w = w_1 + w_2x + w_3y + w_4x^2 + w_5y^2 + w_6xy\)</span>，对应一个二次三维曲面。我们可以进一步增加特征向量的维度：</p>
 <div class="arithmatex">\[\phi(s)=[1,x,y,x^2,y^2,xy,x^3,y^3,x^2y,xy^2]^T\in\mathbb{R}^{10}.\tag{8.17}\]</div>
 <p>使用式<span class="arithmatex">\((8.16)\)</span>和<span class="arithmatex">\((8.17)\)</span>中特征向量得到的估计结果如图<span class="arithmatex">\(8.7(b)-(c)\)</span>所示。可以看出，特征向量越长，状态值的近似精度越高。但在所有三种情况下，估计误差均无法收敛至零，这是因为这些线性近似器仍存在表达能力局限。</p>
+</li>
+</ul>
 <p><img alt="" src="../../img/08/6.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(8.7\)</span>：采用多项式特征<span class="arithmatex">\((8.15)\)</span>,<span class="arithmatex">\((8.16)\)</span>和<span class="arithmatex">\((8.17)\)</span>得到的TD-Linear估计结果。</p>
 </blockquote>
-<p><img alt="" src="../../img/08/7.png" /></p>
-<blockquote>
-<p>图<span class="arithmatex">\(8.8\)</span>：采用式<span class="arithmatex">\((8.18)\)</span>中傅里叶特征得到的TD-Linear估计结果。</p>
-</blockquote>
 <ul>
-<li>除了多项式特征向量外，还存在多种其他类型的特征表示方法，例如傅里叶基(Fourier basis)和片编码(Tile coding)[3,第9章]。首先，需确定变量<span class="arithmatex">\(x\)</span>与<span class="arithmatex">\(y\)</span>的
-各状态量被归一化至区间[0,1]。所得特征向量为</li>
-</ul>
+<li>
+<p>除了多项式特征向量外，还存在多种其他类型的特征表示方法，例如傅里叶基(Fourier basis)和片编码(Tile coding)[3,第9章]。首先，需确定变量<span class="arithmatex">\(x\)</span>与<span class="arithmatex">\(y\)</span>的
+各状态量被归一化至区间[0,1]。所得特征向量为</p>
 <div class="arithmatex">\[\left.\phi(s)=\left[\begin{array}{c}\vdots\\\cos\left(\pi(c_1x+c_2y)\right)\\\vdots\end{array}\right.\right]\in\mathbb{R}^{(q+1)^2},\tag{8.18}\]</div>
 <p>其中<span class="arithmatex">\(\pi\)</span>表示圆周率，其值为<span class="arithmatex">\(3.1415...\)</span>，而非策略。此处<span class="arithmatex">\(c_1\)</span>或<span class="arithmatex">\(c_2\)</span>可设置为集合<span class="arithmatex">\(\{0,1, ..., q\}\)</span>中的任意整数，其中<span class="arithmatex">\(q\)</span>为用户指定整数。因此，二元组<span class="arithmatex">\((c_1, c_2)\)</span>共有<span class="arithmatex">\((q +1)^2\)</span>种可能的取值组合，故特征映射<span class="arithmatex">\(\phi(s)\)</span>的维度为<span class="arithmatex">\((q +1)^2\)</span>。例如当<span class="arithmatex">\(q=1\)</span>时，特征向量可表示为</p>
 <div class="arithmatex">\[\left.\phi(s)=\left[\begin{array}{c}\cos\left(\pi(0x+0y)\right)\\\cos\left(\pi(0x+1y)\right)\\\cos\left(\pi(1x+0y)\right)\\\cos\left(\pi(1x+1y)\right)\end{array}\right.\right]=\begin{bmatrix}1\\\cos(\pi y)\\\cos(\pi x)\\\cos(\pi(x+y))\end{bmatrix}\in\mathbb{R}^4.\]</div>
 <p>采用<span class="arithmatex">\(q =1,2,3\)</span>的傅里叶特征进行估计的结果如图<span class="arithmatex">\(8.8\)</span>所示。三种情况下特征向量的维度分别为<span class="arithmatex">\(4,9,16\)</span>。可以看出，特征向量维度越高，状态值的近似精度越高。</p>
+</li>
+</ul>
+<p><img alt="" src="../../img/08/7.png" /></p>
+<blockquote>
+<p>图<span class="arithmatex">\(8.8\)</span>：采用式<span class="arithmatex">\((8.18)\)</span>中傅里叶特征得到的TD-Linear估计结果。</p>
+</blockquote>
 <h3 id="825">8.2.5 理论分析<a class="headerlink" href="#825" title="Permanent link">&para;</a></h3>
 <p>至此，我们已经完整阐述了函数近似下的TD学习理论框架。该框架的起点是公式<span class="arithmatex">\((8.3)\)</span>中的目标函数。为优化这一目标，我们在<span class="arithmatex">\((8.12)\)</span>中引入了随机算法。随后，将该算法中未知的真实值函数替换为近似值，从而得到<span class="arithmatex">\((8.13)\)</span>中的TD算法。虽然这个叙述有助于理解值函数近似的基本思想，但从数学角度并不严谨。例如，<span class="arithmatex">\((8.13)\)</span>中的算法实际上并未最小化<span class="arithmatex">\((8.3)\)</span>中的目标函数。</p>
 <p>接下来，我们对式<span class="arithmatex">\((8.13)\)</span>中的TD算法进行理论分析，以揭示该算法高效运作的机理及其解决的数学问题。由于非线性近似器难以分析，本节仅讨论线性情形。鉴于本部分数学推导较为密集，建议读者根据兴趣选择性阅读。</p>
@@ -2176,7 +2347,7 @@
 <p>这是我们在讨论函数逼近时能设想的最简单目标函数。然而，它依赖于真实状态(该状态未知)。为获得可实现的算法，我们必须考虑其他目标函数，例如贝尔曼误差和投影贝尔曼误差[50–54]。</p>
 </li>
 <li>
-<p>第二个目标函数是贝尔曼误差。特别地，由于<span class="arithmatex">\(v^\pi\)</span>满足贝尔曼方程<span class="arithmatex">\(v^\pi = r^\pi + \gamma P^\pi v^\pi\)</span>，可以预期估计值<span class="arithmatex">\(\hat{v}(w)\)</span>也应尽可能满足该方程。因此，贝尔曼误差为</p>
+<p>第二个目标函数是贝尔曼误差(Bellman error)。特别地，由于<span class="arithmatex">\(v_\pi\)</span>满足贝尔曼方程<span class="arithmatex">\(v_\pi = r_\pi + \gamma P_\pi v_\pi\)</span>，可以预期估计值<span class="arithmatex">\(\hat{v}(w)\)</span>也应尽可能满足该方程。因此，贝尔曼误差为</p>
 <div class="arithmatex">\[J_{BE}(w)=\|\hat{v}(w)-(r_\pi+\gamma P_\pi\hat{v}(w))\|_D^2\doteq\|\hat{v}(w)-T_\pi(\hat{v}(w))\|_D^2.\tag{8.30}\]</div>
 <p>此处，<span class="arithmatex">\(T_\pi(\cdot)\)</span>为贝尔曼算子。特别地，对于任意向量 <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^n\)</span>，贝尔曼算子定义为</p>
 <div class="arithmatex">\[T_\pi(x)\doteq r_\pi+\gamma P_\pi x.\]</div>
