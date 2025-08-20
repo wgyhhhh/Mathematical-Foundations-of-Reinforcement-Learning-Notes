@@ -2018,22 +2018,30 @@
 <h2 id="91">9.1 策略表示：从表格到函数<a class="headerlink" href="#91" title="Permanent link">&para;</a></h2>
 <p>当策略的表示方式从表格切换为函数时，必须明确两种表示方法的差异。</p>
 <ul>
+<li>首先，如何定义最优策略？当以表格形式表示时，若某策略能使每个状态值最大化，则被定义为最优策略；当以函数形式表示时，若某策略能使特定标量指标最大化，则被定义为最优策略。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在之前，一个策略<span class="arithmatex">\(\pi^*\)</span>是最优的，如果对所有<span class="arithmatex">\(s\in \mathcal{S}\)</span>和任何其他策略<span class="arithmatex">\(\pi\)</span>，<span class="arithmatex">\(v_{\pi^*}(s)\geq v_\pi(s)\)</span>。<span class="arithmatex">\(\pi^*\)</span>的状态值是最优状态值。</p>
+</div>
+<ul>
 <li>
-<p>首先，如何定义最优策略？当以表格形式表示时，若某策略能使每个状态值最大化，则被定义为最优策略；当以函数形式表示时，若某策略能使特定标量指标最大化，则被定义为最优策略。</p>
+<p>其次，如何更新策略？当策略以表格形式表示时，可直接修改表中条目来实现更新；而当策略以参数化函数表示时，则无法采用这种方式，只能通过改变参数<span class="arithmatex">\(\theta\)</span>来完成更新。</p>
 </li>
 <li>
-<p>其次，如何更新策略？当策略以表格形式表示时，可直接修改表中条目来实现更新；而当策略以参数化函数表示时，则无法采用这种方式，只能通过改变参数 <span class="arithmatex">\(\theta\)</span>来完成更新。</p>
-</li>
-<li>
-<p>第三，如何获取行动的概率？在表格形式中，行动概率可直接通过查表获得对应条目。对于函数表示的情况，我们需要将状态-行动对<span class="arithmatex">\((s, a)\)</span>输入函数来计算其概率(见图<span class="arithmatex">\(9.2(a)\)</span>)。根据函数结构的不同，也可以仅输入状态<span class="arithmatex">\(s\)</span>后直接输出所有动作的概率分布(见图9.2(b))。</p>
+<p>第三，如何获取行动的概率？在表格形式中，行动概率可直接通过查表获得对应条目。对于函数表示的情况，我们需要将状态-行动对<span class="arithmatex">\((s, a)\)</span>输入函数来计算其概率(见图<span class="arithmatex">\(9.2(a)\)</span>)。根据函数结构的不同，也可以仅输入状态<span class="arithmatex">\(s\)</span>后直接输出所有动作的概率分布(见图<span class="arithmatex">\(9.2(b)\)</span>)。</p>
 </li>
 </ul>
+<p><img alt="" src="../../img/09/3.png" /></p>
+<blockquote>
+<p>图<span class="arithmatex">\(9.2\)</span>：策略的函数表示。这些函数可能具有不同的结构。</p>
+</blockquote>
 <p>策略梯度方法的基本思想可概括如下。假设 <span class="arithmatex">\(J(\theta)\)</span>为标量指标，通过基于梯度的算法优化该指标即可获得最优策略：</p>
 <div class="arithmatex">\[\theta_{t+1}=\theta_t+\alpha\nabla_\theta J(\theta_t),\]</div>
 <p>其中<span class="arithmatex">\(\nabla_\theta J\)</span>表示<span class="arithmatex">\(J\)</span>关于<span class="arithmatex">\(\theta\)</span>的梯度，<span class="arithmatex">\(t\)</span>为时间步长，<span class="arithmatex">\(\alpha\)</span>为优化速率。</p>
 <p>基于这一基本思路，我们将在本章后续部分回答以下三个问题。</p>
 <ul>
-<li>应采用哪些评价指标？(第<span class="arithmatex">\(9.2\)</span>节)</li>
+<li>应采用哪些评价指标作为目标函数？(第<span class="arithmatex">\(9.2\)</span>节)</li>
 <li>如何计算评价指标的梯度？(第<span class="arithmatex">\(9.3\)</span>节)</li>
 <li>如何利用经验样本计算梯度？(第<span class="arithmatex">\(9.4\)</span>节)</li>
 </ul>

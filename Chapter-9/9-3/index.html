@@ -2118,7 +2118,7 @@
 <p>此外，<span class="arithmatex">\(\ln \pi(a|s, \theta)\)</span>的梯度为</p>
 <div class="arithmatex">\[\nabla_\theta\ln\pi(a|s,\theta)=\frac{\nabla_\theta\pi(a|s,\theta)}{\pi(a|s,\theta)}.\]</div>
 <p>由此可得</p>
-<div class="arithmatex">\[\nabla_\theta\pi(a|s,\theta)=\pi(a|s,\theta)\nabla_\theta\ln\pi(a|s,\theta).\]</div>
+<div class="arithmatex">\[\nabla_\theta\pi(a|s,\theta)=\pi(a|s,\theta)\nabla_\theta\ln\pi(a|s,\theta)\tag{9.11}\]</div>
 <p>将式<span class="arithmatex">\((9.11)\)</span>代入式<span class="arithmatex">\((9.10)\)</span>可得</p>
 <div class="arithmatex">\[\begin{aligned}\nabla_{\theta}J(\theta)&amp;=\mathbb{E}\left[\sum_{a\in\mathcal{A}}\pi(a|S,\theta)\nabla_{\theta}\ln\pi(a|S,\theta)q_{\pi}(S,a)\right]\\&amp;=\mathbb{E}_{S\sim\eta,A\sim\pi(S,\theta)}\left[\nabla_{\theta}\ln\pi(A|S,\theta)q_{\pi}(S,A)\right].\end{aligned}\]</div>
 </li>

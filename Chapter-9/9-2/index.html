@@ -2076,17 +2076,17 @@
 <div class="arithmatex">\[\bar{v}_\pi=\sum_{s\in\mathcal{S}}d(s)v_\pi(s),\]</div>
 <p>其中<span class="arithmatex">\(d(s)\)</span>表示状态<span class="arithmatex">\(s\)</span>的权重。对于任意<span class="arithmatex">\(s \in S\)</span>，满足<span class="arithmatex">\(d(s) \geq0\)</span>且<span class="arithmatex">\(\sum_{s\in S} d(s) =1\)</span>。因此，可将<span class="arithmatex">\(d(s)\)</span>解释为<span class="arithmatex">\(s\)</span>的概率分布。此时该指标可表示为</p>
 <div class="arithmatex">\[\bar{v}_\pi=\mathbb{E}_{S\sim d}[v_\pi(S)].\]</div>
-<p>如何选择分布<span class="arithmatex">\(d\)</span>？这是一个关键问题。存在以下两种情况。</p>
+<p>如何选择<span class="arithmatex">\(d\)</span>的概率分布？这是一个关键问题。存在以下两种情况。</p>
 <ul>
 <li>
-<p>最简单且基础的情形是<span class="arithmatex">\(d\)</span>与策略<span class="arithmatex">\(\pi\)</span>无关。此时，我们特地将<span class="arithmatex">\(d\)</span>记为<span class="arithmatex">\(d_0\)</span>，并将<span class="arithmatex">\(\bar{v}_\pi\)</span>记为<span class="arithmatex">\(\bar{v}^0_\pi\)</span>以表明该分布与策略无关。一种处理方式是赋予所有状态同等重要性，即设定<span class="arithmatex">\(d_0(s) =1/|\mathcal{S}|\)</span>；另一种情形是当我们仅关注特定状态<span class="arithmatex">\(s_0\)</span>时（例如智能体总是从<span class="arithmatex">\(s_0\)</span>开始），此时可设计</p>
+<p>最简单的情形是<span class="arithmatex">\(d\)</span>与策略<span class="arithmatex">\(\pi\)</span>无关。此时，我们特地将<span class="arithmatex">\(d\)</span>记为<span class="arithmatex">\(d_0\)</span>，并将<span class="arithmatex">\(\bar{v}_\pi\)</span>记为<span class="arithmatex">\(\bar{v}^0_\pi\)</span>以表明该分布与策略无关。一种处理方式是赋予所有状态同等重要性，即设定<span class="arithmatex">\(d_0(s) =1/|\mathcal{S}|\)</span>；另一种情形是当我们仅关注特定状态<span class="arithmatex">\(s_0\)</span>时（例如智能体总是从<span class="arithmatex">\(s_0\)</span>开始），此时可设计</p>
 <div class="arithmatex">\[d_0(s_0)=1,\quad d_0(s\neq s_0)=0.\]</div>
 </li>
 <li>
-<p>第二种情况是<span class="arithmatex">\(d\)</span>依赖于策略<span class="arithmatex">\(\pi\)</span>。此时通常选择<span class="arithmatex">\(d\)</span>为<span class="arithmatex">\(d^\pi\)</span>，即<span class="arithmatex">\(\pi\)</span>下的稳态分布。<span class="arithmatex">\(d^\pi\)</span>的一个基本性质是满足</p>
+<p>第二种情况是<span class="arithmatex">\(d\)</span>依赖于策略<span class="arithmatex">\(\pi\)</span>。此时通常选择<span class="arithmatex">\(d\)</span>为<span class="arithmatex">\(d_\pi\)</span>，即<span class="arithmatex">\(\pi\)</span>下的稳态分布。<span class="arithmatex">\(d^\pi\)</span>的一个基本性质是满足</p>
 <div class="arithmatex">\[d_\pi^TP_\pi=d_\pi^T,\]</div>
-<p>其中 <span class="arithmatex">\(P_\pi\)</span>为状态转移概率矩阵。关于平稳分布的更多信息可参阅专栏8.1。</p>
-<p>选择 <span class="arithmatex">\(d^\pi\)</span>的解释如下：平稳分布反映了马尔可夫决策过程在给定策略下的长期行为。若某一状态在长期中被频繁访问，则其重要性更高，应赋予更大权重；若某状态极少被访问，则其重要性较低，应赋予较小权重。</p>
+<p>其中<span class="arithmatex">\(P_\pi\)</span>为状态转移概率矩阵。关于平稳分布的更多信息可参阅Box <span class="arithmatex">\(8.1\)</span>。</p>
+<p>选择<span class="arithmatex">\(d^\pi\)</span>的解释如下：平稳分布反映了马尔可夫决策过程在给定策略下的长期行为。若某一状态在长期中被频繁访问，则其重要性更高，应赋予更大权重；若某状态极少被访问，则其重要性较低，应赋予较小权重。</p>
 </li>
 </ul>
 <p>顾名思义，<span class="arithmatex">\(\bar{v}_\pi\)</span>是状态值的加权平均。不同的<span class="arithmatex">\(\theta\)</span>取值会导致<span class="arithmatex">\(\bar{v}_\pi\)</span>取值的差异。我们的最终目标是找到最优策略（即最优参数<span class="arithmatex">\(\theta\)</span>）以使<span class="arithmatex">\(\bar{v}_\pi\)</span>最大化。</p>
@@ -2096,7 +2096,7 @@
 <p>假设智能体通过遵循给定策略 <span class="arithmatex">\(\pi(\theta)\)</span>收集奖励序列 <span class="arithmatex">\(\{R_{t+1}\}_{t=0}^\infty\)</span>。读者在文献中常会见到如下度量指标：</p>
 <div class="arithmatex">\[J(\theta)=\lim_{n\to\infty}\mathbb{E}\left[\sum_{t=0}^n\gamma^tR_{t+1}\right]=\mathbb{E}\left[\sum_{t=0}^\infty\gamma^tR_{t+1}\right].\tag{9.1}\]</div>
 <p>该度量指标初看可能不易理解。实际上，它等于 <span class="arithmatex">\(\bar{v}_\pi\)</span>。为证明这一点，我们有</p>
-<div class="arithmatex">\[\begin{aligned}\mathbb{E}\left[\sum_{t=0}^{\infty}\gamma^{t}R_{t+1}\right]&amp;=\sum_{s\in\mathcal{S}}d(s)\mathbb{E}\left[\sum_{t=0}^{\infty}\gamma^{t}R_{t+1}|S_{0}=s\right]\\&amp;=\sum_{s\in\mathcal{S}}d(s)v_{\pi}(s)\\&amp;\bar{v}_{\pi}.\end{aligned}\]</div>
+<div class="arithmatex">\[\begin{aligned}\mathbb{E}\left[\sum_{t=0}^{\infty}\gamma^{t}R_{t+1}\right]&amp;=\sum_{s\in\mathcal{S}}d(s)\mathbb{E}\left[\sum_{t=0}^{\infty}\gamma^{t}R_{t+1}|S_{0}=s\right]\\&amp;=\sum_{s\in\mathcal{S}}d(s)v_{\pi}(s)\\&amp;=\bar{v}_{\pi}.\end{aligned}\]</div>
 <p>上式中的第一个等式由全期望定律得出；第二个等式则基于状态值的定义。</p>
 </li>
 <li>
@@ -2118,7 +2118,7 @@
 <li>
 <p>假设智能体通过遵循给定策略<span class="arithmatex">\(\pi(\theta)\)</span>收集奖励序列<span class="arithmatex">\(\{R_{t+1}\}_{t=0}^\infty\)</span>。文献中常见的一个评价指标可表示为</p>
 <div class="arithmatex">\[J(\theta)=\lim_{n\to\infty}\frac{1}{n}\mathbb{E}\left[\sum_{t=0}^{n-1}R_{t+1}\right].\tag{9.4}\]</div>
-<p>乍看之下，这个度量的解释可能并不直观。实际上，它等于<span class="arithmatex">\(\bar{r}\pi\)</span>：</p>
+<p>乍看之下，这个度量的解释可能并不直观。实际上，它等于<span class="arithmatex">\(\bar{r}_\pi\)</span>：</p>
 <div class="arithmatex">\[\lim_{n\to\infty}\frac{1}{n}\mathbb{E}\left[\sum_{t=0}^{n-1}R_{t+1}\right]=\sum_{s\in\mathcal{S}}d_{\pi}(s)r_{\pi}(s)=\bar{r}_{\pi}.\tag{9.5}\]</div>
 <p><span class="arithmatex">\((9.5)\)</span>式的证明见Box 9.1。</p>
 </li>
@@ -2133,19 +2133,23 @@
 <h4 id="_1"><strong>若干说明</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p><img alt="" src="../../img/09/1.png" /></p>
 <blockquote>
-<p>表<span class="arithmatex">\(9.2\)</span>：<span class="arithmatex">\(\bar{v}_\pi\)</span>与 <span class="arithmatex">\(\bar{r}_\pi\)</span>不同但等价表达式的汇总。</p>
+<p>表<span class="arithmatex">\(9.2\)</span>：<span class="arithmatex">\(\bar{v}_\pi\)</span>与<span class="arithmatex">\(\bar{r}_\pi\)</span>不同但等价表达式的汇总。</p>
 </blockquote>
-<p>截至目前，我们已经介绍了两种性能指标：<span class="arithmatex">\(\bar{v}_\pi\)</span>和 <span class="arithmatex">\(\bar{r}_\pi\)</span>。每种指标均有若干形式不同但等价的表达式，其总结见表9.2。我们有时会特指 <span class="arithmatex">\(\bar{v}_\pi\)</span>在状态分布为平稳分布 <span class="arithmatex">\(d_\pi\)</span>的情形，并用 <span class="arithmatex">\(\bar{v}^0_\pi\)</span>表示 <span class="arithmatex">\(d_0\)</span>独立于 <span class="arithmatex">\(\pi\)</span>的情形。关于这些指标的补充说明如下：</p>
+<p>截至目前，我们已经介绍了两种性能指标<span class="arithmatex">\(\bar{v}_\pi\)</span>和<span class="arithmatex">\(\bar{r}_\pi\)</span>。每种指标均有若干形式不同但等价的表达式，其总结见表<span class="arithmatex">\(9.2\)</span>。我们有时用<span class="arithmatex">\(\bar{v}_\pi\)</span>特指状态分布为平稳分布<span class="arithmatex">\(d_\pi\)</span>的情形，并用<span class="arithmatex">\(\bar{v}^0_\pi\)</span>表示<span class="arithmatex">\(d_0\)</span>独立于<span class="arithmatex">\(\pi\)</span>的情形。关于这些指标的补充说明如下：</p>
 <ul>
 <li>
-<p>所有这些指标都是 <span class="arithmatex">\(\pi\)</span>的函数。由于 <span class="arithmatex">\(\pi\)</span>由 <span class="arithmatex">\(\theta\)</span>参数化，这些指标也是 <span class="arithmatex">\(\theta\)</span>的函数。换言之，不同的 <span class="arithmatex">\(\theta\)</span>值会生成不同的度量指标值。因此，我们可以通过搜索参数 <span class="arithmatex">\(\theta\)</span>的最优值来最大化这些评价指标。这正是策略梯度方法的基本思想。</p>
+<p>所有这些指标都是<span class="arithmatex">\(\pi\)</span>的函数。由于<span class="arithmatex">\(\pi\)</span>由 <span class="arithmatex">\(\theta\)</span>参数化，这些指标也是<span class="arithmatex">\(\theta\)</span>的函数。换言之，不同的<span class="arithmatex">\(\theta\)</span>值会生成不同的度量指标值。因此，我们可以通过搜索参数<span class="arithmatex">\(\theta\)</span>的最优值来最大化这些评价指标。这正是策略梯度方法的基本思想。</p>
 </li>
 <li>
-<p>在折扣因子<span class="arithmatex">\(\gamma&lt;1\)</span>的情况下，两个指标<span class="arithmatex">\(\bar{v}_\pi\)</span>与<span class="arithmatex">\(\bar{r}_\pi\)</span>是等价的。具体而言，可以证明：</p>
+<p>在折扣因子<span class="arithmatex">\(\gamma&lt;1\)</span>的情况下，两个指标<span class="arithmatex">\(\bar{v}_\pi\)</span>与<span class="arithmatex">\(\bar{r}_\pi\)</span>是等价(而非相等)的。具体而言，可以证明：</p>
 <div class="arithmatex">\[\bar{r}_{\pi}=(1-\gamma)\bar{v}_{\pi}.\]</div>
 <p>上述方程表明这两个指标可以同时最大化。该方程的证明将在后续引理9.1中给出。</p>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(\bar{r}_\pi\)</span>似乎看起来更加短视，因为他只考虑即时奖励，但是<span class="arithmatex">\(\bar{v}_\pi\)</span>考虑整个步骤的总回报。</p>
+</div>
 
 
 

@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#94" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1888,9 +1893,38 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          9.4-蒙特卡洛策略梯度
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         9.4-蒙特卡洛策略梯度
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    9.4 蒙特卡洛策略梯度
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1935,6 +1969,21 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    9.4 蒙特卡洛策略梯度
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1966,7 +2015,60 @@
 
   <h1>9.4-蒙特卡洛策略梯度</h1>
 
-
+<h2 id="94">9.4 蒙特卡洛策略梯度<a class="headerlink" href="#94" title="Permanent link">&para;</a></h2>
+<p>根据定理<span class="arithmatex">\(9.1\)</span>给出的梯度，我们接下来展示如何利用基于梯度的方法优化指标，从而获得最优策略。</p>
+<p>用于最大化<span class="arithmatex">\(J(\theta)\)</span>的梯度上升算法为</p>
+<div class="arithmatex">\[\begin{align}\theta_{t+1} &amp;= \theta_t + \alpha \nabla_\theta J(\theta_t) \\&amp;= \theta_t + \alpha \mathbb{E}\!\left[ \nabla_\theta \ln \pi(A|S, \theta_t) q_\pi(S, A) \right]\end{align},\tag{9.31}\]</div>
+<p>其中<span class="arithmatex">\(\alpha &gt;0\)</span>为恒定学习率。由于式<span class="arithmatex">\((9.31)\)</span>中的真实梯度未知，可用随机梯度替代真实梯度，得到如下算法：</p>
+<div class="arithmatex">\[\theta_{t+1} = \theta_t + \alpha \nabla_\theta \ln \pi(a_t \mid s_t, \theta_t) q_\pi(s_t, a_t),\tag{9.32}\]</div>
+<p>其中<span class="arithmatex">\(q_t(s_t, a_t)\)</span>是<span class="arithmatex">\(q_\pi(s_t, a_t)\)</span>的近似估计。若<span class="arithmatex">\(q_t(s_t, a_t)\)</span>通过蒙特卡洛估计获得，则该算法称为<strong>REINFORCE</strong>[68]或<strong>蒙特卡洛策略梯度算法</strong>，这是最早且最简单的策略梯度算法之一。</p>
+<p>式<span class="arithmatex">\((9.32)\)</span>中的算法具有重要意义，因为通过扩展它可以衍生出许多其他策略梯度算法。接下来我们更深入地分析式<span class="arithmatex">\((9.32)\)</span>的数学内涵。由于<span class="arithmatex">\(\nabla_\theta \ln \pi(a_t|s_t, \theta_t) = \frac{\nabla_\theta \pi(a_t|s_t,\theta_t)}{\pi(a_t|s_t,\theta_t)}\)</span>，可将式<span class="arithmatex">\((9.32)\)</span>改写为</p>
+<div class="arithmatex">\[\theta_{t+1} = \theta_t + \alpha (\underbrace{\frac{q_\pi(s_t, a_t)}{\pi(a_t \mid s_t, \theta_t)}}_{\beta_t}) \nabla_\theta \pi(a_t \mid s_t, \theta_t),\]</div>
+<p>可进一步简洁表示为</p>
+<div class="arithmatex">\[\theta_{t+1} = \theta_t + \alpha \beta_t \nabla_\theta \pi(a_t \mid s_t, \theta_t),\tag{9.33}\]</div>
+<p>从该方程可以得出两个重要解释。</p>
+<ul>
+<li>
+<p>首先，由于式 (9.33)是一个简单的梯度上升算法，因此可以得到以下结论。</p>
+<ul>
+<li>
+<p>若<span class="arithmatex">\(\beta_t \geq0\)</span>，选择<span class="arithmatex">\((s_t, a_t)\)</span>的概率将增强，即 </p>
+<div class="arithmatex">\[\pi(a_t|s_t, \theta_{t+1}) \geq \pi(a_t|s_t, \theta_t)\]</div>
+<p><span class="arithmatex">\(\beta_t\)</span>越大，增强效果越显著。</p>
+</li>
+<li>
+<p>若<span class="arithmatex">\(\beta_t &lt;0\)</span>，选择<span class="arithmatex">\((s_t, a_t)\)</span>的概率将降低，即 </p>
+<div class="arithmatex">\[\pi(a_t|s_t, \theta_{t+1}) &lt; \pi(a_t|s_t, \theta_t)\]</div>
+</li>
+</ul>
+<p>上述结论可通过以下方式证明：当<span class="arithmatex">\(\theta_{t+1} - \theta_t\)</span>足够小时，根据泰勒展开可得</p>
+<div class="arithmatex">\[\begin{align}\pi(a_t \mid s_t, \theta_{t+1}) &amp;\approx \pi(a_t \mid s_t, \theta_t) + \left( \nabla_\theta \pi(a_t \mid s_t, \theta_t) \right)^T (\theta_{t+1} - \theta_t) \\&amp;= \pi(a_t \mid s_t, \theta_t) + \alpha \beta_t \big( \nabla_\theta \pi(a_t \mid s_t, \theta_t) \big)^T \big( \nabla_\theta \pi(a_t \mid s_t, \theta_t) \big) \quad \text{(substituting (9.33))} \\&amp;= \pi(a_t \mid s_t, \theta_t) + \alpha \beta_t \, \| \nabla_\theta \pi(a_t \mid s_t, \theta_t) \|_2^2.\end{align}\]</div>
+<p>显然，当<span class="arithmatex">\(\beta_t \geq0\)</span>时，<span class="arithmatex">\(\pi(a_t|s_t, \theta_{t+1}) \geq \pi(a_t|s_t, \theta_t)\)</span>；而当<span class="arithmatex">\(\beta_t &lt;0\)</span>时，<span class="arithmatex">\(\pi(a_t|s_t, \theta_{t+1}) &lt; \pi(a_t|s_t, \theta_t)\)</span>。</p>
+</li>
+<li>
+<p>其次，由于<span class="arithmatex">\(\beta_t\)</span>的存在，该算法在一定程度上能够在探索与利用之间取得平衡。</p>
+<div class="arithmatex">\[\beta_t = \frac{q_t(s_t, a_t)}{\pi(a_t \mid s_t, \theta_t)}\]</div>
+<p>一方面，<span class="arithmatex">\(\beta_t\)</span>与<span class="arithmatex">\(q_t(s_t, a_t)\)</span>成正比。因此，若状态-行动对<span class="arithmatex">\((s_t, a_t)\)</span>的行动值较大，则策略<span class="arithmatex">\(\pi(a_t|s_t, \theta_t)\)</span>会增强，从而提高选择行动<span class="arithmatex">\(a_t\)</span>的概率。此时算法倾向于<strong>利用</strong>高价值动作。另一方面，当<span class="arithmatex">\(q_t(s_t, a_t) &gt;0\)</span>时，<span class="arithmatex">\(\beta_t\)</span>与<span class="arithmatex">\(\pi(a_t|s_t, \theta_t)\)</span>成反比。因此，若选择行动<span class="arithmatex">\(a_t\)</span>的初始概率较小，策略<span class="arithmatex">\(\pi(a_t|s_t, \theta_t)\)</span>会被增强以提升其选择概率。此时算法倾向于<strong>探索</strong>低概率动作。</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果刚开始<span class="arithmatex">\(a_t\)</span>选择概率比较小，那么我会在下个时刻给他更大的概率去选择它.</p>
+</div>
+<p>此外，由于<span class="arithmatex">\((9.32)\)</span>采用样本来近似<span class="arithmatex">\((9.31)\)</span>中的真实梯度，因此理解如何获取这些样本至关重要。</p>
+<ul>
+<li>
+<p>如何采样<span class="arithmatex">\(S\)</span>?真实梯度<span class="arithmatex">\(\mathbb{E}[\nabla_\theta \ln \pi(A|S, \theta_t)q_\pi(S, A)]\)</span>中的<span class="arithmatex">\(S\)</span>应服从分布<span class="arithmatex">\(\eta\)</span>，该分布可以是稳态分布<span class="arithmatex">\(d_\pi\)</span>或<span class="arithmatex">\((9.19)\)</span>式中的折扣总概率分布<span class="arithmatex">\(\rho_\pi\)</span>。<span class="arithmatex">\(d_\pi\)</span>和<span class="arithmatex">\(\rho_\pi\)</span>均表示策略<span class="arithmatex">\(\pi\)</span>下的长期行为特征。</p>
+</li>
+<li>
+<p>如何对行动<span class="arithmatex">\(A\)</span>进行采样？在期望表达式<span class="arithmatex">\(\mathbb{E}[\nabla_\theta \ln \pi(A|S, \theta_t) q_\pi(S, A)]\)</span>中，<span class="arithmatex">\(A\)</span>应服从策略分布<span class="arithmatex">\(\pi(A|S, \theta)\)</span>。理想采样方式是根据当前策略<span class="arithmatex">\(\pi(a|s_t, \theta_t)\)</span>选择行动，因此策略梯度算法属于<strong>同策略</strong>方法。</p>
+</li>
+</ul>
+<p>遗憾的是，由于采样效率较低，实践中并未严格遵循对状态空间<span class="arithmatex">\(S\)</span>和动作空间<span class="arithmatex">\(A\)</span>的理想采样方式。算法<span class="arithmatex">\(9.1\)</span>给出了公式<span class="arithmatex">\((9.32)\)</span>的一种更高样本效率的实现方案：该方案首先通过策略<span class="arithmatex">\(\pi(\theta)\)</span>生成完整回合轨迹，随后利用该回合中的每个经验样本对参数<span class="arithmatex">\(\theta\)</span>进行多次更新。</p>
+<p><img alt="" src="../../img/09/4.png" /></p>
+<blockquote>
+<p>算法<span class="arithmatex">\(9.1\)</span>：基于蒙特卡洛的策略梯度(REINFORCE)</p>
+</blockquote>
 
 
 

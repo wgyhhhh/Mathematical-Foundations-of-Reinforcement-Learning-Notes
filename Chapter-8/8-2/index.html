@@ -2354,7 +2354,7 @@
 <p>最小化贝尔曼误差是一个标准的最小二乘问题。此处省略求解过程的细节。</p>
 </li>
 <li>
-<p>第三，值得注意的是，<span class="arithmatex">\((8.30)\)</span>中的 <span class="arithmatex">\(J_{BE}(w)\)</span>可能无法被最小化至零，这是由于近似器的有限近似能力所致。相比之下，能够被最小化至零的目标函数是投影贝尔曼误差：</p>
+<p>第三，值得注意的是，<span class="arithmatex">\((8.30)\)</span>中的 <span class="arithmatex">\(J_{BE}(w)\)</span>可能无法被最小化至零，这是由于近似器的有限近似能力所致。相比之下，能够被最小化至零的目标函数是投影贝尔曼误差(projected bellman error)：</p>
 <div class="arithmatex">\[J_{PBE}(w)=\|\hat{v}(w)-MT_\pi(\hat{v}(w))\|_D^2,\]</div>
 <p>其中<span class="arithmatex">\(M \in \mathbb{R}^{n \times n}\)</span>为正交投影矩阵，其几何意义是将任意向量投影至所有近似解构成的空间。</p>
 </li>

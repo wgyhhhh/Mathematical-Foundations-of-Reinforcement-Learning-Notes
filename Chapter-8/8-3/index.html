@@ -2074,7 +2074,7 @@
 <p>算法8.2: 基于函数近似的Sarsa</p>
 </blockquote>
 <h3 id="832-q-learning">8.3.2 基于函数近似的Q-learning<a class="headerlink" href="#832-q-learning" title="Permanent link">&para;</a></h3>
-<p>表格型Q学习也可以推广到函数逼近的情况。其更新规则为</p>
+<p>表格型Q学习也可以推广到函数近似的情况。其更新规则为</p>
 <div class="arithmatex">\[w_{t+1}=w_{t}+\alpha_{t}\left[r_{t+1}+\gamma\max_{a\in\mathcal{A}(s_{t+1})}\hat{q}(s_{t+1},a,w_{t})-\hat{q}(s_{t},a_{t},w_{t})\right]\nabla_{w}\hat{q}(s_{t},a_{t},w_{t}).\tag{8.36}\]</div>
 <p>上述更新规则与式<span class="arithmatex">\((8.35)\)</span>类似，不同之处在于将式<span class="arithmatex">\((8.35)\)</span>中的<span class="arithmatex">\(\hat{q}(s_{t+1}, a_{t+1}, w_t)\)</span>替换为<span class="arithmatex">\(\max_{a \in \mathcal{A}(s_{t+1})} \hat{q}(s_{t+1}, a, w_t)\)</span>。</p>
 <p>与表格形式类似，<span class="arithmatex">\((8.36)\)</span>既可采用同策略(on-policy)方式实现，也可采用异策略(off-policy)方式实现。算法<span class="arithmatex">\(8.3\)</span>给出了同策略版本的实现。图<span class="arithmatex">\(8.10\)</span>展示了演示同策略版本的实例，该任务要求寻找能使智能体从左上角状态抵达目标状态的最优策略。</p>
@@ -2086,7 +2086,7 @@
 <blockquote>
 <p>图<span class="arithmatex">\(8.10\)</span>：采用线性函数逼近的Q学习算法。参数设置为：<span class="arithmatex">\(\gamma =0.9\)</span>，<span class="arithmatex">\(\epsilon =0.1\)</span>，<span class="arithmatex">\(r_{\text{boundary}} = r_{\text{forbidden}} = -10\)</span>，<span class="arithmatex">\(r_{\text{target}} =1\)</span>，且学习率<span class="arithmatex">\(\alpha =0.001\)</span>。</p>
 </blockquote>
-<p>读者可能注意到，在算法<span class="arithmatex">\(8.2\)</span>和算法<span class="arithmatex">\(8.3\)</span>中，虽然价值函数以函数形式表示，但策略<span class="arithmatex">\(\pi(a|s)\)</span>仍以表格形式呈现。这意味着该方法仍假设状态和动作空间是有限的。在第<span class="arithmatex">\(9\)</span>章中我们将看到，策略同样可以表示为函数形式，从而能够处理连续的状态和动作空间。</p>
+<p>读者可能注意到，在算法<span class="arithmatex">\(8.2\)</span>和算法<span class="arithmatex">\(8.3\)</span>中，虽然价值函数以函数形式表示，但策略6<span class="arithmatex">\(\pi(a|s)\)</span>仍以表格形式呈现。这意味着该方法仍假设状态和动作空间是有限的。在第<span class="arithmatex">\(9\)</span>章中我们将看到，策略同样可以表示为函数形式，从而能够处理连续的状态和动作空间。</p>
 
 
 
