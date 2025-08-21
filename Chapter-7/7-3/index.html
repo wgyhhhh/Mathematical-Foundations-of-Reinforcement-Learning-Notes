@@ -394,6 +394,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-10/intro/" class="md-tabs__link">
+        第十章
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1951,6 +1967,141 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          第十章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          第十章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-1/" class="md-nav__link">
+        10.1-最简单的Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-2/" class="md-nav__link">
+        10.2-优势Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-3/" class="md-nav__link">
+        10.3-异策略Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-4/" class="md-nav__link">
+        10.4-确定性Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-5/" class="md-nav__link">
+        10.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2045,7 +2196,7 @@
 <div class="arithmatex">\[q_\pi(s,a)=\mathbb{E}[G_t^{(\infty)}|s,a]=\mathbb{E}[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+\ldots|s,a].\]</div>
 <p>求解该方程的对应算法为</p>
 <div class="arithmatex">\[q_{t+1}(s_t,a_t)=g_t\doteq r_{t+1}+\gamma r_{t+2}+\gamma^2r_{t+3}+\ldots,\]</div>
-<p>其中<span class="arithmatex">\(g_t\)</span>是<span class="arithmatex">\(G_t\)</span>的一个采样样本。实际上，这是蒙特卡洛（MC）学习算法，该算法通过从<span class="arithmatex">\((s_t, a_t)\)</span>起始的完整回合的折现回报来近似估计<span class="arithmatex">\((s_t, a_t)\)</span>的动作价值。</p>
+<p>其中<span class="arithmatex">\(g_t\)</span>是<span class="arithmatex">\(G_t\)</span>的一个采样样本。实际上，这是蒙特卡洛（MC）学习算法，该算法通过从<span class="arithmatex">\((s_t, a_t)\)</span>起始的完整回合的折现回报来近似估计<span class="arithmatex">\((s_t, a_t)\)</span>的行动值。</p>
 </li>
 <li>
 <p>对于一般的n值，我们有</p>
@@ -2055,7 +2206,7 @@
 <p>该算法称为n步Sarsa。</p>
 </li>
 </ul>
-<p>综上所述，<span class="arithmatex">\(n\)</span>步Sarsa是一种更通用的算法：当<span class="arithmatex">\(n=1\)</span>时退化为单步Sarsa算法；当<span class="arithmatex">\(n=\infty\)</span>（通过设定<span class="arithmatex">\(\alpha_t=1\)</span>）时则演化为MC学习算法。</p>
+<p>综上所述，<span class="arithmatex">\(n\)</span>步Sarsa是一种更通用的算法：当<span class="arithmatex">\(n=1\)</span>时退化为单步Sarsa算法；当<span class="arithmatex">\(n=\infty\)</span>(通过设定<span class="arithmatex">\(\alpha_t=1\)</span>)时则演化为MC学习算法。</p>
 <p>为实现<span class="arithmatex">\((7.17)\)</span>式中的n步Sarsa算法，我们需要经验样本<span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1}, ..., r_{t+n}, s_{t+n}, a_{t+n})\)</span>。由于时刻<span class="arithmatex">\(t\)</span>尚未收集到<span class="arithmatex">\((r_{t+n}, s_{t+n}, a_{t+n})\)</span>，必须等到时刻<span class="arithmatex">\(t+n\)</span>才能更新<span class="arithmatex">\((s_t, a_t)\)</span>的q值。因此，<span class="arithmatex">\((7.17)\)</span>式可改写为</p>
 <div class="arithmatex">\[\begin{aligned}q_{t+n}(s_{t},a_{t})&amp;=q_{t+n-1}(s_{t},a_{t})\\&amp;-\alpha_{t+n-1}(s_{t},a_{t})\left[q_{t+n-1}(s_{t},a_{t})-\left(r_{t+1}+\gamma r_{t+2}+\cdots+\gamma^{n}q_{t+n-1}(s_{t+n},a_{t+n})\right)\right],\end{aligned}\]</div>
 <p>其中<span class="arithmatex">\(q_{t+n}(s_t, a_t)\)</span>是时刻 <span class="arithmatex">\(t+n\)</span>对<span class="arithmatex">\(q_\pi(s_t, a_t)\)</span>的估计值。</p>

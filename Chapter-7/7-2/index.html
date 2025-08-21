@@ -394,6 +394,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-10/intro/" class="md-tabs__link">
+        第十章
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1971,6 +1987,141 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          第十章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          第十章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-1/" class="md-nav__link">
+        10.1-最简单的Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-2/" class="md-nav__link">
+        10.2-优势Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-3/" class="md-nav__link">
+        10.3-异策略Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-4/" class="md-nav__link">
+        10.4-确定性Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-5/" class="md-nav__link">
+        10.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2097,7 +2248,7 @@
 <blockquote>
 <p>图<span class="arithmatex">\(7.2\)</span>：Sarsa算法的演示示例。所有训练回合均从左上角状态开始，并在到达目标状态（蓝色单元格）时终止。目标是找到从起始状态到目标状态的最优路径。奖励设置为 <span class="arithmatex">\(r_{\text{target}} =0\)</span>，<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -10\)</span>，以及 <span class="arithmatex">\(r_{\text{other}} = -1\)</span>。学习率 <span class="arithmatex">\(\alpha =0.1\)</span>，<span class="arithmatex">\(\epsilon\)</span>值为0.1。左图显示算法获得的最终策略，右图展示各训练回合的总奖励与路径长度。</p>
 </blockquote>
-<p>图7.2展示了一个演示Sarsa算法的仿真示例。与本书之前讨论的所有任务不同，该任务的目标是从特定起始状态到目标状态寻找最优路径，而非为所有状态求解最优策略。这类任务在实际中经常出现——当起始状态（如家）和目标状态（如工作场所）固定时，我们仅需找到连接二者的最优路径。该任务的相对简单性在于：只需探索路径邻近状态，而无需遍历所有状态。但需注意的是，若未探索全部状态，最终路径可能仅是局部最优而非全局最优解。</p>
+<p>图7.2展示了一个演示Sarsa算法的仿真示例。与本书之前讨论的所有任务不同，该任务是找到一条从特定起始状态到目标状态的良好路径，而非为所有状态求解最优策略。这类任务在实际中经常出现——当起始状态（如家）和目标状态（如工作场所）固定时，我们仅需找到连接二者的最优路径。该任务的相对简单性在于：只需探索路径邻近状态，而无需遍历所有状态。但需注意的是，若未探索全部状态，最终路径可能仅是局部最优而非全局最优。</p>
 <p>仿真设置与仿真结果讨论如下。</p>
 <ul>
 <li>

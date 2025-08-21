@@ -394,6 +394,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-10/intro/" class="md-tabs__link">
+        第十章
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1985,6 +2001,141 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          第十章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          第十章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-1/" class="md-nav__link">
+        10.1-最简单的Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-2/" class="md-nav__link">
+        10.2-优势Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-3/" class="md-nav__link">
+        10.3-异策略Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-4/" class="md-nav__link">
+        10.4-确定性Actor-Critic方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-5/" class="md-nav__link">
+        10.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2169,7 +2320,7 @@
 <p>不同初始值的影响(different initial values)：由于Q-learning采用自举法(bootstraps)，算法性能取决于行动值的初始估计值。如图<span class="arithmatex">\(7.4(g)\)</span>所示，当初始估计接近真实值时，约<span class="arithmatex">\(10,000\)</span>步内即可收敛；反之则需要更多迭代步数(图<span class="arithmatex">\(7.4(h)\)</span>)。尽管如此，这些结果表明即使初始值不精确，Q-learning仍能保持较快的收敛速度。</p>
 </li>
 <li>
-<p>不同行为策略的表现差异(different behavior policies)：当行为策略不具备探索性时，学习性能会显著下降。例如，考虑图<span class="arithmatex">\(7.5\)</span>所示的策略，它们是<span class="arithmatex">\(\epsilon\)</span>-贪心策略（<span class="arithmatex">\(\epsilon=0.5\)</span>或<span class="arithmatex">\(0.1\)</span>；图<span class="arithmatex">\(7.4(c)\)</span>中的均匀策略可视为<span class="arithmatex">\(\epsilon=1\)</span>的<span class="arithmatex">\(\epsilon\)</span>-贪心策略）。研究表明，当<span class="arithmatex">\(\epsilon\)</span>从1降至0.5再降至0.1时，学习速度急剧下降。这是因为策略的探索能力较弱，导致经验样本不足。</p>
+<p>不同行为策略的表现差异(different behavior policies)：当行为策略不具备探索性时，学习性能会显著下降。例如，考虑图<span class="arithmatex">\(7.5\)</span>所示的策略，它们是<span class="arithmatex">\(\epsilon\)</span>-贪心策略(<span class="arithmatex">\(\epsilon=0.5\)</span>或<span class="arithmatex">\(0.1\)</span>)；图<span class="arithmatex">\(7.4(c)\)</span>中的均匀策略可视为<span class="arithmatex">\(\epsilon=1\)</span>的<span class="arithmatex">\(\epsilon\)</span>-贪心策略）。研究表明，当<span class="arithmatex">\(\epsilon\)</span>从1降至0.5再降至0.1时，学习速度急剧下降。这是因为策略的探索能力较弱，导致经验样本不足。</p>
 </li>
 </ul>
 <p><img alt="" src="../../img/07/6.png" /></p>
