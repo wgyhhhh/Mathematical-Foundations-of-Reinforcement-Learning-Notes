@@ -23,7 +23,7 @@
     
     
       
-        <title>10.1-最简单的Actor-Critic方法 - 强化学习课程笔记</title>
+        <title>10.1-最简单的演员-评论性方法 - 强化学习课程笔记</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#101-actor-critic" class="md-skip">
+        <a href="#101-" class="md-skip">
           跳转至
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10.1-最简单的Actor-Critic方法
+              10.1-最简单的演员-评论性方法
             
           </span>
         </div>
@@ -410,6 +410,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Appendix/1/" class="md-tabs__link">
+        附录
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -476,12 +492,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../..">主页</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -492,6 +514,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Preface1/" class="md-nav__link">
+        引言
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -2003,12 +2039,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          10.1-最简单的Actor-Critic方法
+          10.1-最简单的演员-评论性方法
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        10.1-最简单的Actor-Critic方法
+        10.1-最简单的演员-评论性方法
       </a>
       
         
@@ -2025,8 +2061,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#101-actor-critic" class="md-nav__link">
-    10.1 最简单的Actor-Critic方法
+  <a href="#101-" class="md-nav__link">
+    10.1 最简单的演员-评论家方法
   </a>
   
 </li>
@@ -2047,7 +2083,7 @@
   
     <li class="md-nav__item">
       <a href="../10-2/" class="md-nav__link">
-        10.2-优势Actor-Critic方法
+        10.2-优势演员-评论性方法
       </a>
     </li>
   
@@ -2061,7 +2097,7 @@
   
     <li class="md-nav__item">
       <a href="../10-3/" class="md-nav__link">
-        10.3-异策略Actor-Critic方法
+        10.3-异策略演员-评论性方法
       </a>
     </li>
   
@@ -2075,7 +2111,7 @@
   
     <li class="md-nav__item">
       <a href="../10-4/" class="md-nav__link">
-        10.4-确定性Actor-Critic方法
+        10.4-确定性演员-评论性方法
       </a>
     </li>
   
@@ -2090,6 +2126,61 @@
     <li class="md-nav__item">
       <a href="../10-5/" class="md-nav__link">
         10.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          附录
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          附录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendix/1/" class="md-nav__link">
+        术语
       </a>
     </li>
   
@@ -2127,8 +2218,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#101-actor-critic" class="md-nav__link">
-    10.1 最简单的Actor-Critic方法
+  <a href="#101-" class="md-nav__link">
+    10.1 最简单的演员-评论家方法
   </a>
   
 </li>
@@ -2164,28 +2255,32 @@
   
 
 
-  <h1>10.1-最简单的Actor-Critic方法</h1>
+  <h1>10.1-最简单的演员-评论性方法</h1>
 
-<h2 id="101-actor-critic">10.1 最简单的Actor-Critic方法<a class="headerlink" href="#101-actor-critic" title="Permanent link">&para;</a></h2>
-<p>本节介绍最简单的Actor-Critic方法。该算法可通过扩展式<span class="arithmatex">\((9.32)\)</span>的策略梯度算法直接获得。</p>
+<h2 id="101-">10.1 最简单的演员-评论家方法<a class="headerlink" href="#101-" title="Permanent link">&para;</a></h2>
+<p>本节介绍最简单的演员-评论家方法。该算法可通过扩展式<span class="arithmatex">\((9.32)\)</span>的策略梯度算法直接获得。</p>
 <p>回顾策略梯度法的核心思想是通过最大化标量指标<span class="arithmatex">\(J(\theta)\)</span>来搜索最优策略。用于最大化<span class="arithmatex">\(J(\theta)\)</span>的梯度上升算法可表示为</p>
 <div class="arithmatex">\[\begin{aligned}\theta_{t+1}&amp;=\theta_t+\alpha\nabla_\theta J(\theta_t)\\&amp;=\theta_{t}+\alpha\mathbb{E}_{S\sim\eta,A\sim\pi}\left[\nabla_{\theta}\ln\pi(A|S,\theta_{t})q_{\pi}(S,A)\right],\end{aligned}\tag{10.1}\]</div>
 <p>其中<span class="arithmatex">\(\eta\)</span>表示状态分布(详见定理<span class="arithmatex">\(9.1\)</span>)。由于真实梯度未知，可采用随机梯度进行近似:</p>
 <div class="arithmatex">\[\theta_{t+1}=\theta_t+\alpha\nabla_\theta\ln\pi(a_t|s_t,\theta_t)q_t(s_t,a_t).\tag{10.2}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>把一个含有期望的算法，变为一个采样的不含期望的算法</p>
+</div>
 <p>该算法由式<span class="arithmatex">\((9.32)\)</span>给出。</p>
-<p>方程<span class="arithmatex">\((10.2)\)</span>具有重要意义，因为它清晰地展示了如何将基于策略的方法与基于价值的方法相结合。一方面，这是一个基于策略的算法，因为它直接更新策略参数<span class="arithmatex">\(\theta\)</span>。另一方面，该方程需要已知 <span class="arithmatex">\(q_t(s_t, a_t)\)</span>——即对行动值 <span class="arithmatex">\(q_\pi(s_t, a_t)\)</span>的估计值。因此，需要另一个基于价值的算法来生成 <span class="arithmatex">\(q_t(s_t, a_t)\)</span>。截至目前，本书已探讨了两种估计动作价值的方法：第一种基于蒙特卡洛学习，第二种则是时序差分(TD)学习。</p>
+<p>方程<span class="arithmatex">\((10.2)\)</span>具有重要意义，因为它清晰地展示了如何将基于策略的方法与基于价值的方法相结合。一方面，这是一个基于策略的算法，因为它直接更新策略参数<span class="arithmatex">\(\theta\)</span>。另一方面，该方程需要已知 <span class="arithmatex">\(q_t(s_t, a_t)\)</span>——即对行动值 <span class="arithmatex">\(q_\pi(s_t, a_t)\)</span>的估计值。因此，需要另一个基于价值的算法来生成 <span class="arithmatex">\(q_t(s_t, a_t)\)</span>。截至目前，本书已探讨了两种估计动作值的方法：第一种基于蒙特卡洛学习，第二种则是时序差分(TD)学习。</p>
 <ul>
 <li>
 <p>若通过蒙特卡洛学习估计<span class="arithmatex">\(q_\pi(s_t, a_t)\)</span>，则对应算法称为REINFORCE或蒙特卡洛策略梯度，该算法已在第<span class="arithmatex">\(9\)</span>章进行过介绍。</p>
 </li>
 <li>
-<p>若通过时序差分(TD)学习估计<span class="arithmatex">\(q_t(s_t, a_t)\)</span>，相应算法通常称为Actor-Critic方法。因此，将基于TD的价值估计融入策略梯度方法，即可得到Actor-Critic算法。</p>
+<p>若通过时序差分(TD)学习估计<span class="arithmatex">\(q_t(s_t, a_t)\)</span>，相应算法通常称为演员-评论性方法。因此，将基于TD的价值估计融入策略梯度方法，即可得到演员-评论性算法。</p>
 </li>
 </ul>
-<p>最简单的Actor-Critic算法流程如算法<span class="arithmatex">\(10.1\)</span>所示。其中Critic部分对应基于<span class="arithmatex">\((8.35)\)</span>式Sarsa算法的价值更新步骤，其动作价值通过参数化函数<span class="arithmatex">\(q(s,a,\mathbf{w})\)</span>表示；Actor部分则对应<span class="arithmatex">\((10.2)\)</span>式的策略更新步骤。该算法有时被称为Q Actor-Critic(QAC)算法。虽然结构简单，但QAC揭示了Actor-Critic方法的核心思想，后续章节将展示其如何扩展形成多种进阶算法。</p>
+<p>最简单的演员-评论性算法流程如算法<span class="arithmatex">\(10.1\)</span>所示。其中评论性部分对应基于<span class="arithmatex">\((8.35)\)</span>式Sarsa算法的价值更新步骤，其动作价值通过参数化函数<span class="arithmatex">\(q(s,a,\mathbf{w})\)</span>表示；演员部分则对应<span class="arithmatex">\((10.2)\)</span>式的策略更新步骤。该算法有时被称为Q 演员-评论性(QAC)算法。虽然结构简单，但QAC揭示了演员-评论性方法的核心思想，后续章节将展示其如何扩展形成多种进阶算法。</p>
 <p><img alt="" src="../../img/10/1.png" /></p>
 <blockquote>
-<p>算法<span class="arithmatex">\(10.1\)</span>：最简单的Actor-Critic算法(QAC)</p>
+<p>算法<span class="arithmatex">\(10.1\)</span>：最简单的演员-评论性算法(QAC)</p>
 </blockquote>
 
 
@@ -2231,13 +2326,13 @@
         
         
           
-          <a href="../10-2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 10.2-优势Actor-Critic方法" rel="next">
+          <a href="../10-2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 10.2-优势演员-评论性方法" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                10.2-优势Actor-Critic方法
+                10.2-优势演员-评论性方法
               </div>
             </div>
             <div class="md-footer__button md-icon">
