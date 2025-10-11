@@ -1,5 +1,5 @@
 <div align="center">
-  <p><a href="https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/">📚 在线阅读地址</a></p>
+  <p><a href="https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Preface1/">📚 在线阅读地址</a></p>
   <h3>🤖 《强化学习中的数学原理》-个人笔记与思考总结</h3>
   <p><em>理解强化学习的数学原理，并通过实例深入掌握核心算法</em></p>
 </div>
