@@ -1,5 +1,6 @@
 site_name: 强化学习课程笔记
-site_url: 
+site_url: https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/
+use_directory_urls: true
 repo_url: https://github.com/wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes
 repo_name: wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes
 site_author: Guangyu
@@ -9,7 +10,7 @@ theme:
   palette: # 界面整体样式
     - media: "(prefers-color-scheme: light)" # 亮色主题
       scheme: default
-      primary: white
+      primary: black
       accent: green
       toggle:
         icon: material/weather-sunny
@@ -22,7 +23,8 @@ theme:
         icon: material/weather-night
         name: 暗黑主题
   logo: img/logo.jpg # 页面左上角徽标'
-
+  favicon: img/favicon-96x96.png # 页面标签图标
+  
   features:
     - announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
     # - navigation.instant
@@ -98,8 +100,11 @@ extra:
 nav:
   - 主页: 
     - 欢迎: 'index.md'
+    - 引言: 'Preface1.md'
   - Box:
     - 介绍: 'Box/intro.md'
+    - 7.1:TD算法的推导: 'Box/Box-7-1.md'
+    - 7.4:期望Sarsa算法: 'Box/Box-7-4.md'
   - 第一章:
     - 介绍: 'Chapter-1/intro.md'
     - 1.1-网格世界: 'Chapter-1/1-1.md'
@@ -118,8 +123,8 @@ nav:
     - 2.4-贝尔曼方程: 'Chapter-2/2-4.md'
     - 2.5-贝尔曼方程的例子: 'Chapter-2/2-5.md'
     - 2.6-贝尔曼方程的矩阵形式: 'Chapter-2/2-6.md'
-    - 2.7-根据贝尔曼方程求解状态值: 'Chapter-2/2-7.md'
-    - 2.8-从状态值到行动值: 'Chapter-2/2-8.md'
+    - 2.7-求解状态值: 'Chapter-2/2-7.md'
+    - 2.8-行动值: 'Chapter-2/2-8.md'
     - 2.9-总结: 'Chapter-2/2-9.md'
   - 第三章:
     - 介绍: 'Chapter-3/intro.md'
@@ -150,6 +155,37 @@ nav:
     - 6.3-Dvoretzky定理: 'Chapter-6/6-3.md'
     - 6.4-随机梯度下降: 'Chapter-6/6-4.md'
     - 6.5-总结: 'Chapter-6/6-5.md'
+  - 第七章: 
+    - 介绍: 'Chapter-7/intro.md'
+    - 7.1-状态值估计:时序差分算法: 'Chapter-7/7-1.md'
+    - 7.2-行动值估计:Sarsa: 'Chapter-7/7-2.md'
+    - 7.3-行动值估计:n步Sarsa: 'Chapter-7/7-3.md'
+    - 7.4-最优行动值估计:Q-Learning: 'Chapter-7/7-4.md'
+    - 7.5-时序差分算法的统一框架: 'Chapter-7/7-5.md'
+    - 7.6-总结: 'Chapter-7/7-6.md'
+  - 第八章:
+    - 介绍: 'Chapter-8/intro.md'
+    - 8.1-价值表示:从表格到函数: 'Chapter-8/8-1.md'
+    - 8.2-基于值函数的时序差分算法:状态值估计: 'Chapter-8/8-2.md'
+    - 8.3-基于值函数的时序差分算法:行动值估计: 'Chapter-8/8-3.md'
+    - 8.4-深度Q-learning: 'Chapter-8/8-4.md'
+    - 8.5-总结: 'Chapter-8/8-5.md'
+  - 第九章:
+    - 介绍: 'Chapter-9/intro.md'
+    - 9.1-策略表示:从表格到函数: 'Chapter-9/9-1.md'
+    - 9.2-目标函数:定义最优策略: 'Chapter-9/9-2.md'
+    - 9.3-目标函数的梯度: 'Chapter-9/9-3.md'
+    - 9.4-蒙特卡洛策略梯度: 'Chapter-9/9-4.md'
+    - 9.5-总结: 'Chapter-9/9-5.md'
+  - 第十章:
+    - 介绍: 'Chapter-10/intro.md'
+    - 10.1-最简单的演员-评论性方法: 'Chapter-10/10-1.md'
+    - 10.2-优势演员-评论性方法: 'Chapter-10/10-2.md'
+    - 10.3-异策略演员-评论性方法: 'Chapter-10/10-3.md'
+    - 10.4-确定性演员-评论性方法: 'Chapter-10/10-4.md'
+    - 10.5-总结: 'Chapter-10/10-5.md'
+  - 附录:
+    - 术语: 'Appendix/1.md'
 markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
   - abbr
   - attr_list
@@ -204,4 +240,6 @@ extra_javascript:
 
 extra_css:
   - css/misc.css #自定义css
-  - css/extra.css
+  - stylesheets/extra.css
+extra_templates:
+# - sitemap.xml

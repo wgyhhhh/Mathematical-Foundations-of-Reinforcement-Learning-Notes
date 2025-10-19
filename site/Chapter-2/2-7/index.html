@@ -12,18 +12,20 @@
         <meta name="author" content="Guangyu">
       
       
+        <link rel="canonical" href="https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Chapter-2/2-7/">
+      
       
         <link rel="prev" href="../2-6/">
       
       
         <link rel="next" href="../2-8/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon-96x96.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.18">
     
     
       
-        <title>2.7-根据贝尔曼方程求解状态值 - 强化学习课程笔记</title>
+        <title>2.7-求解状态值 - 强化学习课程笔记</title>
       
     
     
@@ -48,7 +50,7 @@
     
       <link rel="stylesheet" href="../../css/misc.css">
     
-      <link rel="stylesheet" href="../../css/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -67,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="green">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="green">
   
     
     
@@ -115,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.7-根据贝尔曼方程求解状态值
+              2.7-求解状态值
             
           </span>
         </div>
@@ -128,7 +130,7 @@
             
             
             
-            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="green"  aria-label="明亮主题"  type="radio" name="__palette" id="__palette_1">
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="green"  aria-label="明亮主题"  type="radio" name="__palette" id="__palette_1">
             
               <label class="md-header__button md-icon" title="明亮主题" for="__palette_2" hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
@@ -330,6 +332,102 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-6/intro/" class="md-tabs__link">
+        第六章
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-7/intro/" class="md-tabs__link">
+        第七章
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-8/intro/" class="md-tabs__link">
+        第八章
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-9/intro/" class="md-tabs__link">
+        第九章
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Chapter-10/intro/" class="md-tabs__link">
+        第十章
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Appendix/1/" class="md-tabs__link">
+        附录
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -396,12 +494,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../..">主页</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -412,6 +516,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Preface1/" class="md-nav__link">
+        引言
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -441,6 +559,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -463,6 +585,34 @@
     <li class="md-nav__item">
       <a href="../../Box/intro/" class="md-nav__link">
         介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/Box-7-1/" class="md-nav__link">
+        7.1:TD算法的推导
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/Box-7-4/" class="md-nav__link">
+        7.4:期望Sarsa算法
       </a>
     </li>
   
@@ -823,12 +973,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.7-根据贝尔曼方程求解状态值
+          2.7-求解状态值
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2.7-根据贝尔曼方程求解状态值
+        2.7-求解状态值
       </a>
       
         
@@ -894,7 +1044,7 @@
   
     <li class="md-nav__item">
       <a href="../2-8/" class="md-nav__link">
-        2.8-从状态值到行动值
+        2.8-行动值
       </a>
     </li>
   
@@ -1342,6 +1492,752 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          第六章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          第六章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-6/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-6/6-1/" class="md-nav__link">
+        6.1-启发示例:期望值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-6/6-2/" class="md-nav__link">
+        6.2-罗宾斯-门罗算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-6/6-3/" class="md-nav__link">
+        6.3-Dvoretzky定理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-6/6-4/" class="md-nav__link">
+        6.4-随机梯度下降
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-6/6-5/" class="md-nav__link">
+        6.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          第七章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          第七章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-1/" class="md-nav__link">
+        7.1-状态值估计:时序差分算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-2/" class="md-nav__link">
+        7.2-行动值估计:Sarsa
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-3/" class="md-nav__link">
+        7.3-行动值估计:n步Sarsa
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-4/" class="md-nav__link">
+        7.4-最优行动值估计:Q-Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-5/" class="md-nav__link">
+        7.5-时序差分算法的统一框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-6/" class="md-nav__link">
+        7.6-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          第八章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          第八章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-1/" class="md-nav__link">
+        8.1-价值表示:从表格到函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-2/" class="md-nav__link">
+        8.2-基于值函数的时序差分算法:状态值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-3/" class="md-nav__link">
+        8.3-基于值函数的时序差分算法:行动值估计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-4/" class="md-nav__link">
+        8.4-深度Q-learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-5/" class="md-nav__link">
+        8.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          第九章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          第九章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-1/" class="md-nav__link">
+        9.1-策略表示:从表格到函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-2/" class="md-nav__link">
+        9.2-目标函数:定义最优策略
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-3/" class="md-nav__link">
+        9.3-目标函数的梯度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-4/" class="md-nav__link">
+        9.4-蒙特卡洛策略梯度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-5/" class="md-nav__link">
+        9.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          第十章
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          第十章
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/intro/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-1/" class="md-nav__link">
+        10.1-最简单的演员-评论性方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-2/" class="md-nav__link">
+        10.2-优势演员-评论性方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-3/" class="md-nav__link">
+        10.3-异策略演员-评论性方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-4/" class="md-nav__link">
+        10.4-确定性演员-评论性方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-5/" class="md-nav__link">
+        10.5-总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          附录
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          附录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendix/1/" class="md-nav__link">
+        术语
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1431,7 +2327,7 @@
   
 
 
-  <h1>2.7-根据贝尔曼方程求解状态值</h1>
+  <h1>2.7-求解状态值</h1>
 
 <h2 id="27">2.7根据贝尔曼方程求解状态值<a class="headerlink" href="#27" title="Permanent link">&para;</a></h2>
 <p>计算给定策略的状态值是强化学习中的一个基本问题。这个问题通常被称为 "策略评估"(policy evaluation)。在本节中，我们将介绍从贝尔曼方程计算状态值的两种方法。</p>
@@ -1529,13 +2425,13 @@
         
         
           
-          <a href="../2-8/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.8-从状态值到行动值" rel="next">
+          <a href="../2-8/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.8-行动值" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                2.8-从状态值到行动值
+                2.8-行动值
               </div>
             </div>
             <div class="md-footer__button md-icon">
