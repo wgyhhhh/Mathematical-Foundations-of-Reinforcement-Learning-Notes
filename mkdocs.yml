@@ -5,7 +5,10 @@ repo_url: https://github.com/wgyhhhh/Mathematical-Foundations-of-Reinforcement-L
 repo_name: wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes
 site_author: Guangyu
 site_description: 《强化学习的数学原理》的课程笔记
+
 theme:
+  icon:
+    repo: fontawesome/brands/github-alt #右上角图标
   name: material
   palette: # 界面整体样式
     - media: "(prefers-color-scheme: light)" # 亮色主题
@@ -22,9 +25,9 @@ theme:
       toggle:
         icon: material/weather-night
         name: 暗黑主题
-  logo: img/logo.jpg # 页面左上角徽标'
+  logo: img/logo.jpg
   favicon: img/favicon-96x96.png # 页面标签图标
-  
+
   features:
     - announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
     # - navigation.instant
@@ -48,9 +51,7 @@ theme:
     - content.code.annotate
   language: zh # 一些提示性的文字会变成中文
 
-  icon:
-    repo: fontawesome/brands/github #右上角图标
-    logo: logo
+
 
 extra:
   social: # 社交联系方式（页面右下角内容）
@@ -101,10 +102,6 @@ nav:
   - 主页: 
     - 欢迎: 'index.md'
     - 引言: 'Preface1.md'
-  - Box:
-    - 介绍: 'Box/intro.md'
-    - 7.1:TD算法的推导: 'Box/Box-7-1.md'
-    - 7.4:期望Sarsa算法: 'Box/Box-7-4.md'
   - 第一章:
     - 介绍: 'Chapter-1/intro.md'
     - 1.1-网格世界: 'Chapter-1/1-1.md'
@@ -184,6 +181,11 @@ nav:
     - 10.3-异策略演员-评论性方法: 'Chapter-10/10-3.md'
     - 10.4-确定性演员-评论性方法: 'Chapter-10/10-4.md'
     - 10.5-总结: 'Chapter-10/10-5.md'
+  - Box(证明):
+    - 介绍: 'Box/intro.md'
+    - 2.1:迭代解法的收敛性证明: 'Box/Box-2-1.md'
+    - 7.1:TD算法的推导: 'Box/Box-7-1.md'
+    - 7.4:期望Sarsa算法: 'Box/Box-7-4.md'
   - 附录:
     - 术语: 'Appendix/1.md'
 markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/

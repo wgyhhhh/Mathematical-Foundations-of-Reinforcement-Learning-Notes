@@ -1,0 +1,13 @@
+将误差定义为$\delta_k = v_k - v_\pi$。我们只需证明$\delta_k \rightarrow 0$。$v_{k+1} = \delta_{k+1} + v_\pi$ 和 $v_k = \delta_k + v_\pi$ 代入 $v_{k+1} = r_\pi + \gamma P_\pi v_k$ 可得
+
+$$\delta_{k+1}+v_\pi=r_\pi+\gamma P_\pi(\delta_k+v_\pi),$$
+
+可以被写为
+
+$$\begin{aligned}\delta_{k+1}&=-v_{\pi}+r_{\pi}+\gamma P_{\pi}\delta_{k}+\gamma P_{\pi}v_{\pi},\\&=\gamma P_{\pi}\delta_{k}-v_{\pi}+(r_{\pi}+\gamma P_{\pi}v_{\pi}),\\&=\gamma P_{\pi}\delta_{k}.\end{aligned}$$
+
+因此
+
+$$\delta_{k+1}=\gamma P_{\pi}\delta_{k}=\gamma^{2}P_{\pi}^{2}\delta_{k-1}=\cdots=\gamma^{k+1}P_{\pi}^{k+1}\delta_{0}.$$
+
+由于$P_\pi$的每个元素都是非负且不大于$1$，因此我们可以得出$0\leq P_\pi^k \leq 1$，对于任意$k$。也就是说，$P_\pi^k$的每个元素都不大于$1$，另一方面，由于$\gamma< 1$，我们知道$\gamma^k\rightarrow 0$，因此$\delta_{k+1}=\gamma^{k+1}P_\pi^{k+1}\delta_0\rightarrow 0$当$k\rightarrow\infty$时。
