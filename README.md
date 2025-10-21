@@ -14,7 +14,7 @@
 | --- | --- | --- |
 | [前言](https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Preface1/) | 本笔记的缘起、背景及阅读建议 | ✅ |
 | [第一章 基本概念](https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Chapter-1/intro/) | 强化学习的基本概念 | ✅ |
-| [第二章 状态值与贝尔曼方程](https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Chapter-2/intro/) | 回报、状态值、Bellman方程 | ✅(润色中) |
+| [第二章 状态值与贝尔曼方程](https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Chapter-2/intro/) | 回报、状态值、Bellman方程 | ✅ |
 | [第三章 最优状态值与贝尔曼最优方程](https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Chapter-3/intro/) | 最优状态值、最优策略、Bellman最优方程 | ✅(润色中) |
 | [第四章 值迭代与策略迭代](https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Chapter-4/intro/) | 值迭代算法、策略迭代算法、截断策略迭代算法 | ✅(润色中) |
 | [第五章 蒙特卡罗方法](https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Chapter-5/intro/) | MC Basic、MC Exploring Starts、MC-Greedy | ✅(润色中) |
