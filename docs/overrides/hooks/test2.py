@@ -68,7 +68,7 @@ class AISummaryGenerator:
             'gemini': {
                 'url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent',
                 'model': 'gemini-pro',
-                'api_key': os.getenv('GOOGLE_API_KEY', 'AIzaSyDwWgffCCyVFZVsRasX3B3arWFaCT1PzNI'),
+                'api_key': os.getenv('GOOGLE_API_KEY', ''),
                 'max_tokens': 150,
                 'temperature': 0.3
             }
