@@ -1,0 +1,4435 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="《强化学习的数学原理》的课程笔记">
+      
+      
+        <meta name="author" content="Guangyu">
+      
+      
+        <link rel="canonical" href="https://wgyhhhh.github.io/Mathematical-Foundations-of-Reinforcement-Learning-Notes/Chapter-6/6-2/">
+      
+      
+        <link rel="prev" href="../6-1/">
+      
+      
+        <link rel="next" href="../6-3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon-96x96.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>6.2 罗宾斯-门罗算法(Robbins-Monro) - 强化学习课程笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/misc.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#621" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="强化学习课程笔记" class="md-header__button md-logo" aria-label="强化学习课程笔记" data-md-component="logo">
+      
+  <img src="../../img/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            强化学习课程笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6.2 罗宾斯-门罗算法(Robbins-Monro)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="green"  aria-label="明亮主题"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="明亮主题" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="yellow"  aria-label="暗黑主题"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="暗黑主题" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-1/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第一章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-2/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第二章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-3/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第三章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-4/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第四章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-5/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第五章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第六章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-7/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第七章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-8/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第八章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-9/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第九章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Chapter-10/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  第十章
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Box/intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Box(证明)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Appendix/1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="强化学习课程笔记" class="md-nav__button md-logo" aria-label="强化学习课程笔记" data-md-component="logo">
+      
+  <img src="../../img/logo.jpg" alt="logo">
+
+    </a>
+    强化学习课程笔记
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    主页
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Preface1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    引言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第一章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1-网格世界
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/1-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2-状态和行动
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/1-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3-状态转移
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/1-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4-策略
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/1-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5-奖励
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/1-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.6-轨迹、回报、回合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/1-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.7-马尔科夫决策过程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-1/1-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.8-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第二章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第二章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1-为什么回报很重要?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2-如何计算回报?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3-状态值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4-贝尔曼方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.5-贝尔曼方程的例子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.6-贝尔曼方程的矩阵形式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.7-求解状态值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.8-行动值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-2/2-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.9-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第三章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第三章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-3/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-3/3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.1-如何改进策略
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-3/3-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.2-最优状态值和最优策略
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-3/3-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.3-贝尔曼最优公式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-3/3-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.4-从贝尔曼最优公式中求解最优策略
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-3/3-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.5-影响最优策略的因素
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-3/3-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.6-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第四章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第四章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-4/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-4/4-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1-值迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-4/4-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2-策略迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-4/4-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3-截断策略迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-4/4-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第五章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第五章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-5/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-5/5-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.1-启发示例:期望值估计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-5/5-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.2-MC Basic:最简单的基于蒙特卡洛的算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-5/5-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.3-MC Exploring Starts算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-5/5-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.4-MC-Greedy算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-5/5-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.5-探索与利用:以Greedy策略为例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-5/5-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.6-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第六章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第六章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.1-启发示例:期望值估计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.2-罗宾斯-门罗算法
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.2-罗宾斯-门罗算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1 收敛特性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.2 在期望值估计问题中的应用
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.3-Dvoretzky定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.4-随机梯度下降
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.5-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第七章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第七章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.1-状态值估计:时序差分算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.2-行动值估计:Sarsa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.3-行动值估计:n步Sarsa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.4-最优行动值估计:Q-Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.5-时序差分算法的统一框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-7/7-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.6-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第八章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第八章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.1-价值表示:从表格到函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.2-基于值函数的时序差分算法:状态值估计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.3-基于值函数的时序差分算法:行动值估计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.4-深度Q-learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-8/8-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.5-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第九章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第九章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.1-策略表示:从表格到函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.2-目标函数:定义最优策略
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.3-目标函数的梯度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.4-蒙特卡洛策略梯度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-9/9-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.5-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第十章
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第十章
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.1-最简单的演员-评论性方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.2-优势演员-评论性方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.3-异策略演员-评论性方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.4-确定性演员-评论性方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter-10/10-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.5-总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Box(证明)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Box(证明)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/Box-2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1:迭代解法的收敛性证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/Box-7-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.1:TD算法的推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Box/Box-7-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.4:期望Sarsa算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    附录
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendix/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    术语
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    核心算法实现
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    核心算法实现
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    策略迭代与值迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1 收敛特性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.2 在期望值估计问题中的应用
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes/edit/master/docs/Chapter-6/6-2.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes/raw/master/docs/Chapter-6/6-2.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>6.2-罗宾斯-门罗算法</h1>
+
+<p><strong>随机近似</strong> (stochastic approximation)指的是一大类求解方程或者优化问题的随机迭代算法<a href="https://link.springer.com/book/10.1007/b101987">24</a>。与许多其他算法如基于梯度的算法(梯度上升或梯度下降)等优化方法相比，随机近似具有显著的优势，因为它不需要目标函数或导数的解析表达式。</p>
+<p>罗宾斯-门罗(Robbins-Monro，RM)算法是随机近似领域的一项开创性工作[<a href="https://link.springer.com/book/10.1007/b101987">24</a>,<a href="https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full">25</a>,<a href="https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-38/issue-1/An-Extension-of-the-Robbins-Monro-Procedure/10.1214/aoms/1177699069.full">26</a>,<a href="https://arxiv.org/pdf/2006.10840v1">27</a>]]。著名的随机梯度下降算法就是RM算法的一种特殊形式(<span class="arithmatex">\(6.4\)</span>节)。</p>
+<p>下面我们介绍<span class="arithmatex">\(RM\)</span>算法，假设我们想要求解如下方程：</p>
+<div class="arithmatex">\[g(w)=0,\]</div>
+<p>其中<span class="arithmatex">\(w\in\mathbb{R}\)</span>是未知变量，<span class="arithmatex">\(g:\mathbb{R} \rightarrow \mathbb{R}\)</span>是一个函数。许多问题都可以表述为上面方程的求根问题。例如，如果<span class="arithmatex">\(J(w)\)</span>是一个需要优化的目标函数，这个优化问题可以转换为求解<span class="arithmatex">\(g(w)=\nabla_wJ(w)=0.\)</span>。另外，如果方程右边有一个常数，例如<span class="arithmatex">\(g(w) = c\)</span>，这样的方程仍然可以通过将<span class="arithmatex">\(g(w)-c\)</span>转换为上述的形式。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>梯度等于<span class="arithmatex">\(0\)</span>是<span class="arithmatex">\(J(w)\)</span>达到最大或最小的一个必要条件。</p>
+</div>
+<p>如果<span class="arithmatex">\(g\)</span>的表达式是已知的，那么可以利用很多数值算法来求解<span class="arithmatex">\(g(w)=0\)</span>。然而，我们面临的问题是函数<span class="arithmatex">\(g\)</span>的表达式可能是未知的。例如，函数可以用人工神经网络来表示，而人工神经网络的结构和参数都是未知的。具体来说，当输入<span class="arithmatex">\(w\)</span>时，我们只能获得输出值，并且该输出值还可能包含观测噪声：</p>
+<div class="arithmatex">\[\tilde{g}(w,\eta)=g(w)+\eta,\]</div>
+<p>其中<span class="arithmatex">\(\eta\in\mathbb{R}\)</span>是观测噪声，而且可能不是高斯分布的。这个函数是一个一个黑盒系统，只有输入<span class="arithmatex">\(w\)</span>和噪声观测值<span class="arithmatex">\(\tilde{g}(w,\eta)\)</span>是已知的(见图<span class="arithmatex">\(6.2\)</span>)。我们的目标是利用<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(\tilde{g}\)</span>求解<span class="arithmatex">\(g(w) = 0\)</span>。</p>
+<p><img alt="" src="../../img/06/1.png" /></p>
+<blockquote>
+<p>图<span class="arithmatex">\(6.2\)</span>：由<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(\tilde{g}\)</span>求解 <span class="arithmatex">\(g(w) = 0\)</span>问题的示意图。</p>
+</blockquote>
+<p>求解<span class="arithmatex">\(g(w) = 0\)</span>的<span class="arithmatex">\(RM\)</span>算法是</p>
+<div class="arithmatex">\[w_{k+1}=w_k-a_k\tilde{g}(w_k,\eta_k),\quad k=1,2,3,\ldots\tag{6.5}\]</div>
+<p>其中，<span class="arithmatex">\(w_k\)</span>是第<span class="arithmatex">\(k\)</span>个方程解的估计值，<span class="arithmatex">\(\tilde{g}(w_k, \eta_k)\)</span>是输入<span class="arithmatex">\(w_k\)</span>后输出的观测值，<span class="arithmatex">\(a_k\)</span>是一个正系数。可以看到，<span class="arithmatex">\(RM\)</span>算法不需要关于函数表达式的任何信息。而仅需要输入和输出。</p>
+<p><img alt="" src="../../img/06/2.png" /></p>
+<blockquote>
+<p>图<span class="arithmatex">\(6.3\)</span>：RM 算法示例。</p>
+</blockquote>
+<p>为了分析该算法的理论性质，我们先看一个<span class="arithmatex">\(g(w) = w^3 - 5\)</span>的例子以直观理解<span class="arithmatex">\(RM\)</span>算法。其真实的解为<span class="arithmatex">\(5^{1/3} ≈ 1.71\)</span>。假设现在我们只能观察到输入<span class="arithmatex">\(w\)</span>和输出 <span class="arithmatex">\(\tilde{g}(w) = g(w) + \eta\)</span>，其中<span class="arithmatex">\(\eta\)</span>是独立同分布的，并且服从均值为<span class="arithmatex">\(0\)</span>且标准差为<span class="arithmatex">\(1\)</span>的正态分布，初始值为<span class="arithmatex">\(w_1 = 0\)</span>，系数是<span class="arithmatex">\(a_k = 1/k\)</span>。<span class="arithmatex">\(w_k\)</span>的变化过程如图<span class="arithmatex">\(6.3\)</span>所示。尽管观测结果受到噪声<span class="arithmatex">\(\eta_k\)</span>的干扰，但估计的<span class="arithmatex">\(w_k\)</span>仍然可以收敛到真实的解。需要注意的是，如果初始值<span class="arithmatex">\(w_1\)</span>选择的不合适，<span class="arithmatex">\(RM\)</span>算法可能会发散。<span class="arithmatex">\(RM\)</span>算法收敛性在下面将详细介绍。</p>
+<h3 id="621">6.2.1 收敛特性<a class="headerlink" href="#621" title="Permanent link">&para;</a></h3>
+<p>为什么<span class="arithmatex">\((6.5)\)</span>中的<span class="arithmatex">\(RM\)</span>算法可以找到<span class="arithmatex">\(g(w) = 0\)</span>的根呢？下面我们用一个例子来直观地解释，之后进行严格的收敛性分析。</p>
+<p>请看图<span class="arithmatex">\(6.4\)</span>所示的例子，<span class="arithmatex">\(g(w) = tanh(w-1)\)</span>。<span class="arithmatex">\(g(w) = 0\)</span>的真实解是<span class="arithmatex">\(w^∗ = 1\)</span>。我们应用<span class="arithmatex">\(RM\)</span>算法看能否成功得到这个解，选取<span class="arithmatex">\(w_1 = 3\)</span>和<span class="arithmatex">\(a_k = 1/k\)</span>。为了更好地说明收敛的原因，我们考虑最简单的没有观测噪声的情况：<span class="arithmatex">\(\eta_k ≡ 0\)</span>，即<span class="arithmatex">\(\tilde{g} (w_k, \eta_k) = g(w_k)\)</span>。此时，<span class="arithmatex">\(RM\)</span>算法变为<span class="arithmatex">\(w_{k+1} = w_k -a_k g(w_k)\)</span>。由<span class="arithmatex">\(RM\)</span>算法生成的<span class="arithmatex">\({w_k}\)</span>如图<span class="arithmatex">\(6.4\)</span>所示。可以看出，<span class="arithmatex">\(w_k\)</span>趋近于真正的根<span class="arithmatex">\(w^∗ = 1\)</span>。这个简单的例子能从直观上说明<span class="arithmatex">\(RM\)</span>算法为什么收敛。</p>
+<p><img alt="" src="../../img/06/3.png" /></p>
+<blockquote>
+<p>图<span class="arithmatex">\(6.4\)</span>：说明RM算法收敛性的示例。</p>
+</blockquote>
+<p>这个简单的例子可以说明RM算法收敛的原因。</p>
+<ul>
+<li>当<span class="arithmatex">\(w_k&gt;w^*\)</span>时，有<span class="arithmatex">\(g(w_k)&gt;0\)</span>，此时 <span class="arithmatex">\(w_{k+1}=w_k-a_kg(w_k)&lt;w_k\)</span>。如果<span class="arithmatex">\(|a_k g(w_k)|\)</span>足够小，我们有<span class="arithmatex">\(w^*&lt;w_{k+1}&lt;w_k\)</span>。因此<span class="arithmatex">\(w_{k+1}\)</span>比<span class="arithmatex">\(w_k\)</span>更接近于<span class="arithmatex">\(w^*\)</span>。</li>
+<li>当<span class="arithmatex">\(w_k&lt;w^*\)</span>时，我们有<span class="arithmatex">\(g(w_k)&lt;0\)</span>，此时<span class="arithmatex">\(w_{k+1}=w_k-a_kg(w_k)&gt;w_k\)</span>。如果<span class="arithmatex">\(|a_k g(w_k)|\)</span>足够小，我们有<span class="arithmatex">\(w^*&gt;w_{k+1}&gt;w_k\)</span>。因此<span class="arithmatex">\(w_{k+1}\)</span>比<span class="arithmatex">\(w_k\)</span>更接近于<span class="arithmatex">\(w^*\)</span>。</li>
+</ul>
+<p>无论哪种情况，<span class="arithmatex">\(w_{k+1}\)</span>都比<span class="arithmatex">\(w_k\)</span>更接近<span class="arithmatex">\(w^∗\)</span>。所以从直观上可以知道<span class="arithmatex">\(w_k\)</span>收敛于<span class="arithmatex">\(w^∗\)</span>。</p>
+<p>上面的例子很简单，并没有考虑到观测误差。若存在观测误差时，下面的定理给出了严格的收敛性结果。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>定理6.1</strong>. (罗宾斯-门罗定理)。在<span class="arithmatex">\((6.5)\)</span>中的罗宾斯-门罗算法中，如果满足</p>
+<ol>
+<li>
+<p><span class="arithmatex">\(0&lt;c_{1}\leq\nabla_{w}g(w)\leq c_{2}\;for\;all\;w\)</span>;</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\sum_{k=1}^{\infty}a_{k}=\infty \; and\; \sum_{k=1}^{\infty}a_{k}^{2}&lt;\infty\)</span>;</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\mathbb{E}[\eta_{k}|\mathcal{H}_{k}]=0\; and\; \mathbb{E}[\eta_{k}^{2}|\mathcal{H}_{k}]&lt;\infty\)</span>;</p>
+</li>
+</ol>
+<p>其中<span class="arithmatex">\(\mathcal{H}_{k}=\{w_{k},w_{k-1},\ldots\}\)</span>,那么<span class="arithmatex">\(w_k\)</span>几乎必然收敛到<span class="arithmatex">\(g(w^∗) = 0\)</span>的根<span class="arithmatex">\(w^∗\)</span>。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>几乎必然收敛。相关概念在附录<span class="arithmatex">\(B\)</span>中有详细介绍。</p>
+</div>
+<p>我们将该定理的证明放到第<span class="arithmatex">\(6.3.3\)</span>节。首先讨论定理<span class="arithmatex">\(6.1\)</span>中的三个条件。</p>
+<ul>
+<li>
+<p>在第一个条件中，<span class="arithmatex">\(0&lt;c_{1}\leq\nabla_{w}g(w)\)</span>要求<span class="arithmatex">\(g(w)\)</span>是一个单调递增函数。这个条件确保了<span class="arithmatex">\(g(w) = 0\)</span>的根存在且唯一。如果<span class="arithmatex">\(g(w)\)</span>是单调递减函数，我们只需将<span class="arithmatex">\(-g(w)\)</span>视为单调递增的新函数即可。</p>
+<p>如果 <span class="arithmatex">\(g(w)\)</span> 是一个目标函数 <span class="arithmatex">\(J(w)\)</span> 的梯度，即 <span class="arithmatex">\(g(w) = \nabla_w J(w)\)</span>，那么 <span class="arithmatex">\(c_1 \le \nabla_w J(w)\)</span> 等价于 <span class="arithmatex">\(c_1 \le \nabla_w J(w)\)</span>，这意味着 <span class="arithmatex">\(J(w)\)</span> 是凸的 (convex)，这是在优化问题中经常采用的假设，也说明该条件是比较宽松的。 此外，如果 <span class="arithmatex">\(g(w)\)</span> 是单调递减的，我们可以简单地将 <span class="arithmatex">\(-g(w)\)</span> 视为一个新的单调递增的函数。</p>
+<p>不等式 <span class="arithmatex">\(\nabla_w g(w) \le c_2\)</span> 表明 <span class="arithmatex">\(g(w)\)</span> 的梯度不能超过无穷大. <span class="arithmatex">\(g(w) = \tanh(w - 1)\)</span> 是满足这个条件的，但是目前面临到的另一个例子 <span class="arithmatex">\(g(w) = w^3 - 5\)</span> 则不满足这个条件。因此，当我们用 RM 算法求解 <span class="arithmatex">\(g(w) = w^3 - 5 = 0\)</span> 时，需要选择合适的初始值，否则可能发散。</p>
+</li>
+<li>
+<p>关于<span class="arithmatex">\(\{a_k\}\)</span>的第二个条件很有趣。我们在强化学习算法中经常看到类似的条件。其中 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span> 意味着 <span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k^2\)</span> 是有上界的，这要求 <span class="arithmatex">\(a_k\)</span> 随着 <span class="arithmatex">\(k \to \infty\)</span> 收敛到 0。条件 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span> 意味着 <span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k\)</span> 是无限大的，这要求 <span class="arithmatex">\(a_k\)</span> 不能太快地收敛到 0。 这些条件很有意思，稍后将做详细分析。</p>
+</li>
+<li>
+<p>第三个条件是关于噪声 <span class="arithmatex">\(m_k\)</span> 的，它并不要求观测误差 <span class="arithmatex">\(m_k\)</span> 是高斯分布的。该条件成立的一个重要特例是 <span class="arithmatex">\(\{m_k\}\)</span> 是一个独立同分布的随机序列，因此满足 <span class="arithmatex">\(E[m_k] = 0\)</span> 且 <span class="arithmatex">\(E[m_k^2] &lt; \infty\)</span>。此时，因为 <span class="arithmatex">\(m_k\)</span> 与 <span class="arithmatex">\(H_k\)</span> 是独立的，所以 <span class="arithmatex">\(E[m_k | H_k] = E[m_k] = 0\)</span> 且 <span class="arithmatex">\(E[m_k^2 | H_k] = E[m_k^2]\)</span>。</p>
+</li>
+</ul>
+<p>接下来，我们将更仔细地研究关于系数<span class="arithmatex">\({ak}\)</span>的第二个条件。</p>
+<ul>
+<li>
+<p>为什么第二个条件对RM算法的收敛是必要的？</p>
+<p>当然，我们稍后给出的定理的严格证明可以很自然地回答这个问题。不过，我们先简单介绍一下其基本思想。</p>
+<p>第一，条件 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span> 要求随着 <span class="arithmatex">\(k \to \infty\)</span> 时 <span class="arithmatex">\(a_k \to 0\)</span>。这个条件为什么重要呢？由于
+[
+w_{k+1} - w_k = -a_k \tilde{g}(w_k, \eta_k)
+]
+如果 <span class="arithmatex">\(a_k \to 0\)</span>，那么 <span class="arithmatex">\(a_k \tilde{g}(w_k, \eta_k) \to 0\)</span> (假设 <span class="arithmatex">\(\tilde{g}(w_k, \eta_k)\)</span> 总是有界的)。因此，<span class="arithmatex">\(w_{k+1} - w_k \to 0\)</span>，即当 <span class="arithmatex">\(k \to \infty\)</span> 时 <span class="arithmatex">\(w_{k+1}\)</span> 与 <span class="arithmatex">\(w_k\)</span> 非常接近。反过来说，如果 <span class="arithmatex">\(a_k\)</span> 不会收敛到 0，那么 <span class="arithmatex">\(w_{k+1}\)</span> 可能不会收敛，因此 <span class="arithmatex">\(w_k\)</span> 会一直波动而无法收敛。</p>
+<p>第二，<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>表示<span class="arithmatex">\(a_k\)</span>不能太快收敛到0。为什么这个条件重要呢？总结方程两边<span class="arithmatex">\(w_2-w_1=a_1\tilde{g}(w_1,\eta_1)\)</span>,<span class="arithmatex">\(w_3-w_2=-a_2\tilde{g}(w_2,\eta_2)\)</span>，<span class="arithmatex">\(w_4-w_3=-a_3\tilde{g}(w_3,\eta_3)\)</span>得到</p>
+<div class="arithmatex">\[w_1 - w_\infty = \sum_{k=1}^{\infty} a_k g(w_k, \eta_k)。\]</div>
+<p>如果<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k &lt; \infty\)</span>，则 <span class="arithmatex">\(|\sum_{k=1}^{\infty} a_k g(w_k, \eta_k)|\)</span> 也是有界的。令<span class="arithmatex">\(b\)</span>表示这个上界，因此可以得到</p>
+<div class="arithmatex">\[|w_1 - w_\infty| = \left|\sum_{k=1}^{\infty} a_k g(w_k, \eta_k)\right| \leq b.\tag{6.6}\]</div>
+<p>此时，如果我们选择的初始值 <span class="arithmatex">\(w_1\)</span> 离方程的解 <span class="arithmatex">\(w^*\)</span> 很远，以至于 <span class="arithmatex">\(|w_1 - w^*| &gt; b\)</span>，那么 (6.6) 告诉我们 <span class="arithmatex">\(w_\infty = w^*\)</span> 是不可能的，所以在这种情况下 RM 算法无法找到 <span class="arithmatex">\(w^*\)</span>。</p>
+</li>
+<li>
+<p>什么样的序列满足<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>和<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>呢？</p>
+<p>一个典型的序列是</p>
+<div class="arithmatex">\[a_k = \frac{1}{k}.\]</div>
+<p>一方面，有</p>
+<div class="arithmatex">\[\lim_{n \to \infty} \left( \sum_{k=1}^{n} \frac{1}{k} - \ln n \right) = \kappa,\]</div>
+<p>其中<span class="arithmatex">\(\kappa \approx 0.577\)</span>被称为欧拉-马歇罗尼常数(或欧拉常数)[<a href="https://scispace.com/papers/euler-s-constant-euler-s-work-and-modern-developments-x0n38fjx8d">28</a>]。由于当<span class="arithmatex">\(\lim_{n \to \infty}\)</span>时<span class="arithmatex">\(\ln n = \infty\)</span>，因此</p>
+<div class="arithmatex">\[\sum_{k=1}^{\infty} \frac{1}{k} = \infty.\]</div>
+<p>实际上，<span class="arithmatex">\(H_n = \sum_{k=1}^{n} \frac{1}{k}\)</span>被称为微积分中的<strong>调和数</strong> (harmonic number)。另一方面，有</p>
+<div class="arithmatex">\[\sum_{k=1}^{\infty} \frac{1}{k^2} = \frac{\pi^2}{6} &lt; \infty.\]</div>
+<p>找到<span class="arithmatex">\(\sum_{k=1}^{\infty} \frac{1}{k^2}\)</span>的值被称为巴塞尔问题<a href="https://arxiv.org/abs/2010.03953">30</a>。</p>
+<p>综上所述，序列 <span class="arithmatex">\(\{a_k = 1/k\}\)</span> 满足定理<span class="arithmatex">\(6.1\)</span>中的第二个条件。值得注意的是，稍微修改一下(例如<span class="arithmatex">\(a_k = 1/(k+1)\)</span>或<span class="arithmatex">\(a_k = c_k/k\)</span>)其中<span class="arithmatex">\(c_k\)</span>是有界的，仍然可以满足条件2。</p>
+<p>值得一提的是，<span class="arithmatex">\(a_k\)</span> 在实际中常常会被选择为一个小的正数。此时，条件 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span> 仍然成立，但是条件 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span> 不再成立。这样选择 <span class="arithmatex">\(a_k\)</span> 的原因是它能够很好地利用后面(<span class="arithmatex">\(k\)</span> 比较大时)得到的样本。否则，如果 <span class="arithmatex">\(a_k\)</span> 逐渐收敛到 0，那么当 <span class="arithmatex">\(k\)</span> 较大时，得到的数据对 <span class="arithmatex">\(w_k\)</span> 的影响已经微乎其微了。实际上，当 <span class="arithmatex">\(a_k\)</span> 恒等于一个正数时，算法仍然可以在某种意义上收敛，详情参见 [<a href="https://link.springer.com/book/10.1007/b101987">24</a>, 第 1.5 节]]。实际上，我们之所以希望 <span class="arithmatex">\(k\)</span> 较大时样本数据仍有效，基本原因是这可以应对时变系统（例如函数 <span class="arithmatex">\(g(w)\)</span> 随时间缓变化）。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果<span class="arithmatex">\(a_k=1/k\)</span>，当<span class="arithmatex">\(k\)</span>比较大时，后面的数据所起到的作用就非常小了，所以希望未来的数据仍然可以有用，就让<span class="arithmatex">\(a_k\)</span>趋近于一个非常小的数而非<span class="arithmatex">\(0\)</span>。</p>
+</div>
+</li>
+</ul>
+<h3 id="622">6.2.2 在期望值估计问题中的应用<a class="headerlink" href="#622" title="Permanent link">&para;</a></h3>
+<p>第 6.1 节已经对增量最小期望值计算法有过讨论。我们先简要回忆一下。式（6.4）给出了一个迭代算法：<span class="arithmatex">\(w_{k+1} = w_k + \alpha_k (x_k - w_k)\)</span>。当 <span class="arithmatex">\(\alpha_k = 1/k\)</span> 时，可以得到 <span class="arithmatex">\(w_{k+1}\)</span> 的解析表达式为 <span class="arithmatex">\(w_{k+1} = 1/k \sum_{i=1}^{k} x_i\)</span>。然而，当 <span class="arithmatex">\(\alpha_k\)</span> 取一般值时，我们将无法得到 <span class="arithmatex">\(w_{k+1}\)</span> 的解析表达式。此时这个算法仍然能解决期望值计算问题吗？</p>
+<p>下面展示算法（6.4）实际上是一个特殊的 RM 算法，因此其收敛性也可以得到保证。具体来说，定义如下函数：</p>
+<div class="arithmatex">\[g(w) = w - \mathbb{E}[X].\]</div>
+<p>此时，求解期望值<span class="arithmatex">\(\mathbb{E}[X]\)</span>的问题可以转换为求解方程<span class="arithmatex">\(g(w) = 0\)</span>的问题。对任意给定的<span class="arithmatex">\(w\)</span>值，我们能获得的带噪声的观测值为<span class="arithmatex">\(\tilde{g}(w, \eta) = w - x,\)</span>其中<span class="arithmatex">\(x\)</span>是<span class="arithmatex">\(X\)</span>的一个随机样本。注意<span class="arithmatex">\(\tilde{g}\)</span>可以写为</p>
+<div class="arithmatex">\[\begin{aligned}\tilde{g}(w,\eta)&amp;=w-x\\&amp;=w-x+\mathbb{E}[X]-\mathbb{E}[X]\\&amp;=(w-\mathbb{E}[X])+(\mathbb{E}[X]-x)\doteq g(w)+\eta,\end{aligned}\]</div>
+<p>其中<span class="arithmatex">\(\eta \doteq \mathbb{E}[X] - x\)</span>。这样我们就把期望值估计的问题转换为了一个可以用RM算法求解的问题。相应RM算法求解该问题的更新公式为</p>
+<div class="arithmatex">\[w_{k+1} = w_k - a_k \tilde{g}(w_k, \eta_k) = w_k - a_k (w_k - x_k),\]</div>
+<p>上式正是<span class="arithmatex">\((6.4)\)</span>中的算法。根据定理<span class="arithmatex">\(6.1\)</span>，如果 <span class="arithmatex">\(\sum_{k=1}^{\infty} \alpha_k = \infty\)</span> 且 <span class="arithmatex">\(\sum_{k=1}^{\infty} \alpha_k^2 &lt; \infty\)</span>，并且 <span class="arithmatex">\(\{x_k\}\)</span> 是独立同分布的，那么 <span class="arithmatex">\(w_k\)</span> 将几乎肯定收敛到 <span class="arithmatex">\(\mathbb{E}[X]\)</span>。值得一提的是，该收敛性不依赖于 <span class="arithmatex">\(X\)</span> 的分布假设。</p>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="../6-1/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 6.1-启发示例:期望值估计"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">6.1-启发示例:期望值估计</div>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="../6-3/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 6.3-Dvoretzky定理"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">6.3-Dvoretzky定理</div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/wgyhhhh/" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://space.bilibili.com/281217178" target="_blank" rel="noopener" title="哔哩哔哩" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92c-26.4-.8-48.2-9.8-65.3-27.2S.7 396.5 0 368.2V169.8c.8-26 9.7-47.6 26.7-65.7C43.8 87.8 65.5 78.8 92 78h29.4L96 52.2c-5.7-5.7-8.6-13-8.6-21.8S90.3 14.3 96 8.6 109 0 117.9 0s16.1 2.9 21.9 8.6L213.1 78h88l74.5-69.4C381.7 2.9 389.2 0 398 0s16.1 2.9 21.9 8.6c5.7 5.7 8.6 13 8.6 21.8s-2.9 16.1-8.6 21.8L394.6 78h29.3c26.4.8 48 9.8 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96c-9.6.4-17.4 3.7-23.6 9.8-6.1 6.1-9.4 13.9-9.8 23.5v194.4c0 9.2 3.3 17 9.8 23.5s14.4 9.8 23.6 9.8h320.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:wgyhhh001@gmail.com" target="_blank" rel="noopener" title="联系作者" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9l-112.4 94.3c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8z"/></svg>
+    </a>
+  
+</div>
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+<h4>Cookie 设置</h4>
+<p>我们使用 cookies 来识别您的重复访问和偏好，以及衡量我们文档的有效性和用户是否找 到他们正在搜索的内容。<br/> 在您的同意下，您将帮助我们改进我们的文档。<br/> （您稍后仍可以在网页左下角重新修改 cookies 设置）</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">同意</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">拒绝</button>
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">管理设定</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"alias": true, "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://Xiaokang2022.github.io/maliang/js/click-colorful.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

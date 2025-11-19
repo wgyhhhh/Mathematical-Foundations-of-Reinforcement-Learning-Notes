@@ -1,0 +1,144 @@
+<!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
+  {% if "navigation.footer" in features %}
+    {% if page.previous_page or page.next_page %}
+      {% if page.meta and page.meta.hide %}
+        {% set hidden = "hidden" if "footer" in page.meta.hide %}
+      {% endif %}
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="{{ lang.t('footer') }}"
+        {{ hidden }}
+      >
+        <!-- Link to previous page -->
+        {% if page.previous_page %}
+          {% set direction = lang.t("footer.previous") %}
+          <a
+            href="{{ page.previous_page.url | url }}"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="{{ direction }}: {{ page.previous_page.title | e }}"
+          >
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.previous or "material/arrow-left" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">{{ direction }}</span>
+              <div class="md-ellipsis">{{ page.previous_page.title }}</div>
+            </div>
+          </a>
+        {% endif %}
+
+        <!-- Link to next page -->
+        {% if page.next_page %}
+          {% set direction = lang.t("footer.next") %}
+          <a
+            href="{{ page.next_page.url | url }}"
+            class="md-footer__link md-footer__link--next"
+            aria-label="{{ direction }}: {{ page.next_page.title | e }}"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">{{ direction }}</span>
+              <div class="md-ellipsis">{{ page.next_page.title }}</div>
+            </div>
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.next or "material/arrow-right" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+          </a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  {% endif %}
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          {% if config.extra.social %}
+            <div class="footer-social">
+              {% include "partials/social.html" %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
+    </div>
+  </div>
+</footer>
