@@ -97,7 +97,10 @@ extra:
           name: 有待改进
           data: -1
           note: 感谢您的反馈！
-
+  extra_javascript:
+    - |
+      <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+      <script>LA.init({id:"3PT4FUvdHzohQSRh",ck:"3PT4FUvdHzohQSRh"})</script>
 
 
 nav:
@@ -246,9 +249,6 @@ extra_javascript:
   - javascripts/extra.js
   - javascripts/mathjax.js #MathJax配置
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  -   |
-      <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-      <script>LA.init({id:"3PT4FUvdHzohQSRh",ck:"3PT4FUvdHzohQSRh"})</script>
 
 
 extra_css:
