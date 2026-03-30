@@ -26,7 +26,7 @@
     
     
       
-        <title>7.4-最优行动值估计:Q-Learning - 强化学习课程笔记</title>
+        <title>7.4 最优行动值估计:Q-learning - 强化学习课程笔记</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#74-q-learning" class="md-skip">
+        <a href="#741" class="md-skip">
           跳转至
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7.4-最优行动值估计:Q-Learning
+              7.4 最优行动值估计:Q-learning
             
           </span>
         </div>
@@ -156,53 +156,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +465,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -2288,16 +2263,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#74-q-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.4 最优行动值估计: Q-learning
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.4 最优行动值估计: Q-learning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#741" class="md-nav__link">
     <span class="md-ellipsis">
       7.4.1算法描述
@@ -2305,23 +2270,8 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#q-learningsarsatdq-learningtdr_t1-gamma-max_a-q_ts_t1-asarsatdr_t1-gamma-q_ts_t1-a_t1s_t-a_tsarsar_t1-s_t1-a_t1q-learningr_t1-s_t1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q-learning的表达式与Sarsa相似，二者的区别仅在于TD目标：Q-learning的TD目标为\(r_{t+1} + \gamma \max_a q_t(s_{t+1}, a)\)，而Sarsa的TD目标为\(r_{t+1} + \gamma q_t(s_{t+1}, a_{t+1})\)。此外，给定\((s_t, a_t)\)后，Sarsa在每次迭代中需要\((r_{t+1}, s_{t+1}, a_{t+1})\)，而Q-learning仅需\((r_{t+1}, s_{t+1})\)。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Q-learning的表达式与Sarsa相似，二者的区别仅在于TD目标：Q-learning的TD目标为\(r_{t+1} + \gamma \max_a q_t(s_{t+1}, a)\)，而Sarsa的TD目标为\(r_{t+1} + \gamma q_t(s_{t+1}, a_{t+1})\)。此外，给定\((s_t, a_t)\)后，Sarsa在每次迭代中需要\((r_{t+1}, s_{t+1}, a_{t+1})\)，而Q-learning仅需\((r_{t+1}, s_{t+1})\)。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#742-off-policyon-policy" class="md-nav__link">
     <span class="md-ellipsis">
       7.4.2 Off-policy和On-policy
@@ -2329,47 +2279,8 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#off-policy-learning-sarsaepsilon-epsilon-off-policy-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Off-policy learning的优势在于能够基于其他策略生成的样本进行最优策略学习，这些样本可能来自人类执行的策略等来源。一个重要特例是：行为策略可选择具有强探索性的策略，能够探索所有的状态-行动对。如果我们想要估计所有状态-动作对的行动值，就必须确保轨迹能充分访问每个状态-动作对。虽然Sarsa算法采用\(\epsilon\)-贪婪策略维持基础探索能力，但\(\epsilon\)值通常较小，因而探索能力有限。相比之下，若采用具有强探索能力的策略轨迹生成访问每个状态-行动对的足够多的回合，再通过off-policy learning获取最优策略，即可显著提升学习效率。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Off-policy learning的优势在于能够基于其他策略生成的样本进行最优策略学习，这些样本可能来自人类执行的策略等来源。一个重要特例是：行为策略可选择具有强探索性的策略，能够探索所有的状态-行动对。如果我们想要估计所有状态-动作对的行动值，就必须确保轨迹能充分访问每个状态-动作对。虽然Sarsa算法采用\(\epsilon\)-贪婪策略维持基础探索能力，但\(\epsilon\)值通常较小，因而探索能力有限。相比之下，若采用具有强探索能力的策略轨迹生成访问每个状态-行动对的足够多的回合，再通过off-policy learning获取最优策略，即可显著提升学习效率。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#742-off-policyon-policy_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.4.2 Off-policy和On-policy
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sarsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      原因与Sarsa算法类似。待评估和改进的目标策略与生成样本的行为策略是相同的。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="原因与Sarsa算法类似。待评估和改进的目标策略与生成样本的行为策略是相同的。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#743" class="md-nav__link">
     <span class="md-ellipsis">
       7.4.3 算法实现
@@ -2377,25 +2288,11 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#744" class="md-nav__link">
     <span class="md-ellipsis">
       7.4.4 示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#75q-learning100000" class="md-nav__link">
-    <span class="md-ellipsis">
-      图\(7.5\)：当行为策略不具备探索性时，Q-learning算法的性能会下降。左列各图展示了行为策略的分布特征。中间列各图呈现了对应行为策略下生成的轨迹序列，每个示例中的轨迹均包含\(100,000\)步。右列各图则显示了状态值估计值的均方根误差演变过程。
     </span>
   </a>
   
@@ -3308,6 +3205,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3333,16 +3309,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#74-q-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.4 最优行动值估计: Q-learning
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.4 最优行动值估计: Q-learning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#741" class="md-nav__link">
     <span class="md-ellipsis">
       7.4.1算法描述
@@ -3350,23 +3316,8 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#q-learningsarsatdq-learningtdr_t1-gamma-max_a-q_ts_t1-asarsatdr_t1-gamma-q_ts_t1-a_t1s_t-a_tsarsar_t1-s_t1-a_t1q-learningr_t1-s_t1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q-learning的表达式与Sarsa相似，二者的区别仅在于TD目标：Q-learning的TD目标为\(r_{t+1} + \gamma \max_a q_t(s_{t+1}, a)\)，而Sarsa的TD目标为\(r_{t+1} + \gamma q_t(s_{t+1}, a_{t+1})\)。此外，给定\((s_t, a_t)\)后，Sarsa在每次迭代中需要\((r_{t+1}, s_{t+1}, a_{t+1})\)，而Q-learning仅需\((r_{t+1}, s_{t+1})\)。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Q-learning的表达式与Sarsa相似，二者的区别仅在于TD目标：Q-learning的TD目标为\(r_{t+1} + \gamma \max_a q_t(s_{t+1}, a)\)，而Sarsa的TD目标为\(r_{t+1} + \gamma q_t(s_{t+1}, a_{t+1})\)。此外，给定\((s_t, a_t)\)后，Sarsa在每次迭代中需要\((r_{t+1}, s_{t+1}, a_{t+1})\)，而Q-learning仅需\((r_{t+1}, s_{t+1})\)。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#742-off-policyon-policy" class="md-nav__link">
     <span class="md-ellipsis">
       7.4.2 Off-policy和On-policy
@@ -3374,47 +3325,8 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#off-policy-learning-sarsaepsilon-epsilon-off-policy-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Off-policy learning的优势在于能够基于其他策略生成的样本进行最优策略学习，这些样本可能来自人类执行的策略等来源。一个重要特例是：行为策略可选择具有强探索性的策略，能够探索所有的状态-行动对。如果我们想要估计所有状态-动作对的行动值，就必须确保轨迹能充分访问每个状态-动作对。虽然Sarsa算法采用\(\epsilon\)-贪婪策略维持基础探索能力，但\(\epsilon\)值通常较小，因而探索能力有限。相比之下，若采用具有强探索能力的策略轨迹生成访问每个状态-行动对的足够多的回合，再通过off-policy learning获取最优策略，即可显著提升学习效率。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Off-policy learning的优势在于能够基于其他策略生成的样本进行最优策略学习，这些样本可能来自人类执行的策略等来源。一个重要特例是：行为策略可选择具有强探索性的策略，能够探索所有的状态-行动对。如果我们想要估计所有状态-动作对的行动值，就必须确保轨迹能充分访问每个状态-动作对。虽然Sarsa算法采用\(\epsilon\)-贪婪策略维持基础探索能力，但\(\epsilon\)值通常较小，因而探索能力有限。相比之下，若采用具有强探索能力的策略轨迹生成访问每个状态-行动对的足够多的回合，再通过off-policy learning获取最优策略，即可显著提升学习效率。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#742-off-policyon-policy_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.4.2 Off-policy和On-policy
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sarsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      原因与Sarsa算法类似。待评估和改进的目标策略与生成样本的行为策略是相同的。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="原因与Sarsa算法类似。待评估和改进的目标策略与生成样本的行为策略是相同的。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#743" class="md-nav__link">
     <span class="md-ellipsis">
       7.4.3 算法实现
@@ -3422,25 +3334,11 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#744" class="md-nav__link">
     <span class="md-ellipsis">
       7.4.4 示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#75q-learning100000" class="md-nav__link">
-    <span class="md-ellipsis">
-      图\(7.5\)：当行为策略不具备探索性时，Q-learning算法的性能会下降。左列各图展示了行为策略的分布特征。中间列各图呈现了对应行为策略下生成的轨迹序列，每个示例中的轨迹均包含\(100,000\)步。右列各图则显示了状态值估计值的均方根误差演变过程。
     </span>
   </a>
   
@@ -3478,100 +3376,40 @@
   
 
 
-<h2 id="74-q-learning">7.4 最优行动值估计: Q-learning<a class="headerlink" href="#74-q-learning" title="Permanent link">&para;</a></h2>
-<p>本节介绍强化学习中最经典的算法之一——Q-Learning算法[38,39]。需注意的是，Sarsa算法仅能估计给定策略的行动值，必须结合策略改进步骤才能获得最优策略；而Q-Learning算法可直接估计最优行动值，从而直接求解最优策略。</p>
+  <h1>7.4-最优行动值估计:Q-Learning</h1>
+
+<p>本节将介绍Q-learning算法，这是经典的强化学习算法之一[38,39]。前面介绍的Sarsa只能估计给定策略的动作值，必须结合策略改进步骤才能得到最优策略。相比之下，Q-learning可以直接估计最优动作值进而找到最优策略。</p>
 <h3 id="741">7.4.1算法描述<a class="headerlink" href="#741" title="Permanent link">&para;</a></h3>
 <p>Q-Learning算法为</p>
 <div class="arithmatex">\[\begin{aligned}&amp;q_{t+1}(s_{t},a_{t})=q_{t}(s_{t},a_{t})-\alpha_{t}(s_{t},a_{t})\left[q_{t}(s_{t},a_{t})-\left(r_{t+1}+\gamma\max_{a\in\mathcal{A}(s_{t+1})}q_{t}(s_{t+1},a)\right)\right],\quad(7.18)\\&amp;q_{t+1}(s,a)=q_{t}(s,a),\quad\text{for all }(s,a)\neq(s_{t},a_{t}),\end{aligned}\]</div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-其中 <span class="arithmatex">\(t =0,1,2, \dots\)</span>。此处 <span class="arithmatex">\(q_t(s_t, a_t)\)</span>表示状态-动作对 <span class="arithmatex">\((s_t, a_t)\)</span>的最优行动值估计值，<span class="arithmatex">\(\alpha_t(s_t, a_t)\)</span>为对应状态-行动对的学习率。</p>
-<h1 id="q-learningsarsatdq-learningtdr_t1-gamma-max_a-q_ts_t1-asarsatdr_t1-gamma-q_ts_t1-a_t1s_t-a_tsarsar_t1-s_t1-a_t1q-learningr_t1-s_t1">Q-learning的表达式与Sarsa相似，二者的区别仅在于<strong>TD目标</strong>：Q-learning的TD目标为<span class="arithmatex">\(r_{t+1} + \gamma \max_a q_t(s_{t+1}, a)\)</span>，而Sarsa的TD目标为<span class="arithmatex">\(r_{t+1} + \gamma q_t(s_{t+1}, a_{t+1})\)</span>。此外，给定<span class="arithmatex">\((s_t, a_t)\)</span>后，Sarsa在每次迭代中需要<span class="arithmatex">\((r_{t+1}, s_{t+1}, a_{t+1})\)</span>，而Q-learning仅需<span class="arithmatex">\((r_{t+1}, s_{t+1})\)</span>。<a class="headerlink" href="#q-learningsarsatdq-learningtdr_t1-gamma-max_a-q_ts_t1-asarsatdr_t1-gamma-q_ts_t1-a_t1s_t-a_tsarsar_t1-s_t1-a_t1q-learningr_t1-s_t1" title="Permanent link">&para;</a></h1>
-<p>其中 <span class="arithmatex">\(t =0,1,2, \dots\)</span>。此处 <span class="arithmatex">\(q_t(s_t, a_t)\)</span>表示状态-动作对 <span class="arithmatex">\((s_t, a_t)\)</span>的最优行动值估计值，<span class="arithmatex">\(\alpha_t(s_t, a_t)\)</span>为对应状态-动作对的学习率。</p>
-<p>Q-learning的表达式与Sarsa相似，二者的区别仅在于TD目标：Q-learning的TD目标为<span class="arithmatex">\(r_{t+1} + \gamma \max_a q_t(s_{t+1}, a)\)</span>，而Sarsa的TD目标为<span class="arithmatex">\(r_{t+1} + \gamma q_t(s_{t+1}, a_{t+1})\)</span>。此外，给定<span class="arithmatex">\((s_t, a_t)\)</span>后，Sarsa在每次迭代中需要<span class="arithmatex">\((r_{t+1}, s_{t+1}, a_{t+1})\)</span>，而Q-learning仅需<span class="arithmatex">\((r_{t+1}, s_{t+1})\)</span>。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>为什么Q-learning被设计为<span class="arithmatex">\((7.18)\)</span>式中的表达式，它在数学上实现了什么功能？Q-learning是一种随机近似算法，用于求解以下方程：</p>
+<p>其中 <span class="arithmatex">\(t =0,1,2, \dots\)</span>。这里<span class="arithmatex">\(q_t(s_t, a_t)\)</span>表示对<span class="arithmatex">\((s_t, a_t)\)</span>的最优行动值的估计，<span class="arithmatex">\(\alpha_t(s_t, a_t)\)</span>是学习率。</p>
+<p>Q-learning的表达式与Sarsa相似，二者的区别仅在于<strong>TD目标</strong>：Q-learning的TD目标为<span class="arithmatex">\(r_{t+1} + \gamma \max_a q_t(s_{t+1}, a)\)</span>，而Sarsa的TD目标为<span class="arithmatex">\(r_{t+1} + \gamma q_t(s_{t+1}, a_{t+1})\)</span>。因此，如果当前的状态-行动是<span class="arithmatex">\((s_t, a_t)\)</span>，Sarsa在每次迭代需要样本<span class="arithmatex">\((r_{t+1}, s_{t+1}, a_{t+1})\)</span>，而Q-learning仅需<span class="arithmatex">\((r_{t+1}, s_{t+1})\)</span>。</p>
+<p>为什么Q-learning被设计为<span class="arithmatex">\((7.18)\)</span>式中的表达式，它在数学上实现了什么功能？实际上，Q-learning是一个求解如下贝尔曼最优方程的随机近似算法。</p>
 <div class="arithmatex">\[q(s,a)=\mathbb{E}\left[R_{t+1}+\gamma\max_{a}q(S_{t+1},a)|S_{t}=s,A_{t}=a\right].\tag{7.19}\]</div>
 <p>这是用行动值表示的贝尔曼最优方程。其证明过程见Box 7.5。Q-Learning的收敛性分析与定理7.1类似，此处从略。更多细节可参阅文献[32,39]。</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>这里得到的<span class="arithmatex">\(q\)</span>值不是说哪一个策略的<span class="arithmatex">\(q\)</span>值，而是最优的<span class="arithmatex">\(q\)</span>值，对应的即为最优的策略。</p>
 </div>
 <h3 id="742-off-policyon-policy">7.4.2 Off-policy和On-policy<a class="headerlink" href="#742-off-policyon-policy" title="Permanent link">&para;</a></h3>
-<p>接下来我们引入两个重要概念：策略学习(on-policy learning)与非策略学习(off-policy learning)。Q学习与TD算法的细微差异在于：Q学习属于非策略学习，而其他算法均为策略学习。</p>
-<p>任何强化学习任务中都存在两种策略：行为策略和目标策略。行为策略用于生成经验样本，而目标策略则持续更新以收敛至最优策略。当行为策略与目标策略相同时，该学习过程称为<strong>on-policy</strong>；若二者不同，则称为<strong>off-policy</strong>。</p>
-<h1 id="off-policy-learning-sarsaepsilon-epsilon-off-policy-learning">Off-policy learning的优势在于能够基于其他策略生成的样本进行最优策略学习，这些样本可能来自人类执行的策略等来源。一个重要特例是：行为策略可选择具有强探索性的策略，能够探索所有的状态-行动对。如果我们想要估计所有状态-动作对的行动值，就必须确保轨迹能充分访问每个状态-动作对。虽然Sarsa算法采用<span class="arithmatex">\(\epsilon\)</span>-贪婪策略维持基础探索能力，但<span class="arithmatex">\(\epsilon\)</span>值通常较小，因而探索能力有限。相比之下，若采用具有强探索能力的策略轨迹生成访问每个状态-行动对的足够多的回合，再通过off-policy learning获取最优策略，即可显著提升学习效率。<a class="headerlink" href="#off-policy-learning-sarsaepsilon-epsilon-off-policy-learning" title="Permanent link">&para;</a></h1>
-<h3 id="742-off-policyon-policy_1">7.4.2 Off-policy和On-policy<a class="headerlink" href="#742-off-policyon-policy_1" title="Permanent link">&para;</a></h3>
-<p>接下来我们引入两个重要概念：on-policy learning与off-policy learning。Q学习与其他时序差分（TD）算法的细微差异在于：Q学习属于off-policy learning，而其他算法均为on-policy learning。</p>
-<p>任何强化学习任务中都存在两种策略：行为策略和目标策略。行为策略用于生成经验样本，而目标策略则持续更新以收敛至最优策略。当行为策略与目标策略相同时，该学习过程称为<strong>on-policy</strong>；若二者不同，则称为<strong>off-policy</strong>。</p>
-<p>Off-policy learning的优势在于能够基于其他策略生成的样本进行最优策略学习，这些样本可能来自人类操作者执行的策略等来源。一个重要特例是：行为策略可选择具有强探索性的策略。例如，若需估计所有状态-动作对的行动值函数，必须确保采样轨迹能充分访问每个状态-动作对。虽然Sarsa算法采用<span class="arithmatex">\(\epsilon\)</span>-贪婪策略维持基础探索能力，但<span class="arithmatex">\(\epsilon\)</span>值通常较小，因而探索能力有限。相比之下，若采用具有强探索能力的策略生成轨迹，再通过off-policy learning获取最优策略，可显著提升学习效率。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>要判断一个算法是on-policy还是off-policy，可以从两方面考察：第一是算法求解的数学问题；第二是算法所需的经验样本。</p>
-<ul>
-<li>Sarsa是一种on-policy算法:</li>
-</ul>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-    Sarsa算法在每次迭代中包含两个步骤：第一步是通过求解策略<span class="arithmatex">\(\pi\)</span>的贝尔曼方程来评估该策略，这需要<span class="arithmatex">\(\pi\)</span>生成的样本，因此<span class="arithmatex">\(\pi\)</span>此时作为行为策略；第二步是基于<span class="arithmatex">\(\pi\)</span>的估计值获取改进策略，此时<span class="arithmatex">\(\pi\)</span>作为不断更新并最终收敛至最优策略的目标策略。因此行为策略与目标策略是同一策略。
-=======
-    原因如下。Sarsa算法在每次迭代中包含两个步骤：第一步是通过求解策略<span class="arithmatex">\(\pi\)</span>的Bellman方程来评估该策略，这需要<span class="arithmatex">\(\pi\)</span>生成的样本，因此<span class="arithmatex">\(\pi\)</span>此时作为行为策略；第二步是基于<span class="arithmatex">\(\pi\)</span>的估计值获取改进策略，此时<span class="arithmatex">\(\pi\)</span>作为不断更新并最终收敛至最优策略的目标策略。由此可见，行为策略与目标策略实为同一策略。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>从另一个角度来看，我们可以分析算法所需的样本。Sarsa算法在每次迭代中需要的样本包括$(s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1})$。这些样本的生成方式如下所示：
-
-$$s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\xrightarrow{\pi_b}a_{t+1}$$
-</code></pre></div></td></tr></table></div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-    可以看出，行为策略<span class="arithmatex">\(\pi_b\)</span>是在状态<span class="arithmatex">\(s_t\)</span>下生成行动<span class="arithmatex">\(a_t\)</span>、在状态 <span class="arithmatex">\(s_{t+1}\)</span>下生成行动<span class="arithmatex">\(a_{t+1}\)</span>的策略。Sarsa算法的目标是估计目标策略 <span class="arithmatex">\(\pi_T\)</span>在状态-行动对 <span class="arithmatex">\((s_t, a_t)\)</span>处的行动值；之所以称为目标策略，是因为它在每次迭代中会根据估计值进行改进。实际上，<span class="arithmatex">\(\pi_T\)</span>与 <span class="arithmatex">\(\pi_b\)</span>是相同的，因为对 <span class="arithmatex">\(\pi_T\)</span>的评估依赖于样本 <span class="arithmatex">\((r_{t+1}, s_{t+1}, a_{t+1})\)</span>，其中 <span class="arithmatex">\(a_{t+1}\)</span>正是遵循 <span class="arithmatex">\(\pi_b\)</span>(也即<span class="arithmatex">\(\pi_t(s_{t+1})\)</span>)生成的。换言之，Sarsa所评估的策略正是用于生成经验样本的策略。</p>
+<p>接下来介绍两个重要概念：Of-policy(异策略)和On-policy(同策略)。之所以在介绍Q-learning时引入这两个概念，是因为Q-learning相比前面的TD算法有一点特殊：Q-learning是Of-policy的，而前面介绍的算法如Sarsa都是On-policy的。</p>
+<p>任何一个强化学习算法都会涉及两种策略：一种是行为策略(behavior policy),另一种是目标策略(target policy)。行为策略用于生成经验样本，而目标策略不断更新，从而收敛至最优策略。当行为策略与目标策略相同时，该算法被称为On-policy的，中文为同策略(因为两个策略相同);当它们不同时，该算法被称为Of-policy的，中文为异策略(因为两个策略不同)。</p>
+<p>Offpolicy算法的优势在于它可以使用由其他策略生成的经验样本来学习最优策略。一个常见的情况是使用探索性较强的行为策略生成的经验数据。例如，如果我们想要估计所有动作值，则必须生成多次访问每个状态-动作的轨迹，此时可以使用<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略来生成轨迹。尽管Sarsa也使用<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略来保持一定的探索能力，但是为了保证最优性，其<span class="arithmatex">\(\varepsilon\)</span>的值通常很小，因此探索能力有限。相比之下，如果我们能使用一个具有较强探索能力的策略(例如<span class="arithmatex">\(\varepsilon\)</span>=1)来生成经验数据，然后使用Off-policy算法来学习最优策略，效率将显著提高。后面将给出一个例子来说明这一点。</p>
+<p>如何确定一个算法是On-policy还是Off-policy呢?如果一个算法可以使用任何其他策略生成的经验数据来得到最优策略，那么这个算法就是Off-policy的；反之，则是On-policy的。当然，这并不是真正意义上的回答，而是基于Of-policy和On-policy的定义。为了真正回答这个问题，我们可以考察算法的两方面：第一个方面是算法旨在解决的数学问题，第二个方面是算法所需的经验样本。</p>
 <ul>
 <li>
+<p>Sarsa是on-policy算法:</p>
+<p>原因如下。Sarsa在每次迭代中有两个步骤。第一步是通过求解贝尔曼方程来评价当前策略<span class="arithmatex">\(\pi\)</span>。为此我们需要由<span class="arithmatex">\(\pi\)</span>生成的样本，因此<span class="arithmatex">\(\pi\)</span>是行为策略。第二步是基于对<span class="arithmatex">\(\pi\)</span>的估计值获得一个改进的策略，<span class="arithmatex">\(\pi\)</span>不断更新并最终收敛到最优策略，因此<span class="arithmatex">\(\pi\)</span>也是目标策略，所以Sarsa中的行为策略和目标策略是相同的。</p>
+<p>从另一个角度来看，我们可以分析算法所需的样本。Sarsa算法在每次迭代中需要的样本包括<span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1})\)</span>。这些样本的生成方式如下所示：</p>
+<div class="arithmatex">\[s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\xrightarrow{\pi_b}a_{t+1}\]</div>
+<p>在此过程中，行为策略<span class="arithmatex">\(\pi_b\)</span>用于在在状态<span class="arithmatex">\(s_t\)</span>下生成行动<span class="arithmatex">\(a_t\)</span>、在状态 <span class="arithmatex">\(s_{t+1}\)</span>下生成行动<span class="arithmatex">\(a_{t+1}\)</span>。Sarsa用这个经验数据来估计<span class="arithmatex">\(q_{\pi_b}(s_t,a_t)\)</span>,并基于此改进得到新的策略。换句话说，Sarsa评价进而改进的策略(即目标策略)就是用来生成样本的策略，因此Sarsa是On-policy的。</p>
+</li>
+<li>
 <p>Q-Learning是一种off-policy算法:</p>
-<p>根本原因在于，Q-learning是用于求解贝尔曼最优方程的算法，而Sarsa则是求解给定策略的贝尔曼方程。求解贝尔曼方程可以评估对应策略的性能，而求解贝尔曼最优方程则能直接生成最优值与最优策略。</p>
-<p>特别地，Q-learning每次迭代所需的样本为<span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1})\)</span>。这些样本的生成方式如下所示：</p>
+<p>其本质的数学原因在于Q-learning是求解贝尔曼最优方程，而Sarsa是求解用于生成经验数据的策略对应的贝尔曼方程。求解贝尔曼方程只能评价对应的策略，而求解贝尔曼最优方程则可以直接得到最优策略。</p>
+<p>具体来说，Q-learning每次迭代所需的样本为<span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1})\)</span>。这些样本的生成方式如下所示：</p>
 <div class="arithmatex">\[s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\]</div>
-<p>可以看出，行为策略 <span class="arithmatex">\(\pi_b\)</span>是生成状态<span class="arithmatex">\(s_t\)</span>下行动<span class="arithmatex">\(a_t\)</span>的策略。Q-Learning算法的目标是估计<span class="arithmatex">\((s_t, a_t)\)</span>的最优行动值函数。这一估计过程依赖于样本<span class="arithmatex">\((r_{t+1}, s_{t+1})\)</span>。如果<span class="arithmatex">\((s_t, a_t)\)</span>是给定的，那么<span class="arithmatex">\((r_{t+1},s_{t+1})\)</span>不依赖于策略<span class="arithmatex">\(\pi_b\)</span>，因为它由系统模型(即<span class="arithmatex">\(p(s^\prime|s,a),p(r|s,a)\)</span>)决定。因此，对<span class="arithmatex">\((s_t, a_t)\)</span>最优行动值的估计与<span class="arithmatex">\(\pi_b\)</span>无关，我们可以使用任意<span class="arithmatex">\(\pi_b\)</span>来生成<span class="arithmatex">\(s_t\)</span>状态下的<span class="arithmatex">\(a_t\)</span>。此外，此处目标策略<span class="arithmatex">\(\pi_T\)</span>是基于估计的最优值得到的贪婪策略(算法7.3)。行为策略不必与<span class="arithmatex">\(\pi_T\)</span>相同。</p>
+<p>在此过程中，行为策略<span class="arithmatex">\(\pi_b\)</span>用于在状态<span class="arithmatex">\(s_t\)</span>下产生行动<span class="arithmatex">\(a_t\)</span>。Q-Learning算法的目标是估计<span class="arithmatex">\((s_t, a_t)\)</span>的最优行动值。这一过程依赖于样本<span class="arithmatex">\((r_{t+1}, s_{t+1})\)</span>。产生<span class="arithmatex">\((r_{t+1},s_{t+1})\)</span>的过程完全由系统模型(即通过与环境的交互)决定。因此，<span class="arithmatex">\((s_t, a_t)\)</span>的最优行动值的估计不再涉及<span class="arithmatex">\(\pi_b\)</span>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>注: Q-learning的行为策略就是需要从<span class="arithmatex">\(s_t\)</span>出发根据一个策略得到一个<span class="arithmatex">\(a_t\)</span>，而目标策略就是根据计算得到的<span class="arithmatex">\(q\)</span>来选择对应的行动，当<span class="arithmatex">\(q\)</span>逐渐收敛到最优<span class="arithmatex">\(q\)</span>值时，也就收敛到了最优策略。</p>
@@ -3579,46 +3417,22 @@ $$s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\xrightarr
 </li>
 <li>
 <p>MC learning是一种on-policy算法:</p>
-<h1 id="sarsa">原因与Sarsa算法类似。待评估和改进的目标策略与生成样本的行为策略是相同的。<a class="headerlink" href="#sarsa" title="Permanent link">&para;</a></h1>
-<p>可以看出，行为策略 <span class="arithmatex">\(\pi_b\)</span>是在状态 <span class="arithmatex">\(s_t\)</span>下生成动作 <span class="arithmatex">\(a_t\)</span>、在状态 <span class="arithmatex">\(s_{t+1}\)</span>下生成动作 <span class="arithmatex">\(a_{t+1}\)</span>的策略。Sarsa算法的目标是估计目标策略 <span class="arithmatex">\(\pi_T\)</span>在状态-动作对 <span class="arithmatex">\((s_t, a_t)\)</span>处的动作值函数；之所以称为目标策略，是因为它在每次迭代中会根据估计值进行改进。实际上，<span class="arithmatex">\(\pi_T\)</span>与 <span class="arithmatex">\(\pi_b\)</span>是相同的，因为对 <span class="arithmatex">\(\pi_T\)</span>的评估依赖于样本 <span class="arithmatex">\((r_{t+1}, s_{t+1}, a_{t+1})\)</span>，其中 <span class="arithmatex">\(a_{t+1}\)</span>正是遵循 <span class="arithmatex">\(\pi_b\)</span>生成的。换言之，Sarsa所评估的策略正是用于生成样本的策略。</p>
-</li>
-<li>
-<p>Q-Learning是一种off-policy算法:</p>
-<p>根本原因在于，Q-learning是用于求解贝尔曼最优方程的算法，而 Sarsa则是求解给定策略的贝尔曼方程。求解贝尔曼方程可以评估对应策略的性能，而求解贝尔曼最优方程则能直接生成最优值函数与最优策略。</p>
-<p>特别地，Q-learning每次迭代所需的样本为 <span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1})\)</span>。这些样本的生成方式如下所示：</p>
-<div class="arithmatex">\[s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\]</div>
-<p>可以看出，行为策略 <span class="arithmatex">\(\pi_b\)</span>是生成状态<span class="arithmatex">\(s_t\)</span>下行动<span class="arithmatex">\(a_t\)</span>的策略。Q-Learning算法的目标是估计<span class="arithmatex">\((s_t, a_t)\)</span>的最优行动值函数。这一估计过程依赖于样本<span class="arithmatex">\((r_{t+1}, s_{t+1})\)</span>。生成<span class="arithmatex">\((r_{t+1},s_{t+1})\)</span>的过程不涉及<span class="arithmatex">\(\pi_b\)</span>，因为它由系统模型(或通过与环境的交互)决定。因此，对<span class="arithmatex">\((s_t, a_t)\)</span>最优行动值的估计与 <span class="arithmatex">\(\pi_b\)</span>无关，我们可以使用任意<span class="arithmatex">\(\pi_b\)</span>来生成<span class="arithmatex">\(s_t\)</span>状态下的<span class="arithmatex">\(a_t\)</span>。此外，此处目标策略<span class="arithmatex">\(\pi_T\)</span>是基于估计的最优值得到的贪婪策略(算法7.3)。行为策略不必与 <span class="arithmatex">\(\pi_T\)</span>相同。</p>
-</li>
-<li>
-<p>MC learning是一种on-policy算法:</p>
-<p>原因与Sarsa算法类似。待评估和改进的目标策略（target policy）与生成样本的行为策略（behavior policy）是相同的。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>另一个可能与on-policy/off-policy混淆的概念是online/offline。在线学习指智能体在与环境交互的同时更新价值函数和策略；离线学习则指智能体使用预先收集的经验数据进行策略更新，而无需与环境实时交互。若算法属于on-policy，则可在online，但不能使用其他策略生成的预存数据；若算法属于off-policy，则既可online实现也可offline实现。</p>
+<p>原因与Sarsa算法类似。待评估和改进的目标策略与生成样本的行为策略是相同的。</p>
 </li>
 </ul>
+<p>最后，有的读者可能会问On-policy/Off-policy与Online/Ofline(在线/离线)的区别是什么?在线学习是指智能体在与环境交互的同时用生成的数据来更新值和策略。离线学习是指智能体不与环境交互，而是使用预先收集的数据来更新值和策略。如果算法是On-policy的，那么它可以实现在线学习，但不能实现离线学习，因为它无法使用预先收集的其他策略生成的数据。如果算法是Off-policy的，那么它既可以在线学习，也可以离线学习。</p>
+<h3 id="743">7.4.3 算法实现<a class="headerlink" href="#743" title="Permanent link">&para;</a></h3>
+<p>由于Q-learning是Off-policy的，所以它在编程实现时有两种模式。</p>
+<p>第一，On-policy模式，即行为策略和目标策略相同。算法7.2给出了伪代码。这种方式与算法7.1中的Sarsa类似，因为此时行为策略与目标策略相同，都是一个<span class="arithmatex">\(\varepsilon\)</span>-Greedy 的策略。此外，该算法是在线学习的，即智能体一边与环境交互以获得数据，一边更新值和策略。</p>
 <p><img alt="" src="../../img/07/3.png" /></p>
 <blockquote>
 <p>算法7.2</p>
 </blockquote>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>看on-policy的Q-learning的update q-value可以看到，与Sarsa的公式不同的是，Sarsa中的最后项是<span class="arithmatex">\(q_t(s_{t+1},a_{t+1})\)</span>，而Q-learning的最后项是<span class="arithmatex">\(\gamma \max_a q_t(s_{t+1},a)\)</span>。可以看到，on-policy版本的Q-learning是根据策略生成经验样本更新<span class="arithmatex">\(q\)</span>值，利用<span class="arithmatex">\(q\)</span>值更新策略，然后重复。</p>
 </div>
+<p>第二，Off-policy模式，即行为策略和目标策略不同。算法7.3给出了伪代码。其中行为策略<span class="arithmatex">\(\pi_b\)</span>可以是任意策略，只要它能生成足够的经验数据。因此，行为策略最好具有一定的探索性。在此算法中，目标策略<span class="arithmatex">\(\pi_T\)</span>是Greedy的而不是<span class="arithmatex">\(\varepsilon\)</span>-Greedy的，这是因为它不用生成经验数据，因此不需要具有探索性。此外，该算法是离线学习的，即先收集所有经验样本，然后再学习。</p>
 <p><img alt="" src="../../img/07/4.png" /></p>
 <blockquote>
 <p>算法7.3</p>
@@ -3627,85 +3441,206 @@ $$s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\xrightarr
 <p class="admonition-title">Note</p>
 <p>这里与on-policy的不同之处在于update target policy从<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略变为了贪婪策略。</p>
 </div>
-<p>=======
- <img alt="" src="../../img/07/4.png" /></p>
-<blockquote>
-<p>算法7.3</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0
- <img alt="" src="../../img/07/5.png" />
-图<span class="arithmatex">\(7.3\)</span>：Q-Learning算法的演示示例。所有训练回合均从左上角状态开始，并在到达目标状态后终止。目标是找到从起始状态到目标状态的最优路径。奖励设置为 <span class="arithmatex">\(r_{\text{target}} =0\)</span>、<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -10\)</span>，以及 <span class="arithmatex">\(r_{\text{other}} = -1\)</span>。学习率 <span class="arithmatex">\(\alpha =0.1\)</span>，<span class="arithmatex">\(\gamma\)</span>值为0.1。左图显示算法获得的最终策略，右图展示每个训练回合的总奖励与路径长度。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="743">7.4.3 算法实现<a class="headerlink" href="#743" title="Permanent link">&para;</a></h3>
-<p>由于Q-learning属于off-policy算法，因此既可采用on-policy也可采用off-policy方式实现。</p>
-<p>Q学习的on-policy版本如算法7.2所示。该实现方式与算法7.1中的Sarsa算法类似。其中，行为策略与目标策略相同，均为<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略。</p>
-<p>off-policy版本如算法<span class="arithmatex">\(7.3\)</span>所示。行为策略<span class="arithmatex">\(\pi_b\)</span>可以是任意策略，只要其能生成足够的经验样本。当<span class="arithmatex">\(\pi_b\)</span>具有探索性时通常更有利。此处目标策略<span class="arithmatex">\(\pi_T\)</span>采用贪婪策略而非<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略，因其不用于生成样本，故无需具备探索性。此外，本文提出的Q-learning off-policy版本采用offline实现方式：所有经验样本均需先采集后处理。</p>
 <h3 id="744">7.4.4 示例<a class="headerlink" href="#744" title="Permanent link">&para;</a></h3>
-<p>接下来我们通过示例展示Q-learning算法的应用。</p>
-<p>第一个示例如图<span class="arithmatex">\(7.3\)</span>所示，它展示了on-policy Q-learning的过程。该算法的目标是从初始状态找到一条通往目标状态的最优路径。具体实验设置见图<span class="arithmatex">\(7.3\)</span>的图注说明。可以看出，Q-learning最终能够找到最优路径。在学习过程中，每个训练周期的路径长度逐渐缩短，而对应的总奖励值则持续增加。</p>
-<p>第二组示例如图<span class="arithmatex">\(7.4\)</span>和图<span class="arithmatex">\(7.5\)</span>所示，展示了off-policy Q-learning过程。其目标是为所有状态寻找最优策略。奖励设置为 <span class="arithmatex">\(r_{\text{boundary}} = r_{\text{forbidden}} = -1\)</span>，且 <span class="arithmatex">\(r_{\text{target}} =1\)</span>。折扣率 <span class="arithmatex">\(\gamma =0.9\)</span>，学习率 <span class="arithmatex">\(\alpha =0.1\)</span>。</p>
+<p>第一个例子如图7.3所示，它展示了算法7.2中On-policy模式的Q-learning。这里的目标是从给定的状态出发找到达到目标状态的最优路径。参数设置在图7.3的标题中给出。如该图所示，Q-learning最终能找到一个最优路径。在迭代过程中，每个回合的长度逐渐缩短，而每个回合的回报逐渐增加。</p>
+<p>第二组示例如图<span class="arithmatex">\(7.4\)</span>和图<span class="arithmatex">\(7.5\)</span>所示，展示了off-policy Q-learning过程。这里的任务是找到所有状态的最优策略。奖励设置为<span class="arithmatex">\(r_{\text{boundary}} = r_{\text{forbidden}} = -1\)</span>，且<span class="arithmatex">\(r_{\text{target}} =1\)</span>。折扣因子<span class="arithmatex">\(\gamma =0.9\)</span>，学习率<span class="arithmatex">\(\alpha =0.1\)</span>。</p>
+<p><img alt="" src="../../img/07/5.png" /></p>
+<blockquote>
+<p>图<span class="arithmatex">\(7.3\)</span>：Q-Learning算法的演示示例。所有训练回合均从左上角状态开始，并在到达目标状态后终止。目标是找到从起始状态到目标状态的最优路径。奖励设置为 <span class="arithmatex">\(r_{\text{target}} =0\)</span>、<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -10\)</span>，以及 <span class="arithmatex">\(r_{\text{other}} = -1\)</span>。学习率 <span class="arithmatex">\(\alpha =0.1\)</span>，<span class="arithmatex">\(\gamma\)</span>值为0.1。左图显示算法获得的最终策略，右图展示每个训练回合的总奖励与路径长度。</p>
+</blockquote>
 <ul>
 <li>
-<p>基准真值(ground truth)：为验证 Q-learning的有效性，首先需要获知最优策略与最优状态值的基准真值。此处通过基于模型的策略迭代算法获取基准真值，具体数据见图<span class="arithmatex">\(7.4(a)\)</span>与<span class="arithmatex">\((b)\)</span>。</p>
+<p>最优策略：为了验证Q-learning的有效性，我们首先使用之前介绍的需要模型的策略迭代算法求解出真实的最优策略和最优状态值，如图<span class="arithmatex">\(7.4(a)\sim(b)\)</span>所示。</p>
 </li>
 <li>
-<p>经验样本(experience samples)：行为策略采用均匀分布，即在任意状态下采取任一动作的概率均为<span class="arithmatex">\(0.2\)</span>(图<span class="arithmatex">\(7.4(c)\)</span>)。通过生成一个包含100,000步的单一回合(图<span class="arithmatex">\(7.4(d)\)</span>)，由于行为策略具备良好的探索能力，该回合会多次访问所有状态-行动对。</p>
+<p>经验样本：行为策略在任意状态下采取任意动作的概率是相同的，都等于<span class="arithmatex">\(0.2\)</span>
+(图<span class="arithmatex">\(7.4(c)\)</span>)。我们使用该行为策略生成一个包含<span class="arithmatex">\(100000\)</span>步的回合(图<span class="arithmatex">\(7.4(d)\)</span>)。由于该行为策略具有良好的探索能力，这一个回合就能多次访问每个状态-动作。</p>
 </li>
 <li>
-<p>学习结果(learned results)：基于行为策略生成的回合，通过Q-learning得到的最终目标策略如图<span class="arithmatex">\(7.4(e)\)</span>所示。该策略是最优的，因为如图<span class="arithmatex">\(7.4(f)\)</span>所示，其状态值估计误差(均方根误差)收敛至零。此外，可以注意到学习得到的最优策略与图<span class="arithmatex">\(7.4(a)\)</span>中的策略并不完全相同。事实上，存在多个具有相同最优状态值的最优策略。</p>
+<p>学习到的策略：Q-learning最终学到的目标策略如图<span class="arithmatex">\(7.4(e)\)</span>所示。这个策略是最优的，因为估计误差收敛到了<span class="arithmatex">\(0\)</span> (图<span class="arithmatex">\(7.4(f)\)</span>。此外，有的读者可能注意到Q-learning学到的最优策略与图<span class="arithmatex">\(7.4(a)\)</span>中的最优策略不完全相同。实际上，这两个都是最优策略，它们对应相同的最优状态值。</p>
 </li>
 <li>
-<p>不同初始值的影响(different initial values)：由于Q-learning采用自举法(bootstraps)，算法性能取决于行动值的初始估计值。如图<span class="arithmatex">\(7.4(g)\)</span>所示，当初始估计接近真实值时，约<span class="arithmatex">\(10,000\)</span>步内即可收敛；反之则需要更多迭代步数(图<span class="arithmatex">\(7.4(h)\)</span>)。尽管如此，这些结果表明即使初始值不精确，Q-learning仍能保持较快的收敛速度。</p>
+<p>不同的初始值：由于Q-learning采用自举方法，算法需要选取合适的初始动作值估计。如果初始估计靠近真实值，则估计过程收敛较快，例如在约<span class="arithmatex">\(10000\)</span>步内收敛(图<span class="arithmatex">\(7.4(g)\)</span>)。否则，估计过程收敛较慢(图<span class="arithmatex">\(7.4(h)\)</span>)。</p>
+</li>
+<li>
+<p>不同的行为策略：当行为策略的探索性较差时，学习的效果显著下降。例如，图<span class="arithmatex">\(7.5\)</span>给出了一些探索性较差的行为策略。虽然它们是<span class="arithmatex">\(\varepsilon\)</span>-Greedy,但是因为<span class="arithmatex">\(\varepsilon=0.5\)</span>或<span class="arithmatex">\(0.1\)</span>较小，所以探索性较差。结果表明，当<span class="arithmatex">\(\varepsilon\)</span>从1减少到0.5,然后再减少到0.1时，学习速度显著降低，这是因为行为策略的探索能力较弱，导致经验样本不合理。</p>
 </li>
 </ul>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-- 不同行为策略的表现差异(different behavior policies)：当行为策略不具备探索性时，学习性能会显著下降。例如，考虑图<span class="arithmatex">\(7.5\)</span>所示的策略，它们是<span class="arithmatex">\(\epsilon\)</span>-贪心策略(<span class="arithmatex">\(\epsilon=0.5\)</span>或<span class="arithmatex">\(0.1\)</span>)；图<span class="arithmatex">\(7.4(c)\)</span>中的均匀策略可视为<span class="arithmatex">\(\epsilon=1\)</span>的<span class="arithmatex">\(\epsilon\)</span>-贪心策略）。研究表明，当<span class="arithmatex">\(\epsilon\)</span>从1降至0.5再降至0.1时，学习速度急剧下降。这是因为策略的探索能力较弱，导致经验样本不足。</p>
 <p><img alt="" src="../../img/07/6.png" /></p>
 <blockquote>
-<p>图<span class="arithmatex">\(7.4\)</span>：通过Q-learning演示off-policy学习的示例。<span class="arithmatex">\((a)\)</span>和<span class="arithmatex">\((b)\)</span>分别显示了最优策略和最优状态值。<span class="arithmatex">\((c)\)</span>和<span class="arithmatex">\((d)\)</span>分别展示了行为策略和生成的轨迹。<span class="arithmatex">\((e)\)</span>和<span class="arithmatex">\((f)\)</span>分别呈现了估计策略与误差演变过程。<span class="arithmatex">\((g)\)</span>和<span class="arithmatex">\((h)\)</span>则显示了不同初始值条件下的对比情况。</p>
+<p>图<span class="arithmatex">\(7.4\)</span>：用于展示 Of-policy模式的 Q-learning的例子。图(a)和(b)展示了最优策略和最优状态值。图&copy;和(d)展示了行为策略和生成的回合。图(e)和(f)展示了学习到的策略和估计误差的收敛过程。图(g)和(h)展示了具有不同初始值的情况。</p>
 </blockquote>
 <p><img alt="" src="../../img/07/7.png" /></p>
 <blockquote>
-<h1 id="75q-learning100000">图<span class="arithmatex">\(7.5\)</span>：当行为策略不具备探索性时，Q-learning算法的性能会下降。左列各图展示了行为策略的分布特征。中间列各图呈现了对应行为策略下生成的轨迹序列，每个示例中的轨迹均包含<span class="arithmatex">\(100,000\)</span>步。右列各图则显示了状态值估计值的均方根误差演变过程。<a class="headerlink" href="#75q-learning100000" title="Permanent link">&para;</a></h1>
-<ul>
-<li>不同行为策略的表现差异(different behavior policies)：当行为策略不具备探索性时，学习性能会显著下降。例如，考虑图<span class="arithmatex">\(7.5\)</span>所示的策略，它们是<span class="arithmatex">\(\epsilon\)</span>-贪心策略（<span class="arithmatex">\(\epsilon=0.5\)</span>或<span class="arithmatex">\(0.1\)</span>；图<span class="arithmatex">\(7.4(c)\)</span>中的均匀策略可视为<span class="arithmatex">\(\epsilon=1\)</span>的<span class="arithmatex">\(\epsilon\)</span>-贪心策略）。研究表明，当<span class="arithmatex">\(\epsilon\)</span>从1降至0.5再降至0.1时，学习速度急剧下降。这是因为策略的探索能力较弱，导致经验样本不足。<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
+<p>图<span class="arithmatex">\(7.5\)</span>：当行为策略探索性较弱时，学习的效果会下降。左列的图展示了不同的行为策略。中间列的图展示了由相应行为策略生成的回合，每个回合有100000步。右列的图展示了最优状态值估计误差的演变过程。</p>
 </blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-</blockquote>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3725,38 +3660,47 @@ $$s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\xrightarr
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../7-3/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 7.3-行动值估计:n步Sarsa">
+          <a
+            href="../7-3/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 7.3-行动值估计:n步Sarsa"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                7.3-行动值估计:n步Sarsa
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">7.3-行动值估计:n步Sarsa</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../7-5/" class="md-footer__link md-footer__link--next" aria-label="下一页: 7.5-时序差分算法的统一框架">
+          <a
+            href="../7-5/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 7.5-时序差分算法的统一框架"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                7.5-时序差分算法的统一框架
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">7.5-时序差分算法的统一框架</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3767,19 +3711,21 @@ $$s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\xrightarr
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3807,7 +3753,79 @@ $$s_t\xrightarrow{\pi_b}a_t\xrightarrow{\mathrm{model}}r_{t+1},s_{t+1}\xrightarr
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

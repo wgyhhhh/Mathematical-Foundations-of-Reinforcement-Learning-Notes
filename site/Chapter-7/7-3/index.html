@@ -26,7 +26,7 @@
     
     
       
-        <title>7.3-行动值估计:n步Sarsa - 强化学习课程笔记</title>
+        <title>7.3 行动值估计:n-step Sarsa - 强化学习课程笔记</title>
       
     
     
@@ -81,11 +81,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#nsarsa" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -119,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7.3-行动值估计:n步Sarsa
+              7.3 行动值估计:n-step Sarsa
             
           </span>
         </div>
@@ -156,53 +151,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +460,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -2226,19 +2196,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    7.3-行动值估计:n步Sarsa
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2250,41 +2207,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#nsarsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      行动值估计: n步Sarsa
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gn_t716q_pis-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      将\(G^{(n)}_t\)的不同分解形式代入\((7.16)\)式中的\(q_\pi(s, a)\)会得到不同的算法。
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -3212,6 +3134,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3229,32 +3230,6 @@
   
   
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#nsarsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      行动值估计: n步Sarsa
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gn_t716q_pis-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      将\(G^{(n)}_t\)的不同分解形式代入\((7.16)\)式中的\(q_\pi(s, a)\)会得到不同的算法。
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -3286,13 +3261,14 @@
   
 
 
-<h2 id="nsarsa">行动值估计: n步Sarsa<a class="headerlink" href="#nsarsa" title="Permanent link">&para;</a></h2>
-<p>本节介绍n步Sarsa算法——Sarsa的扩展形式。我们将看到，Sarsa与蒙特卡洛(MC)学习实际上是n步Sarsa的两个极端特例。</p>
-<p>回顾行动值的定义为</p>
+  <h1>7.3-行动值估计:n步Sarsa</h1>
+
+<p>本节介绍n-step Sarsa算法——Sarsa的推广形式。我们将看到，Sarsa与蒙特卡洛算法实际上是n-step Sarsa的两种极端情况。</p>
+<p>首先回顾行动值的定义为：</p>
 <div class="arithmatex">\[q_\pi(s,a)=\mathbb{E}[G_t|S_t=s,A_t=a],\tag{7.16}\]</div>
-<p>其中<span class="arithmatex">\(G_t\)</span>为满足以下条件的折现回报：</p>
+<p>其中<span class="arithmatex">\(G_t\)</span>是折扣回报：</p>
 <div class="arithmatex">\[G_{t}=R_{t+1}+\gamma R_{t+2}+\gamma^{2}R_{t+3}+\ldots.\]</div>
-<p>事实上，<span class="arithmatex">\(G_t\)</span>也可以分解为不同形式：</p>
+<p>实际上，<span class="arithmatex">\(G_t\)</span>也可以分解为不同形式：</p>
 <div class="arithmatex">\[\begin{aligned}
 \text{Sarsa} \leftarrow &amp;G^{(1)}_t = R_{t+1} + \gamma q_{\pi}(S_{t+1}, A_{t+1}), \\
 &amp;G^{(2)}_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 q_{\pi}(S_{t+2}, A_{t+2}), \\
@@ -3301,112 +3277,201 @@
 &amp;\vdots \\
 \text{MC} \leftarrow &amp;G^{(\infty)}_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \gamma^3 R_{t+4} + \cdots
 \end{aligned}\]</div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-需注意<span class="arithmatex">\(G_t = G^{(1)}_t = G^{(2)}_t = G^{(n)}_t = G^{(\infty)}_t\)</span>，其中上标仅表示<span class="arithmatex">\(G_t\)</span>的不同分解结构。</p>
-<h1 id="gn_t716q_pis-a">将<span class="arithmatex">\(G^{(n)}_t\)</span>的不同分解形式代入<span class="arithmatex">\((7.16)\)</span>式中的<span class="arithmatex">\(q_\pi(s, a)\)</span>会得到不同的算法。<a class="headerlink" href="#gn_t716q_pis-a" title="Permanent link">&para;</a></h1>
-<p>需注意 <span class="arithmatex">\(G_t = G^{(1)}_t = G^{(2)}_t = G^{(n)}_t = G^{(\infty)}_t\)</span>，其中上标仅表示 <span class="arithmatex">\(G_t\)</span>的不同分解结构。</p>
-<p>将 <span class="arithmatex">\(G^{(n)}_t\)</span>的不同分解形式代入 (7.16)式中的 <span class="arithmatex">\(q_\pi(s, a)\)</span>会得到不同的算法。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>上式中<span class="arithmatex">\(G_t = G^{(1)}_t = G^{(2)}_t = G^{(n)}_t = G^{(\infty)}_t\)</span>的上标仅表示<span class="arithmatex">\(G_t\)</span>的不同分解方式。它们本质上是相等的。将<span class="arithmatex">\(G^{(n)}_t\)</span>的不同分解形式代入<span class="arithmatex">\((7.16)\)</span>式中的<span class="arithmatex">\(q_\pi(s, a)\)</span>会得到不同的算法。</p>
 <ul>
 <li>
 <p>当<span class="arithmatex">\(n=1\)</span>，我们有</p>
 <div class="arithmatex">\[q_\pi(s,a)=\mathbb{E}[G_t^{(1)}|s,a]=\mathbb{E}[R_{t+1}+\gamma q_\pi(S_{t+1},A_{t+1})|s,a].\]</div>
 <p>求解该方程的相应随机近似算法为</p>
 <div class="arithmatex">\[q_{t+1}(s_t,a_t)=q_t(s_t,a_t)-\alpha_t(s_t,a_t)\left[q_t(s_t,a_t)-(r_{t+1}+\gamma q_t(s_{t+1},a_{t+1}))\right],\]</div>
-<p>即式<span class="arithmatex">\((7.12)\)</span>中的 Sarsa算法。</p>
+<p>即式<span class="arithmatex">\((7.12)\)</span>中的Sarsa算法。</p>
 </li>
 <li>
 <p>当<span class="arithmatex">\(n=\infty\)</span>，我们有</p>
 <div class="arithmatex">\[q_\pi(s,a)=\mathbb{E}[G_t^{(\infty)}|s,a]=\mathbb{E}[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+\ldots|s,a].\]</div>
 <p>求解该方程的对应算法为</p>
 <div class="arithmatex">\[q_{t+1}(s_t,a_t)=g_t\doteq r_{t+1}+\gamma r_{t+2}+\gamma^2r_{t+3}+\ldots,\]</div>
+<p>其中<span class="arithmatex">\(g_t\)</span>是<span class="arithmatex">\(G_t\)</span>的一个样本。实际上这就是蒙特卡洛算法，该算法通过从<span class="arithmatex">\((s_t, a_t)\)</span>起始的回报来近似<span class="arithmatex">\((s_t, a_t)\)</span>的行动值。</p>
 </li>
-</ul>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-    其中<span class="arithmatex">\(g_t\)</span>是<span class="arithmatex">\(G_t\)</span>的一个采样样本。实际上，这是蒙特卡洛（MC）学习算法，该算法通过从<span class="arithmatex">\((s_t, a_t)\)</span>起始的完整回合的折现回报来近似估计<span class="arithmatex">\((s_t, a_t)\)</span>的行动值。
-=======
-    其中<span class="arithmatex">\(g_t\)</span>是<span class="arithmatex">\(G_t\)</span>的一个采样样本。实际上，这是蒙特卡洛（MC）学习算法，该算法通过从<span class="arithmatex">\((s_t, a_t)\)</span>起始的完整回合的折现回报来近似估计<span class="arithmatex">\((s_t, a_t)\)</span>的动作价值。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<ul>
 <li>
-<p>对于一般的n值，我们有</p>
+<p>当<span class="arithmatex">\(n\)</span>取一般的自然数时，我们有</p>
 <div class="arithmatex">\[q_\pi(s,a)=\mathbb{E}[G_t^{(n)}|s,a]=\mathbb{E}[R_{t+1}+\gamma R_{t+2}+\cdots+\gamma^nq_\pi(S_{t+n},A_{t+n})|s,a].\]</div>
-<p>求解上述方程的对应算法为</p>
+<p>求解上述方程的随机近似算法为</p>
 <div class="arithmatex">\[\begin{aligned}q_{t+1}(s_{t},a_{t})&amp;=q_{t}(s_{t},a_{t})\\&amp;-\alpha_{t}(s_{t},a_{t})\left[q_{t}(s_{t},a_{t})-\left(r_{t+1}+\gamma r_{t+2}+\cdots+\gamma^{n}q_{t}(s_{t+n},a_{t+n})\right)\right].\end{aligned}\tag{7.17}\]</div>
-<p>该算法称为n步Sarsa。</p>
+<p>该算法称为n-step Sarsa。</p>
 </li>
 </ul>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-综上所述，<span class="arithmatex">\(n\)</span>步Sarsa是一种更通用的算法：当<span class="arithmatex">\(n=1\)</span>时退化为单步Sarsa算法；当<span class="arithmatex">\(n=\infty\)</span>(通过设定<span class="arithmatex">\(\alpha_t=1\)</span>)时则演化为MC学习算法。
-=======
-综上所述，<span class="arithmatex">\(n\)</span>步Sarsa是一种更通用的算法：当<span class="arithmatex">\(n=1\)</span>时退化为单步Sarsa算法；当<span class="arithmatex">\(n=\infty\)</span>（通过设定<span class="arithmatex">\(\alpha_t=1\)</span>）时则演化为MC学习算法。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>为实现<span class="arithmatex">\((7.17)\)</span>式中的n步Sarsa算法，我们需要经验样本<span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1}, ..., r_{t+n}, s_{t+n}, a_{t+n})\)</span>。由于时刻<span class="arithmatex">\(t\)</span>尚未收集到<span class="arithmatex">\((r_{t+n}, s_{t+n}, a_{t+n})\)</span>，必须等到时刻<span class="arithmatex">\(t+n\)</span>才能更新<span class="arithmatex">\((s_t, a_t)\)</span>的q值。因此，<span class="arithmatex">\((7.17)\)</span>式可改写为</p>
+<p>综上所述，n-step Sarsa是一种更通用的算法：当<span class="arithmatex">\(n=1\)</span>时退化为Sarsa算法；当<span class="arithmatex">\(n=\infty\)</span>（通过设定<span class="arithmatex">\(\alpha_t=1\)</span>）时则演化为MC学习算法。由于n-step Sarsa算法包含Sarsa与蒙特卡洛这两种极端情况，其性能介于两者之间便不足为奇。当<span class="arithmatex">\(n\)</span>取值较大时，n步Sarsa接近蒙特卡洛，此时估计值具有较高的方差但偏差较小；当<span class="arithmatex">\(n\)</span>取值较小时，n步Sarsa则接近Sarsa算法，此时估计值偏差较大但方差较低。</p>
+<p>最后，这里介绍的n-Step Sarsa仅可用于评价一个给定的策略。为了得到最优策略，它需要与策略改进步骤结合，具体流程类似于Sarsa,这里不再赘述，更多信息可参见[<a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf">3</a>,第9章]。值得注意的是，在实现n-Step Sarsa算法时，我们需要经验样本<span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1}, ..., r_{t+n}, s_{t+n}, a_{t+n})\)</span>。由于我们在<span class="arithmatex">\(t\)</span>时刻还无法拿到样本<span class="arithmatex">\((r_{t+n}, s_{t+n}, a_{t+n})\)</span>,因此必须等到t+n时刻才能更新<span class="arithmatex">\((s_t, a_t)\)</span>的<span class="arithmatex">\(q\)</span>值。为此，式<span class="arithmatex">\((7.17)\)</span>可以被重新写为</p>
 <div class="arithmatex">\[\begin{aligned}q_{t+n}(s_{t},a_{t})&amp;=q_{t+n-1}(s_{t},a_{t})\\&amp;-\alpha_{t+n-1}(s_{t},a_{t})\left[q_{t+n-1}(s_{t},a_{t})-\left(r_{t+1}+\gamma r_{t+2}+\cdots+\gamma^{n}q_{t+n-1}(s_{t+n},a_{t+n})\right)\right],\end{aligned}\]</div>
 <p>其中<span class="arithmatex">\(q_{t+n}(s_t, a_t)\)</span>是时刻 <span class="arithmatex">\(t+n\)</span>对<span class="arithmatex">\(q_\pi(s_t, a_t)\)</span>的估计值。</p>
-<p>由于n步Sarsa算法将Sarsa与蒙特卡洛(MC)学习作为两种极端情况包含其中，其性能介于两者之间便不足为奇。具体而言：</p>
-<ul>
-<li>
-<p>当<span class="arithmatex">\(n\)</span>取值较大时，n步Sarsa接近MC学习，此时估计值具有较高的方差但偏差较小；</p>
-</li>
-<li>
-<p>当<span class="arithmatex">\(n\)</span>取值较小时，n步Sarsa则接近Sarsa算法，此时估计值偏差较大但方差较低。</p>
-</li>
-</ul>
-<p>需特别说明的是，本文所述的n步Sarsa算法仅用于策略评估。要学习最优策略，必须结合策略改进步骤。其实现方式与Sarsa算法类似，此处不再赘述。感兴趣的读者可参阅文献[3,第7章]对多步时序差分(TD)学习的详细分析。</p>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3426,38 +3491,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../7-2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 7.2-行动值估计:Sarsa">
+          <a
+            href="../7-2/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 7.2-行动值估计:Sarsa"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                7.2-行动值估计:Sarsa
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">7.2-行动值估计:Sarsa</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../7-4/" class="md-footer__link md-footer__link--next" aria-label="下一页: 7.4-最优行动值估计:Q-Learning">
+          <a
+            href="../7-4/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 7.4-最优行动值估计:Q-Learning"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                7.4-最优行动值估计:Q-Learning
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">7.4-最优行动值估计:Q-Learning</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3468,19 +3542,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3508,7 +3584,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

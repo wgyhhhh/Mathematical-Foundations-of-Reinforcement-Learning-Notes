@@ -26,7 +26,7 @@
     
     
       
-        <title>5.2-MC Basic:最简单的基于蒙特卡洛的算法 - 强化学习课程笔记</title>
+        <title>5.2 MC-Basic:最简单的基于蒙特卡洛的算法 - 强化学习课程笔记</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#52-" class="md-skip">
+        <a href="#521" class="md-skip">
           跳转至
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5.2-MC Basic:最简单的基于蒙特卡洛的算法
+              5.2 MC-Basic:最简单的基于蒙特卡洛的算法
             
           </span>
         </div>
@@ -156,53 +156,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +465,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -1809,34 +1784,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#52-" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2- 最简单的基于蒙特卡洛的算法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2- 最简单的基于蒙特卡洛的算法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#521" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2.1 将策略迭代转化为无模型方法
+      5.2.1 将策略迭代算法转化为无模型方法
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#522" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#522-mc-basic" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2.2 基于蒙特卡洛的算法
+      5.2.2 MC Basic算法
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#523" class="md-nav__link">
     <span class="md-ellipsis">
       5.2.3 示例
@@ -1849,7 +1814,7 @@
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      一个简单的例子: 逐步实施
+      一个简单的例子: 算法细节
     </span>
   </a>
   
@@ -1861,11 +1826,6 @@
       一个综合示例：回合长度与稀疏奖励
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -3260,6 +3220,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3285,34 +3324,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#52-" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2- 最简单的基于蒙特卡洛的算法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2- 最简单的基于蒙特卡洛的算法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#521" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2.1 将策略迭代转化为无模型方法
+      5.2.1 将策略迭代算法转化为无模型方法
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#522" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#522-mc-basic" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2.2 基于蒙特卡洛的算法
+      5.2.2 MC Basic算法
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#523" class="md-nav__link">
     <span class="md-ellipsis">
       5.2.3 示例
@@ -3325,7 +3354,7 @@
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      一个简单的例子: 逐步实施
+      一个简单的例子: 算法细节
     </span>
   </a>
   
@@ -3337,11 +3366,6 @@
       一个综合示例：回合长度与稀疏奖励
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -3384,114 +3408,269 @@
 
   <h1>5.2-MC Basic:最简单的基于蒙特卡洛的算法</h1>
 
-<h2 id="52-">5.2- 最简单的基于蒙特卡洛的算法<a class="headerlink" href="#52-" title="Permanent link">&para;</a></h2>
-<p>本节介绍第一个也是最简单的基于蒙特卡洛(MC)的强化学习算法。该算法通过用无模型的MC估计步骤替换第<span class="arithmatex">\(4.2\)</span>节中介绍的基于模型的策略迭代算法中的模型策略评估步骤而得到。</p>
-<h3 id="521">5.2.1 将策略迭代转化为无模型方法<a class="headerlink" href="#521" title="Permanent link">&para;</a></h3>
-<p>策略迭代算法的每一步迭代包含两个步骤(见第<span class="arithmatex">\(4.2\)</span>节)。第一步是策略评估，其目的是通过求解方程<span class="arithmatex">\(v_{\pi_k} = r_{\pi_k} + \gamma P_{\pi_k}v_{\pi_k}\)</span>来计算<span class="arithmatex">\(v_{\pi_k}\)</span>。第二步是策略改进，其目的是计算Greedy策略<span class="arithmatex">\(\pi_{k+1} = \arg\max_{\pi} \left( r_{\pi} + \gamma P_{\pi} v_{\pi k} \right).\)</span>。策略改进步骤的逐元素形式为</p>
+<p>本节介绍第一个基于蒙特卡洛(MC)的强化学习算法。该算法可以通过修改上一章介绍的策略迭代算法得到，即将其中的基于模型的模型策略评估步骤替换为一个无需模型的策略估计步骤；此外该算法可以帮助我们理解究竟如何使用数据代替模型来实现强化学习，这也是本章后续算法的直接基础。</p>
+<h3 id="521">5.2.1 将策略迭代算法转化为无模型方法<a class="headerlink" href="#521" title="Permanent link">&para;</a></h3>
+<p>在上一章我们详细介绍过，策略迭代算法的每次迭代包含两个步骤(见第<span class="arithmatex">\(4.2\)</span>节)。第一步是策略评估，其目的是通过求解方程<span class="arithmatex">\(v_{\pi_k} = r_{\pi_k} + \gamma P_{\pi_k}v_{\pi_k}\)</span>来计算<span class="arithmatex">\(v_{\pi_k}\)</span>。第二步是策略改进，其目的是计算贪婪策略<span class="arithmatex">\(\pi_{k+1} = \arg\max_{\pi} \left( r_{\pi} + \gamma P_{\pi} v_{\pi k} \right).\)</span>以得到一个更好的策略。具体来说，策略改进步骤的元素展开形式是：</p>
 <div class="arithmatex">\[\begin{aligned}\pi_{k+1}(s) &amp;= \arg\max_{\pi} \sum_a \pi(a|s) \left[ \sum_r p(r|s,a)r + \gamma \sum_{s'} p(s'|s,a)v_{\pi k}(s') \right] \\&amp;= \arg\max_{\pi} \sum_a \pi(a|s)q_{\pi_k}(s,a), \quad s \in S.\end{aligned}\]</div>
-<p>行动值<span class="arithmatex">\(q_{\pi_k}(s,a)\)</span>是最核心的量。具体而言，在第一步中，状态值被计算出来，以便于计算行动值。在第二步中，基于计算出的动作值生成新的策略。计算行动值有两种方法可供选择。</p>
+<p>从上式能看出，行动值<span class="arithmatex">\(q_{\pi_k}(s,a)\)</span>是策略迭代算法的核心。第一步策略评估就是在计算状态值后进而计算行动值；第二步策略改进就是选取行动值最大的动作作为新的策略。</p>
+<p>在明白行动值的核心作用之后，让我们重新审视计算行动值的方法，实际有两种方法。</p>
 <ul>
 <li>
-<p>第一种方法是基于模型的方法。这种方法在策略迭代算法所采用。具体来说，我们首先可以通过求解贝尔曼方程来计算状态值<span class="arithmatex">\(v_{\pi_k}\)</span>。然后，我们可以通过使用以下公式来计算动作值：</p>
+<p>第一，基于模型的方法。首先求解贝尔曼方程来计算状态值<span class="arithmatex">\(v_{\pi_k}\)</span>，然后基于下式得到行动值：</p>
 <div class="arithmatex">\[q_{\pi_k}(s,a) = \sum_r p(r|s,a)r + \gamma \sum_{s'} p(s'|s,a)v_{\pi k}(s').\tag{5.1}\]</div>
-<p>这种方法要求已知系统模型<span class="arithmatex">\(p(r|s,a), p(s^\prime|s,a)\)</span>。</p>
+<p>这种方法需要知道模型<span class="arithmatex">\(p(r|s,a), p(s^\prime|s,a)\)</span>，策略迭代算法就是采用的这种方法。</p>
 </li>
 <li>
-<p>第二种方法是无模型方法。回想一下，行动值的定义是</p>
+<p>第二，无需模型的方法。让我们回忆一下行动值的原始定义：</p>
 <div class="arithmatex">\[\begin{aligned}q_{\pi_k}(s,a) &amp;= \mathbb{E}[G | S_t = s, A_t = a]\\&amp;= \mathbb{E}[R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + ... | S_t = s, A_t = a],\end{aligned}\]</div>
-<p>这是从<span class="arithmatex">\((s,a)\)</span>开始时所获得的期望回报。由于<span class="arithmatex">\(q_{\pi_k}(s,a)\)</span>是一个期望值，因此可以通过第<span class="arithmatex">\(5.1\)</span>节中所展示的蒙特卡洛(MC)方法进行估计。为此，从<span class="arithmatex">\((s,a)\)</span>开始，智能体可以按照策略<span class="arithmatex">\(\pi_k\)</span>与环境交互，然后获得一定数量的回合。假设共有<span class="arithmatex">\(n\)</span>条回合，第<span class="arithmatex">\(i\)</span>条回合的回报为<span class="arithmatex">\(g^{(i)}_{\pi_k}(s,a)\)</span>，那么<span class="arithmatex">\(q_{\pi_k}(s,a)\)</span>可以近似为：</p>
-<div class="arithmatex">\[q_{\pi k}(s,a) = \mathbb{E}[G | S_t = s, A_t = a] \approx \frac{1}{n} \sum_{i=1}^{n} g_{\pi_k}^{(i)}(s,a).\]</div>
-<p>我们已经知道，如果试验次数<span class="arithmatex">\(n\)</span>足够大，根据大数定律，这种近似将会足够精确。</p>
+<p>值得注意的是，因为<span class="arithmatex">\(q_{\pi_k}(s,a)\)</span>是一个期望值，所以可以通过蒙特卡洛方法用数据进行估计。首先，从<span class="arithmatex">\((s,a)\)</span>开始，智能体可以执行策略<span class="arithmatex">\(\pi_k\)</span>，进而获得<span class="arithmatex">\(n\)</span>个回合，假设第<span class="arithmatex">\(i\)</span>条回合的回报为<span class="arithmatex">\(g^{(i)}_{\pi_k}(s,a)\)</span>，那么这些回合的回报的平均值可以用来近似<span class="arithmatex">\(q_{\pi_k}(s,a)\)</span>，即：</p>
+<div class="arithmatex">\[q_{\pi k}(s,a) = \mathbb{E}[G | S_t = s, A_t = a] \approx \frac{1}{n} \sum_{i=1}^{n} g_{\pi_k}^{(i)}(s,a).\tag{5.2}\]</div>
+<p>根据大数定律，如果<span class="arithmatex">\(n\)</span>足够大，上面的近似将会足够精确。</p>
 </li>
 </ul>
-<p>基于蒙特卡洛(MC)的强化学习的基本思想是，使用一种无模型的方法来估计动作值，如式<span class="arithmatex">\((5.2)\)</span>所示，以替代策略迭代算法中基于模型的方法。</p>
-<h3 id="522">5.2.2 基于蒙特卡洛的算法<a class="headerlink" href="#522" title="Permanent link">&para;</a></h3>
-<p>我们现在介绍第一个基于蒙特卡洛(MC)的强化学习算法。该算法从初始策略<span class="arithmatex">\(\pi_0\)</span>开始，在第<span class="arithmatex">\(k\)</span>次迭代<span class="arithmatex">\((k=0,1,2,...)\)</span>中包含两个步骤。</p>
+<p>基于蒙特卡洛的强化学习的基本思想是使用<span class="arithmatex">\((5.2)\)</span>来估计行动值，从而代替策略迭代算法中需要模型的模块。</p>
+<h3 id="522-mc-basic">5.2.2 MC Basic算法<a class="headerlink" href="#522-mc-basic" title="Permanent link">&para;</a></h3>
+<p>有了上一节的准备，下面介绍MC Basic算法。</p>
+<p>从初始策略<span class="arithmatex">\(\pi_0\)</span>开始，该算法在第<span class="arithmatex">\(k\)</span>次迭代<span class="arithmatex">\((k=0,1,2,...)\)</span>中包含两个步骤。</p>
 <ul>
 <li>
-<p>步骤一. <strong>策略评估</strong>。此步骤用于估计所有状态-动作对<span class="arithmatex">\((s,a)\)</span>的<span class="arithmatex">\(q_{\pi_k}(s,a)\)</span>。具体而言，对于每个<span class="arithmatex">\((s,a)\)</span>，我们收集足够多的回合，并使用回报的平均值<span class="arithmatex">\(q_k(s,a)\)</span>来近似<span class="arithmatex">\(q_{\pi_k}(s, a)\)</span>。</p>
+<p>步骤一. <strong>策略评估</strong>。此步骤用于估计所有状态-行动对<span class="arithmatex">\((s,a)\)</span>的<span class="arithmatex">\(q_{\pi_k}(s,a)\)</span>。具体而言，对于每个<span class="arithmatex">\((s,a)\)</span>，收集足够多的回合进而求其回报的平均值<span class="arithmatex">\(q_k(s,a)\)</span>来近似<span class="arithmatex">\(q_{\pi_k}(s, a)\)</span>。</p>
 </li>
 <li>
-<p>步骤二. <strong>策略改进</strong>。 这一步骤通过求解<span class="arithmatex">\(\pi_{k+1}(s)=\arg\max_\pi \sum_a\pi(a|s)q_k(s,a)\)</span>来确定所有状态<span class="arithmatex">\(s\in \mathcal{S}\)</span>下的最优策略。Greedy最优策略为<span class="arithmatex">\(\pi_{k+1}(a_{k}^{*}|s)=1\)</span>，其中<span class="arithmatex">\(a_{k}^{*}=\arg\max_{a}q_{k}(s,a).\)</span>。</p>
+<p>步骤二. <strong>策略改进</strong>。 这一步骤通过求解<span class="arithmatex">\(\pi_{k+1}(s)=\arg\max_\pi \sum_a\pi(a|s)q_k(s,a)\)</span>来得到所有<span class="arithmatex">\(s\in \mathcal{S}\)</span>的新策略。即<span class="arithmatex">\(\pi_{k+1}(a_{k}^{*}|s)=1\)</span>，其中<span class="arithmatex">\(a_{k}^{*}=\arg\max_{a}q_{k}(s,a)\)</span>。</p>
 </li>
 </ul>
-<p>这是基于蒙特卡洛（MC）的强化学习中最简单的算法，在本书中称为MC Basic。MC Basic算法的伪代码见算法<span class="arithmatex">\(5.1\)</span>。可以看出，它与策略迭代算法非常相似，唯一的区别在于，MC Basic直接从经验样本中计算行动值，而策略迭代则是先计算状态值，再根据系统模型计算行动值。需要注意的是，这种无模型算法直接估计行动值。如果改为估计状态值，则仍需使用系统模型从这些状态值计算动作值，如式(5.1)所示。</p>
+<p>MC Basic算法的伪代码在算法<span class="arithmatex">\(5.1\)</span>中给出，它与策略迭代算法非常相似，唯一的区别在于它直接从经验样本中估计行动值，而策略迭代需要用模型先计算状态值再计算行动值。需要注意的是，MC Basic算法是直接估计行动值。否则，如果它先估计状态值，那么仍然需要利用<span class="arithmatex">\((5.1)\)</span>将状态值转换到行动值，而<span class="arithmatex">\((5.1)\)</span>还是需要模型的，因此MC Basic是直接估计行动值。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>注: 与策略迭代相比，第一步有所不同，即对于行动值的估计有所不同，而第二步是相同的</p>
 </div>
-<p>由于策略迭代是收敛的，因此在给定足够样本的情况下，MC Basic算法也是收敛的。也就是说，对于每个状态-行动对<span class="arithmatex">\((s,a)\)</span>，假设从<span class="arithmatex">\((s,a)\)</span>开始的足够多的回合(episode)，那么这些回合回报的平均值可以很好地近似<span class="arithmatex">\((s,a)\)</span>的行动值。在实际应用中，我们通常无法为每个<span class="arithmatex">\((s,a)\)</span>都获得足够多的回合，因此动作值的近似可能并不准确。尽管如此，该算法通常仍然可以正常运行。这与截断策略迭代算法类似，在截断策略迭代算法中，动作值也并非精确计算得到。</p>
-<p>MC Basic由于其样本效率较低，过于简单而难以实际应用。我们介绍这个算法的原因是想让读者掌握基于MC的强化学习中的核心思想。在学习本章后面更复杂的算法之前充分理解MC Basic是非常重要的。我们将看到，通过扩展MC Basic算法，可以很容易地获得样本效率更高的算法。</p>
+<p>由于策略迭代是收敛的，因此在给定足够样本的情况下，MC Basic算法是可以确保收敛的。也就是说，对于每个<span class="arithmatex">\((s,a)\)</span>，假设从<span class="arithmatex">\((s,a)\)</span>开始有足够多的回合，那么这些回合回报的平均值可以准确地近似<span class="arithmatex">\((s,a)\)</span>的行动值。在实际应用中，通常无法为每以一个<span class="arithmatex">\((s,a)\)</span>收集足够多的回合，此时行动值的近似可能并不准确。不过该算法仍然可以正常运行。这与截断策略迭代或者广义策略迭代的思想类似：每一个行动值不需要非常准确地估计。</p>
+<p>MC Basic由于其样本效率较低，过于简单而难以实际应用。我们介绍这个算法的主要原因是想让读者掌握基于蒙特卡洛的强化学习中的核心思想。在后面我们会看到，通过推广MC Basic算法可以很容易地得到样本效率更高也更复杂的算法。届时读者就会明白，很多算法最核心的思想其实是很简单的，只是添加了很多技巧性的东西让其看起来很复杂。</p>
 <p>算法5.1：MC Basic算法(一种无模型的策略迭代变体)</p>
 <p><img alt="" src="../../img/05/4.png" /></p>
 <blockquote>
 <p>算法<span class="arithmatex">\(5.1\)</span>：MC Basis算法(一种无模型的策略迭代变体)</p>
 </blockquote>
 <h3 id="523">5.2.3 示例<a class="headerlink" href="#523" title="Permanent link">&para;</a></h3>
-<h4 id="_1">一个简单的例子: 逐步实施<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<h4 id="_1">一个简单的例子: 算法细节<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p><img alt="" src="../../img/05/2.png" /></p>
 <blockquote>
-<p>图<span class="arithmatex">\(5.3\)</span>: 一个用于说明MC Basic算法的示例。</p>
+<p>图<span class="arithmatex">\(5.3\)</span>: 用于展示MC Basic算法的示例。</p>
 </blockquote>
-<p>接下来，我们通过一个例子来演示MC Basic算法的实现细节。奖励设置为 <span class="arithmatex">\(r_\text{boundary} = r_\text{forbidden} = −1，r_\text{target} = 1\)</span>。折现率为 <span class="arithmatex">\(\gamma = 0.9\)</span>。初始策略<span class="arithmatex">\(\pi_0\)</span>如图<span class="arithmatex">\(5.3\)</span>所示。该初始策略对于状态<span class="arithmatex">\(s_1\)</span>或<span class="arithmatex">\(s_3\)</span>并非最优策略。</p>
+<p>我们通过一个例子来演示MC Basic算法的细节。奖励设置为 <span class="arithmatex">\(r_\text{boundary} = r_\text{forbidden} = −1，r_\text{target} = 1\)</span>，折扣因子为 <span class="arithmatex">\(\gamma = 0.9\)</span>。初始策略<span class="arithmatex">\(\pi_0\)</span>如图<span class="arithmatex">\(5.3\)</span>所示。这个初始策略在状态<span class="arithmatex">\(s_1\)</span>或<span class="arithmatex">\(s_3\)</span>不是最优的。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>注: 在这个例子中有<span class="arithmatex">\(9\)</span>个状态，每个状态对应<span class="arithmatex">\(5\)</span>个行动，有<span class="arithmatex">\(45\)</span>个状态行动对，所以要找到<span class="arithmatex">\(45\)</span>个<span class="arithmatex">\(q_{\pi_k} (s,a)\)</span>，假设从每一个<span class="arithmatex">\((s,a)\)</span>出发都有<span class="arithmatex">\(N\)</span>个回合，最后要求<span class="arithmatex">\(N\)</span>条回合的平均的<span class="arithmatex">\(return\)</span>，那么一共有<span class="arithmatex">\(45\times N\)</span>个回合。</p>
 </div>
-<p>虽然所有行动值都应该被计算出来，但由于篇幅限制，我们仅展示了<span class="arithmatex">\(s_1\)</span>的行动值。在<span class="arithmatex">\(s_1\)</span>处，有五种可能的动作。对于每种动作，我们需要收集足够长的多个轨迹，以便有效地近似行动值。然而，由于这个例子在策略和模型方面都是确定性的，多次运行将生成相同的轨迹。因此，每个行动值的估计仅需要一个回合即可。</p>
-<p>在<span class="arithmatex">\(\pi_0\)</span>之后，我们可以通过分别从<span class="arithmatex">\((s_1, a_1),(s_1,a_2),...,(s_1,a_5)\)</span>开始，得到以下回合。</p>
+<p>虽然所有行动值都应该被计算出来，但由于篇幅限制，我们仅展示了如何得到状态<span class="arithmatex">\(s_1\)</span>的行动值。在<span class="arithmatex">\(s_1\)</span>，有五种可能的行动。我们需要从<span class="arithmatex">\((s_1, a_1),(s_1,a_2),...,(s_1,a_5)\)</span>开始执行当前策略<span class="arithmatex">\(\pi_0\)</span>，得到足够多且足够长的回合，不过因为这个示例是确定性的，多次运行将得到相同的回合，因此只需要对每个行动收集一个回合。</p>
 <ul>
 <li>
-<p>从<span class="arithmatex">\((s_1,a_1)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_1}s_1\xrightarrow{a_1}s_1\xrightarrow{a_1}\ldots\)</span>。行动值等于该回合的折现回报：</p>
+<p>从<span class="arithmatex">\((s_1,a_1)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_1}s_1\xrightarrow{a_1}s_1\xrightarrow{a_1}\ldots\)</span>。对应的行动值等于该回合的折扣回报：</p>
 <div class="arithmatex">\[q_{\pi_0}(s_1,a_1)=-1+\gamma(-1)+\gamma^2(-1)+\cdots=\frac{-1}{1-\gamma}.\]</div>
 </li>
 <li>
-<p>从<span class="arithmatex">\((s_1,a_2)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_2}s_2\xrightarrow{a_3}s_5\xrightarrow{a_3}\ldots\)</span>。行动值等于该回合的折现回报：</p>
+<p>从<span class="arithmatex">\((s_1,a_2)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_2}s_2\xrightarrow{a_3}s_5\xrightarrow{a_3}\ldots\)</span>。对应的行动值等于该回合的折扣回报：</p>
 <div class="arithmatex">\[q_{\pi_0}(s_1,a_2)=0+\gamma0+\gamma^20+\gamma^3(1)+\gamma^4(1)+\cdots=\frac{\gamma^3}{1-\gamma}.\]</div>
 </li>
 <li>
-<p>从<span class="arithmatex">\((s_1,a_3)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_3}s_4\xrightarrow{a_2}s_5\xrightarrow{a_3}\ldots\)</span>。行动值等于该回合的折现回报：</p>
+<p>从<span class="arithmatex">\((s_1,a_3)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_3}s_4\xrightarrow{a_2}s_5\xrightarrow{a_3}\ldots\)</span>。对应的行动值等于该回合的折扣回报：</p>
 <div class="arithmatex">\[q_{\pi_0}(s_1,a_3)=0+\gamma0+\gamma^20+\gamma^3(1)+\gamma^4(1)+\cdots=\frac{\gamma^3}{1-\gamma}.\]</div>
 </li>
 <li>
-<p>从<span class="arithmatex">\((s_1,a_4)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_4}s_1\xrightarrow{a_1}s_1\xrightarrow{a_1}\ldots\)</span>。行动值等于该回合的折现回报：</p>
+<p>从<span class="arithmatex">\((s_1,a_4)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_4}s_1\xrightarrow{a_1}s_1\xrightarrow{a_1}\ldots\)</span>。对应的行动值等于该回合的折扣回报：</p>
 <div class="arithmatex">\[q_{\pi_0}(s_1,a_4)=-1+\gamma(-1)+\gamma^2(-1)+\cdots=\frac{-1}{1-\gamma}.\]</div>
 </li>
 <li>
-<p>从<span class="arithmatex">\((s_1,a_5)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_5}s_1\xrightarrow{a_1}s_1\xrightarrow{a_1}\ldots\)</span>。行动值等于该回合的折现回报：</p>
+<p>从<span class="arithmatex">\((s_1,a_5)\)</span>开始，该回合为<span class="arithmatex">\(s_1\xrightarrow{a_5}s_1\xrightarrow{a_1}s_1\xrightarrow{a_1}\ldots\)</span>。对应的行动值等于该回合的折扣回报：</p>
 <div class="arithmatex">\[q_{\pi_0}(s_1,a_5)=0+\gamma(-1)+\gamma^2(-1)+\cdots=\frac{-\gamma}{1-\gamma}.\]</div>
 </li>
 </ul>
-<p>通过比较这五个行动值，我们发现</p>
+<p>通过比较上面五个行动值，我们发现：</p>
 <div class="arithmatex">\[q_{\pi_0}(s_1,a_2)=q_{\pi_0}(s_1,a_3)=\frac{\gamma^3}{1-\gamma}&gt;0\]</div>
-<p>是最大值。因此，可以得到新的策略为：</p>
+<p>相比其他行动值是最大值。因此，可以得到新的策略是选择<span class="arithmatex">\(a_2\)</span>或者<span class="arithmatex">\(a_3\)</span>：</p>
 <div class="arithmatex">\[\pi_1(a_2|s_1)=1\quad\mathrm{or}\quad\pi_1(a_3|s_1)=1.\]</div>
-<p>很明显，改进后的策略在状态<span class="arithmatex">\(s_1\)</span>处选择<span class="arithmatex">\(a_2\)</span>或<span class="arithmatex">\(a_3\)</span>是最佳的。在这个简单例子中，初始策略对于除<span class="arithmatex">\(s_1\)</span>和<span class="arithmatex">\(s_3\)</span>之外的所有状态来说已经是最优的，因此策略只需经过一次迭代即可达到最优。当策略对于其他状态来说不是最优时，则需要更多的迭代次数。</p>
+<p>很明显，在状态<span class="arithmatex">\(s_1\)</span>处选择<span class="arithmatex">\(a_2\)</span>或<span class="arithmatex">\(a_3\)</span>是最佳的。因此，在这个简单例子中，我们只需要经过一次迭代就可以成功得到最优策略。更复杂的场景则需要更多次的迭代。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>注: 这个地方大家可以再计算一下状态<span class="arithmatex">\(s_3\)</span>处的行动值，从<span class="arithmatex">\(a_1\)</span>到<span class="arithmatex">\(a_5\)</span>，行动值依次为<span class="arithmatex">\(-10,-10,8,7.29,-9\)</span></p>
 </div>
 <h4 id="_2">一个综合示例：回合长度与稀疏奖励<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>接下来，我们通过一个更复杂的例子来讨论MC Basic算法的一些性质。该例子是一个<span class="arithmatex">\(5\times5\)</span>的网格世界(图<span class="arithmatex">\(5.4\)</span>)。奖励设置为：<span class="arithmatex">\(r_\text{boundary} = −1,r_\text{forbidden} = −10，r_\text{target} = 1\)</span>。折现率为<span class="arithmatex">\(\gamma = 0.9\)</span>。</p>
-<p>首先，我们证明了回合长度(episode length)对最优策略有显著影响。具体而言，图<span class="arithmatex">\(5.4\)</span>展示了MC Basic算法在不同回合长度下生成的最终结果。当每个回合的长度过短时，策略和价值估计均无法达到最优(见图<span class="arithmatex">\(5.4(a)-(d)\)</span>)。在回合长度为<span class="arithmatex">\(1\)</span>的极端情况下，只有与目标相邻的状态才具有非零值，而其他所有状态的值均为零，因为每个回合都太短，无法达到目标或获得正奖励(见图<span class="arithmatex">\(5.4(a)\)</span>)。随着回合长度的增加，策略和价值估计会逐渐接近最优值(见图<span class="arithmatex">\(5.4(h)\)</span>)。</p>
+<p>下面我们考虑一个更复杂的例子。我们不再关注算法的实施过程，而是讨论MC Basic算法得到的结果的一些性质。该例子是一个<span class="arithmatex">\(5\times5\)</span>的网格世界(图<span class="arithmatex">\(5.4\)</span>)。奖励设置为：<span class="arithmatex">\(r_\text{boundary} = −1,r_\text{forbidden} = −10，r_\text{target} = 1\)</span>。折扣因子为<span class="arithmatex">\(\gamma = 0.9\)</span>。</p>
+<p>首先，回合的长度(episode length)能极大地影响最优策略。图<span class="arithmatex">\(5.4\)</span>展示了MC Basic算法在使用不同回合长度下得到的最终结果。其中状态值是通过MC Basic算法得给出的行动值计算得到的。当设置的回合的长度过短时，用MC Basic算法得到的策略和价值都不是最优的(见图<span class="arithmatex">\(5.4(a)-(d)\)</span>)。在回合长度为<span class="arithmatex">\(1\)</span>的极端情况下，此时仅与目标相邻的状态有非零值，所有其他状态的值都为<span class="arithmatex">\(0\)</span>(图<span class="arithmatex">\(5.4(a)\)</span>)，这是因为每个回合都太短而无法达到目标从而获得正奖励(见图<span class="arithmatex">\(5.4(a)\)</span>)。随着回合长度的增加，得到的策略和价值估计会逐渐接近最优值(见图<span class="arithmatex">\(5.4(h)\)</span>)。</p>
+<p>其次，随着回合长度的增加，出现了一种有趣的现象：距离目标较近的状态会比距离目标较远的状态更早拥有一个非零值。原因如下：智能体从某个状态出发至少需要经过一定数量的步数才能到达目标状态；如果回合长度小于需要的最小步数，那么回报一定为0，估计的状态值也是0。在这个例子中，回合长度必须不少于<span class="arithmatex">\(15\)</span>步，这是从左下角状态出发到达目标状态所需的最少步数。虽然每个回合必须足够长，但是也不需要无限长。如图<span class="arithmatex">\(5.4(g)\)</span>所示，当回合长度为<span class="arithmatex">\(30\)</span>时，该算法已经可以找到最优策略，尽管此时的价值估计还不是最优的。</p>
+<p>上述分析涉及一种重要的奖励设计问题，即<strong>稀疏奖励</strong> (sparse reward)。稀疏奖励指的是除非到达目标，否则无法获得任何正奖励。稀疏奖励要求回合必须到达目标。当状态空间比较大或者系统随机性比较强时，在一个回合内到达目标的概率是比较低的。因此，稀疏奖励降低了学习效率。解决这个问题的一个简单方法是设计非稀疏奖励或者稠密奖励。例如，在上述网格世界中，我们可以重新设计奖励，使得智能体在靠近目标时就可以获得少量的正奖励。通过这种方式，可以在目标周围形成一个“吸引场”,从而更容易地找到目标。感兴趣的读者可以查看更多关于稀疏奖励的文献[<a href="https://arxiv.org/abs/1802.10567">17</a>,<a href="https://arxiv.org/abs/2102.02915">18</a>,<a href="https://arxiv.org/abs/2003.04960">19</a>]。</p>
 <p><img alt="" src="../../img/05/3.png" /></p>
 <blockquote>
-<p>图<span class="arithmatex">\(5.4\)</span>: 当给定不同的回合长度时，MC基本算法所获得的策略和状态值。只有当每个回合的长度足够长时，状态值才能被准确估计。</p>
+<p>图<span class="arithmatex">\(5.4\)</span>: 当给定不同的回合长度时，MC基本算法所获得的策略和状态值。</p>
 </blockquote>
-<p>随着回合长度的增加，逐渐显现出来一种现象：距离目标较近的状态会比距离目标较远的状态更早获得一个非零值。这种现象的原因是因为，智能体从某个状态出发至少需要经过一定数量的步数才能到达目标状态并获得正奖励。如果回合长度小于需要的最小步数，那么回报一定为零，状态值的估计值也会为零。在这个例子中，回合长度必须不少于<span class="arithmatex">\(15\)</span>步，这是从左下角状态出发到达目标状态所需的最少步数。</p>
-<p>上述分析表明，每个回合必须足够长，但这些回合并不一定需要无限长。如图<span class="arithmatex">\(5.4(g)\)</span>所示，当回合长度为<span class="arithmatex">\(30\)</span>时，算法可以找到最优策略，尽管此时的值估计尚未达到最优。</p>
-<p>上述分析涉及一种重要的奖励设计问题，即稀疏奖励(sparse reward)。稀疏奖励是指在未达到目标时无法获得任何正奖励的情况。在这种设置下，智能体需要走过较长的回合长度才能达到目标。当状态空间较大时，这一要求很难满足，从而产生稀疏奖励问题从而降低了学习效率。解决这一问题的一种简单方法是设计非稀疏奖励。例如，在上述网格世界示例中，我们可以重新设计奖励设置，使智能体在接近目标的状态时获得较小的正奖励。这样，目标周围就会形成一个“引力场”，使智能体更容易找到目标。有关稀疏奖励问题的更多信息，可参见文献[17–19]。</p>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3511,38 +3690,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../5-1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 5.1-启发示例:期望值估计">
+          <a
+            href="../5-1/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 5.1-启发示例:期望值估计"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                5.1-启发示例:期望值估计
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">5.1-启发示例:期望值估计</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../5-3/" class="md-footer__link md-footer__link--next" aria-label="下一页: 5.3-MC Exploring Starts算法">
+          <a
+            href="../5-3/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 5.3-MC Exploring Starts算法"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                5.3-MC Exploring Starts算法
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">5.3-MC Exploring Starts算法</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3553,19 +3741,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3593,7 +3783,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

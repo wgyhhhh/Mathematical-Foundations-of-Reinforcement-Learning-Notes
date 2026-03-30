@@ -26,7 +26,7 @@
     
     
       
-        <title>7.2-行动值估计:Sarsa - 强化学习课程笔记</title>
+        <title>7.2 行动值估计:Sarsa算法 - 强化学习课程笔记</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#72-sarsa" class="md-skip">
+        <a href="#721" class="md-skip">
           跳转至
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7.2-行动值估计:Sarsa
+              7.2 行动值估计:Sarsa算法
             
           </span>
         </div>
@@ -156,53 +156,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +465,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -2242,16 +2217,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#72-sarsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.2 行动值估计:Sarsa算法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.2 行动值估计:Sarsa算法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#721" class="md-nav__link">
     <span class="md-ellipsis">
       7.2.1算法描述
@@ -2259,33 +2224,13 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#-sarsatdtdsarsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      - Sarsa与之前的TD学习算法有什么关系？只需将TD算法中的状态值估计替换为行动值估计，就能直接推导出Sarsa算法。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="- Sarsa与之前的TD学习算法有什么关系？只需将TD算法中的状态值估计替换为行动值估计，就能直接推导出Sarsa算法。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#722sarsa" class="md-nav__link">
     <span class="md-ellipsis">
       7.2.2基于Sarsa算法的最优策略学习
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3242,6 +3187,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3267,16 +3291,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#72-sarsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.2 行动值估计:Sarsa算法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.2 行动值估计:Sarsa算法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#721" class="md-nav__link">
     <span class="md-ellipsis">
       7.2.1算法描述
@@ -3284,33 +3298,13 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#-sarsatdtdsarsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      - Sarsa与之前的TD学习算法有什么关系？只需将TD算法中的状态值估计替换为行动值估计，就能直接推导出Sarsa算法。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="- Sarsa与之前的TD学习算法有什么关系？只需将TD算法中的状态值估计替换为行动值估计，就能直接推导出Sarsa算法。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#722sarsa" class="md-nav__link">
     <span class="md-ellipsis">
       7.2.2基于Sarsa算法的最优策略学习
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3346,166 +3340,230 @@
   
 
 
-<h2 id="72-sarsa">7.2 行动值估计:Sarsa算法<a class="headerlink" href="#72-sarsa" title="Permanent link">&para;</a></h2>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-上一节中介绍的TD算法仅能估计给定策略的状态值。策略改进需要估计出行动值。本节将介绍另一种名为Sarsa的TD算法，该算法可直接估计行动值。
-=======
-7.1节介绍的TD算法仅能估计状态值。本节将介绍另一种名为Sarsa的TD算法，该算法可直接估计行动值。行动值估计具有重要意义，因其可与策略改进步骤相结合来学习最优策略。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+  <h1>7.2-行动值估计:Sarsa</h1>
+
+<p>本节将介绍另一种名为Sarsa的TD算法，该算法可直接估计行动值。将上一节介绍的TD算法中的状态值替换为行动值就能得到Sarsa算法。</p>
 <h3 id="721">7.2.1算法描述<a class="headerlink" href="#721" title="Permanent link">&para;</a></h3>
-<p>给定策略<span class="arithmatex">\(\pi\)</span>，我们的目标是估计行动值。假设已有遵循<span class="arithmatex">\(\pi\)</span>生成的若干经验样本：<span class="arithmatex">\((s_0, a_0, r_1, s_1, a_1, \ldots, s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1}, \ldots)\)</span>。可采用以下Sarsa算法进行动作价值估计：</p>
+<p>给定一个策略<span class="arithmatex">\(\pi\)</span>，我们的目标是估计其行动值。如果有一些由<span class="arithmatex">\(\pi\)</span>生成的经验样本：<span class="arithmatex">\((s_0, a_0, r_1, s_1, a_1, \ldots, s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1}, \ldots)\)</span>。那么使用下面的Sarsa算法来估计行动值：</p>
 <div class="arithmatex">\[q_{t+1}(s_t,a_t)=q_t(s_t,a_t)-\alpha_t(s_t,a_t)\left[q_t(s_t,a_t)-(r_{t+1}+\gamma q_t(s_{t+1},a_{t+1}))\right],\tag{7.12}\]</div>
 <div class="arithmatex">\[q_{t+1}(s,a)=q_t(s,a),\quad\mathrm{for~all}(s,a)\neq(s_t,a_t),\]</div>
-<p>其中 <span class="arithmatex">\(t =0,1,2, \dots\)</span>，<span class="arithmatex">\(\alpha_t(s_t, a_t)\)</span>为学习率。此处 <span class="arithmatex">\(q_t(s_t, a_t)\)</span>是 <span class="arithmatex">\(q_\pi(s_t, a_t)\)</span>的估计值。在时刻 <span class="arithmatex">\(t\)</span>，仅更新 <span class="arithmatex">\((s_t, a_t)\)</span>的 <span class="arithmatex">\(q\)</span>值，其余状态的 <span class="arithmatex">\(q\)</span>值保持不变。</p>
-<p>Sarsa算法的重要性质如下</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-- 该算法为何命名为"Sarsa"？每次更新值函数时需要知道当前的状态(state)，当前的动作(action)，奖励(reward)，
-下一步的状态(state)、下一步的动作(action)，即 <span class="arithmatex">\((s_t,a_t,r_{t+1},s_{t+1},a_{t+1})\)</span>这几个值，因此得名 Sarsa。该算法最早由文献[35]提出，其命名则由文献[3]确立。</p>
-<h1 id="-sarsatdtdsarsa">- Sarsa与之前的TD学习算法有什么关系？只需将TD算法中的状态值估计替换为行动值估计，就能直接推导出Sarsa算法。<a class="headerlink" href="#-sarsatdtdsarsa" title="Permanent link">&para;</a></h1>
+<p><span class="arithmatex">\(\alpha_t(s_t, a_t)\)</span>为学习率。此处<span class="arithmatex">\(q_t(s_t, a_t)\)</span>是<span class="arithmatex">\(q_\pi(s_t, a_t)\)</span>的估计值。在时刻<span class="arithmatex">\(t\)</span>，只更新<span class="arithmatex">\((s_t, a_t)\)</span>的 <span class="arithmatex">\(q\)</span>值，其余状态的 <span class="arithmatex">\(q\)</span>值保持不变。</p>
+<p>Sarsa算法的重要性质如下。</p>
 <ul>
 <li>
-<p>该算法为何命名为"Sarsa"？这是因为其每次迭代都需要五元组 <span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1})\)</span>。Sarsa是"状态-动作-奖励-状态-动作"（state-action-reward-state-action）的缩写形式。该算法最早由文献[35]提出，其命名则由文献[3]确立。</p>
+<p>该算法为何命名为"Sarsa"？这是因为其每次迭代都需要经验样本<span class="arithmatex">\((s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1})\)</span>。Sarsa是"状态-动作-奖励-状态-动作"(state-action-reward-state-action)的缩写形式。该算法最早由文献[<a href="https://www.researchgate.net/publication/2500611_On-Line_Q-Learning_Using_Connectionist_Systems">35</a>]提出，其命名则由文献[<a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf">3</a>]确立。</p>
 </li>
 <li>
-<p>为什么Sarsa要这样设计？读者可能已经注意到，Sarsa与(7.1)式中的TD算法非常相似。实际上，只需将TD算法中的状态值估计替换为行动值估计，就能直接推导出Sarsa算法。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>为什么Sarsa要这样设计？读者可能已经注意到Sarsa与<span class="arithmatex">\((7.1)\)</span>式中的TD算法非常相似。实际上，只需将TD算法中的状态值替换为行动值，就得到了Sarsa算法。</p>
 </li>
 <li>
-<p>Sarsa算法的数学本质是什么？与(7.1)中的TD算法类似，Sarsa是一种用于求解给定策略贝尔曼方程的随机近似算法：</p>
+<p>Sarsa算法的数学本质是什么？与<span class="arithmatex">\((7.1)\)</span>中的TD算法类似，Sarsa是一种用于求解如下所示贝尔曼方程的随机近似算法：</p>
 <div class="arithmatex">\[q_\pi(s,a)=\mathbb{E}\left[R+\gamma q_\pi(S^{\prime},A^{\prime})|s,a\right],\quad\mathrm{for~all}(s,a).\tag{7.13}\]</div>
-<p>式<span class="arithmatex">\((7.13)\)</span>是以行动值函数表示的贝尔曼方程。具体证明见方框<span class="arithmatex">\(7.3\)</span>。</p>
+<p>方程<span class="arithmatex">\((7.13)\)</span>是以基于行动值表示的贝尔曼方程。具体证明见Box <span class="arithmatex">\(7.3\)</span>。</p>
 </li>
 <li>
-<p>Sarsa算法是否收敛？由于Sarsa是<span class="arithmatex">\((7.1)\)</span>中TD算法的行动值函数版本，其收敛性结果与定理<span class="arithmatex">\(7.1\)</span>相似，具体表述如下。</p>
+<p>Sarsa算法是否收敛？由于Sarsa是<span class="arithmatex">\((7.1)\)</span>推广而来，其收敛性结果与定理<span class="arithmatex">\(7.1\)</span>相似。</p>
 </li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><strong>定理7.2</strong> (Sarsa算法的收敛性).给定策略 <span class="arithmatex">\(\pi\)</span>，若对所有 <span class="arithmatex">\((s, a)\)</span>满足 <span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>且 <span class="arithmatex">\(\sum_t \alpha^2_t(s, a) &lt; \infty\)</span>，则通过 (7.12)式的 Sarsa算法，<span class="arithmatex">\(q_t(s, a)\)</span>几乎必然收敛到行动值 <span class="arithmatex">\(q_\pi(s, a)\)</span>（当 <span class="arithmatex">\(t \to \infty\)</span>时）。</p>
+<p><strong>定理7.2</strong> (Sarsa算法的收敛性).给定一个策略<span class="arithmatex">\(\pi\)</span>，基于<span class="arithmatex">\((7.12)\)</span>式的 Sarsa算法，如果<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>且<span class="arithmatex">\(\sum_t \alpha^2_t(s, a) &lt; \infty\)</span>对所有<span class="arithmatex">\((s, a)\)</span>成立，那么<span class="arithmatex">\(q_t(s, a)\)</span>几乎必然收敛到行动值 <span class="arithmatex">\(q_\pi(s, a)\)</span>（当 <span class="arithmatex">\(t \to \infty\)</span>时）。</p>
 </div>
-<p>该证明过程与定理7.1类似，此处从略。需满足对所有状态-动作对<span class="arithmatex">\((s, a)\)</span>均有<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>且<span class="arithmatex">\(\sum_t \alpha_t^2(s, a) &lt; \infty\)</span>的条件。特别地，<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>要求每个状态-动作对必须被访问无限次（或足够多次）。在时刻<span class="arithmatex">\(t\)</span>，若<span class="arithmatex">\((s, a) = (s_t, a_t)\)</span>，则<span class="arithmatex">\(\alpha_t(s, a) &gt;0\)</span>；否则<span class="arithmatex">\(\alpha_t(s, a) =0\)</span>。</p>
-<p>该证明过程与定理<span class="arithmatex">\(7.1\)</span>类似，此处从略。需满足对所有状态-动作对<span class="arithmatex">\((s,a)\)</span>均有<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>且<span class="arithmatex">\(\sum_t \alpha_t^2(s, a) &lt; \infty\)</span>的条件。特别地，<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>要求每个状态-行动对必须被访问无限次(或足够多次)在时刻<span class="arithmatex">\(t\)</span>，若<span class="arithmatex">\((s, a) = (s_t, a_t)\)</span>，则<span class="arithmatex">\(\alpha_t(s, a) &gt;0\)</span>；否则<span class="arithmatex">\(\alpha_t(s, a) =0\)</span>。</p>
+<p>该证明过程与定理7.1类似，此处从略。需满足对所有状态-动作对<span class="arithmatex">\((s, a)\)</span>均有<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>且<span class="arithmatex">\(\sum_t \alpha_t^2(s, a) &lt; \infty\)</span>的条件。特别地，<span class="arithmatex">\(\sum_t \alpha_t(s, a) = \infty\)</span>要求每个状态-动作对必须被访问无限次（或足够多次）。其中，如果<span class="arithmatex">\((s, a) = (s_t, a_t)\)</span>，那么<span class="arithmatex">\(\alpha_t(s, a) &gt;0\)</span>；否则<span class="arithmatex">\(\alpha_t(s, a) =0\)</span>。</p>
 <h3 id="722sarsa">7.2.2基于Sarsa算法的最优策略学习<a class="headerlink" href="#722sarsa" title="Permanent link">&para;</a></h3>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-(7.12)式中的Sarsa算法仅能估计给定策略的行动值。强化学习的最终目标是寻找最优策略，将Sarsa与策略改进步骤相结合。该组合方法通常仍称为Sarsa算法，其具体实现流程如算法7.1所示。
-=======
-(7.12)式中的Sarsa算法仅能估计给定策略的行动值。为寻找最优策略，可将其与策略改进步骤相结合。该组合方法通常仍称为Sarsa算法，其具体实现流程如算法7.1所示。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>式(7.12)中的Sarsa算法只能估计一个给定策略的动作值。要想得到最优策略，我们需要将其与“策略改进步骤”相结合，结合之后的算法通常也称为Sarsa。</p>
+<p>算7.1给出了伪代码。可以看到，每次迭代有两个步骤：第一步是值更新，即更新被访问的状态-动作的估计值；第二步是策略更新，即新的策略要选取最大价值的动作。值得注意的是，在值被更新之后，<span class="arithmatex">\(s_t\)</span>的策略会被立即更新，而并不是在更新策略之前充分地评估当时的策略，这也是基于广义策略迭代的思想。此外，在策略更新后，该策略立即被用来生成下一个经验样本。这里的策略是<span class="arithmatex">\(\varepsilon\)</span>-Greedy的，因此具有一定的探索性。</p>
 <p><img alt="" src="../../img/07/1.png" /></p>
 <blockquote>
 <p>算法<span class="arithmatex">\(7.1\)</span></p>
 </blockquote>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-如算法7.1所示，每次迭代包含两个步骤：第一步更新被访问状态-动作对的<span class="arithmatex">\(q\)</span>值；第二步将策略更新为<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略。<span class="arithmatex">\(q\)</span>值更新步骤仅针对时刻<span class="arithmatex">\(t\)</span>访问的单个状态-行动对进行更新，随后立即更新状态<span class="arithmatex">\(s_t\)</span>对应的策略。这意味着我们在策略更新前并未对给定策略进行充分评估，该设计基于<strong>广义策略迭代</strong>的思想。此外，策略更新后会立即用于生成下一个经验样本。此处采用的<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略具有探索性特征。
-=======
-如算法7.1所示，每次迭代包含两个步骤：第一步更新被访问状态-动作对的<span class="arithmatex">\(q\)</span>值；第二步将策略更新为<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略。<span class="arithmatex">\(q\)</span>值更新步骤仅针对时刻<span class="arithmatex">\(t\)</span>访问的单个状态-行动对进行更新，随后立即更新状态<span class="arithmatex">\(s_t\)</span>对应的策略。这意味着我们在策略更新前并未对给定策略进行充分评估，该设计基于广义策略迭代的思想。此外，策略更新后会立即用于生成下一个经验样本。此处采用的<span class="arithmatex">\(\varepsilon\)</span>-贪婪策略具有探索性特征。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <p><img alt="" src="../../img/07/2.png" /></p>
 <blockquote>
-<p>图<span class="arithmatex">\(7.2\)</span>：Sarsa算法的演示示例。所有训练回合均从左上角状态开始，并在到达目标状态（蓝色单元格）时终止。目标是找到从起始状态到目标状态的最优路径。奖励设置为 <span class="arithmatex">\(r_{\text{target}} =0\)</span>，<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -10\)</span>，以及 <span class="arithmatex">\(r_{\text{other}} = -1\)</span>。学习率 <span class="arithmatex">\(\alpha =0.1\)</span>，<span class="arithmatex">\(\epsilon\)</span>值为0.1。左图显示算法获得的最终策略，右图展示各训练回合的总奖励与路径长度。</p>
+<p>图<span class="arithmatex">\(7.2\)</span>：Sarsa算法的演示示例。所有训练回合均从左上角状态开始，并在到达目标状态（蓝色单元格）时终止。目标是找到从起始状态到目标状态的最优路径。左图显示算法获得的最终策略，右图展示各训练回合的总奖励与路径长度。</p>
 </blockquote>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-图7.2展示了一个演示Sarsa算法的仿真示例。与本书之前讨论的所有任务不同，该任务是找到一条从特定起始状态到目标状态的良好路径，而非为所有状态求解最优策略。这类任务在实际中经常出现——当起始状态（如家）和目标状态（如工作场所）固定时，我们仅需找到连接二者的最优路径。该任务的相对简单性在于：只需探索路径邻近状态，而无需遍历所有状态。但需注意的是，若未探索全部状态，最终路径可能仅是局部最优而非全局最优。
-=======
-图7.2展示了一个演示Sarsa算法的仿真示例。与本书之前讨论的所有任务不同，该任务的目标是从特定起始状态到目标状态寻找最优路径，而非为所有状态求解最优策略。这类任务在实际中经常出现——当起始状态（如家）和目标状态（如工作场所）固定时，我们仅需找到连接二者的最优路径。该任务的相对简单性在于：只需探索路径邻近状态，而无需遍历所有状态。但需注意的是，若未探索全部状态，最终路径可能仅是局部最优而非全局最优解。</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>仿真设置与仿真结果讨论如下。</p>
+<p>图<span class="arithmatex">\(7.2\)</span>展示了一个演示Sarsa算法的仿真示例。值得注意的是，这个例子中的任务和本书之前介绍的任务都不同。之前的任务是要学习每一个状态的最优策略，而这里的任务是要学习从特定状态出发到达目标状态的最优策略。前者的任务更难，因为它要找到所有状态的最优策略；后者的任务更简单，因为它只要找到部分状态的最优策略即可。这种任务在实际中也经常遇到，例如起始位置是住所，目标位置是学校，我们只需要学习那些每天下学可能经过的最优策略即可，而不需要关心十万八千里之外的位置的策略是什么。</p>
 <ul>
 <li>
-<p>仿真设置：在本示例中，所有训练回合均从左上角状态开始，并在目标状态终止。奖励设置为 <span class="arithmatex">\(r_{\text{target}} =0\)</span>，<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -10\)</span>，以及 <span class="arithmatex">\(r_{\text{other}} = -1\)</span>。此外，对所有时间步 <span class="arithmatex">\(t\)</span>有 <span class="arithmatex">\(\alpha_t(s, a) =0.1\)</span>，且 <span class="arithmatex">\(\epsilon =0.1\)</span>。动作价值的初始估计值为 <span class="arithmatex">\(q_0(s, a) =0\)</span>（对所有状态-动作对 <span class="arithmatex">\((s, a)\)</span>）。初始策略具有遵循均匀分布:<span class="arithmatex">\(\pi_0(a|s) =0.2\)</span>对于所有<span class="arithmatex">\(s,a\)</span>。</p>
+<p>仿真设置：在本示例中，所有训练回合均从左上角状态开始，并在目标状态终止。奖励设置为<span class="arithmatex">\(r_{\text{target}} =0\)</span>，<span class="arithmatex">\(r_{\text{forbidden}} = r_{\text{boundary}} = -10\)</span>，以及<span class="arithmatex">\(r_{\text{other}} = -1\)</span>。此外，对所有时间步<span class="arithmatex">\(t\)</span>有<span class="arithmatex">\(\alpha_t(s, a) =0.1\)</span>，且<span class="arithmatex">\(\epsilon =0.1\)</span>。选取初始值为<span class="arithmatex">\(q_0(s, a) =0\)</span>。由初始值导出的初始策略是均匀分布的，即对所有<span class="arithmatex">\(s,a\)</span>有<span class="arithmatex">\(\pi_0(a|s) =0.2\)</span>。</p>
 </li>
 <li>
-<p>习得策略(Learned policy)：图7.2左图展示了Sarsa算法学习得到的最终策略。如图所示，该策略能够成功地从起始状态引导至目标状态。然而，其他部分状态的策略可能并非最优，这是由于这些状态未被充分探索所致。</p>
+<p>学习到的策略：图7.2左图展示了Sarsa算法学习得到的最终策略。如图所示，该策略能够成功地从起始状态引导至目标状态。然而，其他部分状态的策略可能不是最优的(第三行第一列)，这是由于这些状态未被充分探索所致。</p>
 </li>
 <li>
-<p>每回合总奖励(Total reward of each episode)：图<span class="arithmatex">\(7.2\)</span>右上角子图展示了各回合的总奖励值。此处的总奖励是指所有即时奖励的非折现总和。可以看出，每回合总奖励呈现逐步上升趋势。这是由于初始策略性能较差，导致频繁获得负奖励；随着策略不断优化，总奖励值随之增长。</p>
+<p>每回合的回报：图<span class="arithmatex">\(7.2\)</span>右上角子图展示了每个回合的回报逐渐变化的过程。可以看出，每回合的回报呈现逐步上升趋势，这是由于初始策略性能较差，因此频繁获得负奖励；随着策略不断优化，回报会不断增加。由于这个策略是<span class="arithmatex">\(\varepsilon\)</span>-Greedy的，因此还是有概率选择不好的行动，所以在460个回合时回报突然降低。</p>
 </li>
 <li>
-<p>每回合长度：图7.2右下子图显示每回合长度逐渐缩短。这是因为初始策略性能较差，在抵达目标前可能绕行较多。随着策略优化，轨迹长度随之减短。值得注意的是，每回合长度可能突然增加(例如第460幕)，对应总奖励值也会急剧下降。这是由于策略采用<span class="arithmatex">\(\varepsilon\)</span>-贪婪算法，存在选择非最优动作的概率。解决方法之一是采用衰减式<span class="arithmatex">\(\varepsilon\)</span>，其数值会逐渐收敛至零。</p>
+<p>每回合长度：图7.2右下子图显示每回合的长度逐渐缩短。这是因为初始策略性能较差，在抵达目标前可能绕行较多。随着策略优化，轨迹长度随之减短。值得注意的是，每回合长度可能突然增加(例如第460个回合)，对应总奖励值也会急剧下降。这是由于策略采用<span class="arithmatex">\(\varepsilon\)</span>-贪婪算法，存在选择非最优行动的可能性。解决这个问题的一个简单方法是使用衰减的，即初始时<span class="arithmatex">\(\varepsilon\)</span>比较大，以使得策略有较强的探索性;随后<span class="arithmatex">\(\varepsilon\)</span>逐渐趋近于0，从而增加策略的最优性，减少探索性。</p>
 </li>
 </ul>
 <p>最后，Sarsa算法还存在若干变体，例如Expected Sarsa。感兴趣的读者可参阅Box 7.4。</p>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3525,38 +3583,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../7-1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 7.1-状态值估计:时序差分算法">
+          <a
+            href="../7-1/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 7.1-状态值估计:时序差分算法"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                7.1-状态值估计:时序差分算法
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">7.1-状态值估计:时序差分算法</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../7-3/" class="md-footer__link md-footer__link--next" aria-label="下一页: 7.3-行动值估计:n步Sarsa">
+          <a
+            href="../7-3/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 7.3-行动值估计:n步Sarsa"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                7.3-行动值估计:n步Sarsa
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">7.3-行动值估计:n步Sarsa</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3567,19 +3634,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3607,7 +3676,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

@@ -26,7 +26,7 @@
     
     
       
-        <title>8.4-深度Q-learning - 强化学习课程笔记</title>
+        <title>8.4 深度Q-learning - 强化学习课程笔记</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#84-q-learning" class="md-skip">
+        <a href="#841" class="md-skip">
           跳转至
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              8.4-深度Q-learning
+              8.4 深度Q-learning
             
           </span>
         </div>
@@ -156,53 +156,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +465,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -2515,16 +2490,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#84-q-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.4 深度Q-learning
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8.4 深度Q-learning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#841" class="md-nav__link">
     <span class="md-ellipsis">
       8.4.1 算法描述
@@ -2532,42 +2497,13 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#q-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      从数学角度而言，深度Q-learning旨在最小化以下目标函数：
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="从数学角度而言，深度Q-learning旨在最小化以下目标函数：">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#841_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.4.1 算法描述
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#842" class="md-nav__link">
     <span class="md-ellipsis">
       8.4.2 例子
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3251,6 +3187,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3276,16 +3291,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#84-q-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.4 深度Q-learning
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8.4 深度Q-learning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#841" class="md-nav__link">
     <span class="md-ellipsis">
       8.4.1 算法描述
@@ -3293,42 +3298,13 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#q-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      从数学角度而言，深度Q-learning旨在最小化以下目标函数：
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="从数学角度而言，深度Q-learning旨在最小化以下目标函数：">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#841_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      8.4.1 算法描述
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#842" class="md-nav__link">
     <span class="md-ellipsis">
       8.4.2 例子
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3364,126 +3340,43 @@
   
 
 
-<h2 id="84-q-learning">8.4 深度Q-learning<a class="headerlink" href="#84-q-learning" title="Permanent link">&para;</a></h2>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-我们可以将深度神经网络整合到Q-learning中，从而得到一种称为深度Q-learning或深度Q网络(DQN)的方法[22,60,61]。深度Q-learning是最早且最成功的深度强化学习算法之一。值得注意的是，神经网络并不必须具有深度结构。对于简单任务(例如我们的网格世界示例)，仅含一两个隐藏层的浅层网络可能已足够。</p>
+  <h1>8.4-深度Q-learning</h1>
+
+<p>我们可以将深度神经网络整合到Q-learning中，从而得到一种称为深度Q-learning或深度Q网络(DQN)的方法[22,60,61]。深度Q-learning是最早且最成功的深度强化学习算法之一。值得注意的是，神经网络并不必须具有深度结构。对于简单任务(例如我们的网格世界示例)，仅含一两个隐藏层的浅层网络可能已足够。</p>
 <p>深度Q-learning可视为式<span class="arithmatex">\((8.36)\)</span>算法的扩展，但其数学表述与实现技术存在显著差异，需要特别关注。</p>
 <h3 id="841">8.4.1 算法描述<a class="headerlink" href="#841" title="Permanent link">&para;</a></h3>
-<h1 id="q-learning">从数学角度而言，深度Q-learning旨在最小化以下目标函数：<a class="headerlink" href="#q-learning" title="Permanent link">&para;</a></h1>
-<p>我们可以将深度神经网络整合到Q学习中，从而得到一种称为深度Q学习或深度Q网络（DQN）的方法[22,60,61]。深度Q学习是最早且最成功的深度强化学习算法之一。值得注意的是，神经网络并不必须具有深度结构。对于简单任务(例如我们的网格世界示例)，仅含一两个隐藏层的浅层网络可能已足够。</p>
-<p>深度Q学习可视为式(8.36)算法的扩展，但其数学表述与实现技术存在显著差异，需要特别关注。</p>
-<h3 id="841_1">8.4.1 算法描述<a class="headerlink" href="#841_1" title="Permanent link">&para;</a></h3>
-<p>从数学角度而言，深度Q学习旨在最小化以下目标函数：</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>从数学角度而言，深度Q-learning旨在最小化以下目标函数：</p>
 <div class="arithmatex">\[J=\mathbb{E}\left[\left(R+\gamma\max_{a\in\mathcal{A}(S^{\prime})}\hat{q}(S^{\prime},a,w)-\hat{q}(S,A,w)\right)^2\right],\tag{8.37}\]</div>
 <p>其中 <span class="arithmatex">\((S, A, R, S')\)</span>为随机变量，分别表示状态、动作、即时奖励和下一状态。该目标函数可视为贝尔曼最优性误差的平方项，这是因为</p>
 <div class="arithmatex">\[q(s,a)=\mathbb{E}\left[R_{t+1}+\gamma\max_{a\in\mathcal{A}(S_{t+1})}q(S_{t+1},a)|S_t=s,A_t=a\right],\quad\mathrm{for\;all}\;s,a\]</div>
 <p>这正是贝尔曼最优方程(证明过程见Box 7.5。因此，当 <span class="arithmatex">\(\hat{q}(S, A,w)\)</span>能准确近似最优行动值时，期望意义上应有 <span class="arithmatex">\(R + \gamma \max_{a\in \mathcal{A}(S')} \hat{q}(S', a, w) - \hat{q}(S, A,w)\)</span>等于零。</p>
 <p>为最小化式<span class="arithmatex">\((8.37)\)</span>中的目标函数，可采用梯度下降算法。为此，需计算<span class="arithmatex">\(J\)</span>关于<span class="arithmatex">\(w\)</span>的梯度。值得注意的是，参数<span class="arithmatex">\(w\)</span>不仅出现在<span class="arithmatex">\(\hat{q}(S, A, w)\)</span>中，还隐含于<span class="arithmatex">\(y \doteq R + \gamma \max_{a \in \mathcal{A}(S')} \hat{q}(S', a, w)\)</span>的表达式内，这使得梯度计算具有非平凡性。为简化分析，假设<span class="arithmatex">\(y\)</span>中的<span class="arithmatex">\(w\)</span>值在短时间内保持固定，从而显著降低梯度计算复杂度。具体实现时，我们引入两个网络：一个主网络表示<span class="arithmatex">\(\hat{q}(s, a, w)\)</span>，另一个目标网络表示<span class="arithmatex">\(\hat{q}(s, a, w_T)\)</span>。此时目标函数转化为</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>为什么可以假设<span class="arithmatex">\(y\)</span>中的<span class="arithmatex">\(w\)</span>值在短时间内保持固定</p>
 </div>
-<p>=======</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0
-<span class="arithmatex">\(<span class="arithmatex">\(J=\mathbb{E}\left[\left(R+\gamma\max_{a\in\mathcal{A}(S^{\prime})}\hat{q}(S^{\prime},a,w_T)-\hat{q}(S,A,w)\right)^2\right],\)</span>\)</span></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<div class="arithmatex">\[J=\mathbb{E}\left[\left(R+\gamma\max_{a\in\mathcal{A}(S^{\prime})}\hat{q}(S^{\prime},a,w_T)-\hat{q}(S,A,w)\right)^2\right],\]</div>
 <p>其中<span class="arithmatex">\(w_T\)</span>为目标网络的参数。当<span class="arithmatex">\(w_T\)</span>固定时，目标函数<span class="arithmatex">\(J\)</span>的梯度为</p>
 <div class="arithmatex">\[\nabla_wJ=-\mathbb{E}\left[\left(R+\gamma\max_{a\in\mathcal{A}(S^{\prime})}\hat{q}(S^{\prime},a,w_T)-\hat{q}(S,A,w)\right)\nabla_w\hat{q}(S,A,w)\right],\tag{8.38}\]</div>
 <p>在不失一般性的前提下，此处省略了某些常系数。</p>
 <p>为利用式(8.38)中的梯度最小化目标函数，需注意以下技术要点。</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-- 第一种技术是使用两个网络——主网络(main network)和目标网络(target network)，我们在计算式<span class="arithmatex">\((8.38)\)</span>梯度时所提及。具体实现细节如下：令<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(w_T\)</span>分别表示主网络与目标网络的参数，二者的初始值设定为相同数值。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>在每次迭代中，我们从经验回放池(Experience replay)中抽取一个小批量样本集 $\{(s, a, r, s&#39;)\}$。主网络的输入为状态$s$和行动$a$，其输出 $y = \hat{q}(s, a, w)$表示估计的Q值。目标输出值定义为 $y_T \doteq r + \gamma \max_{a \in \mathcal{A}(s&#39;)} \hat{q}(s&#39;, a, w_T)$。主网络通过在小批量$\{(s, a, y_T)\}$最小化TD误差$\mathbb{E}[(y - y_T)^2]$进行更新。
-</code></pre></div></td></tr></table></div>
-<p>=======
-- 第一种技术是使用两个网络——主网络和目标网络，如我们在计算式<span class="arithmatex">\((8.38)\)</span>梯度时所提及。具体实现细节如下：令<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(w_T\)</span>分别表示主网络与目标网络的参数，二者的初始值设定为相同数值。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>在每次迭代中，我们从经验回放池（稍后将解释其机制）中抽取一个小批量样本集 $\{(s, a, r, s&#39;)\}$。主网络的输入为状态$s$和行动$a$，其输出 $y = \hat{q}(s, a, w)$表示估计的Q值。目标输出值定义为 $y_T \doteq r + \gamma \max_{a \in \mathcal{A}(s&#39;)} \hat{q}(s&#39;, a, w_T)$。主网络通过最小化TD误差（亦称损失函数）$\mathbb{E}[(y - y_T)^2]$进行更新，优化基于样本集 $\{(s, a, y_T)\}$。
-</code></pre></div></td></tr></table></div>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>主网络中的权重$w$更新并不显式使用式$(8.38)$中的梯度，而是依赖现有的神经网络训练软件工具。因此，我们需要通过小批量样本训练网络，而非基于式$(8.38)$使用单一样本更新主网络。这是深度与非深度强化学习算法之间的显著差异之一。
-
-主网络在每次迭代中更新。相比之下，目标网络每隔固定次数的迭代会被设置为与主网络相同，以满足计算式$(8.38)$梯度时$w_T$保持不变的假设。
-</code></pre></div></td></tr></table></div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-- 第二种技术是经验回放(experience replay)[22,60,62]。具体而言，当我们收集到若干经验样本后，并不按其采集顺序直接使用，而是将其存储在称为回放缓冲区(replay buffer)的数据集<span class="arithmatex">\(\mathcal{B} := \{(s, a, r, s')\}\)</span>中。每次更新主网络时，可从回放缓冲区中均匀采样一个小批量经验样本，该采样过程即称为经验回放。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>深度Q-learning中为何需要经验回放？为何回放必须遵循均匀分布？答案在于式$(8.37)$中的目标函数。具体而言，为了明确定义该目标函数，我们必须指定状态$S$、动作$A$、奖励$R$及次态$S&#39;$的概率分布。当$(S,A)$给定时，$R$与$S&#39;$的分布由系统模型决定。描述状态-行动对$(S,A)$分布的最简方式，就是假设其服从均匀分布。
-
-然而，由于状态-行动样本是根据行为策略生成的样本序列，实际中它们可能并非均匀分布。为了满足均匀分布假设，必须打破序列中样本间的相关性。为此，可采用经验回放技术，通过从回放缓冲区中均匀抽取样本实现。这正是经验回放的必要性及其必须遵循均匀分布的数学依据。随机采样的优势在于每个经验样本可多次重复使用，从而提高数据利用效率。这一特性在数据量有限时尤为重要。
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p>第一种技术是使用两个网络——主网络(main network)和目标网络(target network)，我们在计算式<span class="arithmatex">\((8.38)\)</span>梯度时所提及。具体实现细节如下：令<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(w_T\)</span>分别表示主网络与目标网络的参数，二者的初始值设定为相同数值。</p>
+<p>在每次迭代中，我们从经验回放池(Experience replay)中抽取一个小批量样本集 <span class="arithmatex">\(\{(s, a, r, s')\}\)</span>。主网络的输入为状态<span class="arithmatex">\(s\)</span>和行动<span class="arithmatex">\(a\)</span>，其输出 <span class="arithmatex">\(y = \hat{q}(s, a, w)\)</span>表示估计的Q值。目标输出值定义为 <span class="arithmatex">\(y_T \doteq r + \gamma \max_{a \in \mathcal{A}(s')} \hat{q}(s', a, w_T)\)</span>。主网络通过在小批量<span class="arithmatex">\(\{(s, a, y_T)\}\)</span>最小化TD误差<span class="arithmatex">\(\mathbb{E}[(y - y_T)^2]\)</span>进行更新。  </p>
+<p>主网络中的权重<span class="arithmatex">\(w\)</span>更新并不显式使用式<span class="arithmatex">\((8.38)\)</span>中的梯度，而是依赖现有的神经网络训练软件工具。因此，我们需要通过小批量样本训练网络，而非基于式<span class="arithmatex">\((8.38)\)</span>使用单一样本更新主网络。这是深度与非深度强化学习算法之间的显著差异之一。</p>
+<p>主网络在每次迭代中更新。相比之下，目标网络每隔固定次数的迭代会被设置为与主网络相同，以满足计算式<span class="arithmatex">\((8.38)\)</span>梯度时<span class="arithmatex">\(w_T\)</span>保持不变的假设。</p>
+</li>
+<li>
+<p>第二种技术是经验回放(experience replay)[22,60,62]。具体而言，当我们收集到若干经验样本后，并不按其采集顺序直接使用，而是将其存储在称为回放缓冲区(replay buffer)的数据集<span class="arithmatex">\(\mathcal{B} := \{(s, a, r, s')\}\)</span>中。每次更新主网络时，可从回放缓冲区中均匀采样一个小批量经验样本，该采样过程即称为经验回放。</p>
+<p>深度Q-learning中为何需要经验回放？为何回放必须遵循均匀分布？答案在于式<span class="arithmatex">\((8.37)\)</span>中的目标函数。具体而言，为了明确定义该目标函数，我们必须指定状态<span class="arithmatex">\(S\)</span>、动作<span class="arithmatex">\(A\)</span>、奖励<span class="arithmatex">\(R\)</span>及次态<span class="arithmatex">\(S'\)</span>的概率分布。当<span class="arithmatex">\((S,A)\)</span>给定时，<span class="arithmatex">\(R\)</span>与<span class="arithmatex">\(S'\)</span>的分布由系统模型决定。描述状态-行动对<span class="arithmatex">\((S,A)\)</span>分布的最简方式，就是假设其服从均匀分布。</p>
+<p>然而，由于状态-行动样本是根据行为策略生成的样本序列，实际中它们可能并非均匀分布。为了满足均匀分布假设，必须打破序列中样本间的相关性。为此，可采用经验回放技术，通过从回放缓冲区中均匀抽取样本实现。这正是经验回放的必要性及其必须遵循均匀分布的数学依据。随机采样的优势在于每个经验样本可多次重复使用，从而提高数据利用效率。这一特性在数据量有限时尤为重要。</p>
+</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><span class="arithmatex">\(R\sim p(R|S,A),S^{\prime}\sim p(S^{\prime}|S,A)\)</span>。其他的分布比如高斯分布行不行？我想给一些<span class="arithmatex">\((S,A)\)</span>更大的权重，那么在采样的时候当然也要更多次的去运用到他们，它的一个问题就是你要有先验知识，要知道谁是重要的，谁是不重要的。如果没有这个先验知识，就要一视同仁，所有的<span class="arithmatex">\((S,A)\)</span>的概率都应该是相同的，这时候就是均匀分布</p>
 </div>
-<p>=======
-- 第二种技术是经验回放(experience replay)[22,60,62]。具体而言，当我们收集到若干经验样本后，并不按其采集顺序直接使用，而是将其存储在称为回放缓冲区的数据集 <span class="arithmatex">\(\mathcal{B} := \{(s, a, r, s')\}\)</span>中。每次更新主网络时，可从回放缓冲区中均匀采样一个小批量经验样本，该采样过程即称为经验回放。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>深度Q-learning中为何需要经验回放？为何回放必须遵循均匀分布？答案在于式(8.37)中的目标函数。具体而言，为了明确定义该目标函数，我们必须指定状态$S$、动作$A$、奖励$R$及次态$S&#39;$的概率分布。当$(S,A)$给定时，$R$与$S&#39;$的分布由系统模型决定。描述状态-动作对$(S,A)$分布的最简方式，就是假设其服从均匀分布。
-
-然而，由于状态-动作样本是根据行为策略生成的样本序列，实际中它们可能并非均匀分布。为了满足均匀分布假设，必须打破序列中样本间的相关性。为此，可采用经验回放技术，通过从回放缓冲区中均匀抽取样本实现。这正是经验回放的必要性及其必须遵循均匀分布的数学依据。随机采样的优势在于每个经验样本可多次重复使用，从而提高数据利用效率。这一特性在数据量有限时尤为重要。
-</code></pre></div></td></tr></table></div>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>50b98123eef511e961e9c05b37b46f2a667dafb0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <p>深度Q学习的实现流程总结于算法8.3中。该实现采用<strong>异策略</strong>方法，必要时也可调整为<strong>同策略</strong>形式。</p>
 <h3 id="842">8.4.2 例子<a class="headerlink" href="#842" title="Permanent link">&para;</a></h3>
 <p>图<span class="arithmatex">\(8.11\)</span>给出了一个演示算法<span class="arithmatex">\(8.3\)</span>的实例。该示例旨在学习每个状态-行动对的最优行动值，一旦获得最优行动值，即可立即推导出最优贪婪策略。</p>
@@ -3501,17 +3394,173 @@
 <blockquote>
 <p>图<span class="arithmatex">\(8.12\)</span>：通过深度Q-learning实现的最优策略学习。其中，<span class="arithmatex">\(\gamma =0.9\)</span>，<span class="arithmatex">\(r_{\text{boundary}} = r_{\text{forbidden}} = -10\)</span>，且 <span class="arithmatex">\(r_{\text{target}} =1\)</span>。批处理大小为50。</p>
 </blockquote>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3531,38 +3580,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../8-3/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 8.3-基于值函数的时序差分算法:行动值估计">
+          <a
+            href="../8-3/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 8.3-基于值函数的时序差分算法:行动值估计"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                8.3-基于值函数的时序差分算法:行动值估计
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">8.3-基于值函数的时序差分算法:行动值估计</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../8-5/" class="md-footer__link md-footer__link--next" aria-label="下一页: 8.5-总结">
+          <a
+            href="../8-5/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 8.5-总结"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                8.5-总结
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">8.5-总结</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3573,19 +3631,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3613,7 +3673,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

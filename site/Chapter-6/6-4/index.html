@@ -26,7 +26,7 @@
     
     
       
-        <title>6.4-随机梯度下降 - 强化学习课程笔记</title>
+        <title>6.4 随机梯度下降 - 强化学习课程笔记</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#64" class="md-skip">
+        <a href="#641" class="md-skip">
           跳转至
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6.4-随机梯度下降
+              6.4 随机梯度下降
             
           </span>
         </div>
@@ -156,53 +156,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +465,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -2082,16 +2057,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#64" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.4 随机梯度下降
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.4 随机梯度下降">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#641" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.1 应用于期望估计
@@ -2099,8 +2064,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#642" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.2 随机梯度下降的收敛形式
@@ -2108,8 +2073,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#643" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.3 随机梯度下降的另一种描述
@@ -2117,8 +2082,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#644" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.4 小批量梯度下降
@@ -2126,18 +2091,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#645" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.5 随机梯度下降的收敛性
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3254,6 +3214,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3279,16 +3318,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#64" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.4 随机梯度下降
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.4 随机梯度下降">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#641" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.1 应用于期望估计
@@ -3296,8 +3325,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#642" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.2 随机梯度下降的收敛形式
@@ -3305,8 +3334,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#643" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.3 随机梯度下降的另一种描述
@@ -3314,8 +3343,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#644" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.4 小批量梯度下降
@@ -3323,18 +3352,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#645" class="md-nav__link">
     <span class="md-ellipsis">
       6.4.5 随机梯度下降的收敛性
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3372,38 +3396,37 @@
 
   <h1>6.4-随机梯度下降</h1>
 
-<h2 id="64">6.4 随机梯度下降<a class="headerlink" href="#64" title="Permanent link">&para;</a></h2>
-<p>本节介绍随机梯度下降（SGD）算法，该算法在机器学习领域应用广泛。我们将证明SGD是RM算法的特例，而均值估计算法又是SGD算法的特例。</p>
+<p>本节介绍<strong>随机梯度下降</strong> (stochastic gradient descent) 算法，该算法在机器学习领域应用广泛。我们将证明SGD是RM算法的一种特殊情况，而前面介绍的期望值估计算法又是SGD算法的一种特殊情况。</p>
 <p>考虑如下优化问题：</p>
 <div class="arithmatex">\[\min_{w}J(w)=\mathbb{E}[f(w,X)],\tag{6.10}\]</div>
-<p>其中 <span class="arithmatex">\(w\)</span>为待优化参数，<span class="arithmatex">\(X\)</span>为随机变量。期望值是对 <span class="arithmatex">\(X\)</span>进行计算。此处<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(X\)</span>既可以是标量也可以是向量。函数<span class="arithmatex">\(f(\cdot)\)</span>为标量函数。</p>
-<p>求解式<span class="arithmatex">\((6.10)\)</span>的直观方法是<strong>梯度下降法</strong>。具体而言，目标函数 <span class="arithmatex">\(E[f(w,X)]\)</span>的梯度为<span class="arithmatex">\(\nabla_w E[f(w,X)] = E[\nabla_w f(w,X)]\)</span>。相应的梯度下降算法可表示为</p>
-<div class="arithmatex">\[w_{k+1} = w_k - \alpha_k \nabla_w J(w_k) = w_k - \alpha_k \mathbb{E}[\nabla_w f(w_k, X)].\tag{6.11}\]</div>
-<p>在诸如函数<span class="arithmatex">\(f\)</span>的凸性等温和条件下，该梯度下降算法能够找到最优解 <span class="arithmatex">\(w^*\)</span>。关于梯度下降算法的预备知识可参见附录D。</p>
-<p>梯度下降算法需要期望值<span class="arithmatex">\(E[\nabla_w f(w_k,X)]\)</span>。获取该期望值的一种方法是基于<span class="arithmatex">\(X\)</span>的概率分布。然而，实际应用中该分布往往未知。另一种方法即批量梯度下降(batch gradient descent)是收集大量独立同分布样本 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>来逼近期望值，其表达式为</p>
+<p>其中<span class="arithmatex">\(w\)</span>为待优化参数，<span class="arithmatex">\(X\)</span>是一个随机变量。这里的期望值是对<span class="arithmatex">\(X\)</span>进行计算。这里<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(X\)</span>可以是标量也可以是向量，而函数<span class="arithmatex">\(f(\cdot)\)</span>是一个标量。</p>
+<p>解决 (6.10) 的常见方法是梯度下降 (gradient descent)。由于 <span class="arithmatex">\(\mathbb{E}[f(w, X)]\)</span> 的梯度是 <span class="arithmatex">\(\nabla_w \mathbb{E}[f(w, X)] = \mathbb{E}[\nabla_w f(w, X)]\)</span>，相应的梯度下降算法是</p>
+<div class="arithmatex">\[w_{k+1} = w_k - \alpha_k \nabla_w J(w_k) = w_k - \alpha_k \mathbb{E}[\nabla_w f(w_k, X)] \tag{6.11}\]</div>
+<p>梯度下降算法在一些条件下(例如 <span class="arithmatex">\(f\)</span> 是凸函数)可以找到全局最优解<span class="arithmatex">\(w^*\)</span>。关于梯度下降算法的更多信息可参见附录D。</p>
+<p>梯度下降算法需要依赖于期望值 <span class="arithmatex">\(\mathbb{E}[\nabla_w f(w_k, X)]\)</span>。我们知道有两种获取期望值的方法：第一种方法是基于模型的方法，即利用 <span class="arithmatex">\(X\)</span> 的概率分布和期望值的定义直接计算，然而 <span class="arithmatex">\(X\)</span> 的概率分布可能是难以得到的；第二种方法是基于数据的方法，即用独立同分布的样本 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span> 来计算：</p>
 <div class="arithmatex">\[E[\nabla_w f(w_k, X)] \approx \frac{1}{n} \sum_{i=1}^n \nabla_w f(w_k, x_i).\]</div>
-<p>则<span class="arithmatex">\((6.11)\)</span>式变为</p>
+<p>此时<span class="arithmatex">\((6.11)\)</span>式变为</p>
 <div class="arithmatex">\[w_{k+1} = w_k - \alpha_k \frac{1}{n} \sum_{i=1}^n \nabla_w f(w_k, x_i),\tag{6.12}\]</div>
-<p><span class="arithmatex">\((6.12)\)</span>式中算法的一个问题在于：每次迭代都需要使用全部样本。实际应用中，若样本是逐个采集的，则更希望在每次获得新样本时立即更新<span class="arithmatex">\(w\)</span>。为此，可采用如下算法即随机梯度下降(stochastic gradient descent)：</p>
+<p><span class="arithmatex">\((6.12)\)</span>式中算法的一个问题在于它每次迭代都需要使用全部样本。如果样本是逐个采集的，可采用如下算法：</p>
 <div class="arithmatex">\[w_{k+1} = w_k - \alpha_k \nabla_w f(w_k, x_k),\tag{6.13}\]</div>
-<p>其中<span class="arithmatex">\(x_k\)</span>为时间步<span class="arithmatex">\(k\)</span>采集的样本。这是经典的随机梯度下降算法。该算法被称为"随机"的原因是它依赖于随机样本集 <span class="arithmatex">\(\{x_k\}\)</span>。</p>
-<p>相较于<span class="arithmatex">\((6.11)\)</span>中的梯度下降算法，SGD将真实梯度<span class="arithmatex">\(E[\nabla_w f(w,X)]\)</span>替换为随机梯度<span class="arithmatex">\(\nabla_w f(w_k, x_k)\)</span>。由于<span class="arithmatex">\(\nabla_w f(w_k, x_k) \neq E[\nabla_w f(w,X)]\)</span>，这种替换是否仍能保证当<span class="arithmatex">\(k \to \infty\)</span>时<span class="arithmatex">\(w_k \to w^*\)</span>？答案是肯定的。我们接下来给出直观解释，并将收敛性的严格证明推迟至6.4.5节。</p>
+<p>其中 <span class="arithmatex">\(x_k\)</span> 是在时刻 <span class="arithmatex">\(k\)</span> 得到的样本。上式就是著名的<strong>随机梯度下降</strong>，它之所以被称为随机梯度下降，是因为它采用一个基于单个随机样本得到的随机梯度 <span class="arithmatex">\(\nabla_w f(w_k, x_k)\)</span> 来替换梯度下降中的真实梯度 <span class="arithmatex">\(\mathbb{E}[\nabla_w f(w_k, X)]\)</span>。</p>
+<p>由于随机梯度 <span class="arithmatex">\(\nabla_w f(w, x_k)\)</span> 不等于真实梯度 <span class="arithmatex">\(\mathbb{E}[\nabla_w f(w, X)]\)</span>，那么替换后该算法能否确保当 <span class="arithmatex">\(k \to \infty\)</span> 时 <span class="arithmatex">\(w_k \to w^*\)</span> 呢？答案是可以的。下面我们先给出一个直观的解释，之后在第<span class="arithmatex">\(6.4.5\)</span>节给出更严格的证明。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>这里可以将SGD与GD和BGD对比一下。</p>
 </div>
-<p>特别地，由于</p>
+<p>具体来说，随机梯度可以重新写成</p>
 <div class="arithmatex">\[\begin{aligned}\nabla_{w}f(w_{k},x_{k})&amp;=\mathbb{E}[\nabla_wf(w_k,X)]+\left(\nabla_wf(w_k,x_k)-\mathbb{E}[\nabla_wf(w_k,X)]\right)\\&amp;\doteq\mathbb{E}[\nabla_wf(w_k,X)]+\eta_k,\end{aligned}\]</div>
-<p>式<span class="arithmatex">\((6.13)\)</span>中的 SGD算法可改写为</p>
+<p>上式表明随机梯度等于真是梯度加一个噪声项<span class="arithmatex">\(\eta_k\)</span>，将其代入式<span class="arithmatex">\((6.13)\)</span>可得</p>
 <div class="arithmatex">\[w_{k+1} = w_k - \alpha_k \mathbb{E}[\nabla_w f(w_k, X)] - \alpha_k \eta_k. \]</div>
-<p>因此，SGD算法与常规梯度下降算法相同，唯一的区别在于其含有一个扰动项<span class="arithmatex">\(\alpha_k\eta_k\)</span>。由于<span class="arithmatex">\(\{x_k\}\)</span>是独立同分布序列，我们有<span class="arithmatex">\(\mathbb{E}_{x_k}[\nabla_w f(w_k, x_k)] = \mathbb{E}_X[\nabla_w f(w_k,X)]\)</span>。由此可得，</p>
-<div class="arithmatex">\[\mathbb{E}[\eta_k] = \mathbb{E} \left[ \nabla_w f(w_k, x_k) - \mathbb{E}[\nabla_w f(w_k, X)] \right] = \mathbb{E}_{x_k} \left[ \nabla_w f(w_k, x_k) \right] - \mathbb{E}_x \left[ \nabla_w f(w_k, X) \right] = 0.
-\]</div>
-<p>因此，扰动项 <span class="arithmatex">\(\eta_k\)</span>的均值为零，这直观表明它可能不会破坏收敛性。关于随机梯度下降(SGD)方法的收敛性严格证明详见第<span class="arithmatex">\(6.4.5\)</span>节。</p>
+<p>因此，随机梯度下降算法与常规的梯度下降算法的差异仅仅是一个噪声项 <span class="arithmatex">\(\alpha_k \eta_k\)</span>。由于 <span class="arithmatex">\(\{x_k\}\)</span> 是独立同分布的，我们有 <span class="arithmatex">\(\mathbb{E}_{x_k}[\nabla_w f(w_k, x_k)] = \mathbb{E}_X[\nabla_w f(w_k, X)]\)</span>。因此，<span class="arithmatex">\(\eta_k\)</span> 的期望等于 0：</p>
+<div class="arithmatex">\[\mathbb{E}[\eta_k] = \mathbb{E}[\nabla_w f(w_k, x_k) - \nabla_w f(w_k, X)] = \mathbb{E}_x[\nabla_w f(w_k, x_k)] - \mathbb{E}_X[\nabla_w f(w_k, X)] = 0.\]</div>
+<p>在直观上，由于噪声的均值等于 0，因此它应该不会对收敛性造成太大的危害。更严格的证明将在章节 6.4.5 节中给出。</p>
 <h3 id="641">6.4.1 应用于期望估计<a class="headerlink" href="#641" title="Permanent link">&para;</a></h3>
-<p>接下来，我们应用随机梯度下降(SGD)来分析均值估计问题，并证明式<span class="arithmatex">\((6.4)\)</span>中的均值估计算法是一种特殊的SGD算法。为此，我们将均值估计问题表述为如下优化问题：</p>
+<p>接下来，我们应用随机梯度下降(SGD)来分析期望值估计问题，并证明式<span class="arithmatex">\((6.4)\)</span>中的期望值估计算法是一种特殊的随机梯度下降算法。</p>
+<p>首先，我们将期望值估计问题描述为如下优化问题：</p>
 <div class="arithmatex">\[\min_wJ(w)=\mathbb{E}\left[\frac{1}{2}\|w-X\|^2\right]\doteq\mathbb{E}[f(w,X)],\tag{6.14}\]</div>
-<p>其中 <span class="arithmatex">\(f(w,X) = \|w - X\|^2/2\)</span>且梯度为 <span class="arithmatex">\(\nabla_w f(w,X) = w - X\)</span>。通过求解 <span class="arithmatex">\(\nabla_w J(w) =0\)</span>可验证最优解为 <span class="arithmatex">\(w^* = \mathbb{E}[X]\)</span>。因此，该优化问题等价于均值估计问题。</p>
+<p>其中 <span class="arithmatex">\(f(w,X) = \|w - X\|^2/2\)</span>且梯度为 <span class="arithmatex">\(\nabla_w f(w,X) = w - X\)</span>。通过求解 <span class="arithmatex">\(\nabla_w J(w) =0\)</span>可验证最优解为 <span class="arithmatex">\(w^* = \mathbb{E}[X]\)</span>。因此，该优化问题等价于期望值估计问题。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><span class="arithmatex">\(\nabla_w J(w) =0\)</span><span class="arithmatex">\(\rightarrow\)</span><span class="arithmatex">\(\mathbb{E}[\nabla_w f(w,X)]=0\)</span><span class="arithmatex">\(\rightarrow\)</span><span class="arithmatex">\(\mathbb{E}[w-X]=0\)</span><span class="arithmatex">\(\rightarrow\)</span><span class="arithmatex">\(w^*=\mathbb{E}[X]\)</span></p>
@@ -3412,16 +3435,16 @@
 <li>
 <p>求解式<span class="arithmatex">\((6.14)\)</span>的梯度下降算法为</p>
 <div class="arithmatex">\[\begin{aligned}w_{k+1}&amp;=w_k-\alpha_k\nabla_wJ(w_k)\\&amp;=w_k-\alpha_k\mathbb{E}[\nabla_wf(w_k,X)]\\&amp;=w_k-\alpha_k\mathbb{E}[w_k-X]\end{aligned}\]</div>
-<p>该梯度下降算法不可行，因为等式右侧的 <span class="arithmatex">\(E[w_k - X]\)</span>或 <span class="arithmatex">\(E[X]\)</span>未知（实际上这正是我们需要求解的项）。</p>
+<p>该梯度下降算法无法直接使用，因为等式右侧的 <span class="arithmatex">\(E[w_k - X]\)</span>或 <span class="arithmatex">\(E[X]\)</span>未知，实际上这正是我们需要求解的项。</p>
 </li>
 <li>
-<p>求解式<span class="arithmatex">\((6.14)\)</span>的 SGD算法为</p>
+<p>求解式<span class="arithmatex">\((6.14)\)</span>的随机梯度下降算法为</p>
 <div class="arithmatex">\[w_{k+1}=w_k-\alpha_k\nabla_wf(w_k,x_k)=w_k-\alpha_k(w_k-x_k)\]</div>
-<p>其中<span class="arithmatex">\(x_k\)</span>为时间步<span class="arithmatex">\(k\)</span>处获取的样本。值得注意的是，该随机梯度下降(SGD)算法与式<span class="arithmatex">\((6.4)\)</span>中的迭代均值估计算法完全一致。因此，<span class="arithmatex">\((6.4)\)</span>式是专门为解决均值估计问题设计的随机梯度下降算法。</p>
+<p>其中<span class="arithmatex">\(x_k\)</span>为时刻<span class="arithmatex">\(k\)</span>处获取的样本。值得注意的是，这个随机梯度下降算法与式<span class="arithmatex">\((6.4)\)</span>中的期望值估计算法完全一致。因此，<span class="arithmatex">\((6.4)\)</span>式是专门为解决期望值估计问题设计的随机梯度下降算法。</p>
 </li>
 </ul>
 <h3 id="642">6.4.2 随机梯度下降的收敛形式<a class="headerlink" href="#642" title="Permanent link">&para;</a></h3>
-<p>SGD算法的核心思想是用随机梯度替代真实梯度。然而，由于随机梯度的随机性，人们可能会质疑SGD的收敛速度是否较慢或不稳定。但幸运的是，SGD通常能实现高效收敛。一个有趣的收敛模式是：当估计值<span class="arithmatex">\(w_k\)</span>远离最优解<span class="arithmatex">\(w^*\)</span>时，其表现与常规梯度下降算法相似；只有当<span class="arithmatex">\(w_k\)</span>接近<span class="arithmatex">\(w^*\)</span>时，SGD的收敛过程才会表现出更强的随机性。</p>
+<p>随机梯度下降法的思想是用随机梯度代替真实梯度。由于随机梯度是随机的，读者可能会认为其收敛速度不是很慢或很随机。实际上，随机梯度下降法通常可以高速收敛。一个有趣的模式是：当估计值 <span class="arithmatex">\(w_k\)</span> 远离最优解 <span class="arithmatex">\(w^*\)</span> 时，随机梯度下降的收敛与常规梯度下降类似；只有当 <span class="arithmatex">\(w_k\)</span> 接近 <span class="arithmatex">\(w^*\)</span> 时，随机梯度下降的收敛才会表现出更多的随机性。下面是对此一收敛模式的分析和示例。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><span class="arithmatex">\(\nabla_wf(w_k,x_k)\)</span>可以看作是<span class="arithmatex">\(\mathbb{E}[\nabla_wf(w,X)]\)</span>的噪声测量值。</p>
@@ -3431,18 +3454,18 @@
 <li>
 <p>分析：随机梯度与真实梯度之间的相对误差(relative error)为</p>
 <div class="arithmatex">\[\delta_k\doteq\frac{|\nabla_wf(w_k,x_k)-\mathbb{E}[\nabla_wf(w_k,X)]|}{|\mathbb{E}[\nabla_wf(w_k,X)]|}.\]</div>
-<p>为简化分析，我们考虑 <span class="arithmatex">\(w\)</span>和 <span class="arithmatex">\(\nabla_w f(w, x)\)</span>均为标量的情形。由于 <span class="arithmatex">\(w^*\)</span>是最优解，故有 <span class="arithmatex">\(\mathbb{E}[\nabla_w f(w^*,X)] =0\)</span>。此时，相对误差可改写为</p>
+<p>为简化分析，我们考虑 <span class="arithmatex">\(w\)</span>和 <span class="arithmatex">\(\nabla_w f(w, x)\)</span>均为标量的情形。由于 <span class="arithmatex">\(w^*\)</span>是最优解，故有 <span class="arithmatex">\(\mathbb{E}[\nabla_w f(w^*,X)] =0\)</span>。此时上式可改写为</p>
 <div class="arithmatex">\[\delta_k=\frac{|\nabla_wf(w_k,x_k)-\mathbb{E}[\nabla_wf(w_k,X)]|}{|\mathbb{E}[\nabla_wf(w_k,X)]-\mathbb{E}[\nabla_wf(w^*,X)]|}=\frac{|\nabla_wf(w_k,x_k)-\mathbb{E}[\nabla_wf(w_k,X)]|}{|\mathbb{E}[\nabla_w^2f(\tilde{w}_k,X)(w_k-w^*)]|},\tag{6.15}\]</div>
-<p>其中最后一个等式由中值定理[7,8]得出，且 <span class="arithmatex">\(\tilde{w}_k \in [w_k, w^*]\)</span>。假设 <span class="arithmatex">\(f\)</span>是严格凸函数，使得对所有 <span class="arithmatex">\(w,X\)</span>均有 <span class="arithmatex">\(\nabla^2_w f \geq c &gt;0\)</span>。此时，(6.15)式中的分母可表示为</p>
+<p>其中最后一个等式由中值定理[<a href="https://open.umn.edu/opentextbooks/textbooks/10">7</a>,<a href="https://abesenyei.web.elte.hu/publications/meanvalue.pdf">8</a>]得出，其中<span class="arithmatex">\(\tilde{w}_k \in [w_k, w^*]\)</span>。假设<span class="arithmatex">\(f\)</span>是严格凸的，即对任意<span class="arithmatex">\(w,X\)</span>有<span class="arithmatex">\(\nabla^2_w f \geq c &gt;0\)</span>。此时，<span class="arithmatex">\((6.15)\)</span>中的分母可表示为</p>
 <div class="arithmatex">\[\begin{aligned}\left|\mathbb{E}[\nabla_{w}^{2}f(\tilde{w}_{k},X)(w_{k}-w^{*})]\right|&amp;=\left|\mathbb{E}[\nabla_{w}^{2}f(\tilde{w}_{k},X)]\right|\left|(w_{k}-w^{*})\right|\\&amp;\geq c|w_{k}-w^{*}|.\end{aligned}\]</div>
 <p>将上述不等式代入式<span class="arithmatex">\((6.15)\)</span>可得</p>
 <div class="arithmatex">\[\delta_k\leq\frac{\mid\overbrace{\nabla_wf(w_k,x_k)}^\text{stochastic gradient}-\overbrace{\mathbb{E}[\nabla_wf(w_k,X)]}^\text{true gradient}\mid}{\underbrace{c|w_k-w^*|}_{\text{distance to the optimal solution}}}.\]</div>
-<p>上述不等式揭示了随机梯度下降(SGD)一个有趣的收敛模式：相对误差 <span class="arithmatex">\(\delta_k\)</span>与 <span class="arithmatex">\(|w_k - w^*|\)</span>成反比。因此，当 <span class="arithmatex">\(|w_k - w^*|\)</span>较大时，<span class="arithmatex">\(\delta_k\)</span>较小。此时SGD算法的表现类似于梯度下降算法，因而 <span class="arithmatex">\(w_k\)</span>会快速收敛至 <span class="arithmatex">\(w^*\)</span>。而当 <span class="arithmatex">\(w_k\)</span>接近 <span class="arithmatex">\(w^*\)</span>时，相对误差 <span class="arithmatex">\(\delta_k\)</span>可能增大，收敛过程会表现出更强的随机性。</p>
+<p>上式表明了梯度的相对误差 <span class="arithmatex">\(\delta_k\)</span> 与估计的绝对误差 <span class="arithmatex">\(|w_k - w^*|\)</span> 之间的关系。当 <span class="arithmatex">\(|w_k - w^*|\)</span> 较大时，<span class="arithmatex">\(\delta_k\)</span> 较小，此时随机梯度和真实梯度差不多，因此随机梯度下降法的表现类似于梯度下降法，进而 <span class="arithmatex">\(w_k\)</span> 会迅速接近 <span class="arithmatex">\(w^*\)</span>，这是我们希望看到的良好特质。当 <span class="arithmatex">\(|w_k - w^*|\)</span> 较小时，梯度的相对误差 <span class="arithmatex">\(\delta_k\)</span> 可能会很大，此时随机梯度下降法的表现相较于梯度下降会有更大的随机性，这就是使用随机样本本难以避免的问题，可以通过使用更多的数据和较小的学习率来缓解随机性问题。</p>
 </li>
 <li>
-<p>例子: 均值估计问题是展示上述分析的典型案例。考虑<span class="arithmatex">\((6.14)\)</span>中的均值估计问题，当<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(X\)</span>均为标量时，有<span class="arithmatex">\(f(w,X) = |w -X|^2/2\)</span>，因此</p>
+<p>例子: 期望值估计问题是展示上述分析的典型案例。考虑<span class="arithmatex">\((6.14)\)</span>中的均值估计问题，当<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(X\)</span>均为标量时，有<span class="arithmatex">\(f(w,X) = |w -X|^2/2\)</span>，因此</p>
 <div class="arithmatex">\[\begin{aligned}\nabla_{w}f(w,x_{k})&amp;=w-x_{k},\\\mathbb{E}[\nabla_wf(w,x_k)]&amp;=w-\mathbb{E}[X]=w-w^{*}.\end{aligned}\]</div>
-<p>因此，相对误差为</p>
+<p>此时可以计算得到梯度的相对误差为</p>
 <div class="arithmatex">\[\delta_k=\frac{|\nabla_wf(w_k,x_k)-\mathbb{E}[\nabla_wf(w_k,X)]|}{|\mathbb{E}[\nabla_wf(w_k,X)]|}=\frac{|(w_k-x_k)-(w_k-\mathbb{E}[X])|}{|w_k-w^*|}=\frac{|\mathbb{E}[X]-x_k|}{|w_k-w^*|}.\]</div>
 <p><img alt="" src="../../img/06/4.png" /></p>
 <blockquote>
@@ -3452,49 +3475,36 @@
 <p class="admonition-title">Note</p>
 <p>通过图<span class="arithmatex">\(6.5\)</span>也可以发现，SGD在收敛过程中，初始时刻并没有展现出随机性，而当靠近目标值时，展现出了一定的随机性，这与我们分析是一致的。</p>
 </div>
-<p>相对误差的表达式清楚地表明,<span class="arithmatex">\(\delta_k\)</span>与<span class="arithmatex">\(|w_k - w^*|\)</span>成反比。因此，当<span class="arithmatex">\(w_k\)</span>远离<span class="arithmatex">\(w^*\)</span>时，相对误差较小，SGD 的行为类似于梯度下降。另外，由于<span class="arithmatex">\(\delta_k\)</span>与<span class="arithmatex">\(|\mathbb{E}[X] - x_k|\)</span>成正比， <span class="arithmatex">\(\delta_k\)</span>的均值与<span class="arithmatex">\(X\)</span>的方差成正比。</p>
-<p>仿真结果如图<span class="arithmatex">\(6.5\)</span>所示。其中，<span class="arithmatex">\(X \in \mathbb{R}^2\)</span>表示平面内的随机位置，其分布在以原点为中心的正方形区域内均匀分布且满足 <span class="arithmatex">\(\mathbb{E}[X] =0\)</span>。均值估计基于100个独立同分布样本。尽管均值初始猜测值远离真实值，但可以看出SGD估计量迅速逼近原点邻域。当估计值接近原点时，收敛过程呈现出一定的随机性。</p>
+<p>从上式可知两个有意思的性质。第一，<span class="arithmatex">\(\delta_k\)</span> 与 <span class="arithmatex">\(|w_k - w^*|\)</span> 是反比的，这与前面的分析是一致的，即当 <span class="arithmatex">\(w_k\)</span> 离 <span class="arithmatex">\(w^*\)</span> 较远时，随机梯度下降和梯度下降的行为是类似的。第二，<span class="arithmatex">\(\delta_k\)</span> 与 <span class="arithmatex">\(\mathbb{E}[X] - x_k\)</span> 的差有关，这是因为它的定义是 <span class="arithmatex">\(var(X) = \mathbb{E}[(\mathbb{E}[X] - X)^2]\)</span>。因此，当方差很小时，<span class="arithmatex">\(\mathbb{E}[X] - x_k\)</span> 的值是比较小的，进而 <span class="arithmatex">\(\delta_k\)</span> 是较小的，此时随机梯度下降的行为会更接近梯度下降。</p>
+<p>图 <span class="arithmatex">\(6.5\)</span> 给出了一个期望值估计的例子。这里 <span class="arithmatex">\(X \in \mathbb{R}^2\)</span> 表示一个边长为 10 的方形区域中的一个随机位置，其分布是均匀的，且其实际期望值在原点。该计算过程使用了最低千个独立同分布的样本。可以看出，尽管初始估计离实际值很远，但随机梯度下降能接近原点，当估计值接近原点时，收敛过程会表现出一定的随机性。这体现与前面的理论分析是一致的。</p>
 </li>
 </ul>
 <h3 id="643">6.4.3 随机梯度下降的另一种描述<a class="headerlink" href="#643" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\((6.13)\)</span>式中的随机梯度下降(SGD)表述涉及随机变量。研究者也常采用不包含随机变量的确定性SGD(deterministic formulation)。</p>
-<p>特别地，考虑一组实数 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>，其中 <span class="arithmatex">\(x_i\)</span>是任何随机变量的样本。待求解的优化问题是最小化平均值：</p>
-<div class="arithmatex">\[\min_wJ(w)=\frac{1}{n}\sum_{i=1}^nf(w,x_i),\]</div>
+<p>式<span class="arithmatex">\((6.13)\)</span>描述的随机梯度下降是涉及随机变量的。有的读者可能会在其他资料中看到另一种描述随机梯度下降算法的方式，而其中并不显式涉及任何随机变量。</p>
+<p>具体来说，考虑一组实数 <span class="arithmatex">\(\{x_i\}_{i=1}^{n}\)</span>，其中 <span class="arithmatex">\(x_i\)</span> 并非任何随机变量的样本。这是要解决的优化问题是最小化平均值：</p>
+<div class="arithmatex">\[\min_wJ(w)=\frac{1}{n}\sum_{i=1}^nf(w,x_i),\tag{6.16}\]</div>
 <p>其中 <span class="arithmatex">\(f(w, x_i)\)</span>为参数化函数，<span class="arithmatex">\(w\)</span>为待优化参数。求解该问题的梯度下降算法为</p>
 <div class="arithmatex">\[w_{k+1}=w_{k}-\alpha_{k}\nabla_{w}J(w_{k})=w_{k}-\alpha_{k}\frac{1}{n}\sum_{i=1}^{n}\nabla_{w}f(w_{k},x_{i}).\]</div>
-<p>假设集合 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>规模较大且每次仅能获取单个数值。在此情况下，采用增量方式更新 <span class="arithmatex">\(w_k\)</span>更为适宜：</p>
-<div class="arithmatex">\[w_{k+1}=w_k-\alpha_k\nabla_wf(w_k,x_k).\]</div>
-<p>需特别注意，此处的<span class="arithmatex">\(x_k\)</span>表示时间步 <span class="arithmatex">\(k\)</span>所获取的数值，而非集合 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>中的第 <span class="arithmatex">\(k\)</span>个元素。</p>
-<p><span class="arithmatex">\((6.16)\)</span>中的算法与随机梯度下降法(SGD)非常相似，但其问题表述存在微妙差异，因为它不涉及任何随机变量或期望值。这引发了许多问题，</p>
-<ul>
-<li>
-<p>算法是否属于SGD?</p>
-</li>
-<li>
-<p>我们应如何使用有限的数值集合 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>？</p>
-</li>
-<li>
-<p>是否需要按特定顺序排列这些数值后逐个使用，还是应该从集合中随机采样？</p>
-</li>
-</ul>
-<p>针对上述问题的快速解答是：尽管原公式中未涉及随机变量，但通过引入随机变量可将确定性公式转化为随机性公式。具体而言，设<span class="arithmatex">\(X\)</span>为定义在集合<span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>上的随机变量，其概率分布服从均匀分布，即<span class="arithmatex">\(p(X = x_i) =1/n\)</span>。此时，确定性优化问题即转化为随机优化问题：</p>
+<p>假设集合 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>规模很大，并且每次仅能获取一个元素。在此情况下，采用下式来更新<span class="arithmatex">\(w_k\)</span>：</p>
+<div class="arithmatex">\[w_{k+1}=w_k-\alpha_k\nabla_wf(w_k,x_k).\tag{6.17}\]</div>
+<p>读者可能已经注意到<span class="arithmatex">\((6.17)\)</span>中的算法与随机梯度下降非常相似。然而，其问题描述看起来与之前介绍的随机梯度下降算法非常不同，这是因为它并不涉及任何随机变量或期望值。因此，许多问题也随之而来。例如，这个算法是随机梯度下降吗？我们应该如何合理地从 <span class="arithmatex">\(\{x_i\}_{i=1}^{n}\)</span> 中抽取元素？是应该按照某种顺序对这些数字排列后一个接一个地使用它们，还是应该从集合中随机抽取？</p>
+<p>这些问题看似很复杂，但实际上很简单。上面描述中确实涉及了泛及随机变量，不过我们可以通过让 <span class="arithmatex">\(x_i\)</span> 为随机变量，将上述表述转换为一个我们熟悉的泛及随机变量的描述。具体来说，设 <span class="arithmatex">\(X\)</span> 为定义在集合 <span class="arithmatex">\(\{x_i\}_{i=1}^{n}\)</span> 上的随机变量。假设其概率分布为均匀的，即 <span class="arithmatex">\(p(X = x_i) = 1/n\)</span>。此时，式（6.16）中的优化问题就变成了</p>
 <div class="arithmatex">\[\min_wJ(w)=\frac{1}{n}\sum_{i=1}^nf(w,x_i)=\mathbb{E}[f(w,X)].\]</div>
-<p>上式最后一个等式是严格成立而非近似成立的。因此，(6.16)中的算法属于随机梯度下降法(SGD)，当<span class="arithmatex">\(x_k\)</span>从<span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>中均匀且独立采样时，估计值收敛。需要注意的是，由于随机采样的特性，<span class="arithmatex">\(x_k\)</span>可能会重复选取<span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>中的相同数值。</p>
+<p>式中的第二个符号是严格成立的而不是近似。因此，（6.17）中的算法确实是求解上面这个优化问题的随机梯度下降法。而且从理论上来说，由于 <span class="arithmatex">\(x_k\)</span> 应该是独立同分布的，这要求每次获取的 <span class="arithmatex">\(x_k\)</span> 应该独立分布于 <span class="arithmatex">\(\{x_i\}_{i=1}^{n}\)</span> 中采样，因此不能将这些数字按照一定顺序排列进而一个一个地使用。此外，由于随机采样，因此有可能会重复取到 <span class="arithmatex">\(\{x_i\}_{i=1}^{n}\)</span> 中的同一个值。</p>
 <h3 id="644">6.4.4 小批量梯度下降<a class="headerlink" href="#644" title="Permanent link">&para;</a></h3>
-<p>虽然随机梯度下降法（SGD）在每次迭代中仅使用单个样本，接下来我们将介绍小批量梯度下降法（MBGD），该方法在每次迭代中使用稍多样本。当每次迭代使用全部样本时，该算法称为批量梯度下降法（BGD）。</p>
-<p>特别地，假设我们希望找到能够最小化目标函数 <span class="arithmatex">\(J(w) = E[f(w,X)]\)</span>的最优解，其中给定随机变量 <span class="arithmatex">\(X\)</span>的一组样本 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>。用于求解该问题的批量梯度下降（BGD）、随机梯度下降（SGD）和小批量梯度下降（MBGD）算法分别为：</p>
+<p>随机梯度下降在每次迭代中仅使用一个样本。下面介绍<strong>小批量梯度下降</strong>(mini-batch gradient descent, MBGD)，它在每次迭代中会使用更多样本。如果每次迭代使用所有样本，那么该算法被称为<strong>批量梯度下降</strong>（batch gradient descent, BGD）。</p>
+<p>具体来说，我们的目标是最大化目标函数 <span class="arithmatex">\(J(w) = \mathbb{E}[f(w, X)]\)</span>。我们有一组 <span class="arithmatex">\(X\)</span> 的随机样本 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>。解决这个优化问题的 BGD, MBGD, SGD 算法分别是</p>
 <div class="arithmatex">\[\begin{aligned}&amp;w_{k+1}=w_{k}-\alpha_{k}\frac{1}{n}\sum_{i=1}^{n}\nabla_{w}f(w_{k},x_{i}),&amp;&amp;\mathrm{(BGD)}\\&amp;w_{k+1}=w_{k}-\alpha_{k}\frac{1}{m}\sum_{j\in\mathcal{I}_{k}}\nabla_{w}f(w_{k},x_{j}),&amp;&amp;\mathrm{(MBGD)}\\&amp;w_{k+1}=w_{k}-\alpha_{k}\nabla_{w}f(w_{k},x_{k}).&amp;&amp;\mathrm{(SGD)}\end{aligned}\]</div>
-<p>在BGD算法中，每次迭代都会使用所有样本。当样本量<span class="arithmatex">\(n\)</span>较大时，<span class="arithmatex">\((1/n)\sum_{i=1}^n \nabla_w f(w_k, x_i)\)</span>会接近真实梯度<span class="arithmatex">\(\mathbb{E}[\nabla_w f(w_k,X)]\)</span>。而在MBGD算法中，<span class="arithmatex">\(\mathcal{I}_{k}\)</span>是时间步 <span class="arithmatex">\(k\)</span>时从集合 <span class="arithmatex">\(\{1, \ldots, n\}\)</span>中采样的子集，其大小为 <span class="arithmatex">\(|\mathcal{I}_{k}| = m\)</span>。假设 <span class="arithmatex">\(\mathcal{I}_{k}\)</span>中的样本同样满足独立同分布条件。在随机梯度下降算法中，<span class="arithmatex">\(x_k\)</span>表示时间步 <span class="arithmatex">\(k\)</span>时从样本集 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>中随机抽取的样本。</p>
-<p>MBGD可视为SGD与BGD之间的折中方案。相较于SGD，MBGD通过采用更多样本（而非SGD的单一样本）降低了随机性；而与BGD相比，MBGD无需在每次迭代中使用全部样本，因而更具灵活性。当<span class="arithmatex">\(m=1\)</span>时，MBGD退化为SGD；但当<span class="arithmatex">\(m=n\)</span>时，MBGD并不等同于BGD——这是因为MBGD随机抽取的<span class="arithmatex">\(n\)</span>个样本可能存在重复，未必能覆盖<span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>中的所有数据，而BGD则严格使用全部<span class="arithmatex">\(n\)</span>个样本。</p>
-<p>一般而言，MBGD的收敛速度比SGD更快。这是因为SGD采用<span class="arithmatex">\(\nabla_w f(w_k, x_k)\)</span>来近似真实梯度，而MBGD使用<span class="arithmatex">\((1/m) \sum_{j \in I_k} \nabla_w f(w_k, x_j)\)</span>——由于随机性被平均抵消，该估计更接近真实梯度。MBGD算法的收敛性证明方法与SGD情形类似。</p>
+<p>第一，BGD 算法在每次迭代中都用到了所有样本，因此 <span class="arithmatex">\((1/n) \sum_{i=1}^n \nabla_w f(w_k, x_i)\)</span> 也更加接近于真实梯度 <span class="arithmatex">\(\mathbb{E}[\nabla_w f(w, X)]\)</span>。第二，MBGD 算法在每次迭代中使用一个小批量样本，这批样本的集合记作 <span class="arithmatex">\(I_k\)</span>，这批样本也是独立同分布的，样本数量设作 <span class="arithmatex">\(|I_k| = m\)</span>。第三，SGD 算法在每次迭代中仅用到一个样本 <span class="arithmatex">\(x_k\)</span>，它是时刻 <span class="arithmatex">\(k\)</span> 随机从 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span> 中采样得到的。</p>
+<p>MBGD 可以被视为 SGD 和 BGD 之间的中间版本。与 SGD 相比，MBGD 的随机性较小，收敛速度通常更快，因为它使用的样本比 SGD 多。与 BGD 相比，MBGD 不需要在每次迭代中使用所有样本，因此更加灵活。如果 <span class="arithmatex">\(m = 1\)</span>，那么 MBGD 变成 SGD。然而，如果 <span class="arithmatex">\(m = n\)</span>，MBGD 仍然与 BGD 有细微区别，这是因为 MBGD 使用 <span class="arithmatex">\(n\)</span> 个随机抽取的样本，这些样本可能是从无法涵盖 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span> 的所有值，而 BGD 使用了 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span> 中的所有值。</p>
 <p>均值估计问题是展示上述分析的典型案例。具体而言，给定一组数值 <span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>，我们的目标是计算均值 <span class="arithmatex">\(\bar{x} = \sum_{i=1}^n x_i/n\)</span>。该问题可等价表述为以下优化问题：</p>
 <div class="arithmatex">\[\min_wJ(w)=\frac{1}{2n}\sum_{i=1}^n\|w-x_i\|^2,\]</div>
 <p>其最优解为 <span class="arithmatex">\(w^* = \bar{x}\)</span>。求解该问题的三种算法分别为：</p>
 <div class="arithmatex">\[\begin{aligned}&amp;w_{k+1}=w_{k}-\alpha_{k}\frac{1}{n}\sum_{i=1}^{n}(w_{k}-x_{i})=w_{k}-\alpha_{k}(w_{k}-\bar{x}),\quad\mathrm{(BGD)}\\&amp;w_{k+1}=w_{k}-\alpha_{k}\frac{1}{m}\sum_{j\in\mathcal{I}_{k}}(w_{k}-x_{j})=w_{k}-\alpha_{k}\left(w_{k}-\bar{x}_{k}^{(m)}\right),\quad\mathrm{(MBGD)}\\&amp;w_{k+1}=w_k-\alpha_k(w_k-x_k),\quad\mathrm{(SGD)}\end{aligned}\]</div>
 <p>其中 <span class="arithmatex">\(\bar{x}^{(m)}_k = \sum_{j\in I_k} x_j/m\)</span>。此外，若 <span class="arithmatex">\(\alpha_k =1/k\)</span>，上述方程组可通过如下公式解得：</p>
 <div class="arithmatex">\[\begin{aligned}&amp;w_{k+1}=\frac{1}{k}\sum_{j=1}^{k}\bar{x}=\bar{x},\quad(\mathrm{BGD})\\&amp;w_{k+1}=\frac{1}{k}\sum_{j=1}^{k}\bar{x}_{j}^{(m)},\quad(\mathrm{MBGD})\\&amp;w_{k+1}=\frac{1}{k}\sum_{j=1}^{k}x_{j}.\quad(\mathrm{SGD})\end{aligned}\]</div>
-<p>上述方程的推导过程与式（6.3）类似，此处从略。可以看出，BGD在每一步给出的估计值恰好是最优解 <span class="arithmatex">\(w^* = \bar{x}\)</span>。由于 <span class="arithmatex">\(\bar{x}^{(m)}_k\)</span>本身是均值，MBGD比 SGD更快收敛到均值。</p>
-<p>图6.5给出了一个仿真示例以验证MBGD的收敛性。设步长参数 <span class="arithmatex">\(\alpha_k =1/k\)</span>，结果表明：采用不同小批量尺寸的MBGD算法均能收敛至均值。其中 <span class="arithmatex">\(m=50\)</span>的案例收敛最快，而采用 <span class="arithmatex">\(m=1\)</span>的随机梯度下降法(SGD)收敛最慢，这与前文分析一致。值得注意的是，当参数向量 <span class="arithmatex">\(\mathbf{w}_k\)</span>远离最优解 <span class="arithmatex">\(\mathbf{w}^*\)</span>时，SGD仍能保持较快的收敛速度。</p>
+<p>上式的推导与$(6.3)类比，在此省略。从上式可以看出，因为 BGD 在每次迭代中都使用了所有样本，所以它迭代一次就能得到最优解 <span class="arithmatex">\(w^* = \bar{x}\)</span>。相比之下，MBGD 和 SGD 则需要更多次的迭代。</p>
+<p>仿真实例参见前面给出的图 <span class="arithmatex">\(6.5\)</span>。如图 <span class="arithmatex">\(6.5\)</span> 所示，不同批量大小的 MBGD 算法都能收敛到最优值，不过 <span class="arithmatex">\(m = 50\)</span> 时收敛最快，而 <span class="arithmatex">\(m = 1\)</span> 时收敛最慢。这与上文分析一致。即便如此，SGD 的收敛依然是较高效的，特别是当 <span class="arithmatex">\(w_k\)</span> 远离 <span class="arithmatex">\(w^*\)</span> 的时候。</p>
 <h3 id="645">6.4.5 随机梯度下降的收敛性<a class="headerlink" href="#645" title="Permanent link">&para;</a></h3>
 <p>随机梯度下降（SGD）的收敛性严格证明如下。</p>
 <div class="admonition info">
@@ -3504,28 +3514,184 @@
 <p>定理<span class="arithmatex">\(6.4\)</span>中的三个条件将在下文中讨论。</p>
 <ul>
 <li>
-<p>条件(a)涉及函数 <span class="arithmatex">\(f\)</span>的凸性，要求其曲率在上下界范围内约束。此处 <span class="arithmatex">\(w\)</span>为标量，<span class="arithmatex">\(\nabla^2_w f(w,X)\)</span>亦然。该条件可推广至向量情形：当 <span class="arithmatex">\(w\)</span>为向量时，<span class="arithmatex">\(\nabla^2_w f(w,X)\)</span>即为著名的Hessian矩阵。</p>
+<p>条件 (a) 要求 <span class="arithmatex">\(f\)</span> 是凸的，并且其二阶导数是有上下界的。这里 <span class="arithmatex">\(w\)</span> 和 <span class="arithmatex">\(\nabla_w^2 f(w, X)\)</span> 都是标量。当然，这个条件也可以推广到向量情形：当 <span class="arithmatex">\(w\)</span> 是一个向量时，<span class="arithmatex">\(\nabla_w^2 f(w, X)\)</span> 是海森矩阵 (Hessian) 矩阵。</p>
 </li>
 <li>
-<p>条件(b)与RM算法类似。实际上，SGD算法是RM算法的一个特例（如方框6.1中的证明所示）。实践中，<span class="arithmatex">\(a_k\)</span>通常被选为足够小的常数。虽然此时条件(b)不满足，但算法仍能在某种意义下收敛[24,第1.5节]。</p>
+<p>条件 (b) 与 RM 算法一致。值得一提的是，实践中 <span class="arithmatex">\(a_k\)</span> 常被选择为一个很小的正数，此时 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span> 不再成立。这么做的原因可参见第 6.2.1 节最后的讨论。</p>
 </li>
 <li>
-<p>条件&copy;是一个常见要求。 </p>
+<p>条件 &copy; 是一个常见的假设条件。</p>
 </li>
 </ul>
 <p>具体证明详见Box 6.1。</p>
 </div>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3545,38 +3711,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../6-3/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 6.3-Dvoretzky定理">
+          <a
+            href="../6-3/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 6.3-Dvoretzky定理"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                6.3-Dvoretzky定理
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">6.3-Dvoretzky定理</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../6-5/" class="md-footer__link md-footer__link--next" aria-label="下一页: 6.5-总结">
+          <a
+            href="../6-5/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 6.5-总结"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                6.5-总结
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">6.5-总结</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3587,19 +3762,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3627,7 +3804,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

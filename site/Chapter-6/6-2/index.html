@@ -26,7 +26,7 @@
     
     
       
-        <title>6.2-罗宾斯-门罗算法 - 强化学习课程笔记</title>
+        <title>6.2 罗宾斯-门罗算法(Robbins-Monro) - 强化学习课程笔记</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#62-robbins-monro" class="md-skip">
+        <a href="#621" class="md-skip">
           跳转至
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6.2-罗宾斯-门罗算法
+              6.2 罗宾斯-门罗算法(Robbins-Monro)
             
           </span>
         </div>
@@ -156,53 +156,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +465,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -2036,16 +2011,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#62-robbins-monro" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.2 罗宾斯-门罗算法(Robbins-Monro)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.2 罗宾斯-门罗算法(Robbins-Monro)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#621" class="md-nav__link">
     <span class="md-ellipsis">
       6.2.1 收敛特性
@@ -2053,18 +2018,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#622" class="md-nav__link">
     <span class="md-ellipsis">
       6.2.2 在期望值估计问题中的应用
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3227,6 +3187,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3252,16 +3291,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#62-robbins-monro" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.2 罗宾斯-门罗算法(Robbins-Monro)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.2 罗宾斯-门罗算法(Robbins-Monro)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#621" class="md-nav__link">
     <span class="md-ellipsis">
       6.2.1 收敛特性
@@ -3269,18 +3298,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#622" class="md-nav__link">
     <span class="md-ellipsis">
       6.2.2 在期望值估计问题中的应用
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3318,45 +3342,44 @@
 
   <h1>6.2-罗宾斯-门罗算法</h1>
 
-<h2 id="62-robbins-monro">6.2 罗宾斯-门罗算法(Robbins-Monro)<a class="headerlink" href="#62-robbins-monro" title="Permanent link">&para;</a></h2>
-<p>随机近似是指解决寻根(方程求解)或优化问题的一大类随机迭代算法[24]。与许多其他寻根算法如基于梯度的算法(梯度上升或梯度下降)等优化方法中，随机近似具有显著优势：它无需目标函数或其导数的解析表达式。</p>
-<p>罗宾斯-门罗(Robbins-Monro，RM)算法是随机近似领域的一项开创性工作 [24-27]。如第<span class="arithmatex">\(6.4\)</span>节所示，著名的随机梯度下降算法就是RM算法的一种特殊形式。接下来我们将介绍RM算法的细节。</p>
-<p>假设我们想找出方程的根</p>
+<p><strong>随机近似</strong> (stochastic approximation)指的是一大类求解方程或者优化问题的随机迭代算法<a href="https://link.springer.com/book/10.1007/b101987">24</a>。与许多其他算法如基于梯度的算法(梯度上升或梯度下降)等优化方法相比，随机近似具有显著的优势，因为它不需要目标函数或导数的解析表达式。</p>
+<p>罗宾斯-门罗(Robbins-Monro，RM)算法是随机近似领域的一项开创性工作[<a href="https://link.springer.com/book/10.1007/b101987">24</a>,<a href="https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full">25</a>,<a href="https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-38/issue-1/An-Extension-of-the-Robbins-Monro-Procedure/10.1214/aoms/1177699069.full">26</a>,<a href="https://arxiv.org/pdf/2006.10840v1">27</a>]]。著名的随机梯度下降算法就是RM算法的一种特殊形式(<span class="arithmatex">\(6.4\)</span>节)。</p>
+<p>下面我们介绍<span class="arithmatex">\(RM\)</span>算法，假设我们想要求解如下方程：</p>
 <div class="arithmatex">\[g(w)=0,\]</div>
-<p>其中<span class="arithmatex">\(w\in\mathbb{R}\)</span>是未知变量，<span class="arithmatex">\(g:\mathbb{R} \rightarrow \mathbb{R}\)</span>是一个函数。许多问题都可以表述为寻根问题。例如，如果<span class="arithmatex">\(J(w)\)</span>是一个需要优化的目标函数，那么这个优化问题可以转换为求解<span class="arithmatex">\(g(w)=\nabla_wJ(w)=0.\)</span>。此外，<span class="arithmatex">\(g(w) = c\)</span>(其中<span class="arithmatex">\(c\)</span>是一个常数)这样的方程也可以通过将<span class="arithmatex">\(g(w)-c\)</span>改写为一个新函数而转换为上述方程。</p>
+<p>其中<span class="arithmatex">\(w\in\mathbb{R}\)</span>是未知变量，<span class="arithmatex">\(g:\mathbb{R} \rightarrow \mathbb{R}\)</span>是一个函数。许多问题都可以表述为上面方程的求根问题。例如，如果<span class="arithmatex">\(J(w)\)</span>是一个需要优化的目标函数，这个优化问题可以转换为求解<span class="arithmatex">\(g(w)=\nabla_wJ(w)=0.\)</span>。另外，如果方程右边有一个常数，例如<span class="arithmatex">\(g(w) = c\)</span>，这样的方程仍然可以通过将<span class="arithmatex">\(g(w)-c\)</span>转换为上述的形式。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>梯度等于<span class="arithmatex">\(0\)</span>是<span class="arithmatex">\(J(w)\)</span>达到最大或最小的一个必要条件。</p>
 </div>
-<p>如果已知<span class="arithmatex">\(g\)</span>的表达式或其导数，就可以使用许多算法。然而，我们面临的问题是函数<span class="arithmatex">\(g\)</span>的表达式可能是未知的。例如，函数可以用人工神经网络来表示，而人工神经网络的结构和参数都是未知的。此外，我们只能获得<span class="arithmatex">\(g(w)\)</span>的噪声观测值：</p>
+<p>如果<span class="arithmatex">\(g\)</span>的表达式是已知的，那么可以利用很多数值算法来求解<span class="arithmatex">\(g(w)=0\)</span>。然而，我们面临的问题是函数<span class="arithmatex">\(g\)</span>的表达式可能是未知的。例如，函数可以用人工神经网络来表示，而人工神经网络的结构和参数都是未知的。具体来说，当输入<span class="arithmatex">\(w\)</span>时，我们只能获得输出值，并且该输出值还可能包含观测噪声：</p>
 <div class="arithmatex">\[\tilde{g}(w,\eta)=g(w)+\eta,\]</div>
-<p>其中<span class="arithmatex">\(\eta\in\mathbb{R}\)</span>是观测误差，可能是高斯误差，也可能不是。总之，这是一个黑盒系统，只有输入<span class="arithmatex">\(w\)</span>和噪声观测值<span class="arithmatex">\(\tilde{g}(w,\eta)\)</span>是已知的(见图<span class="arithmatex">\(6.2\)</span>)。我们的目标是利用<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(\tilde{g}\)</span>求解<span class="arithmatex">\(g(w) = 0\)</span>。</p>
+<p>其中<span class="arithmatex">\(\eta\in\mathbb{R}\)</span>是观测噪声，而且可能不是高斯分布的。这个函数是一个一个黑盒系统，只有输入<span class="arithmatex">\(w\)</span>和噪声观测值<span class="arithmatex">\(\tilde{g}(w,\eta)\)</span>是已知的(见图<span class="arithmatex">\(6.2\)</span>)。我们的目标是利用<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(\tilde{g}\)</span>求解<span class="arithmatex">\(g(w) = 0\)</span>。</p>
 <p><img alt="" src="../../img/06/1.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(6.2\)</span>：由<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(\tilde{g}\)</span>求解 <span class="arithmatex">\(g(w) = 0\)</span>问题的示意图。</p>
 </blockquote>
-<p>能求解<span class="arithmatex">\(g(w) = 0\)</span>的 RM 算法是</p>
+<p>求解<span class="arithmatex">\(g(w) = 0\)</span>的<span class="arithmatex">\(RM\)</span>算法是</p>
 <div class="arithmatex">\[w_{k+1}=w_k-a_k\tilde{g}(w_k,\eta_k),\quad k=1,2,3,\ldots\tag{6.5}\]</div>
-<p>其中，<span class="arithmatex">\(w_k\)</span>是第<span class="arithmatex">\(k\)</span>个根估计值，<span class="arithmatex">\(\tilde{g}(w_k, \eta_k)\)</span>是第<span class="arithmatex">\(k\)</span>个噪声观测值，<span class="arithmatex">\(a_k\)</span>是正系数。可以看出，RM 算法不需要关于函数的任何信息。它只需要输入和输出。</p>
+<p>其中，<span class="arithmatex">\(w_k\)</span>是第<span class="arithmatex">\(k\)</span>个方程解的估计值，<span class="arithmatex">\(\tilde{g}(w_k, \eta_k)\)</span>是输入<span class="arithmatex">\(w_k\)</span>后输出的观测值，<span class="arithmatex">\(a_k\)</span>是一个正系数。可以看到，<span class="arithmatex">\(RM\)</span>算法不需要关于函数表达式的任何信息。而仅需要输入和输出。</p>
 <p><img alt="" src="../../img/06/2.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(6.3\)</span>：RM 算法示例。</p>
 </blockquote>
-<p>为了说明RM算法，请看一个<span class="arithmatex">\(g(w) = w^3 - 5\)</span>的例子。真根为<span class="arithmatex">\(5^{1/3} ≈ 1.71\)</span>。现在，假设我们只能观察到输入<span class="arithmatex">\(w\)</span>和输出 <span class="arithmatex">\(\tilde{g}(w) = g(w) + \eta\)</span>，其中<span class="arithmatex">\(\eta\)</span>为<span class="arithmatex">\(i.i.d.\)</span>，服从均值为<span class="arithmatex">\(0\)</span>,标准差为<span class="arithmatex">\(1\)</span>的标准正态分布，初始猜测为 <span class="arithmatex">\(w_1 = 0\)</span>，系数为<span class="arithmatex">\(a_k = 1/k\)</span>。<span class="arithmatex">\(w_k\)</span>的变化过程如图<span class="arithmatex">\(6.3\)</span>所示。即使观测结果受到噪声<span class="arithmatex">\(\eta_k\)</span>的干扰，估计值<span class="arithmatex">\(w_k\)</span>仍然可以收敛到真正的根值。需要注意的是，必须正确选择初始猜测<span class="arithmatex">\(w_1\)</span>，以确保<span class="arithmatex">\(g(w) = w^3 - 5\)</span>这一特定函数的收敛性。在下面的小节中，我们将介绍 RM 算法收敛于任何初始猜测的条件。</p>
+<p>为了分析该算法的理论性质，我们先看一个<span class="arithmatex">\(g(w) = w^3 - 5\)</span>的例子以直观理解<span class="arithmatex">\(RM\)</span>算法。其真实的解为<span class="arithmatex">\(5^{1/3} ≈ 1.71\)</span>。假设现在我们只能观察到输入<span class="arithmatex">\(w\)</span>和输出 <span class="arithmatex">\(\tilde{g}(w) = g(w) + \eta\)</span>，其中<span class="arithmatex">\(\eta\)</span>是独立同分布的，并且服从均值为<span class="arithmatex">\(0\)</span>且标准差为<span class="arithmatex">\(1\)</span>的正态分布，初始值为<span class="arithmatex">\(w_1 = 0\)</span>，系数是<span class="arithmatex">\(a_k = 1/k\)</span>。<span class="arithmatex">\(w_k\)</span>的变化过程如图<span class="arithmatex">\(6.3\)</span>所示。尽管观测结果受到噪声<span class="arithmatex">\(\eta_k\)</span>的干扰，但估计的<span class="arithmatex">\(w_k\)</span>仍然可以收敛到真实的解。需要注意的是，如果初始值<span class="arithmatex">\(w_1\)</span>选择的不合适，<span class="arithmatex">\(RM\)</span>算法可能会发散。<span class="arithmatex">\(RM\)</span>算法收敛性在下面将详细介绍。</p>
 <h3 id="621">6.2.1 收敛特性<a class="headerlink" href="#621" title="Permanent link">&para;</a></h3>
-<p>为什么<span class="arithmatex">\((6.5)\)</span>中的 RM 算法可以找到<span class="arithmatex">\(g(w) = 0\)</span>的根？接下来我们用一个例子来说明这个想法，然后进行严格的收敛性分析。</p>
-<p>请看图<span class="arithmatex">\(6.4\)</span>所示的例子。在这个例子中，<span class="arithmatex">\(g(w) = tanh(w-1)\)</span>。<span class="arithmatex">\(g(w) = 0\)</span>的真根是<span class="arithmatex">\(w^∗ = 1\)</span>。我们应用 RM 算法，<span class="arithmatex">\(w_1 = 3，a_k = 1/k\)</span>。为了更好地说明收敛的原因，我们只需设置<span class="arithmatex">\(\eta_k ≡ 0\)</span>，因此，<span class="arithmatex">\(\tilde{g} (w_k, \eta_k) = g(w_k)\)</span>。这种情况下的RM算法为<span class="arithmatex">\(w_{k+1} = w_k -a_k g(w_k)\)</span>。由RM算法生成的<span class="arithmatex">\({w_k}\)</span>如图<span class="arithmatex">\(6.4\)</span>所示。可以看出，<span class="arithmatex">\(w_k\)</span>趋近于真正的根<span class="arithmatex">\(w^∗ = 1\)</span>。</p>
+<p>为什么<span class="arithmatex">\((6.5)\)</span>中的<span class="arithmatex">\(RM\)</span>算法可以找到<span class="arithmatex">\(g(w) = 0\)</span>的根呢？下面我们用一个例子来直观地解释，之后进行严格的收敛性分析。</p>
+<p>请看图<span class="arithmatex">\(6.4\)</span>所示的例子，<span class="arithmatex">\(g(w) = tanh(w-1)\)</span>。<span class="arithmatex">\(g(w) = 0\)</span>的真实解是<span class="arithmatex">\(w^∗ = 1\)</span>。我们应用<span class="arithmatex">\(RM\)</span>算法看能否成功得到这个解，选取<span class="arithmatex">\(w_1 = 3\)</span>和<span class="arithmatex">\(a_k = 1/k\)</span>。为了更好地说明收敛的原因，我们考虑最简单的没有观测噪声的情况：<span class="arithmatex">\(\eta_k ≡ 0\)</span>，即<span class="arithmatex">\(\tilde{g} (w_k, \eta_k) = g(w_k)\)</span>。此时，<span class="arithmatex">\(RM\)</span>算法变为<span class="arithmatex">\(w_{k+1} = w_k -a_k g(w_k)\)</span>。由<span class="arithmatex">\(RM\)</span>算法生成的<span class="arithmatex">\({w_k}\)</span>如图<span class="arithmatex">\(6.4\)</span>所示。可以看出，<span class="arithmatex">\(w_k\)</span>趋近于真正的根<span class="arithmatex">\(w^∗ = 1\)</span>。这个简单的例子能从直观上说明<span class="arithmatex">\(RM\)</span>算法为什么收敛。</p>
 <p><img alt="" src="../../img/06/3.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(6.4\)</span>：说明RM算法收敛性的示例。</p>
 </blockquote>
 <p>这个简单的例子可以说明RM算法收敛的原因。</p>
 <ul>
-<li>当<span class="arithmatex">\(w_k&gt;w^*\)</span>时，我们有<span class="arithmatex">\(g(w_k)&gt;0\)</span>，此时，<span class="arithmatex">\(w_{k+1}=w_k-a_kg(w_k)&lt;w_k\)</span>。如果<span class="arithmatex">\(|a_k g(w_k)|\)</span>足够小，我们有<span class="arithmatex">\(w^*&lt;w_{k+1}&lt;w_k\)</span>。因此，<span class="arithmatex">\(w_{k+1}\)</span>比<span class="arithmatex">\(w_k\)</span>更接近于<span class="arithmatex">\(w^*\)</span>。</li>
-<li>当<span class="arithmatex">\(w_k&lt;w^*\)</span>时，我们有<span class="arithmatex">\(g(w_k)&lt;0\)</span>，此时，<span class="arithmatex">\(w_{k+1}=w_k-a_kg(w_k)&gt;w_k\)</span>。如果<span class="arithmatex">\(|a_k g(w_k)|\)</span>足够小，我们有<span class="arithmatex">\(w^*&gt;w_{k+1}&gt;w_k\)</span>。因此，<span class="arithmatex">\(w_{k+1}\)</span>比<span class="arithmatex">\(w_k\)</span>更接近于<span class="arithmatex">\(w^*\)</span>。</li>
+<li>当<span class="arithmatex">\(w_k&gt;w^*\)</span>时，有<span class="arithmatex">\(g(w_k)&gt;0\)</span>，此时 <span class="arithmatex">\(w_{k+1}=w_k-a_kg(w_k)&lt;w_k\)</span>。如果<span class="arithmatex">\(|a_k g(w_k)|\)</span>足够小，我们有<span class="arithmatex">\(w^*&lt;w_{k+1}&lt;w_k\)</span>。因此<span class="arithmatex">\(w_{k+1}\)</span>比<span class="arithmatex">\(w_k\)</span>更接近于<span class="arithmatex">\(w^*\)</span>。</li>
+<li>当<span class="arithmatex">\(w_k&lt;w^*\)</span>时，我们有<span class="arithmatex">\(g(w_k)&lt;0\)</span>，此时<span class="arithmatex">\(w_{k+1}=w_k-a_kg(w_k)&gt;w_k\)</span>。如果<span class="arithmatex">\(|a_k g(w_k)|\)</span>足够小，我们有<span class="arithmatex">\(w^*&gt;w_{k+1}&gt;w_k\)</span>。因此<span class="arithmatex">\(w_{k+1}\)</span>比<span class="arithmatex">\(w_k\)</span>更接近于<span class="arithmatex">\(w^*\)</span>。</li>
 </ul>
-<p>无论哪种情况，<span class="arithmatex">\(w_{k+1}\)</span>都比<span class="arithmatex">\(w_k\)</span>更接近<span class="arithmatex">\(w^∗\)</span>。因此，直观地说，<span class="arithmatex">\(w_k\)</span>趋近于 <span class="arithmatex">\(w^∗\)</span>。</p>
-<p>上面的例子很简单，因为观测误差被假定为零。若存在随机观测误差，其收敛性分析将变得非平凡。下面给出了一个严格的收敛结果。</p>
+<p>无论哪种情况，<span class="arithmatex">\(w_{k+1}\)</span>都比<span class="arithmatex">\(w_k\)</span>更接近<span class="arithmatex">\(w^∗\)</span>。所以从直观上可以知道<span class="arithmatex">\(w_k\)</span>收敛于<span class="arithmatex">\(w^∗\)</span>。</p>
+<p>上面的例子很简单，并没有考虑到观测误差。若存在观测误差时，下面的定理给出了严格的收敛性结果。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p><strong>定理6.1</strong>. (罗宾斯-门罗定理)。在<span class="arithmatex">\((6.5)\)</span>中的罗宾斯-门罗算法中，如果满足</p>
@@ -3371,54 +3394,55 @@
 <p><span class="arithmatex">\(\mathbb{E}[\eta_{k}|\mathcal{H}_{k}]=0\; and\; \mathbb{E}[\eta_{k}^{2}|\mathcal{H}_{k}]&lt;\infty\)</span>;</p>
 </li>
 </ol>
-<p>在这里,<span class="arithmatex">\(\mathcal{H}_{k}=\{w_{k},w_{k-1},\ldots\}\)</span>,那么<span class="arithmatex">\(w_k\)</span>几乎肯定会收敛到满足<span class="arithmatex">\(g(w^∗) = 0\)</span>的根 <span class="arithmatex">\(w^∗\)</span>。</p>
+<p>其中<span class="arithmatex">\(\mathcal{H}_{k}=\{w_{k},w_{k-1},\ldots\}\)</span>,那么<span class="arithmatex">\(w_k\)</span>几乎必然收敛到<span class="arithmatex">\(g(w^∗) = 0\)</span>的根<span class="arithmatex">\(w^∗\)</span>。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>almost surely收敛。</p>
+<p>几乎必然收敛。相关概念在附录<span class="arithmatex">\(B\)</span>中有详细介绍。</p>
 </div>
-<p>我们将该定理的证明放到第<span class="arithmatex">\(6.3.3\)</span>节。本定理依赖于附录<span class="arithmatex">\(B\)</span>中介绍的几乎肯定收敛的概念。</p>
-<p>定理<span class="arithmatex">\(6.1\)</span>中的三个条件解释如下。</p>
+<p>我们将该定理的证明放到第<span class="arithmatex">\(6.3.3\)</span>节。首先讨论定理<span class="arithmatex">\(6.1\)</span>中的三个条件。</p>
 <ul>
 <li>
-<p>在第一个条件中，<span class="arithmatex">\(0&lt;c_{1}\leq\nabla_{w}g(w)\)</span>表示<span class="arithmatex">\(g(w)\)</span>是一个单调递增函数。这个条件确保了<span class="arithmatex">\(g(w) = 0\)</span>的根存在且唯一。如果<span class="arithmatex">\(g(w)\)</span>是单调递减函数，我们只需将<span class="arithmatex">\(-g(w)\)</span>视为单调递增的新函数即可。</p>
-<p>在应用中，我们可以将目标函数为<span class="arithmatex">\(J(w)\)</span>的优化问题表述为寻根问题：<span class="arithmatex">\(g(w)=\nabla_{w}J(w) = 0\)</span>。在这种情况下，<span class="arithmatex">\(g(w)\)</span>单调递增的条件表明 <span class="arithmatex">\(J(w)\)</span>是凸的，这是优化问题中通常采用的假设。</p>
-<p>不等式<span class="arithmatex">\(\nabla_{w}g(w)\leq c_2\)</span>表示<span class="arithmatex">\(g(w)\)</span>的梯度有有界。例如，<span class="arithmatex">\(g(w) = tanh(w - 1)\)</span>满足这一条件，但<span class="arithmatex">\(g(w) = w^3 - 5\)</span>不满足这一条件。</p>
+<p>在第一个条件中，<span class="arithmatex">\(0&lt;c_{1}\leq\nabla_{w}g(w)\)</span>要求<span class="arithmatex">\(g(w)\)</span>是一个单调递增函数。这个条件确保了<span class="arithmatex">\(g(w) = 0\)</span>的根存在且唯一。如果<span class="arithmatex">\(g(w)\)</span>是单调递减函数，我们只需将<span class="arithmatex">\(-g(w)\)</span>视为单调递增的新函数即可。</p>
+<p>如果 <span class="arithmatex">\(g(w)\)</span> 是一个目标函数 <span class="arithmatex">\(J(w)\)</span> 的梯度，即 <span class="arithmatex">\(g(w) = \nabla_w J(w)\)</span>，那么 <span class="arithmatex">\(c_1 \le \nabla_w J(w)\)</span> 等价于 <span class="arithmatex">\(c_1 \le \nabla_w J(w)\)</span>，这意味着 <span class="arithmatex">\(J(w)\)</span> 是凸的 (convex)，这是在优化问题中经常采用的假设，也说明该条件是比较宽松的。 此外，如果 <span class="arithmatex">\(g(w)\)</span> 是单调递减的，我们可以简单地将 <span class="arithmatex">\(-g(w)\)</span> 视为一个新的单调递增的函数。</p>
+<p>不等式 <span class="arithmatex">\(\nabla_w g(w) \le c_2\)</span> 表明 <span class="arithmatex">\(g(w)\)</span> 的梯度不能超过无穷大. <span class="arithmatex">\(g(w) = \tanh(w - 1)\)</span> 是满足这个条件的，但是目前面临到的另一个例子 <span class="arithmatex">\(g(w) = w^3 - 5\)</span> 则不满足这个条件。因此，当我们用 RM 算法求解 <span class="arithmatex">\(g(w) = w^3 - 5 = 0\)</span> 时，需要选择合适的初始值，否则可能发散。</p>
 </li>
 <li>
-<p>关于<span class="arithmatex">\(\{a_k\}\)</span>的第二个条件很有趣。我们在强化学习算法中经常看到类似的条件。特别地，条件<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>意味着<span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k^2\)</span>是有上界的。这要求<span class="arithmatex">\(a_k\)</span>随着<span class="arithmatex">\(k \to \infty\)</span>收敛于零。条件<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>意味着<span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k\)</span>是无限大的。它要求<span class="arithmatex">\(a_k\)</span>不应该收敛于零得太快。这些条件有着有趣的性质，稍后会详细分析。</p>
+<p>关于<span class="arithmatex">\(\{a_k\}\)</span>的第二个条件很有趣。我们在强化学习算法中经常看到类似的条件。其中 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span> 意味着 <span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k^2\)</span> 是有上界的，这要求 <span class="arithmatex">\(a_k\)</span> 随着 <span class="arithmatex">\(k \to \infty\)</span> 收敛到 0。条件 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span> 意味着 <span class="arithmatex">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k\)</span> 是无限大的，这要求 <span class="arithmatex">\(a_k\)</span> 不能太快地收敛到 0。 这些条件很有意思，稍后将做详细分析。</p>
 </li>
 <li>
-<p>第三个条件是温和的。它不要求观测误差<span class="arithmatex">\(\eta_k\)</span>是高斯分布的。常见的特例是<span class="arithmatex">\(\{\eta_k\}\)</span>是一个独立同分布的随机序列，满足<span class="arithmatex">\(\mathbb{E}[\eta_k] = 0\)</span>和<span class="arithmatex">\(\mathbb{E}[\eta_k^2] &lt; \infty\)</span>。在这种情况下，第三个条件是成立的，因为<span class="arithmatex">\(\eta_k\)</span>与<span class="arithmatex">\(\mathcal{H}_k\)</span>独立，因此我们有<span class="arithmatex">\(\mathbb{E}[\eta_k|\mathcal{H}_k] = \mathbb{E}[\eta_k] = 0\)</span>和<span class="arithmatex">\(\mathbb{E}[\eta_k^2|\mathcal{H}_k] = \mathbb{E}[\eta_k^2]\)</span>。</p>
+<p>第三个条件是关于噪声 <span class="arithmatex">\(m_k\)</span> 的，它并不要求观测误差 <span class="arithmatex">\(m_k\)</span> 是高斯分布的。该条件成立的一个重要特例是 <span class="arithmatex">\(\{m_k\}\)</span> 是一个独立同分布的随机序列，因此满足 <span class="arithmatex">\(E[m_k] = 0\)</span> 且 <span class="arithmatex">\(E[m_k^2] &lt; \infty\)</span>。此时，因为 <span class="arithmatex">\(m_k\)</span> 与 <span class="arithmatex">\(H_k\)</span> 是独立的，所以 <span class="arithmatex">\(E[m_k | H_k] = E[m_k] = 0\)</span> 且 <span class="arithmatex">\(E[m_k^2 | H_k] = E[m_k^2]\)</span>。</p>
 </li>
 </ul>
 <p>接下来，我们将更仔细地研究关于系数<span class="arithmatex">\({ak}\)</span>的第二个条件。</p>
 <ul>
 <li>
-<p>为什么第二个条件对RM算法的收敛很重要？</p>
-<p>这个问题自然可以在我们稍后对上述定理进行严格证明时找到答案。在此，我们想提供一些具有洞察力的直觉。</p>
-<p>首先，<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>表示当<span class="arithmatex">\(k \to \infty\)</span>，有<span class="arithmatex">\(a_k \to 0\)</span>。为什么这个条件重要？假设观测值<span class="arithmatex">\(\tilde{g}(w_k, \eta_k)\)</span> 总是有界的。由于</p>
-<div class="arithmatex">\[w_{k+1} - w_k = -a_k g(w_k, \eta_k),\]</div>
-<p>如果<span class="arithmatex">\(a_k \to 0\)</span>，那么<span class="arithmatex">\(a_k \tilde{g}(w_k, \eta_k) \to 0\)</span>，因此<span class="arithmatex">\(w_{k+1} - w_k \to 0\)</span>，这表明当<span class="arithmatex">\(k \to \infty\)</span>时，<span class="arithmatex">\(w_{k+1}\)</span>和<span class="arithmatex">\(w_k\)</span>会互相接近。如果<span class="arithmatex">\(a_k\)</span>不收敛，则 <span class="arithmatex">\(w_k\)</span>可能在<span class="arithmatex">\(k \to \infty\)</span>时波动。</p>
-<p>其次，<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>表示<span class="arithmatex">\(a_k\)</span>不应该收敛得太快。为什么这个条件重要？总结方程两边<span class="arithmatex">\(w_2-w_1=a_1\tilde{g}(w_1,\eta_1)\)</span>,<span class="arithmatex">\(w_3-w_2=-a_2\tilde{g}(w_2,\eta_2)\)</span>，<span class="arithmatex">\(w_4-w_3=-a_3\tilde{g}(w_3,\eta_3)\)</span>得到</p>
+<p>为什么第二个条件对RM算法的收敛是必要的？</p>
+<p>当然，我们稍后给出的定理的严格证明可以很自然地回答这个问题。不过，我们先简单介绍一下其基本思想。</p>
+<p>第一，条件 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span> 要求随着 <span class="arithmatex">\(k \to \infty\)</span> 时 <span class="arithmatex">\(a_k \to 0\)</span>。这个条件为什么重要呢？由于
+[
+w_{k+1} - w_k = -a_k \tilde{g}(w_k, \eta_k)
+]
+如果 <span class="arithmatex">\(a_k \to 0\)</span>，那么 <span class="arithmatex">\(a_k \tilde{g}(w_k, \eta_k) \to 0\)</span> (假设 <span class="arithmatex">\(\tilde{g}(w_k, \eta_k)\)</span> 总是有界的)。因此，<span class="arithmatex">\(w_{k+1} - w_k \to 0\)</span>，即当 <span class="arithmatex">\(k \to \infty\)</span> 时 <span class="arithmatex">\(w_{k+1}\)</span> 与 <span class="arithmatex">\(w_k\)</span> 非常接近。反过来说，如果 <span class="arithmatex">\(a_k\)</span> 不会收敛到 0，那么 <span class="arithmatex">\(w_{k+1}\)</span> 可能不会收敛，因此 <span class="arithmatex">\(w_k\)</span> 会一直波动而无法收敛。</p>
+<p>第二，<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>表示<span class="arithmatex">\(a_k\)</span>不能太快收敛到0。为什么这个条件重要呢？总结方程两边<span class="arithmatex">\(w_2-w_1=a_1\tilde{g}(w_1,\eta_1)\)</span>,<span class="arithmatex">\(w_3-w_2=-a_2\tilde{g}(w_2,\eta_2)\)</span>，<span class="arithmatex">\(w_4-w_3=-a_3\tilde{g}(w_3,\eta_3)\)</span>得到</p>
 <div class="arithmatex">\[w_1 - w_\infty = \sum_{k=1}^{\infty} a_k g(w_k, \eta_k)。\]</div>
-<p>如果<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k &lt; \infty\)</span>，则 <span class="arithmatex">\(|\sum_{k=1}^{\infty} a_k g(w_k, \eta_k)|\)</span> 也是有界的。令<span class="arithmatex">\(b\)</span>表示一个有限的上界，使得</p>
+<p>如果<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k &lt; \infty\)</span>，则 <span class="arithmatex">\(|\sum_{k=1}^{\infty} a_k g(w_k, \eta_k)|\)</span> 也是有界的。令<span class="arithmatex">\(b\)</span>表示这个上界，因此可以得到</p>
 <div class="arithmatex">\[|w_1 - w_\infty| = \left|\sum_{k=1}^{\infty} a_k g(w_k, \eta_k)\right| \leq b.\tag{6.6}\]</div>
-<p>如果初始猜测<span class="arithmatex">\(w_1\)</span>远离真实解<span class="arithmatex">\(w^*\)</span>，使得<span class="arithmatex">\(|w_1 - w^*| &gt; b\)</span>，则根据式<span class="arithmatex">\((6.6)\)</span>，不可能得到<span class="arithmatex">\(w_\infty = w^*\)</span>。这表明RM算法在这种情况下无法找到真实解<span class="arithmatex">\(w^*\)</span>。因此，条件<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>是确保在任意初始猜测条件下收敛的必要条件。</p>
+<p>此时，如果我们选择的初始值 <span class="arithmatex">\(w_1\)</span> 离方程的解 <span class="arithmatex">\(w^*\)</span> 很远，以至于 <span class="arithmatex">\(|w_1 - w^*| &gt; b\)</span>，那么 (6.6) 告诉我们 <span class="arithmatex">\(w_\infty = w^*\)</span> 是不可能的，所以在这种情况下 RM 算法无法找到 <span class="arithmatex">\(w^*\)</span>。</p>
 </li>
 <li>
-<p>哪些序列满足<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>和<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>？</p>
+<p>什么样的序列满足<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>和<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>呢？</p>
 <p>一个典型的序列是</p>
 <div class="arithmatex">\[a_k = \frac{1}{k}.\]</div>
 <p>一方面，有</p>
 <div class="arithmatex">\[\lim_{n \to \infty} \left( \sum_{k=1}^{n} \frac{1}{k} - \ln n \right) = \kappa,\]</div>
-<p>其中<span class="arithmatex">\(\kappa \approx 0.577\)</span>被称为欧拉-马歇罗尼常数(或欧拉常数)[28]。由于<span class="arithmatex">\(\lim_{n \to \infty} \ln n = \infty\)</span>，我们有</p>
+<p>其中<span class="arithmatex">\(\kappa \approx 0.577\)</span>被称为欧拉-马歇罗尼常数(或欧拉常数)[<a href="https://scispace.com/papers/euler-s-constant-euler-s-work-and-modern-developments-x0n38fjx8d">28</a>]。由于当<span class="arithmatex">\(\lim_{n \to \infty}\)</span>时<span class="arithmatex">\(\ln n = \infty\)</span>，因此</p>
 <div class="arithmatex">\[\sum_{k=1}^{\infty} \frac{1}{k} = \infty.\]</div>
-<p>事实上，<span class="arithmatex">\(H_n = \sum_{k=1}^{n} \frac{1}{k}\)</span>被称为微积分中的调和级数。另一方面，有</p>
+<p>实际上，<span class="arithmatex">\(H_n = \sum_{k=1}^{n} \frac{1}{k}\)</span>被称为微积分中的<strong>调和数</strong> (harmonic number)。另一方面，有</p>
 <div class="arithmatex">\[\sum_{k=1}^{\infty} \frac{1}{k^2} = \frac{\pi^2}{6} &lt; \infty.\]</div>
-<p>找到<span class="arithmatex">\(\sum_{k=1}^{\infty} \frac{1}{k^2}\)</span>的值被称为巴塞尔问题[30]。</p>
-<p>总之，序列 <span class="arithmatex">\(\{a_k = 1/k\}\)</span> 满足定理<span class="arithmatex">\(6.1\)</span>中的第二个条件。值得注意的是，稍微修改一下，例如<span class="arithmatex">\(a_k = 1/(k+1)\)</span>或<span class="arithmatex">\(a_k = c_k/k\)</span>，其中<span class="arithmatex">\(c_k\)</span>是有界的，也能保持这个条件。</p>
-<p>在RM算法中，<span class="arithmatex">\(a_k\)</span>通常被选作一个足够小的常数，在许多情况下，尽管第二个条件不再被满足，因为<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 = \infty\)</span>而不是<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>，算法仍然能以某种方式收敛[24,1.5节]。此外，<span class="arithmatex">\(g(x) = x^3 - 5\)</span>作为图<span class="arithmatex">\(6.3\)</span>中的例子，虽然不满足第二个条件，但RM算法仍然可以找到根（如果初始猜测足够好）。</p>
+<p>找到<span class="arithmatex">\(\sum_{k=1}^{\infty} \frac{1}{k^2}\)</span>的值被称为巴塞尔问题<a href="https://arxiv.org/abs/2010.03953">30</a>。</p>
+<p>综上所述，序列 <span class="arithmatex">\(\{a_k = 1/k\}\)</span> 满足定理<span class="arithmatex">\(6.1\)</span>中的第二个条件。值得注意的是，稍微修改一下(例如<span class="arithmatex">\(a_k = 1/(k+1)\)</span>或<span class="arithmatex">\(a_k = c_k/k\)</span>)其中<span class="arithmatex">\(c_k\)</span>是有界的，仍然可以满足条件2。</p>
+<p>值得一提的是，<span class="arithmatex">\(a_k\)</span> 在实际中常常会被选择为一个小的正数。此时，条件 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span> 仍然成立，但是条件 <span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span> 不再成立。这样选择 <span class="arithmatex">\(a_k\)</span> 的原因是它能够很好地利用后面(<span class="arithmatex">\(k\)</span> 比较大时)得到的样本。否则，如果 <span class="arithmatex">\(a_k\)</span> 逐渐收敛到 0，那么当 <span class="arithmatex">\(k\)</span> 较大时，得到的数据对 <span class="arithmatex">\(w_k\)</span> 的影响已经微乎其微了。实际上，当 <span class="arithmatex">\(a_k\)</span> 恒等于一个正数时，算法仍然可以在某种意义上收敛，详情参见 [<a href="https://link.springer.com/book/10.1007/b101987">24</a>, 第 1.5 节]]。实际上，我们之所以希望 <span class="arithmatex">\(k\)</span> 较大时样本数据仍有效，基本原因是这可以应对时变系统（例如函数 <span class="arithmatex">\(g(w)\)</span> 随时间缓变化）。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果<span class="arithmatex">\(a_k=1/k\)</span>，当<span class="arithmatex">\(k\)</span>比较大时，后面的数据所起到的作用就非常小了，所以希望未来的数据仍然可以有用，就让<span class="arithmatex">\(a_k\)</span>趋近于一个非常小的数而非<span class="arithmatex">\(0\)</span>。</p>
@@ -3426,28 +3450,181 @@
 </li>
 </ul>
 <h3 id="622">6.2.2 在期望值估计问题中的应用<a class="headerlink" href="#622" title="Permanent link">&para;</a></h3>
-<p>接下来，我们运用罗宾斯-门罗定理来分析均值估计问题，该问题已在第<span class="arithmatex">\(6.1\)</span>节中讨论过。回顾</p>
-<div class="arithmatex">\[w_{k+1}=w_k+\alpha_k(x_k-w_k)\]</div>
-<p>这是均值估计算法<span class="arithmatex">\((6.4)\)</span>。当<span class="arithmatex">\(a_k = 1/k\)</span>时，我们可以得到<span class="arithmatex">\(w_{k+1}\)</span>的解析表达式，即<span class="arithmatex">\(w_{k+1} = \frac{1}{k} \sum_{i=1}^{k} x_i\)</span>。然而，当给定一般的<span class="arithmatex">\(a_k\)</span>时，我们无法获得解析表达式。在当时，这个算法的收敛性无法得到证明。但我们现在可以证明，在这种情况下，该算法是一个特殊的RM算法，因此其收敛性自然跟随。</p>
-<p>特别地，定义一个函数为</p>
+<p>第 6.1 节已经对增量最小期望值计算法有过讨论。我们先简要回忆一下。式（6.4）给出了一个迭代算法：<span class="arithmatex">\(w_{k+1} = w_k + \alpha_k (x_k - w_k)\)</span>。当 <span class="arithmatex">\(\alpha_k = 1/k\)</span> 时，可以得到 <span class="arithmatex">\(w_{k+1}\)</span> 的解析表达式为 <span class="arithmatex">\(w_{k+1} = 1/k \sum_{i=1}^{k} x_i\)</span>。然而，当 <span class="arithmatex">\(\alpha_k\)</span> 取一般值时，我们将无法得到 <span class="arithmatex">\(w_{k+1}\)</span> 的解析表达式。此时这个算法仍然能解决期望值计算问题吗？</p>
+<p>下面展示算法（6.4）实际上是一个特殊的 RM 算法，因此其收敛性也可以得到保证。具体来说，定义如下函数：</p>
 <div class="arithmatex">\[g(w) = w - \mathbb{E}[X].\]</div>
-<p>原始问题是求<span class="arithmatex">\(\mathbb{E}[X]\)</span>的值。这个问题被表述为求解<span class="arithmatex">\(g(w) = 0\)</span>的根。给定一个<span class="arithmatex">\(w\)</span>的值，噪声观测值为<span class="arithmatex">\(\tilde{g}(w, \eta) = w - x,\)</span>其中<span class="arithmatex">\(x\)</span>是<span class="arithmatex">\(X\)</span>的一个样本。注意<span class="arithmatex">\(\tilde{g}\)</span>可以写为</p>
+<p>此时，求解期望值<span class="arithmatex">\(\mathbb{E}[X]\)</span>的问题可以转换为求解方程<span class="arithmatex">\(g(w) = 0\)</span>的问题。对任意给定的<span class="arithmatex">\(w\)</span>值，我们能获得的带噪声的观测值为<span class="arithmatex">\(\tilde{g}(w, \eta) = w - x,\)</span>其中<span class="arithmatex">\(x\)</span>是<span class="arithmatex">\(X\)</span>的一个随机样本。注意<span class="arithmatex">\(\tilde{g}\)</span>可以写为</p>
 <div class="arithmatex">\[\begin{aligned}\tilde{g}(w,\eta)&amp;=w-x\\&amp;=w-x+\mathbb{E}[X]-\mathbb{E}[X]\\&amp;=(w-\mathbb{E}[X])+(\mathbb{E}[X]-x)\doteq g(w)+\eta,\end{aligned}\]</div>
-<p>其中<span class="arithmatex">\(\eta \doteq \mathbb{E}[X] - x\)</span>。</p>
-<p>RM算法求解该问题的更新公式为</p>
+<p>其中<span class="arithmatex">\(\eta \doteq \mathbb{E}[X] - x\)</span>。这样我们就把期望值估计的问题转换为了一个可以用RM算法求解的问题。相应RM算法求解该问题的更新公式为</p>
 <div class="arithmatex">\[w_{k+1} = w_k - a_k \tilde{g}(w_k, \eta_k) = w_k - a_k (w_k - x_k),\]</div>
-<p>这正是<span class="arithmatex">\((6.4)\)</span>中的算法。因此，根据定理<span class="arithmatex">\(6.1\)</span>，它保证<span class="arithmatex">\(w_k\)</span>几乎必然收敛于<span class="arithmatex">\(\mathbb{E}[X]\)</span>，且<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k = \infty\)</span>，<span class="arithmatex">\(\sum_{k=1}^{\infty} a_k^2 &lt; \infty\)</span>，并且<span class="arithmatex">\(\{x_k\}\)</span>是独立同分布的。值得注意的是，收敛的性质不依赖于<span class="arithmatex">\(X\)</span>的分布。</p>
+<p>上式正是<span class="arithmatex">\((6.4)\)</span>中的算法。根据定理<span class="arithmatex">\(6.1\)</span>，如果 <span class="arithmatex">\(\sum_{k=1}^{\infty} \alpha_k = \infty\)</span> 且 <span class="arithmatex">\(\sum_{k=1}^{\infty} \alpha_k^2 &lt; \infty\)</span>，并且 <span class="arithmatex">\(\{x_k\}\)</span> 是独立同分布的，那么 <span class="arithmatex">\(w_k\)</span> 将几乎肯定收敛到 <span class="arithmatex">\(\mathbb{E}[X]\)</span>。值得一提的是，该收敛性不依赖于 <span class="arithmatex">\(X\)</span> 的分布假设。</p>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3467,38 +3644,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../6-1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 6.1-启发示例:期望值估计">
+          <a
+            href="../6-1/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 6.1-启发示例:期望值估计"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                6.1-启发示例:期望值估计
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">6.1-启发示例:期望值估计</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../6-3/" class="md-footer__link md-footer__link--next" aria-label="下一页: 6.3-Dvoretzky定理">
+          <a
+            href="../6-3/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 6.3-Dvoretzky定理"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                6.3-Dvoretzky定理
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">6.3-Dvoretzky定理</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3509,19 +3695,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3549,7 +3737,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

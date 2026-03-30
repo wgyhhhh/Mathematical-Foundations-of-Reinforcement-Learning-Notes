@@ -26,7 +26,7 @@
     
     
       
-        <title>3.4-从贝尔曼最优公式中求解最优策略 - 强化学习课程笔记</title>
+        <title>3.4 从BOE中求解最优策略 - 强化学习课程笔记</title>
       
     
     
@@ -81,11 +81,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#34-boe" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -119,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.4-从贝尔曼最优公式中求解最优策略
+              3.4 从BOE中求解最优策略
             
           </span>
         </div>
@@ -156,53 +151,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +460,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -1408,19 +1378,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    3.4-从贝尔曼最优公式中求解最优策略
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1432,32 +1389,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#34-boe" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4 从BOE中求解最优策略
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -3203,6 +3134,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3220,23 +3230,6 @@
   
   
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#34-boe" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4 从BOE中求解最优策略
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -3270,81 +3263,235 @@
 
   <h1>3.4-从贝尔曼最优公式中求解最优策略</h1>
 
-<h2 id="34-boe">3.4 从BOE中求解最优策略<a class="headerlink" href="#34-boe" title="Permanent link">&para;</a></h2>
-<p>通过上一节的准备，我们已经准备好求解BOE以获得最优状态值<span class="arithmatex">\(v^*\)</span>和最优策略<span class="arithmatex">\(\pi^*\)</span>。</p>
+<p>有了前面的充分准备，下面我们来求解贝尔曼最优方程，从而得到最优状态值<span class="arithmatex">\(v^*\)</span>和最优策略<span class="arithmatex">\(\pi^*\)</span>。</p>
 <ul>
-<li>求解<span class="arithmatex">\(v^*\)</span>:如果<span class="arithmatex">\(v^*\)</span>是BOE的解，它满足</li>
+<li>求解最优状态值<span class="arithmatex">\(v^*\)</span>：如果<span class="arithmatex">\(v^*\)</span>是贝尔曼最优方程的解，那么它满足</li>
 </ul>
-<div class="arithmatex">\[v^* = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v^* \right).
+<div class="arithmatex">\[v^* = f(v^*)=\max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v^* \right).
 \]</div>
-<p>显然，<span class="arithmatex">\(v^*\)</span>是一个不动点，因为<span class="arithmatex">\(v^*=f(v^*)\)</span>。然后，压缩映射定理给出了以下结果。</p>
+<p>显然，<span class="arithmatex">\(v^*\)</span>是一个不动点，根据压缩映射定理有以下重要结论。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>定理3.3</strong>. (存在性、唯一性和算法)。对于BOE，<span class="arithmatex">\(v = f(v)= max_{\pi \in \Pi}(r_\pi + \gamma P_\pi v)\)</span>，总是存在唯一的解<span class="arithmatex">\(v^*\)</span>，它可以通过迭代法求解：</p>
+<p><strong>定理3.3</strong>. (存在性、唯一性和算法)。贝尔曼最优方程<span class="arithmatex">\(v = f(v)= max_{\pi \in \Pi}(r_\pi + \gamma P_\pi v)\)</span>始终存在唯一的解<span class="arithmatex">\(v^*\)</span>，该解可以通过迭代算法求解：</p>
 <div class="arithmatex">\[v_{k+1} = f(v_k) = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v_k \right), \quad k = 0, 1, 2, \dots.\]</div>
-<p>在给定任何初始猜测<span class="arithmatex">\(v_0\)</span>的情况下，<span class="arithmatex">\(v_k\)</span>的值随着<span class="arithmatex">\(k\rightarrow \infty\)</span>以指数速度收敛到<span class="arithmatex">\(v^*\)</span>。</p>
-<p>这个定理的证明直接从压缩映射定理得出，因为<span class="arithmatex">\(f(v)\)</span>是压缩映射。这个定理很重要，因为它回答了一些基本问题。</p>
-<ul>
-<li>
-<p><span class="arithmatex">\(v^*\)</span>的存在性: BOE的解总是存在的。</p>
-</li>
-<li>
-<p><span class="arithmatex">\(v^*\)</span>的唯一性: 解<span class="arithmatex">\(v^*\)</span>总是唯一的。</p>
-</li>
-<li>
-<p>求解<span class="arithmatex">\(v^*\)</span>的算法: 可以通过定理<span class="arithmatex">\(3.3\)</span>建议的迭代算法来求解<span class="arithmatex">\(v^*\)</span>的值。这种迭代算法有一个特定的名称，称为值迭代(value iteration)。第四章将详细介绍其实现。在本章中，我们主要关注BOE的基本性质。</p>
-</li>
-</ul>
+<p>对任意给定的<span class="arithmatex">\(v_0\)</span>，当<span class="arithmatex">\(k\rightarrow\infty\)</span>时，<span class="arithmatex">\(v_k\)</span>以指数速度收敛到<span class="arithmatex">\(v^*\)</span>。</p>
+<p>因为<span class="arithmatex">\(f(v)\)</span>是压缩映射，所以上面的定理可以直接由压缩映射定理得到。上面定理很重要，因为它能回答一系列重要的基本问题。</p>
 </div>
 <ul>
-<li>求解<span class="arithmatex">\(\pi^*\)</span>: 一旦得到了<span class="arithmatex">\(v^*\)</span>的值，我们就可以很容易地求解<span class="arithmatex">\(\pi^*\)</span>通过</li>
+<li>
+<p><span class="arithmatex">\(v^*\)</span>的存在性: 贝尔曼最优方程的解总是存在的。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(v^*\)</span>的唯一性: 贝尔曼最优方程的解总是唯一的。</p>
+</li>
+<li>
+<p>算法: 贝尔曼最优方程可以通过定理<span class="arithmatex">\(3.3\)</span>中的迭代算法来求解。此迭代算法有一个特定的名称-<strong>值迭代</strong> (value iteration)。该算法的具体实施步骤将在第4章中详细介绍，本章主要关注贝尔曼最优方程的基本性质。</p>
+</li>
+<li>
+<p>求解最优策略<span class="arithmatex">\(\pi^*\)</span>: 一旦得到了<span class="arithmatex">\(v^*\)</span>的值，就可以通过下式求解得到一个最优策略：</p>
+</li>
 </ul>
-<div class="arithmatex">\[\pi^* = \arg \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v^* \right).\]</div>
-<p>定理<span class="arithmatex">\(3.5\)</span>中给出了<span class="arithmatex">\(\pi^*\)</span>的值。将公式<span class="arithmatex">\(3.6\)</span>代入BOE，</p>
+<div class="arithmatex">\[\pi^* = \arg \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v^* \right).\tag{3.6}\]</div>
+<p><span class="arithmatex">\(\pi^*\)</span>的具体形式将在定理<span class="arithmatex">\(3.5\)</span>中给出。将公式<span class="arithmatex">\((3.6)\)</span>代入贝尔曼最优方程可得：</p>
 <div class="arithmatex">\[v^* = r_{\pi^*} + \gamma P_{\pi^*} v^*.\]</div>
-<p>因此，<span class="arithmatex">\(v^*=v_{\pi^*}\)</span>是<span class="arithmatex">\(\pi^*\)</span>的状态值，BOE是一个特殊的贝尔曼公式，其对应的策略是<span class="arithmatex">\(\pi^*\)</span>。</p>
-<p>此时，虽然我们可以求解<span class="arithmatex">\(v^*\)</span>和<span class="arithmatex">\(\pi^*\)</span>，但仍不清楚该解是否为最优解。而下面的定理揭示了解的最优性。</p>
+<p>因此，<span class="arithmatex">\(v^*=v_{\pi^*}\)</span>是<span class="arithmatex">\(\pi^*\)</span>的状态值。从上式可以看出，贝尔曼最优方程是一个特殊的贝尔曼方程，其对应的策略是<span class="arithmatex">\(\pi^*\)</span>。</p>
+<p>虽然我们上面提到<span class="arithmatex">\(v^*\)</span>是最优值、<span class="arithmatex">\(\pi^*\)</span>是最优策略，但是仍然没有证明它们的最优性，只是说明了<span class="arithmatex">\(v^*\)</span>和<span class="arithmatex">\(\pi^*\)</span>是贝尔曼最优方程的解而已。下面的定理证明了贝尔曼最优方程的解的最优性。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>定理<span class="arithmatex">\(3.4\)</span>(<span class="arithmatex">\(v^*\)</span>和<span class="arithmatex">\(\pi^*\)</span>的最优性),解<span class="arithmatex">\(v^*\)</span>是最优状态值，<span class="arithmatex">\(\pi^*\)</span>是最优策略。也就是说，对于任何策略<span class="arithmatex">\(\pi\)</span>，有</p>
+<p>定理<span class="arithmatex">\(3.4\)</span>(<span class="arithmatex">\(v^*\)</span>和<span class="arithmatex">\(\pi^*\)</span>的最优性),如果<span class="arithmatex">\(v^*\)</span>和<span class="arithmatex">\(\pi^*\)</span>是贝尔曼最优方程的解。那么<span class="arithmatex">\(v^*\)</span>是最优状态值，<span class="arithmatex">\(\pi^*\)</span>是最优策略，即对于任何策略<span class="arithmatex">\(\pi\)</span>都有：</p>
 <div class="arithmatex">\[v^*=v_{\pi^*}\geq v_\pi,\]</div>
-<p>其中<span class="arithmatex">\(v_\pi\)</span>是<span class="arithmatex">\(\pi\)</span>的状态值，<span class="arithmatex">\(\geq\)</span>是元素比较。</p>
+<p>其中<span class="arithmatex">\(v_\pi\)</span>是策略<span class="arithmatex">\(\pi\)</span>的状态值，<span class="arithmatex">\(\geq\)</span>是逐元素比较。</p>
 </div>
-<p>现在，我们清楚了为什么必须研究BOE：它的解对应于最优状态值和最优策略。上述定理的证明在下面的方框中给出。</p>
-<p>接下来，我们来仔细地研究<span class="arithmatex">\((3.6)\)</span>中的<span class="arithmatex">\(\pi^*\)</span>。特别是，以下定理表明，总存在一种确定性的Greedy策略，它是最优的。</p>
+<p>上面这个定理非常重要，正因为贝尔曼最优方程的解具有最优性，所以才需要学习它，关于它的具体证明将在Box<span class="arithmatex">\(3.3\)</span>中给出，感兴趣的读者可以阅读。</p>
+<p>虽然上面反复提到了最优策略<span class="arithmatex">\(\pi^*\)</span>，但是它是随机性策略还是确定性策略呢？下面定理回答了这个问题。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>定理3.5</strong>(Greedy最优策略). 对于任意状态<span class="arithmatex">\(s\in \mathcal{S}\)</span>，确定性Greedy策略</p>
-<div class="arithmatex">\[\pi^*(a|s) = \begin{cases}1, &amp; \text{if } a = a^*(s), \\0, &amp; \text{if } a \neq a^*(s).\end{cases}\tag{3.7}\]</div>
-<p>是解决BOE问题的最优策略。在此，</p>
+<p><strong>定理3.5</strong>(贪婪最优策略). 假设<span class="arithmatex">\(v^*\)</span>是贝尔曼最优方程的最优状态值解，那么下面的确定性贪婪策略是一个最优策略</p>
+<div class="arithmatex">\[\pi^*(a|s) = \begin{cases}1, &amp; \text{if } a = a^*(s), \\0, &amp; \text{if } a \neq a^*(s).\end{cases},s\in\mathcal{S},\tag{3.7}\]</div>
+<p>其中</p>
 <div class="arithmatex">\[a^*(s) = \arg \max_a q^*(s, a).\]</div>
-<p>在这里</p>
+<p>且</p>
 <div class="arithmatex">\[q^*(s,a) = \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in \mathcal{S}} p(s'|s, a) v^*(s').\]</div>
 </div>
-<p><span class="arithmatex">\((3.7)\)</span>中的策略是Greedy的，因为它寻求具有最大<span class="arithmatex">\(q^*(s, a)\)</span>的动作。最后，我们讨论<span class="arithmatex">\(\pi^*\)</span>的两个重要性质。</p>
+<p>定理<span class="arithmatex">\(3.5\)</span>指出总是存在一个确定性的贪婪策略是最优的。式<span class="arithmatex">\((3.7)\)</span>中的策略之所以被称为贪婪，是因为它选了具有最大<span class="arithmatex">\(q^*(s, a)\)</span>的行动。</p>
+<p>最后，我们讨论<span class="arithmatex">\(\pi^*\)</span>的两个重要性质。</p>
 <ul>
-<li>
-<p>最优策略的唯一性：尽管<span class="arithmatex">\(v^*\)</span>的值是唯一的，但与<span class="arithmatex">\(v^*\)</span>对应的最优策略却可能不唯一。这一点可以通过反例很容易地验证。例如，图<span class="arithmatex">\(3.3\)</span>中所示的两种策略都是最优的。</p>
-</li>
-<li>
-<p>最优策略的随机性：如图<span class="arithmatex">\(3.3\)</span>所示，最优策略可以是随机的，也可以是确定的。然而，根据定理<span class="arithmatex">\(3.5\)</span>，可以确定的是，总是存在一个确定性的最优策略。</p>
-</li>
+<li>最优策略的唯一性：尽管<span class="arithmatex">\(v^*\)</span>的值是唯一的，但与<span class="arithmatex">\(v^*\)</span>对应的最优策略可能并不唯一。这一点可以通过反例验证。例如，图<span class="arithmatex">\(3.3\)</span>中所示的两种策略都是最优的。</li>
 </ul>
 <p><img alt="" src="../../img/03/2.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(3.3\)</span>：展示最优策略可能不唯一的示例。这两个策略不同，但都是最优的。</p>
 </blockquote>
+<ul>
+<li>最优策略的随机性：如图<span class="arithmatex">\(3.3\)</span>所示，最优策略可以是随机的，也可以是确定的。然而，根据定理<span class="arithmatex">\(3.5\)</span>，可以确定的是，总是存在一个确定性的最优策略。</li>
+</ul>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3364,38 +3511,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../3-3/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 3.3-贝尔曼最优公式">
+          <a
+            href="../3-3/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 3.3-贝尔曼最优公式"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                3.3-贝尔曼最优公式
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">3.3-贝尔曼最优公式</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../3-5/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3.5-影响最优策略的因素">
+          <a
+            href="../3-5/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 3.5-影响最优策略的因素"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                3.5-影响最优策略的因素
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">3.5-影响最优策略的因素</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3406,19 +3562,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3446,7 +3604,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

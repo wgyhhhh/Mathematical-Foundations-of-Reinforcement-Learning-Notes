@@ -26,7 +26,7 @@
     
     
       
-        <title>3.3-贝尔曼最优公式 - 强化学习课程笔记</title>
+        <title>3.3 贝尔曼最优公式 - 强化学习课程笔记</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#33" class="md-skip">
+        <a href="#331" class="md-skip">
           跳转至
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.3-贝尔曼最优公式
+              3.3 贝尔曼最优公式
             
           </span>
         </div>
@@ -156,53 +156,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +465,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -1424,16 +1399,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 贝尔曼最优公式
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.3 贝尔曼最优公式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#331" class="md-nav__link">
     <span class="md-ellipsis">
       3.3.1 方程右侧的优化问题
@@ -1441,17 +1406,17 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#332-boe" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#332-" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3.2 BOE的矩阵向量形式
+      3.3.2 矩阵-向量形式
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#333" class="md-nav__link">
     <span class="md-ellipsis">
       3.3.3 压缩映射定理
@@ -1459,18 +1424,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#334-boe" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#334" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3.4 BOE右侧函数的压缩性质
+      3.3.4 方程右侧函数的压缩性质
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3245,6 +3205,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3270,16 +3309,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 贝尔曼最优公式
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.3 贝尔曼最优公式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#331" class="md-nav__link">
     <span class="md-ellipsis">
       3.3.1 方程右侧的优化问题
@@ -3287,17 +3316,17 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#332-boe" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#332-" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3.2 BOE的矩阵向量形式
+      3.3.2 矩阵-向量形式
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#333" class="md-nav__link">
     <span class="md-ellipsis">
       3.3.3 压缩映射定理
@@ -3305,18 +3334,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#334-boe" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#334" class="md-nav__link">
     <span class="md-ellipsis">
-      3.3.4 BOE右侧函数的压缩性质
+      3.3.4 方程右侧函数的压缩性质
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3354,146 +3378,301 @@
 
   <h1>3.3-贝尔曼最优公式</h1>
 
-<h2 id="33">3.3 贝尔曼最优公式<a class="headerlink" href="#33" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>这一节公式非常多，建议读者仔细阅读</p>
 </div>
-<p>用于分析最优策略和最优状态值的工具是贝尔曼最优公式(BOE)。通过求解该公式，可以获得最优策略和最优状态值。接下来我们给出了BOE的表达式，并对其进行了详细分析。</p>
-<p>对于每个<span class="arithmatex">\(s\in\mathcal{S}\)</span>，BOE的元素级表达式为</p>
+<p>为了分析和求解最优策略，下面将介绍<strong>贝尔曼最优公式</strong> (Bellman optimality equation, BOE)。首先直接给出其表达式，然后详细分析它的性质。</p>
+<p>对于每个<span class="arithmatex">\(s\in\mathcal{S}\)</span>，贝尔曼最优方程的表达式为：</p>
 <div class="arithmatex">\[\begin{aligned}
     v(s) &amp;= \max_{\pi \in \Pi(\mathcal{S})} \sum_{a \in A} \pi(a|s) \left( \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in S} p(s'|s, a) v(s') \right) \\
 &amp;= \max_{\pi \in \Pi(\mathcal{S})} \sum_{a \in A} \pi(a|s) q(s, a), 
 \end{aligned}\tag{3.1}\]</div>
-<p>其中<span class="arithmatex">\(v(s),v(s^\prime)\)</span>是待求解的未知变量，</p>
+<p>其中，</p>
 <div class="arithmatex">\[q(s, a) = \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in \mathcal{S}} p(s'|s, a) v(s').\]</div>
-<p>这里,<span class="arithmatex">\(π(s)\)</span>表示状态<span class="arithmatex">\(s\)</span>的策略，而<span class="arithmatex">\(\Pi(s)\)</span>是<span class="arithmatex">\(s\)</span>的所有可能策略的集合。</p>
-<p>BOE是分析最优策略的一个优雅而强大的工具。然而，要理解这个方程可能并非易事。例如，这个方程有两个未知变量<span class="arithmatex">\(v(s)\)</span>和<span class="arithmatex">\(\pi(a|s)\)</span>的情况。对于初学者来说，如何从一个方程中解出两个未知变量可能会令人困惑。BOE实际上是一个特殊的贝尔曼公式。但由于其表达式与贝尔曼公式的表达式有很大的不同，因此要认识到这一点并不容易。我们还需要回答关于贝尔曼最优方程的以下基本问题。</p>
+<p>这里<span class="arithmatex">\(v(s),v(s^\prime)\)</span>是待求解的未知变量，<span class="arithmatex">\(\pi(s)\)</span>表示状态<span class="arithmatex">\(s\)</span>的策略，而<span class="arithmatex">\(\Pi(s)\)</span>是状态<span class="arithmatex">\(s\)</span>所有可能策略的集合。</p>
+<p>贝尔曼最优方程是一个优雅且强大的工具，它能清晰地解释许多基础且重要的问题。然而要理解这个方程可能并非易事。例如，这个方程有两个未知变量：一类是值<span class="arithmatex">\(v(s)\)</span>，另一类是策略<span class="arithmatex">\(\pi(a|s)\)</span>。如何从一个方程中同时求解两类未知量呢？此外，下面这些问题也需要回答：</p>
 <ul>
-<li>存在性：这个方程是否有解？</li>
-<li>唯一性：解是否唯一？ </li>
-<li>算法：如何求解这个方程？</li>
-<li>最优性：解与最优策略有何关系？</li>
+<li>存在性：这个贝尔曼最优方程是否有解？</li>
+<li>唯一性：贝尔曼最优方程的解是唯一的吗？ </li>
+<li>算法：如何求解贝尔曼最优方程？</li>
+<li>最优性：贝尔曼最优方程的解与最优策略有什么关系？</li>
 </ul>
-<p>一旦我们能够回答这些问题，我们就能清楚地理解最优状态值和最优策略。</p>
+<p>此外，贝尔曼最优方程与贝尔曼最优方程是什么关系？为什么说它是一个特殊的贝尔曼方程？这些问题都是很重要的。如果我们能够回答这些问题，我们就能清楚地理解最优状态值和最优策略。</p>
 <h3 id="331">3.3.1 方程右侧的优化问题<a class="headerlink" href="#331" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>贝尔曼最优公式的元素级表达式</p>
+<p>贝尔曼最优公式的表达式</p>
 <div class="arithmatex">\[v(s)=\max_{\pi}\sum_{a}\pi(a|s)\left(\sum_{r}p(r|s,a)r+\gamma\sum_{s^{\prime}}p(s^{\prime}|s,a)v(s^{\prime})\right),\quad\forall s\in\mathcal{S}\]</div>
 <p>贝尔曼最优公式的矩阵向量形式</p>
 <div class="arithmatex">\[v=\max_\pi(r_\pi+\gamma P_\pi v)\]</div>
 </div>
-<p>接下来，我们将阐明如何解决公式<span class="arithmatex">\((3.1)\)</span>中BOE右侧的优化问题。初看之下，初学者可能会对在一个方程中如何求解两个未知变量<span class="arithmatex">\(v(s)\)</span>和<span class="arithmatex">\(π(a|s)\)</span>感到困惑。实际上，这两个未知变量可以逐一求解。下面的例子说明了这个结论。</p>
+<p>贝尔曼最优方程的右侧嵌套了一个优化问题，初学者可能会对此感到迷惑。我们通过以下的例子来解释其求解思路。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>例子3.1</strong> 考虑两个未知变量<span class="arithmatex">\(x,y\in\mathbb{R}\)</span>，满足</p>
 <div class="arithmatex">\[x=\max_{y\in\mathbb{R}}(2x-1-y^{2}).\]</div>
-<p>第一步是求解方程右边的<span class="arithmatex">\(y\)</span>。不管<span class="arithmatex">\(x\)</span>的值如何，我们总是有<span class="arithmatex">\(max_y(2x − 1 − y^2)= 2x − 1\)</span>，其中当<span class="arithmatex">\(y = 0\)</span>时达到最大值。第二步是解<span class="arithmatex">\(x\)</span>。当<span class="arithmatex">\(y = 0\)</span>时，方程变为<span class="arithmatex">\(x = 2x − 1\)</span>，因此<span class="arithmatex">\(x = 1\)</span>。因此，<span class="arithmatex">\(y = 0\)</span>和<span class="arithmatex">\(x = 1\)</span>是方程的解。</p>
+<p>这个方程可以通过两步求解。第一步是求解方程右边的优化问题<span class="arithmatex">\(\max_{y\in\mathbb{R}}(2x-1-y^{2})\)</span>。具体来说，不管<span class="arithmatex">\(x\)</span>的值是什么，在<span class="arithmatex">\(y=0\)</span>时<span class="arithmatex">\((2x − 1 − y^2)\)</span>达到最大值，此时<span class="arithmatex">\(\max_y(2x-1-y^2)=2x-1\)</span>。第二步是求解<span class="arithmatex">\(x\)</span>，当<span class="arithmatex">\(y = 0\)</span>时，此时方程变为<span class="arithmatex">\(x = 2x − 1\)</span>，此时很容易求解出<span class="arithmatex">\(x = 1\)</span>。因此，<span class="arithmatex">\(y = 0\)</span>和<span class="arithmatex">\(x = 1\)</span>是该方程的解。</p>
 </div>
-<p>我们现在转向BOE右侧的优化问题。式<span class="arithmatex">\((3.1)\)</span>中的BOE可以简明地写为：</p>
+<p>明白了上面这个例子，我们再来看贝尔曼最优方程：式<span class="arithmatex">\((3.1)\)</span>可以简写为：</p>
 <div class="arithmatex">\[v(s)=\max_{\pi(s)\in\Pi(s)}\sum_{a\in A}\pi(a|s)q(s,a),\quad s\in\mathcal{S}.\]</div>
-<p>受例<span class="arithmatex">\(3.1\)</span>的启发，我们可以首先在右侧求解最优<span class="arithmatex">\(\pi\)</span>。如何求解呢?下面的例子展示了它的基本思想。</p>
+<p>受到受例<span class="arithmatex">\(3.1\)</span>的启发，我们可以首先在方程右侧求解最优<span class="arithmatex">\(\pi\)</span>。怎样求解呢?我们再来看一个简单的例子。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>例子3.2</strong>(如何来求解<span class="arithmatex">\(\max_\pi\sum_a \pi(a|s)q(s,a)\)</span>) 给定<span class="arithmatex">\(q_1,q_2,q_3\in\mathbb{R}\)</span>，我们希望找到<span class="arithmatex">\(c_1，c_2，c_3\)</span>的最优值以最大化</p>
-<div class="arithmatex">\[\sum_{i=1}^3c_iq_i=c_1q_1+c_2q_2+c_3q_3,\]</div>
-<p>在这里<span class="arithmatex">\(c_1+c_2+c_3=1\)</span>，并且<span class="arithmatex">\(c_1,c_2,c_3\geq0\)</span></p>
-<p>不失一般性，假设<span class="arithmatex">\(q3 \geq q1，q2\)</span>。那么，最优解是<span class="arithmatex">\(c_3^*=1\)</span>和<span class="arithmatex">\(c_1^* = c_2^* = 0\)</span>。这是因为</p>
-<div class="arithmatex">\[q_3=(c_1+c_2+c_3)q_3=c_1q_3+c_2q_3+c_3q_3\geq c_1q_1+c_2q_2+c_3q_3\]</div>
-<p>对于任意<span class="arithmatex">\(c_1,c_2,c_3\)</span></p>
+<p><strong>例子3.2</strong>给定<span class="arithmatex">\(q_1,q_2,q_3\in\mathbb{R}\)</span>，我们希望找到<span class="arithmatex">\(c_1，c_2，c_3\)</span>的最优值，从而求解下面的优化问题：</p>
+<div class="arithmatex">\[\max_{c_1,c_2,c_3}\sum_{i=1}^3 c_iq_i=\max_{c_1,c_2,c_3}(c_1q_1+c_2q_2+c_3q_3),\]</div>
+<p>在这里<span class="arithmatex">\(c_1+c_2+c_3=1\)</span>，且<span class="arithmatex">\(c_1,c_2,c_3\geq0\)</span>。</p>
+<p>求解这个问题的思路如下。首先不失一般性，假设<span class="arithmatex">\(q3 \geq q1，q2\)</span>。那么，最优解是<span class="arithmatex">\(c_3^*=1\)</span>和<span class="arithmatex">\(c_1^* = c_2^* = 0\)</span>。这是因为：</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(q_3=(c_1+c_2+c_3)q_3=c_1q_3+c_2q_3+c_3q_3\geq c_1q_1+c_2q_2+c_3q_3\)</span>\)</span>,</p>
+<p>对于任意<span class="arithmatex">\(c_1,c_2,c_3\)</span>都成立。</p>
 </div>
-<p>受上述例子的启发，因为<span class="arithmatex">\(\sum_a\pi(a|s)=1\)</span>，我们有</p>
+<p>受上述例子的启发，因为<span class="arithmatex">\(\sum_a\pi(a|s)=1\)</span>，我们有：</p>
 <div class="arithmatex">\[\begin{aligned}\sum_{a\in\mathcal{A}}\pi(a|s)q(s,a)\leq\sum_{a\in\mathcal{A}}\pi(a|s)\max_{a\in\mathcal{A}}q(s,a)=\max_{a\in\mathcal{A}}q(s,a),\end{aligned}\]</div>
-<p>当等式成立时有</p>
+<p>当等式成立时有：</p>
 <div class="arithmatex">\[\pi(a|s)=\left\{\begin{array}{ll}1,&amp;a=a^*,\\0,&amp;a\neq a^*.\end{array}\right.\]</div>
-<p>这里，<span class="arithmatex">\(a^*=\text{arg max}_a q(s,a)\)</span>。简而言之，最优策略<span class="arithmatex">\(\pi(s)\)</span>是选择具有最大<span class="arithmatex">\(q(s,a)\)</span>值的动作的策略。</p>
-<h3 id="332-boe">3.3.2 BOE的矩阵向量形式<a class="headerlink" href="#332-boe" title="Permanent link">&para;</a></h3>
-<p>BOE是指为所有状态定义的一组方程。如果我们把这些方程联合起来，就可以得到一个简明的矩阵向量形式，这将在本章中得到广泛的应用。BOE的矩阵向量形式为：</p>
+<p>其中<span class="arithmatex">\(a^*=\text{arg max}_a q(s,a)\)</span>。因此最优策略<span class="arithmatex">\(\pi(s)\)</span>应该选择具有最大<span class="arithmatex">\(q(s,a)\)</span>值的行动。在解决了右侧的优化问题之后，式(3.1)就变成了<span class="arithmatex">\(v(s)=\max_{a\in\mathcal{A}(s)}q(s,a)\)</span>。</p>
+<h3 id="332-">3.3.2 矩阵-向量形式<a class="headerlink" href="#332-" title="Permanent link">&para;</a></h3>
+<p>方程<span class="arithmatex">\((3.1)\)</span>是对任意状态都成立的，将所有这些方程联立起来，就可以得到一个简洁的矩阵-向量形式，该形式在本章中将被广泛的应用，对于分析贝尔曼最优方程将发挥重要作用。</p>
+<p>具体来说，假设有<span class="arithmatex">\(n\)</span>个状态<span class="arithmatex">\(\{s_1,s_2,\ldots,s_n\}\)</span>。类似于第2章推导贝尔曼方程的矩阵-向量形式，我们可以得到贝尔曼最优方程的矩阵-向量形式为：</p>
 <div class="arithmatex">\[v=\max_{\pi\in\Pi}(r_\pi+\gamma P_\pi v),\tag{3.2}\]</div>
-<p>其中<span class="arithmatex">\(v\in R^{|S|}\)</span>并且<span class="arithmatex">\(max_\pi\)</span>以逐元素方式执行。<span class="arithmatex">\(r_\pi\)</span>和<span class="arithmatex">\(P_\pi\)</span>的结构与标准贝尔曼公式的矩阵向量形式相同：</p>
+<p>其中<span class="arithmatex">\(v\in R^{n}\)</span>是待求解的未知量。上式中的<span class="arithmatex">\(max_\pi\)</span>以逐元素的方式执行的。例如，对于一个向量<span class="arithmatex">\([*,*]\)</span>，其中的元素我们用"<span class="arithmatex">\(*\)</span>"表示，那么<span class="arithmatex">\(\max_\pi[*,*]=[\max_\pi *,\max_\pi *]\)</span>。此外，上式<span class="arithmatex">\(r_\pi\)</span>和<span class="arithmatex">\(P_\pi\)</span>的结构与贝尔曼方程的矩阵-向量形式相同：</p>
 <div class="arithmatex">\[[r_\pi]_s=\sum_{a\in\mathcal{A}}\pi(a|s)\sum_{r\in\mathcal{R}}p(r|s,a)r,\quad[P_\pi]_{s,s^{\prime}}=p(s^{\prime}|s)=\sum_{a\in\mathcal{A}}\pi(a|s)p(s^{\prime}|s,a).\]</div>
-<p>由于<span class="arithmatex">\(\pi\)</span>的最佳值由<span class="arithmatex">\(v\)</span>决定，公式<span class="arithmatex">\((3.2)\)</span>的右边是<span class="arithmatex">\(v\)</span>的函数，表示为</p>
-<div class="arithmatex">\[f(v)=max_{\pi\in\Pi}(r_\pi+\gamma P_\pi v).\]</div>
-<p>那么，BOE可以用简洁的形式表示为：</p>
+<p>由于<span class="arithmatex">\(\pi\)</span>的最佳值由<span class="arithmatex">\(v\)</span>决定，式<span class="arithmatex">\((3.2)\)</span>的右侧实际上是<span class="arithmatex">\(v\)</span>的函数，因此可以用一个函数<span class="arithmatex">\(f(v)\)</span>表示为：</p>
+<div class="arithmatex">\[f(v)=\max_{\pi\in\Pi}(r_\pi+\gamma P_\pi v).\]</div>
+<p>然后，贝尔曼最优方程<span class="arithmatex">\((3.2)\)</span>可以更简洁地表示：</p>
 <div class="arithmatex">\[v=f(v).\tag{3.3}\]</div>
-<p>在本节的剩余部分，我们将展示如何求解这个非线性方程。</p>
+<p>在本节的剩余部分，我们将展示如何求解这个方程<span class="arithmatex">\((3.3)\)</span>。</p>
 <h3 id="333">3.3.3 压缩映射定理<a class="headerlink" href="#333" title="Permanent link">&para;</a></h3>
-<p>由于BOE可以表示为一个非线性方程<span class="arithmatex">\(v=f(v)\)</span>，我们接下来引入压缩映射定理[6]来分析它，压缩映射定理是分析一般非线性方程的有力工具。它也被称为不动点定理。已经知道这个定理的读者可以跳过这一部分。否则，建议读者熟悉这个定理，因为它是分析BOE的关键。</p>
-<p>考虑一个函数<span class="arithmatex">\(f(x)\)</span>，其中<span class="arithmatex">\(x\in \mathbb{R}^d\)</span>且<span class="arithmatex">\(f:\mathbb{R}^d \rightarrow \mathbb{R}^d\)</span>。一个点<span class="arithmatex">\(x^*\)</span>被称为不动点，如果有</p>
+<p>为了分析<span class="arithmatex">\(v=f(v)\)</span>，我们接下来介绍<strong>压缩映射定理</strong><a href="https://xueshu.baidu.com/usercenter/paper/show?paperid=8aa62ebf3b14269aab45bea290f4ef91">6</a>。压缩映射定理是分析非线性方程的强大工具。它也被称为<strong>不动点定理</strong>。建议读者仔细学习该定理，因为它是分析贝尔曼最优方程的关键工具。</p>
+<p>考虑一个函数<span class="arithmatex">\(f(x)\)</span>，其中<span class="arithmatex">\(x\in \mathbb{R}^d\)</span>且<span class="arithmatex">\(f:\mathbb{R}^d \rightarrow \mathbb{R}^d\)</span>。如果一个点<span class="arithmatex">\(x^*\)</span>满足：</p>
 <div class="arithmatex">\[f(x^*)=x^*\]</div>
-<p>对上述方程的解释是，<span class="arithmatex">\(x\)</span>的映射是它本身。这就是为什么<span class="arithmatex">\(x\)</span>被称为“不动”的原因。函数<span class="arithmatex">\(f\)</span>是压缩映射(或压缩函数)，如果存在<span class="arithmatex">\(\gamma \in(0，1)\)</span>，使得</p>
+<p>那么称之为<strong>不动点</strong> (fixed point)。之所以被称为“不动点”，是因为<span class="arithmatex">\(x^*\)</span>的映射还是其自身。</p>
+<p>如果存在<span class="arithmatex">\(\gamma \in(0，1)\)</span>，使得：</p>
 <div class="arithmatex">\[\|f(x_1)-f(x_2)\|\leq\gamma\|x_1-x_2\|\]</div>
-<p>对于任意<span class="arithmatex">\(x_1,x_2\in\mathbb{R}^d\)</span>。在这本书中，<span class="arithmatex">\(\|·\|\)</span>表示向量或矩阵范数。</p>
+<p>对于任意<span class="arithmatex">\(x_1,x_2\in\mathbb{R}^d\)</span>都成立，那么函数<span class="arithmatex">\(f\)</span>被称为<strong>压缩映射</strong> (contraction mapping)。上面不等式中的<span class="arithmatex">\(\|·\|\)</span>表示向量或矩阵的范数。</p>
+<p>下面我们给出三个例子来解释不动点和压缩映射。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>例子3.3</strong>. 我们给出了三个例子来证明不动点和压缩映射.</p>
 <ol>
 <li>
 <p><span class="arithmatex">\(x=f(x)=0.5x,x\in\mathbb{R}\)</span></p>
-<p>很容易证明<span class="arithmatex">\(x = 0\)</span>是一个不动点，因为<span class="arithmatex">\(0 = 0.5 · 0\)</span>。此外，<span class="arithmatex">\(f(x)=x\)</span>是一个压缩映射，因为对任何<span class="arithmatex">\(\gamma\in [0.5，1)\)</span>，有<span class="arithmatex">\(\|0.5x_1-0.5x_2\|=0.5\|x_1-x_2\|\leq\gamma\|x_1-x_2\|\)</span>。</p>
+<p>首先，很容易验证<span class="arithmatex">\(x = 0\)</span>是一个不动点，因为<span class="arithmatex">\(0 = 0.5 · 0\)</span>。其次，<span class="arithmatex">\(f(x)=0.5x\)</span>是一个压缩映射，因为对任何<span class="arithmatex">\(\gamma\in [0.5，1)\)</span>，有<span class="arithmatex">\(\|0.5x_1-0.5x_2\|=0.5\|x_1-x_2\|\leq\gamma\|x_1-x_2\|\)</span>。</p>
 </li>
 <li>
 <p><span class="arithmatex">\(x = f(x)= Ax\)</span>，其中<span class="arithmatex">\(x \in \mathbb{R}^n，A\in \mathbb{R}^{n\times n}\)</span>且<span class="arithmatex">\(\|A\|\leq\gamma\leq1\)</span>.</p>
-<p>很容易证明<span class="arithmatex">\(x = 0\)</span>是一个不动点，因为<span class="arithmatex">\(0 = A0\)</span>。此外，它也是一个压缩映射,有<span class="arithmatex">\(\|Ax_1-Ax_2\|=\|A(x_1-x_2)\|\leq\|A\|\|x_1-x_2\|\leq\gamma\|x_1-x_2\|.\)</span>。因此，<span class="arithmatex">\(f(x)=Ax\)</span>是一个压缩映射。</p>
+<p>首先，很容易证明<span class="arithmatex">\(x = 0\)</span>是一个不动点，因为<span class="arithmatex">\(0 = A0\)</span>。其次，<span class="arithmatex">\(f(x)=Ax\)</span>是一个压缩映射,因为<span class="arithmatex">\(\|Ax_1-Ax_2\|=\|A(x_1-x_2)\|\leq\|A\|\|x_1-x_2\|\leq\gamma\|x_1-x_2\|.\)</span>。因此，<span class="arithmatex">\(f(x)=Ax\)</span>是一个压缩映射。</p>
 </li>
 <li>
 <p><span class="arithmatex">\(x = f(x) = 0.5 \sin x, \quad x \in \mathbb{R}\)</span>.</p>
-<p>很容易证明<span class="arithmatex">\(x=0\)</span>是一个不动点，因为<span class="arithmatex">\(0=0.5\sin 0\)</span>。此外，此外，从中值定理[7，8]可以得出：</p>
+<p>首先，很容易证明<span class="arithmatex">\(x=0\)</span>是一个不动点，因为<span class="arithmatex">\(0=0.5\sin 0\)</span>。此外，从中值定理<a href="https://open.umn.edu/opentextbooks/textbooks/10">7</a>,<a href="https://abesenyei.web.elte.hu/publications/meanvalue.pdf">8</a>可以得出：</p>
 <div class="arithmatex">\[\left| \frac{0.5 \sin x_1 - 0.5 \sin x_2}{x_1 - x_2} \right| = |0.5 \cos x_3| \leq 0.5, \quad x_3 \in [x_1, x_2].\]</div>
-<p>因此在这里有<span class="arithmatex">\(|0.5 \sin x_1 - 0.5 \sin x_2| \leq 0.5 |x_1 - x_2|\)</span>因此<span class="arithmatex">\(f(x) = 0.5 \sin x\)</span>是一个压缩映射。</p>
+<p>上式可以等价为<span class="arithmatex">\(|0.5 \sin x_1 - 0.5 \sin x_2| \leq 0.5 |x_1 - x_2|\)</span>，因此<span class="arithmatex">\(f(x) = 0.5 \sin x\)</span>是一个压缩映射。</p>
 </li>
 </ol>
 </div>
-<p>不动点和压缩性质之间的关系由以下定理展示。</p>
+<p>有了上面的准备，下面给出经典的压缩映射定理。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>定理3.1</strong>(压缩映射定理)。对于任何形式为<span class="arithmatex">\(x = f(x)\)</span>的方程，其中<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(f(x)\)</span>是真实的向量，如果<span class="arithmatex">\(f\)</span>是压缩映射，则以下性质成立。</p>
+<p><strong>定理3.1</strong>(压缩映射定理)。对于方程<span class="arithmatex">\(x = f(x)\)</span>，其中<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(f(x)\)</span>是实数向量，如果<span class="arithmatex">\(f\)</span>是一个压缩映射，则下面所有性质成立。</p>
 <ul>
 <li>
-<p>存在性：存在一个不动点<span class="arithmatex">\(x^*\)</span>满足<span class="arithmatex">\(f(x^*)= x^*\)</span>。</p>
+<p>存在性：一定存在一个不动点<span class="arithmatex">\(x^*\)</span>满足<span class="arithmatex">\(f(x^*)= x^*\)</span>。</p>
 </li>
 <li>
 <p>唯一性：不动点<span class="arithmatex">\(x^*\)</span>是唯一的。</p>
 </li>
 <li>
-<p>算法：考虑迭代过程</p>
+<p>算法：考虑迭代算法</p>
 </li>
 </ul>
 <div class="arithmatex">\[x_{k+1}=f(x_k)\]</div>
-<p>在这里<span class="arithmatex">\(k=0,1,2,\cdots\)</span>，然后，对于任何初始值<span class="arithmatex">\(x_0\)</span>，有<span class="arithmatex">\(x_k \rightarrow x^*, k \rightarrow \infty\)</span>。此外，收敛速度呈指数级速度。</p>
+<p>其中<span class="arithmatex">\(k=0,1,2,\cdots\)</span>。给定一个初始值<span class="arithmatex">\(x_0\)</span>，有<span class="arithmatex">\(x_k \rightarrow x^*, k \rightarrow \infty\)</span>。且收敛过程有指数收敛速度。</p>
 </div>
-<p>压缩映射定理不仅可以判断一个非线性方程的解是否存在，而且可以给出一个求解该方程的数值算法。该定理的证明在方框<span class="arithmatex">\(3.1\)</span>中给出。</p>
-<p>下面的例子演示了如何使用压缩映射定理建议的迭代算法计算某些方程的不动点。</p>
+<p>压缩映射定理不仅可以判断一个非线性方程的解是否存在、是否唯一，还能给出一个数值求解算法。该定理的证明见Box<span class="arithmatex">\(3.1\)</span>。</p>
+<p>下面的例子展示了如何使用压缩映射定理给出的迭代算法来求解方程。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>例子3.4</strong>. 让我们再看看上面的例子：<span class="arithmatex">\(x = 0.5x，x = Ax，x = 0.5 \sin x\)</span>。虽然已经证明了这三个方程的右边都是压缩映射，但从压缩映射定理可以得出，它们每个都有一个唯一的不动点，可以很容易地验证为<span class="arithmatex">\(x = 0\)</span>。此外，三个方程的不动点可以通过以下算法迭代求解：</p>
+<p><strong>例子3.4</strong>. 再次考虑前面提到的三个简单例子：<span class="arithmatex">\(x = 0.5x，x = Ax，x = 0.5 \sin x\)</span>。前面我们已经知道<span class="arithmatex">\(x^* = 0\)</span>是一个不动点。并且方程右边的函数都是压缩映射。现在根据压缩映射定理，我们知道这个不动点<span class="arithmatex">\(x^* = 0\)</span>是唯一的解，因为这三个方程很简单，所以可以用很多方式求解得到<span class="arithmatex">\(x^*=0\)</span>。这里假设我们不知道如何求解，那么根据压缩映射定理，其解可以通过以下迭代算法得到：</p>
 <div class="arithmatex">\[\begin{aligned}&amp;x_{k+1}=0.5x_{k},\\&amp;x_{k+1}=Ax_{k},\\&amp;x_{k+1}=0.5\sin x_{k},\end{aligned}\]</div>
-<p>给定任何初始猜测值<span class="arithmatex">\(x_0\)</span>。</p>
+<p>其中初始值<span class="arithmatex">\(x_0\)</span>可以是任意值。例如，考虑算法<span class="arithmatex">\(x_{k+1}=0.5x_k\)</span>，如果初始值是<span class="arithmatex">\(x_0=10\)</span>，那么可得<span class="arithmatex">\(x_1=5,x_2=2.5,x_3=1.25,x_4=0.625,...\)</span>。可以看到，<span class="arithmatex">\(x_k\)</span>会逐渐接近真实解<span class="arithmatex">\(x^*=0\)</span>。</p>
 </div>
-<h3 id="334-boe">3.3.4 BOE右侧函数的压缩性质<a class="headerlink" href="#334-boe" title="Permanent link">&para;</a></h3>
-<p>接下来我们将证明<span class="arithmatex">\((3.3)\)</span>中BOE中的<span class="arithmatex">\(f(v)\)</span>是一个压缩映射。因此，可以应用前一小节中介绍的压缩映射定理。</p>
+<h3 id="334">3.3.4 方程右侧函数的压缩性质<a class="headerlink" href="#334" title="Permanent link">&para;</a></h3>
+<p>下面我们将证明贝尔曼最优方程<span class="arithmatex">\((3.3)\)</span>中右侧函数<span class="arithmatex">\(f(v)\)</span>是一个压缩映射。之后就可以利用前一小节介绍的压缩映射定理来分析该方程。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>定理3.2</strong>. (<span class="arithmatex">\(f(v)\)</span>的压缩性质)。公式<span class="arithmatex">\(3.3\)</span>中BOE右边的函数<span class="arithmatex">\(f(v)\)</span>是一个压缩映射。特别地，对任意的<span class="arithmatex">\(v_1,v_2\in \mathbb{R}^{|\mathcal{S}|}\)</span>，有：</p>
+<p><strong>定理3.2</strong>. (<span class="arithmatex">\(f(v)\)</span>的压缩性质)。贝尔曼最优方程公式<span class="arithmatex">\(3.3\)</span>右侧的函数<span class="arithmatex">\(f(v)\)</span>是一个压缩映射，即对于任意的<span class="arithmatex">\(v_1,v_2\in \mathbb{R}^{|\mathcal{S}|}\)</span>，有：</p>
 <div class="arithmatex">\[\|f(v_1)-f(v_2)\|_\infty\leq\gamma\|v_1-v_2\|_\infty,\]</div>
-<p>在这里<span class="arithmatex">\(\gamma\in(0,1)\)</span>是折现率，<span class="arithmatex">\(\|·\|\)</span>是最大范数，其是向量的元素的最大绝对值。</p>
-<p>该定理的证明在方框<span class="arithmatex">\(3.2\)</span>中给出。这个定理很重要，因为我们可以使用压缩映射定理来分析BOE。</p>
+<p>其中<span class="arithmatex">\(\gamma\in(0,1)\)</span>是折扣因子，<span class="arithmatex">\(\|·\|\)</span>是最大值范数，即向量中所有元素的最大绝对值。</p>
+<p>该定理的证明在方框<span class="arithmatex">\(3.2\)</span>中给出。这个定理很重要，因为我们可以使用压缩映射定理来分析贝尔曼最优方程。</p>
 </div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-</div>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3513,38 +3692,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../3-2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 3.2-最优状态值和最优策略">
+          <a
+            href="../3-2/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 3.2-最优状态值和最优策略"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                3.2-最优状态值和最优策略
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">3.2-最优状态值和最优策略</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../3-4/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3.4-从贝尔曼最优公式中求解最优策略">
+          <a
+            href="../3-4/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 3.4-从贝尔曼最优公式中求解最优策略"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                3.4-从贝尔曼最优公式中求解最优策略
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">3.4-从贝尔曼最优公式中求解最优策略</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3555,19 +3743,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3595,7 +3785,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

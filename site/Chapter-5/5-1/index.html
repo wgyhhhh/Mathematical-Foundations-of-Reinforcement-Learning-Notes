@@ -26,7 +26,7 @@
     
     
       
-        <title>5.1-启发示例:期望值估计 - 强化学习课程笔记</title>
+        <title>5.1 启发性示例:期望值估计 - 强化学习课程笔记</title>
       
     
     
@@ -81,11 +81,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#51" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -119,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5.1-启发示例:期望值估计
+              5.1 启发性示例:期望值估计
             
           </span>
         </div>
@@ -156,53 +151,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +460,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -1747,19 +1717,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    5.1-启发示例:期望值估计
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1771,32 +1728,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 启发性示例: 期望值估计
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -3203,6 +3134,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3220,23 +3230,6 @@
   
   
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 启发性示例: 期望值估计
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -3270,43 +3263,196 @@
 
   <h1>5.1-启发示例:期望值估计</h1>
 
-<h2 id="51">5.1 启发性示例: 期望值估计<a class="headerlink" href="#51" title="Permanent link">&para;</a></h2>
-<p>接下来，我们介绍期望值估计问题，以展示如何从数据而非模型中学习。我们将看到，均值估计可以通过蒙特卡洛方法实现，这种方法是一类广泛使用的技术，它利用随机样本解决估计问题。读者可能会好奇，我们为什么关注均值估计问题。这仅仅是因为状态值和行动值都被定义为回报的均值。因此，估计一个状态值或动作值实际上就是一个均值估计问题。</p>
-<p>考虑一个随机变量<span class="arithmatex">\(X\)</span>，它可以取自一个有限的实数集合，记为<span class="arithmatex">\(\mathcal{X}\)</span>。假设我们的任务是计算<span class="arithmatex">\(X\)</span>的期望值：<span class="arithmatex">\(E[X]\)</span>。有两种方法可以用来计算<span class="arithmatex">\(E[X]\)</span>。</p>
+<p>接下来我们将通过例子来展示如何利用<strong>蒙特卡洛方法</strong> (Monte Carlo, MC)来解决一个期望值估计问题，蒙特卡洛方法是使用随机样本随机解决估计问题的典型方法。读者可能会好奇为什么要关注“期望值估计”这个问题。这是因为状态值和行动值的定义都是期望值。所以估计状态值或行动值实际上就是期望估计问题。通过本节，我们将知道如何使用“数据而非模型”来估计期望值。</p>
+<p>考虑一个随机变量<span class="arithmatex">\(X\)</span>，它可以在一个有限的实数集合内取值，令该集合为<span class="arithmatex">\(\mathcal{X}\)</span>。我们的目标是计算<span class="arithmatex">\(X\)</span>的期望值：<span class="arithmatex">\(\mathbb{E}[X]\)</span>，有两种方法可以计算<span class="arithmatex">\(\mathbb{E}[X]\)</span>。</p>
 <ul>
 <li>
-<p>第一种方法是基于模型的。这里的模型指的是<span class="arithmatex">\(X\)</span>的概率分布。如果模型已知，则可以根据期望值的定义直接计算出均值：</p>
+<p>第一种方法是基于模型的。这里的模型指的是<span class="arithmatex">\(X\)</span>的概率分布。如果模型已知，那么可以根据期望值的定义直接计算出均值：</p>
 <div class="arithmatex">\[\mathbb{E}[X]=\sum_{x\in\mathcal{X}}p(x)x.\]</div>
-<p>在这本书中，我们交替使用期望值、均值和平均值这些术语。</p>
 </li>
 <li>
-<p>第二种方法是无模型方法。当<span class="arithmatex">\(X\)</span>的概率分(即模型)未知时，假设我们有<span class="arithmatex">\(X\)</span>的若干样本<span class="arithmatex">\(\{x_1,x_2,...,x_n\}\)</span>。此时，均值可以近似为</p>
+<p>第二种方法是无模型的。当<span class="arithmatex">\(X\)</span>的概率分(即模型)未知时，假设我们有一些<span class="arithmatex">\(X\)</span>的样本<span class="arithmatex">\(\{x_1,x_2,...,x_n\}\)</span>。那么这些样本可以被用于估计期望值：</p>
 <div class="arithmatex">\[\mathbb{E}[X]\approx\bar{x}=\frac{1}{n}\sum_{j=1}^{n}x_{j}.\]</div>
-<p>当<span class="arithmatex">\(n\)</span>较小时，这种近似可能不够准确。然而，随着<span class="arithmatex">\(n\)</span>的增加，这种近似会变得越来越准确。当<span class="arithmatex">\(n\to\infty\)</span>，我们有<span class="arithmatex">\(\bar{x}\to E[X]\)</span>。</p>
-<p>这是由大数定律(law of large numbers)保证的：大量样本的平均值接近于期望值。大数定律在方框5.1节中介绍。</p>
+<p>当<span class="arithmatex">\(n\)</span>较小时，这种近似可能不够准确。然而随着<span class="arithmatex">\(n\)</span>的增加，这种近似会变得越来越准确。当<span class="arithmatex">\(n\to\infty\)</span>，我们有<span class="arithmatex">\(\bar{x}\to E[X]\)</span>。这实际上就是大数定律(law of large numbers)。详情参见Box 5.1。</p>
 </li>
 </ul>
-<p>以下示例说明了上述两种方法。考虑一个抛硬币游戏。设随机变量<span class="arithmatex">\(X\)</span>表示硬币落地时朝上的面。<span class="arithmatex">\(X\)</span>有两个可能的取值：当正面朝上时<span class="arithmatex">\(X = 1\)</span>，当反面朝上时<span class="arithmatex">\(X=−1\)</span>。假设<span class="arithmatex">\(X\)</span>的真实概率分布(即模型)为</p>
+<p>下面通过抛硬币游戏来解释上面两种方法。在投掷硬币的游戏中，令随机变量<span class="arithmatex">\(X\)</span>表示硬币落地时朝上的面。<span class="arithmatex">\(X\)</span>有两个可能的取值：当正面朝上时，<span class="arithmatex">\(X = 1\)</span>；当反面朝上时，<span class="arithmatex">\(X=−1\)</span>。假设<span class="arithmatex">\(X\)</span>的真实概率分布(即模型)为：</p>
 <div class="arithmatex">\[p(X=1)=0.5,\quad p(X=-1)=0.5.\]</div>
-<p>如果概率分布已知，我们可以直接计算均值为：</p>
+<p>如果概率分布已知，我们可以直接利用定义计算期望值：</p>
 <div class="arithmatex">\[\mathbb{E}[X]=0.5\cdot1+0.5\cdot(-1)=0.\]</div>
-<p>如果概率分布未知，那么我们可以多次抛掷硬币，并记录样本结果<span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>。通过计算样本的平均值，我们可以得到均值的估计值。如图<span class="arithmatex">\(5.2\)</span>所示，随着样本数量的增加，估计的均值会变得越来越准确。</p>
+<p>如果概率分布未知，那么我们可以多次抛掷硬币并记录采样结果<span class="arithmatex">\(\{x_i\}_{i=1}^n\)</span>。通过计算样本的平均值，我们可以得到期望值的估计。如图<span class="arithmatex">\(5.2\)</span>所示，随着样本数量的增加，估计的均值会变得越来越准确。</p>
+<p>值得一提的是，用于均值估计的样本必须是<strong>独立同分布</strong> (independent and identically distributed, <span class="arithmatex">\(i.i.d.\)</span>或<span class="arithmatex">\(iid\)</span>)。否则可能无法正确估计期望值。例如，所有样本值都与第一个样本强相关，一个极端的情况是所有样本与第一个样本完全相同，此时无论我们使用多少样本，样本的平均值始终等于第一个样本，而无法接近真实的期望值。</p>
 <p><img alt="" src="../../img/05/1.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(5.2\)</span>：一个演示大数定律的例子。这里，样本是从{+1,−1}中按照均匀分布抽取的。随着样本数量的增加，样本的平均值逐渐收敛到零，即真实的期望值。</p>
 </blockquote>
-<p>值得一提的是，用于均值估计的样本必须是独立同分布的(<span class="arithmatex">\(i.i.d.\)</span>或<span class="arithmatex">\(iid\)</span>)。否则，如果样本值之 间存在相关性，则可能无法正确估计期望值。一个极端情况是，所有样本值都与第一个样本相同，无论第一个样本是什么。在这种情况下，无论使用多少个样本，样本的平均值始终等于第一个样本。</p>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3326,38 +3472,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../intro/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 介绍">
+          <a
+            href="../intro/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 介绍"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                介绍
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">介绍</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../5-2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 5.2-MC Basic:最简单的基于蒙特卡洛的算法">
+          <a
+            href="../5-2/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 5.2-MC Basic:最简单的基于蒙特卡洛的算法"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                5.2-MC Basic:最简单的基于蒙特卡洛的算法
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">5.2-MC Basic:最简单的基于蒙特卡洛的算法</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3368,19 +3523,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3408,7 +3565,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

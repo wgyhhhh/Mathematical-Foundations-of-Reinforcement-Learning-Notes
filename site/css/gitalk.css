@@ -1,0 +1,36 @@
+/* docs/css/gitalk.css */
+/* Gitalk 样式定制 */
+#gitalk-container {
+    max-width: 100%;
+}
+
+.gt-container {
+    font-family: var(--md-text-font), sans-serif;
+}
+
+.gt-header-textarea {
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.gt-btn {
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+}
+
+.gt-btn-preview {
+    background: var(--md-accent-fg-color);
+}
+
+/* 暗色主题适配 */
+[data-md-color-scheme="slate"] .gt-container .gt-header-preview,
+[data-md-color-scheme="slate"] .gt-container .gt-comment-body {
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] .gt-container .gt-popup {
+    background: var(--md-default-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+}

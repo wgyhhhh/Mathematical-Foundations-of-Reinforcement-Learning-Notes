@@ -26,7 +26,7 @@
     
     
       
-        <title>5.5-探索与利用:以Greedy策略为例 - 强化学习课程笔记</title>
+        <title>5.5 探索与利用:以Greedy策略为例 - 强化学习课程笔记</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#55-greedy" class="md-skip">
+        <a href="#varepsilon-greedy" class="md-skip">
           跳转至
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5.5-探索与利用:以Greedy策略为例
+              5.5 探索与利用:以Greedy策略为例
             
           </span>
         </div>
@@ -156,53 +156,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +465,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -1878,16 +1853,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#55-greedy" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.5 探索与利用: 以Greedy策略为例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.5 探索与利用: 以Greedy策略为例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#varepsilon-greedy" class="md-nav__link">
     <span class="md-ellipsis">
       \(\varepsilon\)-Greedy策略的最优性
@@ -1895,18 +1860,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#varepsilon-greedy_1" class="md-nav__link">
     <span class="md-ellipsis">
       \(\varepsilon\)-Greedy策略的探索能力
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3227,6 +3187,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3252,16 +3291,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#55-greedy" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.5 探索与利用: 以Greedy策略为例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.5 探索与利用: 以Greedy策略为例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#varepsilon-greedy" class="md-nav__link">
     <span class="md-ellipsis">
       \(\varepsilon\)-Greedy策略的最优性
@@ -3269,18 +3298,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#varepsilon-greedy_1" class="md-nav__link">
     <span class="md-ellipsis">
       \(\varepsilon\)-Greedy策略的探索能力
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3318,21 +3342,20 @@
 
   <h1>5.5-探索与利用:以Greedy策略为例</h1>
 
-<h2 id="55-greedy">5.5 探索与利用: 以Greedy策略为例<a class="headerlink" href="#55-greedy" title="Permanent link">&para;</a></h2>
-<p>探索与利用(Exploration and exploitation)是强化学习中一个基本的权衡问题。其中，探索是指策略可以尽可能多地采取各种行动，从而确保所有行动都能被充分访问和评估；而利用则是指改进后的策略应采取行动值最大的Greedy动作。然而，由于当前时刻获得的行动值可能由于探索不足而不准确，因此在进行利用的同时，我们仍需保持探索，以避免错过最优行动。</p>
-<p><span class="arithmatex">\(\varepsilon\)</span>-Greedy策略提供了一种平衡探索与利用的方法。一方面，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略有更高的概率采取Greedy动作，从而能够利用估计的值；另一方面，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略也有机会采取其他动作，从而保持探索。<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略不仅用于基于蒙特卡洛(MC)的强化学习，也用于其他强化学习算法中，例如第<span class="arithmatex">\(7\)</span>章介绍的时序差分学习。</p>
-<p>利用与最优性相关，因为最优策略应当是Greedy的。<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的基本思想是通过牺牲最优性/利用性来增强探索性。如果我们希望增强利用性，就需要降低<span class="arithmatex">\(\varepsilon\)</span>的值。然而，如果我们希望增强探索性，则需要提高<span class="arithmatex">\(\varepsilon\)</span>的值。</p>
-<p>接下来，我们将基于一些有趣的例子来讨论这种权衡。这里的强化学习任务是一个<span class="arithmatex">\(5\times 5\)</span>的网格世界。奖励设置为：<span class="arithmatex">\(r_\text{boundary} = −1\)</span>，<span class="arithmatex">\(r_\text{forbidden} = −10\)</span>，<span class="arithmatex">\(r_\text{target} = 1\)</span>。折现率为<span class="arithmatex">\(\gamma= 0.9\)</span>。</p>
+<p>探索(exploration)与利用(exploitation)是强化学习中的一个重要权衡。“探索”意味着策略会尝试尽可能多的动作，从而使得所有行动都能被良好地评估；“利用”意味着策略会尽可能选取价值高的动作，从而充分利用当前价值评估的结果。从另一个角度来理解，“探索”是为了更好地评估，防止错过高价值的动作；“利用”是为了更好地利用评估的结果，否则难以得到最优的策略；这里“权衡”的核心在于：当前的价值评估可能是不好的，我们要通过探索更好地评估价值。如果策略具有过多的探索性，则没有很好地利用评估结果，因此也离最优策略比较远；如果策略过多地利用当前的评估结果，则具有较少的探索性，难以全面评估所有动作。</p>
+<p>下面我们以具体的例子来讲，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略提供了一种平衡探索与利用的方法。一方面，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略有更高的概率采取价值最大的行动，从而能够“充分”利用估计的值；另一方面，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略也有机会采取其他动作，从而充分“探索”其他动作。<span class="arithmatex">\(\varepsilon\)</span>越大，策略的探索性越强，利用性越弱；<span class="arithmatex">\(\varepsilon\)</span>越小，策略的探索性越弱，利用性越强。此外，“利用”与最优性有关，如果策略“利用”得越充分，它就越接近最优，这是因为我们已经知道在MC Basic算法中贪婪策略是最优的。<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的基本思想是通过牺牲最优性/利用性来增强探索性。</p>
+<p>我们将基于一些有趣的例子来讨论这种权衡。这里的强化学习任务是一个<span class="arithmatex">\(5\times 5\)</span>的网格世界。奖励设置为：<span class="arithmatex">\(r_\text{boundary} = −1\)</span>，<span class="arithmatex">\(r_\text{forbidden} = −10\)</span>，<span class="arithmatex">\(r_\text{target} = 1\)</span>。折扣因子为<span class="arithmatex">\(\gamma= 0.9\)</span>。</p>
+<p><span class="arithmatex">\(\varepsilon\)</span>-Greedy策略不仅用于基于蒙特卡洛(MC)的强化学习，也用于其他强化学习算法中，例如第<span class="arithmatex">\(7\)</span>章介绍的时序差分学习。</p>
 <h3 id="varepsilon-greedy"><span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的最优性<a class="headerlink" href="#varepsilon-greedy" title="Permanent link">&para;</a></h3>
-<p>接下来我们将展示，当<span class="arithmatex">\(\varepsilon\)</span>增加时，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的最优性会变差。</p>
+<p>接下来展示当<span class="arithmatex">\(\varepsilon\)</span>变化时<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的最优性也会发生变化。</p>
 <ul>
 <li>
-<p>首先，在图<span class="arithmatex">\(5.6(a)\)</span>中展示了Greedy的最优策略及其对应的最优状态值。一些一致的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的状态值如图<span class="arithmatex">\(5.6(b)-(d)\)</span>。这里如果两个<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略中概率最大的动作相同，则这两个策略是一致(consistent)的。</p>
-<p>随着<span class="arithmatex">\(\varepsilon\)</span>值的增加，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的状态值会下降，这表明这些<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的最优性会变差。值得注意的是，当<span class="arithmatex">\(\varepsilon\)</span>值达到<span class="arithmatex">\(0.5\)</span>时，目标状态的值会变得最小。这是因为，当<span class="arithmatex">\(\varepsilon\)</span>值较大时，从目标区域出发的智能体可能会进入周围的禁区，从而更有可能获得负奖励。</p>
+<p>首先，在图<span class="arithmatex">\(5.6\)</span>中展示了一系列<span class="arithmatex">\(\varepsilon\)</span>-Greedy的策略，这些策略有一个共同点。它们在每一个状态赋予最大概率的行动是相同的，这样的策略被称为是一致(consistent)的。</p>
+<p>从<span class="arithmatex">\((a)\sim(d)\)</span>图可以看出，随着<span class="arithmatex">\(\varepsilon\)</span>值的增加，这些<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的状态值不断下降，这表明这些<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的最优性在不断变差。值得注意的是，当<span class="arithmatex">\(\varepsilon\)</span>值达到<span class="arithmatex">\(0.5\)</span>时，目标状态的值会变得最小。这是因为，当<span class="arithmatex">\(\varepsilon\)</span>值较大时，从目标区域出发的智能体可能会进入周围的禁区，从而更有可能获得负奖励。</p>
 </li>
 <li>
-<p>其次，图<span class="arithmatex">\(5.7\)</span>展示了最优的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略（它们在<span class="arithmatex">\(\Pi_\varepsilon\)</span>中是最优的）。当<span class="arithmatex">\(\varepsilon=0\)</span>时，该策略是Greedy策略，并且在所有策略中是最优的。当<span class="arithmatex">\(\varepsilon\)</span>小到<span class="arithmatex">\(0.1\)</span>时，最优的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略与最优的Greedy策略一致。然而，当<span class="arithmatex">\(\varepsilon\)</span>增加到例如<span class="arithmatex">\(0.2\)</span>时，所得到的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略与最优的Greedy策略就不一致了。因此，如果我们希望得到与最优Greedy策略一致的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略，<span class="arithmatex">\(\varepsilon\)</span>的值应足够小。</p>
-<p>为什么当<span class="arithmatex">\(\varepsilon\)</span>较大时，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略与最优Greedy策略不一致？我们可以通过考虑目标状态来回答这个问题。在Greedy的情况下，目标状态下的最优策略是保持不动以获得正奖励。然而，当<span class="arithmatex">\(\varepsilon\)</span>较大时，进入禁区并获得负奖励的可能性很高。因此，在这种情况下，目标状态下的最优策略是逃离，而不是保持不动。</p>
+<p>其次，图<span class="arithmatex">\(5.7\)</span>展示了一系列最优的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略(它们在<span class="arithmatex">\(\Pi_\varepsilon\)</span>中是最优的)。当<span class="arithmatex">\(\varepsilon=0\)</span>时，该最优策略是所有策略<span class="arithmatex">\(\Pi\)</span>中最优的。当<span class="arithmatex">\(\varepsilon\)</span>小到<span class="arithmatex">\(0.1\)</span>时，最优的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略与最优的Greedy策略一致(即最大概率行动相同)。然而，当<span class="arithmatex">\(\varepsilon\)</span>增加到例如<span class="arithmatex">\(0.2\)</span>时，所得到的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略与最优的Greedy策略不再一致。因此，如果我们想要得到与最优Greedy策略一致的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略，<span class="arithmatex">\(\varepsilon\)</span>的值应足够小。</p>
+<p>当<span class="arithmatex">\(\varepsilon\)</span>较大时，为什么<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略与最优Greedy策略不一致呢？我们可以以目标状态为例来直观地解释。目标状态下的最优策略是保持不动以获得正奖励。然而，当<span class="arithmatex">\(\varepsilon\)</span>较大时，进入禁区并获得负奖励的概率很高。此时，在目标状态下的最优策略是逃离，而不是保持不动。</p>
 </li>
 </ul>
 <div class="admonition note">
@@ -3341,33 +3364,194 @@
 </div>
 <p><img alt="" src="../../img/05/6.png" /></p>
 <blockquote>
-<p>图<span class="arithmatex">\(5.6\)</span>：一些<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的状态值。这些<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略在行动概率最大的行动相同的意义上彼此一致。可以看出，当<span class="arithmatex">\(\varepsilon\)</span>的值增大时，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的状态值会降低，因此其最优性也会变差。</p>
+<p>图<span class="arithmatex">\(5.6\)</span>：一些<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略及其状态值。这些<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略在每一个状态赋予最大概率的行动是一致的。从状态值可以看出，当<span class="arithmatex">\(\varepsilon\)</span>的值增大时，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的状态值会降低，最优性变差。</p>
 </blockquote>
 <p><img alt="" src="../../img/05/7.png" /></p>
 <blockquote>
-<p>图<span class="arithmatex">\(5.7\)</span>：不同<span class="arithmatex">\(\varepsilon\)</span>值下的最优<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略及其对应的状态值。这里，这些<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略在所有具有相同<span class="arithmatex">\(\varepsilon\)</span>值的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略中是最佳的。可以看出，当<span class="arithmatex">\(\varepsilon\)</span>值增大时，最优<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略不再与<span class="arithmatex">\((a)\)</span>中的最优策略一致。</p>
+<p>图<span class="arithmatex">\(5.7\)</span>：给定不同的<span class="arithmatex">\(\varepsilon\)</span>值，最优的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略及其对应的状态值。可以看出，当<span class="arithmatex">\(\varepsilon\)</span>值增大时，最优<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略不再与<span class="arithmatex">\((a)\)</span>中的最优策略一致。</p>
 </blockquote>
 <h3 id="varepsilon-greedy_1"><span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的探索能力<a class="headerlink" href="#varepsilon-greedy_1" title="Permanent link">&para;</a></h3>
 <p>接下来，我们说明当<span class="arithmatex">\(\varepsilon\)</span>较大时，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的探索能力较强。</p>
-<p>首先，考虑一个探索概率<span class="arithmatex">\(\varepsilon=1\)</span>的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略(见图<span class="arithmatex">\(5.5(a)\)</span>)。在这种情况下，由于该策略在任何状态下采取任何动作的概率均为<span class="arithmatex">\(0.2\)</span>，因此其探索能力很强。从<span class="arithmatex">\((s_1,a_1)\)</span>开始，由<span class="arithmatex">\(\varepsilon\)</span>-策略生成的一条轨迹如图<span class="arithmatex">\(5.8(a)-(c)\)</span>所示。可以看出，当回合足够长时，由于该策略具有很强的探索能力，这回合可以多次访问所有状态-行动对。此外，如图<span class="arithmatex">\(5.8(d)\)</span>所示，所有状态-行动对被访问的次数几乎均匀。</p>
-<p>其次，考虑一个<span class="arithmatex">\(\varepsilon\)</span>-策略，其中<span class="arithmatex">\(\varepsilon=0.5\)</span>(见图<span class="arithmatex">\(5.6(d)\)</span>)。在这种情况下，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的探索能力比<span class="arithmatex">\(\varepsilon = 1\)</span>时弱。从<span class="arithmatex">\((s_1, a_1)\)</span>开始，由<span class="arithmatex">\(\varepsilon\)</span>-策略生成的一个回合如图<span class="arithmatex">\(5.8(e)-(g)\)</span>所示。尽管在足够长的回合中，每个行动仍有可能被访问到，但访问次数的分布可能极不均匀。例如，给定一个包含一百万个步骤的回合，某些行动的访问次数超过<span class="arithmatex">\(25\)</span>万次，而大多数动作的访问次数仅为数百次甚至数十次，如图<span class="arithmatex">\(5.8(h)\)</span>所示。</p>
-<p>以上示例表明，当ε减小时，ε-Greedy策略的探索能力会下降。一种有用的技术是最初将ε设置为较大值，以增强探索并逐步减少，以确保最终策略的最优性[21–23]。</p>
-<p>上面的例子表明，当<span class="arithmatex">\(\varepsilon\)</span>减小时，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的探索能力会降低。一种有用的技巧是，初始时将<span class="arithmatex">\(\varepsilon\)</span>设置得较大以增强探索，随后逐渐减小<span class="arithmatex">\(\varepsilon\)</span>，以确保最终策略的最优性[21-23]。</p>
+<ul>
+<li>
+<p>首先，考虑一个<span class="arithmatex">\(\varepsilon=1\)</span>的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略(见图<span class="arithmatex">\(5.5(a)\)</span>)。该策略在任意状态下采取任意动作的概率为<span class="arithmatex">\(0.2\)</span>，因此具有较强的探索能力。从<span class="arithmatex">\((s_1,a_1)\)</span>开始，由<span class="arithmatex">\(\varepsilon\)</span>-策略生成的不同长度的轨迹如图<span class="arithmatex">\(5.8(a)-(c)\)</span>所示。可以看出，当回合足够长时，这回合可以访问所有状态-行动对，具有很强的探索能力。此外，所有状态-行动对被访问的次数也接近均匀(图<span class="arithmatex">\(5.8(d)\)</span>)。</p>
+</li>
+<li>
+<p>其次，考虑一个<span class="arithmatex">\(\varepsilon=0.5\)</span>的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略(见图<span class="arithmatex">\(5.6(d)\)</span>)。在这种情况下，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的探索能力比<span class="arithmatex">\(\varepsilon = 1\)</span>时弱。从<span class="arithmatex">\((s_1, a_1)\)</span>开始，由<span class="arithmatex">\(\varepsilon\)</span>-策略生成的不同步数的轨迹如图<span class="arithmatex">\(5.8(e)-(g)\)</span>所示。可以看到，当轨迹比较短时，很多状态-行动并没有被访问到，虽然当轨迹足够长时每一个行动都可以被访问到，但访问次数的分布可能极不均匀。例如，当轨迹有一百万步时，有些动作访问超过<span class="arithmatex">\(250000\)</span>次，而大多数动作的访问次数仅为数百次甚至数十次，如图<span class="arithmatex">\(5.8(h)\)</span>所示。</p>
+</li>
+</ul>
+<p>以上示例表明，当<span class="arithmatex">\(\varepsilon\)</span>减小时，<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的探索能力会下降。使用<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的一个常见技巧是 ，初期选择较大的<span class="arithmatex">\(\varepsilon\)</span>从而获得较强的探索性，末期选择较小的<span class="arithmatex">\(\varepsilon\)</span>获得较好的最优性[<a href="https://arxiv.org/abs/1910.13701">21</a>,<a href="https://www.nature.com/articles/nature14236">22</a>,<a href="https://arxiv.org/abs/2006.01782v1">23</a>]。</p>
 <p><img alt="" src="../../img/05/8.png" /></p>
 <blockquote>
 <p>图<span class="arithmatex">\(5.8\)</span>：不同<span class="arithmatex">\(\varepsilon\)</span>值的<span class="arithmatex">\(\varepsilon\)</span>-Greedy策略的探索能力。</p>
 </blockquote>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3387,38 +3571,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../5-4/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 5.4-MC-Greedy算法">
+          <a
+            href="../5-4/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 5.4-MC-Greedy算法"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                5.4-MC-Greedy算法
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">5.4-MC-Greedy算法</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../5-6/" class="md-footer__link md-footer__link--next" aria-label="下一页: 5.6-总结">
+          <a
+            href="../5-6/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 5.6-总结"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                5.6-总结
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">5.6-总结</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3429,19 +3622,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3469,7 +3664,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>

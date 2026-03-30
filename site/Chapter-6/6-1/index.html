@@ -26,7 +26,7 @@
     
     
       
-        <title>6.1-启发示例:期望值估计 - 强化学习课程笔记</title>
+        <title>6.1 启发示例:期望值估计 - 强化学习课程笔记</title>
       
     
     
@@ -81,11 +81,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#61" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -119,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6.1-启发示例:期望值估计
+              6.1 启发示例:期望值估计
             
           </span>
         </div>
@@ -156,53 +151,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
       <div class="md-header__source">
@@ -512,6 +460,28 @@
     
   
   附录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  核心算法实现
 
         </a>
       </li>
@@ -1974,19 +1944,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    6.1-启发示例:期望值估计
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1998,32 +1955,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#61" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.1 启发性示例: 期望值估计
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -3203,6 +3134,85 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    核心算法实现
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            核心算法实现
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    强化学习网格世界实践教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3220,23 +3230,6 @@
   
   
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#61" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.1 启发性示例: 期望值估计
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -3270,44 +3263,201 @@
 
   <h1>6.1-启发示例:期望值估计</h1>
 
-<h2 id="61">6.1 启发性示例: 期望值估计<a class="headerlink" href="#61" title="Permanent link">&para;</a></h2>
-<p>接下来，我们通过考察均值估计问题，来演示如何将一个非增量式(non-incremental)算法转换为增量式(incremental)算法。</p>
+<p>期望值估计问题已经在上一章讨论过一次。下面我们从另一个角度再次研究这个问题，并且介绍如何用“增量式”的方法解决这个问题。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>第一种非递增法是先收集所有样本，然后计算平均值。这种方法的缺点是，如果数据很多，我们可能需要等待很长时间才能收集到所有样本。第二种方法可可以克服这种问题，得到一次采样就更新一次，估计就会慢慢的变得准确。</p>
 </div>
-<p>考虑一个取值于有限集合<span class="arithmatex">\(\mathcal{X}\)</span>的随机变量<span class="arithmatex">\(X\)</span>。我们的目标是估计<span class="arithmatex">\(\mathbb{E}[X]\)</span>。假设我们有一系列独立同分布的样本<span class="arithmatex">\({x_i}_{i=1}^n\)</span>。<span class="arithmatex">\(X\)</span>的期望值可以通过以下方式近似计算：</p>
+<p>考虑一个随机变量<span class="arithmatex">\(X\)</span>,它取值于有限集<span class="arithmatex">\(\mathcal{X}\)</span>。我们的目标是估计期望值<span class="arithmatex">\(\mathbb{E}[X]\)</span>。假设有一个独立同分布的样本序列<span class="arithmatex">\({x_i}_{i=1}^n\)</span>。那么<span class="arithmatex">\(X\)</span>的期望值可以通过这些样本的平均值来近似：</p>
 <div class="arithmatex">\[\mathbb{E}[X]\approx\bar{x}\doteq\frac{1}{n}\sum_{i=1}^nx_i.\tag{6.1}\]</div>
-<p><span class="arithmatex">\((6.1)\)</span>中的近似是蒙特卡罗估计的基本思想，如第<span class="arithmatex">\(5\)</span>章所介绍。我们知道，根据大数定律，当<span class="arithmatex">\(n\to\infty\)</span>，<span class="arithmatex">\(\bar{x}\to\mathbb{E}[X]\)</span>。</p>
-<p>接下来，我们将说明有两种方法可以用来计算<span class="arithmatex">\((6.1)\)</span>中的<span class="arithmatex">\(\bar{x}\)</span>。第一种非增量式是先收集所有样本，然后计算平均值。这种方法的缺点是，如果样本数量较多，我们可能需要等待很长时间才能收集到所有样本。第二种方法可以避免这一缺点，因为它是以递增的方式计算平均值的。具体来说，假设</p>
+<p><span class="arithmatex">\((6.1)\)</span>就是是蒙特卡洛估计的基本思想，根据大数定律，当<span class="arithmatex">\(n\to\infty\)</span>，<span class="arithmatex">\(\bar{x}\to\mathbb{E}[X]\)</span>。</p>
+<p>有两种方法可以用来计算<span class="arithmatex">\((6.1)\)</span>中的<span class="arithmatex">\(\bar{x}\)</span>。第一种<strong>非增量式</strong> (non-incremental)是先收集所有样本，然后计算平均值。这种方法的缺点是，如果样本数量较多，我们可能需要等待很长时间才能收集到所有样本。第二种是<strong>增量式</strong>的 (incremental)。具体来说，令</p>
 <div class="arithmatex">\[w_{k+1}=\frac{1}{k}\sum_{i=1}^{k}x_{i},\quad k=1,2,\ldots\]</div>
-<p>因此</p>
+<p>类似地</p>
 <div class="arithmatex">\[w_k=\frac{1}{k-1}\sum_{i=1}^{k-1}x_i,\quad k=2,3,\ldots\]</div>
-<p>那么，<span class="arithmatex">\(w_{k+1}\)</span>可以用<span class="arithmatex">\(w_k\)</span>表示为</p>
+<p>实际上，<span class="arithmatex">\(w_{k+1}\)</span>可以用<span class="arithmatex">\(w_k\)</span>表示为</p>
 <div class="arithmatex">\[w_{k+1}=\frac{1}{k}\sum_{i=1}^{k}x_{i}=\frac{1}{k}\left(\sum_{i=1}^{k-1}x_{i}+x_{k}\right)=\frac{1}{k}((k-1)w_{k}+x_{k})=w_{k}-\frac{1}{k}(w_{k}-x_{k}).\]</div>
-<p>因此，我们得到了以下增量算法：</p>
+<p>因此，我们得到了如下增量式算法：</p>
 <div class="arithmatex">\[w_{k+1}=w_{k}-\frac{1}{k}(w_{k}-x_{k}).\tag{6.2}\]</div>
-<p>这种算法可用于以递增方式计算平均值 <span class="arithmatex">\(\bar{x}\)</span>。可以验证</p>
+<p>该算法可以以增量的方式计算均值<span class="arithmatex">\(\bar{x}\)</span></p>
+<p>为了验证该算法，我们可以计算出<span class="arithmatex">\(k=1,2,\ldots\)</span>次迭代的结果：</p>
 <div class="arithmatex">\[\begin{aligned}w_1&amp;=x_1,\\w_2&amp;=w_1-\frac{1}{1}(w_1-x_1)=x_1,\\w_3&amp;=w_2-\frac{1}{2}(w_2-x_2)=x_1-\frac{1}{2}(x_1-x_2)=\frac{1}{2}(x_1+x_2),\\w_4&amp;=w_3-\frac{1}{3}(w_3-x_3)=\frac{1}{3}(x_1+x_2+x_3),\\&amp;\vdots\\w_{k+1}&amp;=\frac{1}{k}\sum_{i=1}^kx_i.\end{aligned}\tag{6.3}\]</div>
-<p><span class="arithmatex">\((6.2)\)</span>的优势在于，每次收到样本时，我们都能立即计算出平均值。这个平均值可以用来近似计算<span class="arithmatex">\(\bar{x}\)</span>，进而近似计算<span class="arithmatex">\(\mathbb{E}[X]\)</span>。值得注意的是，由于样本不足，近似值在开始时可能并不准确。不过，有总比没有好。随着样本数量的增加，估计精度可以根据大数定律逐步提高。此外，还可以定义<span class="arithmatex">\(w_{k+1}=\frac{1}{1+k} \sum_{i=1}^{k+1} x_i\)</span>和<span class="arithmatex">\(w_k=\frac{1}{k} \sum_{i=1}^k x_i\)</span>。这样做不会有任何明显的区别。在这种情况下，相应的迭代算法为<span class="arithmatex">\(w_{k+1}=w_{k}-\frac{1}{1+k}(w_{k}-x_{k+1}).\)</span>。</p>
-<p>此外，还可以考虑一种表达式更一般的算法：</p>
+<p>可以看出，由这个增量式算法得到的<span class="arithmatex">\(w_{k+1}\)</span>确实是<span class="arithmatex">\(\{x_i\}_{i=1}^k\)</span>的平均值。这里<span class="arithmatex">\(w_1=x_1\)</span>是初始值。</p>
+<p>算法<span class="arithmatex">\((6.2)\)</span>的优势在于，每次接收到一个样本时，就能立即计算出平均值，进而近似计算<span class="arithmatex">\(\mathbb{E}[X]\)</span>。值得注意的是，由于样本不足，近似值在开始时可能并不准确，随着样本数量的增加，估计准确率会逐步提高。此外，还可以定义<span class="arithmatex">\(w_{k+1}=\frac{1}{1+k} \sum_{i=1}^{k+1} x_i\)</span>和<span class="arithmatex">\(w_k=\frac{1}{k} \sum_{i=1}^k x_i\)</span>。在这种情况下，相应的迭代算法为<span class="arithmatex">\(w_{k+1}=w_{k}-\frac{1}{1+k}(w_{k}-x_{k+1}).\)</span>。</p>
+<p>最后，我们可以把<span class="arithmatex">\((6.2)\)</span>推广到一个更一般化的算法：</p>
 <div class="arithmatex">\[w_{k+1}=w_k-\alpha_k(w_k-x_k).\tag{6.4}\]</div>
-<p>这种算法非常重要，在本章中经常使用。除了系数<span class="arithmatex">\(1/k\)</span>被<span class="arithmatex">\(\alpha_k&gt;0\)</span>取代之外，它与<span class="arithmatex">\((6.2)\)</span>相同。由于没有给出<span class="arithmatex">\(\alpha_k\)</span>的表达式，我们无法得到如<span class="arithmatex">\((6.3)\)</span>所示的<span class="arithmatex">\(w_k\)</span>的明确表达式。不过，我们将在下一节证明，如果<span class="arithmatex">\({\alpha_k}\)</span>满足一些温和条件(mild conditions)，当<span class="arithmatex">\(k\to\infty\)</span>时，<span class="arithmatex">\(w_k \rightarrow \mathbb{E}[X]\)</span>。在第<span class="arithmatex">\(7\)</span>章中，我们将看到时序差分算法有类似(但更复杂)的表达式。</p>
+<p>除了系数<span class="arithmatex">\(1/k\)</span>被<span class="arithmatex">\(\alpha_k&gt;0\)</span>取代之外，它与<span class="arithmatex">\((6.2)\)</span>相同。由于没有给出<span class="arithmatex">\(\alpha_k\)</span>的表达式，我们无法得到如<span class="arithmatex">\((6.3)\)</span>所示的<span class="arithmatex">\(w_k\)</span>的显式表达式。不过我们将在下一节证明，如果<span class="arithmatex">\({\alpha_k}\)</span>满足一些<strong>温和条件</strong> (mild conditions)的话，当<span class="arithmatex">\(k\to\infty\)</span>时，<span class="arithmatex">\(w_k \rightarrow \mathbb{E}[X]\)</span>。在第<span class="arithmatex">\(7\)</span>章中，我们将看到时序差分算法与<span class="arithmatex">\((6.4)\)</span>非常类似，这也是我们介绍该算法的主要原因。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>可以发现，我们在上章和本章中均利用期望值估计作为示例，这是因为强化学习中的许多量，都以期望值的方式定义，所以需要用数据去估计。</p>
 </div>
+<hr />
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
 
 
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes"
+        data-repo-id="R_kgDOPa_36w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPa_3684CxHzb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
 
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
 
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
 
-
-
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3327,38 +3477,47 @@
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+        <!-- Link to previous page -->
         
           
-          <a href="../intro/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 介绍">
+          <a
+            href="../intro/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 介绍"
+          >
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                介绍
-              </div>
+              <span class="md-footer__direction">上一页</span>
+              <div class="md-ellipsis">介绍</div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../6-2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 6.2-罗宾斯-门罗算法">
+          <a
+            href="../6-2/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: 6.2-罗宾斯-门罗算法"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                6.2-罗宾斯-门罗算法
-              </div>
+              <span class="md-footer__direction">下一页</span>
+              <div class="md-ellipsis">6.2-罗宾斯-门罗算法</div>
             </div>
             <div class="md-footer__button md-icon">
               
@@ -3369,19 +3528,21 @@
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-        
+      <div class="footer-wrapper">
+        <!-- 简洁的版权信息和社交媒体布局 -->
+        <div class="footer-simple-section">
+          <div class="md-footer-copyright">
+            <p>Copyright © 2022-2025 强化学习课程笔记</p>
+            <p>由 <a href="https://squidfunk.github.io/mkdocs-material/" class="footer-link">Material for MkDocs</a> 驱动</p>
+          </div>
+
+          
+            <div class="footer-social">
+              
 <div class="md-social">
   
     
@@ -3409,7 +3570,79 @@
     </a>
   
 </div>
-      
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- 简化样式 -->
+      <style>
+        /* 页脚背景 */
+        .md-footer {
+          background: var(--md-default-bg-color);
+        }
+        .md-footer-meta {
+          background: var(--md-footer-bg-color);
+        }
+
+        /* 核心布局样式 */
+        .footer-wrapper {
+          width: 100%;
+          padding: 1rem 0;
+        }
+
+        .footer-simple-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        /* 版权信息样式 */
+        .md-footer-copyright {
+          text-align: left;
+          font-size: 0.75rem;
+          opacity: 0.8;
+          line-height: 1.4;
+        }
+
+        .md-footer-copyright p {
+          margin: 0.2rem 0;
+        }
+
+        /* 链接样式 */
+        .footer-link {
+          color: var(--md-primary-fg-color);
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+          opacity: 0.7;
+        }
+
+        /* 社交媒体区域 */
+        .footer-social {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 76.1875em) {
+          .footer-simple-section {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+          }
+          
+          .md-footer-copyright {
+            text-align: center;
+          }
+        }
+      </style>
     </div>
   </div>
 </footer>
