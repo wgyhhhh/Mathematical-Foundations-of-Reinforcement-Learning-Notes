@@ -122,43 +122,6 @@ window.addEventListener(
   },
 )
 
-// Collapse second-level items in the primary sidebar by default.
-(function () {
-  function collapsePrimaryNav() {
-    var toggles = document.querySelectorAll(
-      ".md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item--nested > .md-nav__toggle"
-    );
-
-    toggles.forEach(function (toggle) {
-      toggle.checked = false;
-      toggle.removeAttribute("checked");
-
-      var nav = toggle.parentElement && toggle.parentElement.querySelector(":scope > .md-nav");
-      if (nav) {
-        nav.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-
-  function forceCollapsePrimaryNav() {
-    collapsePrimaryNav();
-    requestAnimationFrame(collapsePrimaryNav);
-    setTimeout(collapsePrimaryNav, 0);
-    setTimeout(collapsePrimaryNav, 150);
-  }
-
-  if (typeof document$ !== "undefined" && document$.subscribe) {
-    document$.subscribe(forceCollapsePrimaryNav);
-  } else if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", forceCollapsePrimaryNav);
-  } else {
-    forceCollapsePrimaryNav();
-  }
-
-  window.addEventListener("load", forceCollapsePrimaryNav);
-  window.addEventListener("pageshow", forceCollapsePrimaryNav);
-})();
-
 // Inject a searchable input into the top tabs bar and use MkDocs search index.
 (function () {
   var searchDocs = [];

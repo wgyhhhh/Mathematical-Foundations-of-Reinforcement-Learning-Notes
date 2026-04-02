@@ -4,7 +4,7 @@ use_directory_urls: true
 repo_url: https://github.com/wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes
 repo_name: wgyhhhh/Mathematical-Foundations-of-Reinforcement-Learning-Notes
 site_author: Guangyu
-site_description: Guangyu Wei的RL笔记
+site_description: 《强化学习的数学原理》的课程笔记
 
 theme:
   icon:

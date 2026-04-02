@@ -53,8 +53,8 @@ th a:hover {
   color: red!important;
 }
 
-/* toc */
-label.md-nav__link {
+/* Primary sidebar nav text */
+.md-sidebar--primary .md-nav__link {
   font-weight: 550;
   font-size: 1.4em;
 }
