@@ -117,3 +117,124 @@ figcaption {
         display: none;
     }
 }
+
+/* Top tabs search bar */
+.md-tabs__inner {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.md-tabs__list {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.topbar-search {
+    position: relative;
+    flex: 0 0 260px;
+}
+
+.topbar-search__input {
+    width: 100%;
+    height: 1.8rem;
+    padding: 0 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.35rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 0.66rem;
+    outline: none;
+}
+
+.topbar-search__input::placeholder {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.topbar-search__input:focus {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.topbar-search__results {
+    display: none;
+    position: absolute;
+    z-index: 15;
+    top: calc(100% + 0.28rem);
+    left: 0;
+    right: 0;
+    max-height: 18rem;
+    margin: 0;
+    padding: 0.2rem 0;
+    overflow: auto;
+    list-style: none;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 0.4rem;
+    background: #fff;
+    box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.18);
+}
+
+.topbar-search.is-open .topbar-search__results {
+    display: block;
+}
+
+.topbar-search__item {
+    margin: 0;
+    padding: 0;
+}
+
+.topbar-search__link {
+    display: block;
+    padding: 0.4rem 0.6rem;
+    text-decoration: none;
+}
+
+.topbar-search__link:hover {
+    background: #f5f7fb;
+}
+
+.topbar-search__title {
+    display: block;
+    color: #1a1f2e;
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.topbar-search__snippet {
+    display: block;
+    color: #556179;
+    font-size: 0.6rem;
+    line-height: 1.35;
+    margin-top: 0.08rem;
+}
+
+.topbar-search__empty {
+    padding: 0.45rem 0.6rem;
+    color: #69738a;
+    font-size: 0.62rem;
+}
+
+[data-md-color-scheme="slate"] .topbar-search__results {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: #1f2430;
+}
+
+[data-md-color-scheme="slate"] .topbar-search__link:hover {
+    background: #2b3344;
+}
+
+[data-md-color-scheme="slate"] .topbar-search__title {
+    color: #f3f4f8;
+}
+
+[data-md-color-scheme="slate"] .topbar-search__snippet,
+[data-md-color-scheme="slate"] .topbar-search__empty {
+    color: #bac2d3;
+}
+
+@media screen and (max-width: 76.1875em) {
+    .topbar-search {
+        display: none;
+    }
+}

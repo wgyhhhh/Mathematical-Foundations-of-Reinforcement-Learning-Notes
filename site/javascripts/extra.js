@@ -121,3 +121,216 @@ window.addEventListener(
     color.fly(e.clientX, e.clientY);
   },
 )
+
+// Collapse second-level items in the primary sidebar by default.
+(function () {
+  function collapsePrimaryNav() {
+    var toggles = document.querySelectorAll(
+      ".md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item--nested > .md-nav__toggle"
+    );
+
+    toggles.forEach(function (toggle) {
+      toggle.checked = false;
+      toggle.removeAttribute("checked");
+
+      var nav = toggle.parentElement && toggle.parentElement.querySelector(":scope > .md-nav");
+      if (nav) {
+        nav.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  function forceCollapsePrimaryNav() {
+    collapsePrimaryNav();
+    requestAnimationFrame(collapsePrimaryNav);
+    setTimeout(collapsePrimaryNav, 0);
+    setTimeout(collapsePrimaryNav, 150);
+  }
+
+  if (typeof document$ !== "undefined" && document$.subscribe) {
+    document$.subscribe(forceCollapsePrimaryNav);
+  } else if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", forceCollapsePrimaryNav);
+  } else {
+    forceCollapsePrimaryNav();
+  }
+
+  window.addEventListener("load", forceCollapsePrimaryNav);
+  window.addEventListener("pageshow", forceCollapsePrimaryNav);
+})();
+
+// Inject a searchable input into the top tabs bar and use MkDocs search index.
+(function () {
+  var searchDocs = [];
+  var searchLoaded = false;
+  var activeRoot = null;
+  var activeInput = null;
+  var activeList = null;
+  var debounceTimer = null;
+
+  function getBaseUrl() {
+    var base = window.__TOPBAR_BASE_URL__ || ".";
+    return base.replace(/\/$/, "");
+  }
+
+  function toHref(location) {
+    if (!location) return "#";
+    if (/^(https?:)?\/\//.test(location) || location.charAt(0) === "/") return location;
+    var base = getBaseUrl();
+    return (base ? base + "/" : "") + location.replace(/^\.\//, "");
+  }
+
+  function htmlEscape(str) {
+    return String(str || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function scoreDoc(doc, query) {
+    var title = (doc.title || "").toLowerCase();
+    var text = (doc.text || "").toLowerCase();
+    var score = 0;
+
+    if (title.indexOf(query) !== -1) score += 20;
+    if (title.indexOf(query) === 0) score += 20;
+    if (text.indexOf(query) !== -1) score += 8;
+    return score;
+  }
+
+  function loadSearchIndex() {
+    if (searchLoaded) return Promise.resolve();
+    var indexUrl = window.__TOPBAR_SEARCH_INDEX_URL__;
+    if (!indexUrl) return Promise.resolve();
+
+    return fetch(indexUrl)
+      .then(function (res) {
+        if (!res.ok) throw new Error("Failed to load search index");
+        return res.json();
+      })
+      .then(function (json) {
+        searchDocs = Array.isArray(json.docs) ? json.docs : [];
+        searchLoaded = true;
+      })
+      .catch(function () {
+        searchDocs = [];
+        searchLoaded = false;
+      });
+  }
+
+  function hideResults() {
+    if (activeRoot) activeRoot.classList.remove("is-open");
+    if (activeList) activeList.innerHTML = "";
+  }
+
+  function renderResults(query) {
+    if (!activeList) return;
+    var q = query.trim().toLowerCase();
+    if (!q) {
+      hideResults();
+      return;
+    }
+
+    var matches = searchDocs
+      .map(function (doc) {
+        return { doc: doc, score: scoreDoc(doc, q) };
+      })
+      .filter(function (item) {
+        return item.score > 0;
+      })
+      .sort(function (a, b) {
+        return b.score - a.score;
+      })
+      .slice(0, 8);
+
+    if (!matches.length) {
+      activeList.innerHTML = '<li class="topbar-search__empty">未找到相关内容</li>';
+      activeRoot.classList.add("is-open");
+      return;
+    }
+
+    activeList.innerHTML = matches
+      .map(function (item) {
+        var title = htmlEscape(item.doc.title || "未命名页面");
+        var text = htmlEscape((item.doc.text || "").replace(/\s+/g, " ").trim().slice(0, 84));
+        var href = htmlEscape(toHref(item.doc.location));
+        return (
+          '<li class="topbar-search__item">' +
+          '<a class="topbar-search__link" href="' +
+          href +
+          '">' +
+          '<span class="topbar-search__title">' +
+          title +
+          "</span>" +
+          '<span class="topbar-search__snippet">' +
+          text +
+          "</span>" +
+          "</a>" +
+          "</li>"
+        );
+      })
+      .join("");
+
+    activeRoot.classList.add("is-open");
+  }
+
+  function bindEvents() {
+    if (!activeInput) return;
+
+    activeInput.addEventListener("input", function () {
+      var value = activeInput.value || "";
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function () {
+        renderResults(value);
+      }, 100);
+    });
+
+    activeInput.addEventListener("focus", function () {
+      renderResults(activeInput.value || "");
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!activeRoot || !activeRoot.contains(e.target)) hideResults();
+    });
+
+    activeInput.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") hideResults();
+    });
+  }
+
+  function mountSearchBar() {
+    var tabsInner = document.querySelector(".md-tabs__inner");
+    if (!tabsInner) return;
+    if (tabsInner.querySelector(".topbar-search")) return;
+
+    var root = document.createElement("div");
+    root.className = "topbar-search";
+    root.innerHTML =
+      '<input class="topbar-search__input" type="search" placeholder="搜索章节内容..." aria-label="搜索章节内容" />' +
+      '<ul class="topbar-search__results" aria-label="搜索结果"></ul>';
+
+    tabsInner.appendChild(root);
+
+    activeRoot = root;
+    activeInput = root.querySelector(".topbar-search__input");
+    activeList = root.querySelector(".topbar-search__results");
+
+    loadSearchIndex().finally(bindEvents);
+  }
+
+  function init() {
+    mountSearchBar();
+  }
+
+  if (typeof document$ !== "undefined" && document$.subscribe) {
+    document$.subscribe(init);
+  } else {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  }
+})();
