@@ -25,7 +25,12 @@
 
 
 
-{% if page.meta.comments %}
+{% set enable_comments = page.meta.comments %}
+{% if not enable_comments and page.file and page.file.src_uri and page.file.src_uri.startswith("python/") %}
+  {% set enable_comments = true %}
+{% endif %}
+
+{% if enable_comments %}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
   <!-- Insert generated snippet here -->
 <script src="https://giscus.app/client.js"
