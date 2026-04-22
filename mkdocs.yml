@@ -188,6 +188,7 @@ nav:
       - 7.4:期望Sarsa算法: 'Box/Box-7-4.md'
     - 附录:
       - 术语: 'Appendix/1.md'
+      - 参考文献: 'Appendix/References.md'
   - 核心算法实现:
     - 策略迭代与值迭代: 'python/code.ipynb'
 
