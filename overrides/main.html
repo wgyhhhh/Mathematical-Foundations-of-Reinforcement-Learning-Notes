@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <script>
+    window.__TOPBAR_SEARCH_INDEX_URL__ = "{{ 'search/search_index.json' | url }}";
+    window.__TOPBAR_BASE_URL__ = "{{ base_url }}";
+  </script>
+  <script charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js"></script>
+  <script>
+    LA.init({
+      id: "3PT4FUvdHzohQSRh",
+      ck: "3PT4FUvdHzohQSRh"
+    });
+  </script>
+{% endblock %}
