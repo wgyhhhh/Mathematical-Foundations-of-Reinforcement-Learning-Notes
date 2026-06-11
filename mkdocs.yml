@@ -184,8 +184,39 @@ nav:
     - Box(证明):
       - 介绍: 'Box/intro.md'
       - 2.1:迭代解法的收敛性证明: 'Box/Box-2-1.md'
+      - 3.1:压缩映射定理的证明: 'Box/Box-3-1.md'
+      - 3.2:贝尔曼最优方程右侧的压缩性证明: 'Box/Box-3-2.md'
+      - 3.3:贝尔曼最优方程解的最优性证明: 'Box/Box-3-3.md'
+      - 3.4:贪婪最优策略的证明: 'Box/Box-3-4.md'
+      - 3.5:奖励仿射变换下最优策略不变性的证明: 'Box/Box-3-5.md'
+      - 4.1:策略改进引理的证明: 'Box/Box-4-1.md'
+      - 4.2:策略迭代收敛性的证明: 'Box/Box-4-2.md'
+      - 4.3:截断策略迭代性质的证明: 'Box/Box-4-3.md'
+      - 5.1:大数定律: 'Box/Box-5-1.md'
+      - 6.1:SGD收敛性的证明: 'Box/Box-6-1.md'
+      - 6.3.1:Dvoretzky定理的证明: 'Box/Box-6-3-1.md'
       - 7.1:TD算法的推导: 'Box/Box-7-1.md'
+      - 7.2:TD学习收敛性的证明: 'Box/Box-7-2.md'
+      - 7.3:行动值贝尔曼方程的证明: 'Box/Box-7-3.md'
       - 7.4:期望Sarsa算法: 'Box/Box-7-4.md'
+      - 7.5:行动值贝尔曼最优方程的证明: 'Box/Box-7-5.md'
+      - 8.1:马尔科夫决策过程的稳态分布: 'Box/Box-8-1.md'
+      - 8.2:表格型TD是TD-Linear的特例: 'Box/Box-8-2.md'
+      - 8.3:引理8.1的证明: 'Box/Box-8-3.md'
+      - 8.4:矩阵A可逆且正定的证明: 'Box/Box-8-4.md'
+      - 8.5:投影贝尔曼误差最优解的证明: 'Box/Box-8-5.md'
+      - 8.6:误差界的证明: 'Box/Box-8-6.md'
+      - 9.1:式(9.5)的证明: 'Box/Box-9-1.md'
+      - 9.2:引理9.2的证明: 'Box/Box-9-2.md'
+      - 9.3:定理9.2的证明: 'Box/Box-9-3.md'
+      - 9.4:定理9.3的证明: 'Box/Box-9-4.md'
+      - 9.5:定理9.4的证明: 'Box/Box-9-5.md'
+      - 9.6:定理9.5的证明: 'Box/Box-9-6.md'
+      - 10.1:最优baseline的证明: 'Box/Box-10-1.md'
+      - 10.2:Off-policy策略梯度定理的证明: 'Box/Box-10-2.md'
+      - 10.3:引理10.1的证明: 'Box/Box-10-3.md'
+      - 10.4:定理10.3的证明: 'Box/Box-10-4.md'
+      - 10.5:定理10.4的证明: 'Box/Box-10-5.md'
     - 附录:
       - 术语: 'Appendix/1.md'
       - 参考文献: 'Appendix/References.md'
@@ -237,7 +268,7 @@ extra_javascript:
   # - javascripts/extra.js #自定义javascript
   - https://Xiaokang2022.github.io/maliang/js/click-colorful.js # 鼠标点击效果
   #- https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js #Latex支持
-  - https://polyfill.io/v3/polyfill.min.js?features=es6 #Latex支持
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6 # 旧版 ES6 polyfill；该外链可能触发登录验证，现代浏览器和 MathJax v3 不需要
   # - ckplayer/js/ckplayer.js #播放器配置
   # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js  #gitalk支持
   - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js #忘了
